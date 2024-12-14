@@ -1,6 +1,6 @@
-const template = document.createElement('template')
+const navbar = document.createElement('template')
 
-template.innerHTML = `
+navbar.innerHTML = `
   <header id="site-navigation-navbar" class="fixed flex items-center h-16 w-full transition-shadow bg-white">
     <div class="container flex items-center justify-between md:justify-start">
 
@@ -29,7 +29,7 @@ class Navbar extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: 'open' })
-    this.shadowRoot.appendChild(template.content.cloneNode(true))
+    this.shadowRoot.appendChild(navbar.content.cloneNode(true))
 
     this.navbar = this.shadowRoot.getElementById('site-navigation-navbar')
     this.toggle = this.shadowRoot.getElementById('site-navigation-navbar-toggle')

@@ -1,6 +1,6 @@
-const template = document.createElement('template')
+const footbar = document.createElement('template')
 
-template.innerHTML = `
+footbar.innerHTML = `
   <footer class="bg-black text-white">
     <div class="container">
       <div class="flex flex-col items-center justify-around md:grid grid-cols-2 justify-items-center mb-12">
@@ -38,7 +38,7 @@ class Footbar extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: 'open' })
-    this.shadowRoot.appendChild(template.content.cloneNode(true))
+    this.shadowRoot.appendChild(footbar.content.cloneNode(true))
   }
 
   connectedCallback () {
