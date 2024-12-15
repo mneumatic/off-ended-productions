@@ -23,8 +23,10 @@ footbar.innerHTML = `
           <a href="./community.html" title="Community Page" aria-label="Community Page">Community</a>
           <a href="./about.html" title="About Page" aria-label="About Page">About Us</a>
         </div>
-        <div class="md:text-end">
+        <div class="md:text-end flex flex-col">
           <h3>Informational</h3>
+          <a href="./community.html#events">Events</a>
+          <a href="./community.html#business">Business</a>
         </div>
         <div class="md:text-end">
           <h3>Useful Links</h3>
