@@ -1,5 +1,7 @@
 const footbar = document.createElement('template')
 
+// language=HTML
+// noinspection HtmlUnknownTarget
 footbar.innerHTML = `
   <footer class="bg-black text-white">
     <div class="container">
@@ -15,8 +17,10 @@ footbar.innerHTML = `
           <h3>About</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores atque corporis culpa cumque dolorem dolores, eaque eos facere harum illo incidunt minus rerum sapiente soluta, sunt suscipit unde velit voluptatum!</p>
         </div>
-        <div class="md:text-end">
+        <div class="md:text-end flex flex-col">
           <h3>Quick Links</h3>
+          <a href="./">Home</a>
+          <a href="./community.html">Community</a>
         </div>
         <div class="md:text-end">
           <h3>Informational</h3>
@@ -41,6 +45,7 @@ class Footbar extends HTMLElement {
     this.shadowRoot.appendChild(footbar.content.cloneNode(true))
   }
 
+  // noinspection JSUnusedGlobalSymbols
   connectedCallback () {
     const styles = document.querySelector('link[href*="main.min.css"]')
     if (styles) this.shadowRoot.appendChild(styles.cloneNode())
