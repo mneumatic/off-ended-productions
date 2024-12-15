@@ -18,6 +18,7 @@ navbar.innerHTML = `
           <div>
             <a href="./#podcast" class="podcast block md:inline-block mb-1 md:mb-0 pl-4 md:px-4 py-2">Podcast</a>
             <a href="./#music" class="music block md:inline-block mb-1 md:mb-0 pl-4 md:px-4 py-2">2Jz Music</a>
+            <a href="./#platinum-signatures" class="platinum-signatures block md:inline-block mb-1 md:mb-0 pl-4 md:px-4 py-2">Platinum Signatures</a>
             <a href="./#community" class="community block md:inline-block mb-1 md:mb-0 pl-4 md:px-4 py-2">Community</a>
             <a href="./#about" class="about block md:inline-block mb-1 md:mb-0 pl-4 md:px-4 py-2">The Crew</a>
           </div>
