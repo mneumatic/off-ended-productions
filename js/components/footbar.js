@@ -19,8 +19,9 @@ footbar.innerHTML = `
         </div>
         <div class="md:text-end flex flex-col">
           <h3>Quick Links</h3>
-          <a href="./">Home</a>
-          <a href="./community.html">Community</a>
+          <a href="./" title="Home Page" aria-label="Home Page">Home</a>
+          <a href="./community.html" title="Community Page" aria-label="Community Page">Community</a>
+          <a href="./about.html" title="About Page" aria-label="About Page">About Us</a>
         </div>
         <div class="md:text-end">
           <h3>Informational</h3>
