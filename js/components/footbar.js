@@ -1,7 +1,7 @@
+// noinspection HtmlUnknownTarget
+
 const footbar = document.createElement('template')
 
-// language=HTML
-// noinspection HtmlUnknownTarget
 footbar.innerHTML = `
   <footer class="bg-black text-white">
     <div class="container">

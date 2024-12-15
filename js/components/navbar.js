@@ -1,3 +1,5 @@
+// noinspection HtmlUnknownAnchorTarget
+
 const navbar = document.createElement('template')
 
 navbar.innerHTML = `
@@ -34,10 +36,11 @@ class Navbar extends HTMLElement {
     this.navbar = this.shadowRoot.getElementById('site-navigation-navbar')
     this.toggle = this.shadowRoot.getElementById('site-navigation-navbar-toggle')
     this.links = this.shadowRoot.querySelectorAll('#site-navigation-navbar-nav-links a')
-    const sections = this.getSections()
-    let last
+    this.sections = this.getSections()
+    this.last = 0
   }
 
+  // noinspection JSUnusedGlobalSymbols
   connectedCallback () {
     const styles = document.querySelector('link[href*="main.min.css"]')
     if (styles) this.shadowRoot.appendChild(styles.cloneNode())
@@ -86,7 +89,7 @@ class Navbar extends HTMLElement {
     let current = ''
     const OFFSET = 80
 
-    sections.forEach((section) => {
+    this.sections.forEach((section) => {
       const sectionTop = section.offsetTop
       if (scrollY >= (sectionTop - OFFSET)) current = section.getAttribute('id')
     })
