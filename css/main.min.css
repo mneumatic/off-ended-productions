@@ -910,9 +910,29 @@ video {
   text-align: end;
 }
 
+.text-8xl {
+  font-size: 6rem;
+  line-height: 1;
+}
+
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
+}
+
+.text-7xl {
+  font-size: 4.5rem;
+  line-height: 1;
+}
+
+.text-6xl {
+  font-size: 3.75rem;
+  line-height: 1;
+}
+
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
 }
 
 .font-bold {
