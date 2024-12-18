@@ -1,5 +1,7 @@
+@use "sass:meta"
 @tailwind base
 @tailwind components
 @tailwind utilities
-@import './partials/base'
-@import './partials/navbar'
+@include meta.load-css('partials/base')
+@include meta.load-css('partials/navbar')
+@include meta.load-css('partials/footbar')
