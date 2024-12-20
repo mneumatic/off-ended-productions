@@ -3,7 +3,7 @@
 const footbar = document.createElement('template')
 
 footbar.innerHTML = `
-  <footer class="bg-black text-white">
+  <footer class="bg-black text-white y-scroll-snap-align-end">
     <div class="container">
       <div class="flex flex-col items-center justify-around md:grid grid-cols-2 justify-items-center mb-12">
         <h2 class="display-6 text-center md:text-start">Want to connect with us?</h2>

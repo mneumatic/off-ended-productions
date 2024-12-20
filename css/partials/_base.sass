@@ -8,6 +8,7 @@ body
   margin: 0
   padding: 0
   overflow-x: hidden !important
+  height: 100vh
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
 
@@ -56,6 +57,8 @@ footer
 
 footer
   padding-bottom: 1.5rem
+
+
 
 h1,
 h2,
@@ -115,3 +118,13 @@ h2
     background-color: black
     color: white
 
+.show-image
+  visibility: visible !important
+  animation: fadein 2s forwards
+  transform: translateZ(0)
+
+@keyframes fadein
+  from
+    opacity: 0
+  to
+    opacity: 1
