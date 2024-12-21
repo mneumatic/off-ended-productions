@@ -21,9 +21,9 @@ function showPodImages (element) {
 
   setTimeout(function () {
     element[1].classList.add("show-image")
-  }, 600);
+  }, 300);
 
   setTimeout(function () {
     element[2].classList.add("show-image")
-  }, 1200);
+  }, 600);
 }

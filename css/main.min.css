@@ -618,6 +618,10 @@ video {
   position: relative;
 }
 
+.bottom-0 {
+  bottom: 0px;
+}
+
 .left-0 {
   left: 0px;
 }
@@ -740,6 +744,18 @@ video {
 
 .h-16 {
   height: 4rem;
+}
+
+.h-\[260px\] {
+  height: 260px;
+}
+
+.h-\[512px\] {
+  height: 512px;
+}
+
+.h-auto {
+  height: auto;
 }
 
 .h-screen {
