@@ -93,16 +93,22 @@
             </div>
           </div>
         </div>
-        <div >
-          <img class="img-fluid rounded" src="./img/putting-in-the-time.webp" alt="The Off Ended Podcast" style="filter: drop-shadow(-5px 5px 3px rgba(0, 0, 0, 0.5));"/>
+        <div>
+          <div class="img-container">
+            <img class="img-fluid rounded invisible" src="./img/oep-pod-mm.webp" alt="The Off Ended Podcast" style="filter: drop-shadow(-5px 5px 3px rgba(0, 0, 0, 0.5));"/>
+            <img class="img-fluid rounded invisible" src="./img/oep-pod-2jz.webp" alt="The Off Ended Podcast" style="filter: drop-shadow(-5px 5px 3px rgba(0, 0, 0, 0.5));"/>
+            <img class="img-fluid rounded invisible" src="./img/oep-pod-mo.webp" alt="The Off Ended Podcast" style="filter: drop-shadow(-5px 5px 3px rgba(0, 0, 0, 0.5));"/>
+          </div>
         </div>
       </div>
     </section>
 
     <section id="music">
       <div class="container flex flex-col md:grid grid-cols-2 gap-7">
-        <div>
-          <img class="img-fluid rounded" src="./img/2Jz-music.webp" alt="2Jz Music" style="filter: drop-shadow(5px 5px 3px rgba(0, 0, 0, 0.5));"/>
+        <div class="img-container">
+          <img class="img-fluid rounded invisible" src="./img/2Jz-music-blue.webp" alt="2Jz Music" style="filter: drop-shadow(5px 5px 3px rgba(0, 0, 0, 0.5));"/>
+          <img class="img-fluid rounded invisible" src="./img/2Jz-music-purple.webp" alt="2Jz Music" style="filter: drop-shadow(5px 5px 3px rgba(0, 0, 0, 0.5));"/>
+          <img class="img-fluid rounded invisible" src="./img/2Jz-music-red.webp" alt="2Jz Music" style="filter: drop-shadow(5px 5px 3px rgba(0, 0, 0, 0.5));"/>
         </div>
         <div>
           <div class="text-center md:text-start">
@@ -124,7 +130,7 @@
       </div>
     </section>
 
-    <section id="platinum-signatures">
+    <section id="platinum-signatures" class="overflow-hidden">
       <div class="container flex flex-col-reverse md:grid grid-cols-2 gap-7 items-center justify-center">
         <div>
           <div class="text-center md:text-start">
@@ -141,17 +147,17 @@
             <a href="./#platinum-signatures" class="btn md:w-[200px]" title="Platinum Signatures" aria-label="Platinum Signatures" target="_blank" rel="noreferrer noopener">Learn More</a>
           </div>
         </div>
-        <div>
+        <div class="ps-images">
           <!-- TODO: Image needs to be rework for clarity. -->
-          <img class="img-fluid rounded" src="./img/platinum-signatures.webp" alt="platinum-signatures" style="filter: drop-shadow(5px 5px 3px rgba(0, 0, 0, 0.5));"/>
+          <img class="img-fluid rounded x-translate" src="./img/platinum-signatures.webp" alt="platinum-signatures" style="filter: drop-shadow(5px 5px 3px rgba(0, 0, 0, 0.5));"/>
         </div>
       </div>
     </section>
 
     <section id="community">
       <div class="container flex flex-col md:grid grid-cols-2 gap-7 items-center justify-center">
-        <div>
-          <img class="img-fluid rounded" src="./img/running-springs-ca.webp" alt="Running Springs CA" style="filter: drop-shadow(-5px 5px 3px rgba(0, 0, 0, 0.5));"/>
+        <div class="community-images">
+          <img class="img-fluid rounded -x-translate" src="./img/running-springs-ca.webp" alt="Running Springs CA" style="filter: drop-shadow(-5px 5px 3px rgba(0, 0, 0, 0.5));"/>
         </div>
         <div>
           <div class="text-center md:text-start">
@@ -168,23 +174,23 @@
       </div>
     </section>
 
-    <section id="about">
+    <section id="about" class="overflow-hidden">
       <div>
         <div class="container text-center">
           <h2>THE CREW</h2>
           <p>These fellas right here are some good-looking chaps, if I do say so myself.</p>
         </div>
-        <div class="container flex flex-col items-center justify-center md:grid grid-cols-3 justify-items-center py-5">
-          <div class="text-center" style="width: 256px;">
-            <img class="img-fluid rounded my-5 md:mb-5" src="./img/IMG_0149.jpeg" alt="" style="max-height: 341px; filter: drop-shadow(5px 5px 3px rgba(0, 0, 0, 0.5));"/>
+        <div class="about-images container flex flex-col items-center justify-center md:grid grid-cols-3 justify-items-center py-5">
+          <div class="twojz text-center" style="width: 256px;">
+            <img class="img-fluid rounded my-5 md:mb-5 -x-translate opacity-0" src="./img/IMG_0149.jpeg" alt="" style="max-height: 341px; filter: drop-shadow(5px 5px 3px rgba(0, 0, 0, 0.5));"/>
             <span class="raleway-600">2Jz Da Grown Folk DJ</span>
           </div>
-          <div class="text-center" style="width: 256px;">
-            <img class="img-fluid rounded my-5 md:mb-5" src="./img/IMG_6486.jpeg" alt="" style="filter: drop-shadow(0px 5px 3px rgba(0, 0, 0, 0.5));"/>
+          <div class="mm text-center" style="width: 256px;">
+            <img class="img-fluid rounded my-5 md:mb-5 y-translate opacity-0" src="./img/IMG_6486.jpeg" alt="" style="filter: drop-shadow(0px 5px 3px rgba(0, 0, 0, 0.5));"/>
             <span class="raleway-600">Mountain Mike</span>
           </div>
-          <div class="text-center" style="width: 256px;">
-            <img class="img-fluid rounded my-5 md:mb-5" src="./img/IMG_2485.jpeg" alt="" style="filter: drop-shadow(-5px 5px 3px rgba(0, 0, 0, 0.5));"/>
+          <div class="mo text-center" style="width: 256px;">
+            <img class="img-fluid rounded my-5 md:mb-5 x-translate opacity-0" src="./img/IMG_2485.jpeg" alt="" style="filter: drop-shadow(-5px 5px 3px rgba(0, 0, 0, 0.5));"/>
             <span class="raleway-600">M.O. (Modus Operandi)</span>
           </div>
         </div>
@@ -199,12 +205,11 @@
 
   <script src="./js/components/navbar.js"></script>
   <script src="./js/components/footbar.js"></script>
+  <script src="./js/app.js"></script>
   <script src="./js/images.js"></script>
   <script>
     const sections = document.querySelectorAll("section");
     const downBtn = document.querySelector("#hero button")
-    const podImgs = document.querySelectorAll(".podcast-images img")
-    const musicImgs = document.querySelectorAll(".music-images img")
     let currentSectionIndex = 0;
 
     function scrollDown() {
@@ -226,6 +231,7 @@
 
     downBtn.addEventListener("click", scrollDown)
     window.addEventListener("scroll", reset)
+
   </script>
 </body>
 </html>
