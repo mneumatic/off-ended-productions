@@ -1458,4 +1458,34 @@ footer nav a:hover{
   }
 }
 
+@media (min-width: 1280px) {
+  .xl\:mb-5 {
+    margin-bottom: 1.25rem;
+  }
+
+  .xl\:grid {
+    display: grid;
+  }
+
+  .xl\:w-\[200px\] {
+    width: 200px;
+  }
+
+  .xl\:flex-row {
+    flex-direction: row;
+  }
+
+  .xl\:justify-start {
+    justify-content: flex-start;
+  }
+
+  .xl\:justify-end {
+    justify-content: flex-end;
+  }
+
+  .xl\:text-start {
+    text-align: start;
+  }
+}
+
 /*# sourceMappingURL=main.min.css.map */
