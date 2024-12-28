@@ -35,13 +35,8 @@
       50% { opacity: 0 ;}
       to { opacity: 1; }
     }
-    section {
-      scroll-snap-type: y mandatory;
-      /*-webkit-scroll-snap-type: y mandatory;*/
-    }
-
-    section > div {
-      scroll-snap-align: center;
+    #motto span {
+      opacity: 0;
     }
   </style>
 </head>
@@ -65,7 +60,11 @@
         <video autoplay muted playsinline preload="auto">
           <source src="./img/hero-brand-logo.mp4" type="video/mp4">
         </video>
-        <p class="max-w-[992px] text-2xl text-center raleway-600">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae facilis inventore minima quam? Aliquid aperiam cupiditate debitis enim eos, fugiat ipsam itaque iusto maxime minima possimus quisquam totam vel voluptatem.</p>
+        <span id="motto" class="max-w-[992px] text-2xl raleway-600">
+          <span class="block">Off Ended,</span>
+          <span class="block ms-5">Don’t Get Offended,</span>
+          <span class="block ms-10">No Pun Intended.</span>
+        </span>
       </div>
       <button class="mt-[100px]">
         <svg xmlns="http://www.w3.org/2000/svg" width="32" viewBox="0 0 512 512"><path fill="#fff" d="M504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zM212 140v116h-70.9c-10.7 0-16.1 13-8.5 20.5l114.9 114.3c4.7 4.7 12.2 4.7 16.9 0l114.9-114.3c7.6-7.6 2.2-20.5-8.5-20.5H300V140c0-6.6-5.4-12-12-12h-64c-6.6 0-12 5.4-12 12z"/></svg>
@@ -208,15 +207,21 @@
   <script src="./js/app.js"></script>
   <script src="./js/images.js"></script>
   <script>
-    const sections = document.querySelectorAll("section");
+    const sections = document.querySelectorAll("section")
     const downBtn = document.querySelector("#hero button")
-    let currentSectionIndex = 0;
+    const mottoSpans = document.querySelectorAll("#motto span")
+    let currentSectionIndex = 0
+
+    setTimeout(function () {
+      showImages(mottoSpans)
+    }, 1500)
+
 
     function scrollDown() {
-      currentSectionIndex++;
+      currentSectionIndex++
       if (currentSectionIndex < sections.length) {
-        sections[currentSectionIndex].scrollIntoView({ behavior: "smooth" });
-        currentSectionIndex = 0;
+        sections[currentSectionIndex].scrollIntoView({ behavior: "smooth" })
+        currentSectionIndex = 0
       }
     }
 
@@ -231,7 +236,6 @@
 
     downBtn.addEventListener("click", scrollDown)
     window.addEventListener("scroll", reset)
-
   </script>
 </body>
 </html>
