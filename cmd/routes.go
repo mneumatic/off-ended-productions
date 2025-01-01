@@ -14,6 +14,8 @@ func routes(app *internal.AppConfig) http.Handler {
 		"/twojz-music",
 		"/platinum-signatures",
 		"/community",
+		"/community/events",
+		"/community/businesses",
 		"/about",
 	}
 
@@ -22,6 +24,8 @@ func routes(app *internal.AppConfig) http.Handler {
 	mux.HandleFunc("GET /twojz-music", internal.Repo.TwoJzMusic)
 	mux.HandleFunc("GET /platinum-signatures", internal.Repo.PlatinumSignatures)
 	mux.HandleFunc("GET /community", internal.Repo.Community)
+	mux.HandleFunc("GET /community/events", internal.Repo.Events)
+	mux.HandleFunc("GET /community/businesses", internal.Repo.Businesses)
 	mux.HandleFunc("GET /about", internal.Repo.About)
 
 	fileServer := http.FileServer(http.Dir("./public"))

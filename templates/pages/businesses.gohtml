@@ -1,0 +1,40 @@
+{{template "base" .}}
+{{define "content"}}
+  <main id="community">
+    <section>
+      <div class="container">
+        <div class="text-center md:text-start">
+          <span>Local</span>
+          <h2>Business</h2>
+          <p class="text-4xl permanent-marker-regular">Radical Local Businesses!</p>
+        </div>
+        <br>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, accusantium adipisci animi deleniti dolore ex incidunt inventore ipsum molestiae necessitatibus nobis non numquam omnis perspiciatis rem reprehenderit saepe vero voluptas.</p>
+        <br>
+        <div class="flex flex-row flex-wrap justify-center lg:justify-start">
+          {{range .Businesses}}
+            <div class="bg-gray-100 p-5 my-5 mx-5 lg:me-10 lg:ms-0 rounded w-[320px]">
+              <img class="img-fluid rounded" src="{{.Img}}" alt="{{.Title}}">
+              <div>
+                <h3 class="py-5">{{.Title}}</h3>
+                <p>{{.Description}}</p>
+                <div class="flex flex-col text-end py-3">
+                  <span>Open: {{.Hours}}</span>
+                  <address>{{.Location}}</address>
+                </div>
+                <a class="btn mt-3" href="tel:{{.Phone}}">Call Now!</a>
+              </div>
+            </div>
+          {{end}}
+        </div>
+        <div class="flex flex-row items-center justify-between mt-10">
+          <a class="btn w-[175px] lg:w-[200px]" href="/community">← Community</a>
+          <a class="btn w-[175px] lg:w-[200px]" href="/community/events">Events →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+{{end}}
+{{define "js"}}
+  <script src="/public/js/images.js"></script>
+{{end}}

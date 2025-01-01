@@ -2,13 +2,14 @@ html
   color: #222
   font-size: 1em
   line-height: 1.4
+  overflow-x: hidden !important
 
 body
   font-family: "Open Sans", sans-serif
   margin: 0
   padding: 0
-  overflow-x: hidden !important
   height: 100vh
+  overflow-x: hidden !important
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
 
@@ -84,6 +85,11 @@ h2
   font-weight: 600
   font-style: normal
 
+.permanent-marker-regular
+  font-family: "Permanent Marker", sans-serif
+  font-weight: 400
+  font-style: normal
+
 .display-2
   font-size: 4.5rem
 
@@ -129,6 +135,18 @@ h2
   to
     opacity: 1
 
+.blink
+  opacity: 0
+  animation: blink 3s ease-in-out infinite
+
+@keyframes blink
+  from
+    opacity: 0
+  50%
+    opacity: 1
+  to
+    opacity: 0
+
 .x-translate
   transform: translateX(100vw)
 
@@ -143,7 +161,6 @@ h2
 
 @keyframes slide-in
   to
-    opacity: 1
     transform: translateX(0) translateY(0)
 
 .img-container__animated
@@ -157,3 +174,32 @@ h2
     grid-row: 1
     overflow: hidden
     width: 100%
+
+.scale
+    transition: transform .5s ease-in-out
+
+    &:hover
+      transform: scale(1.2)
+
+.classic-link
+  color: blue
+  text-underline-position: under
+  cursor: auto
+
+  &:hover
+    text-decoration: underline
+
+  &:visited
+    color: purple
+    text-decoration: underline
+
+.oep-stickman
+  background-image: url("/public/img/oep-stickman.svg")
+  background-repeat: no-repeat
+  background-position: center
+  background-size: contain
+
+.bg-white-alpha
+  background-color: rgba(255, 255, 255, .8)
+
+

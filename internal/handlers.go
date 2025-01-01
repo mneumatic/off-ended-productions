@@ -36,7 +36,9 @@ func (m *Repository) Podcast(w http.ResponseWriter, r *http.Request) {
 	ok := HttpErrors(w, r, "GET")
 	if ok {
 		RenderTemplate(w, r, "podcast.gohtml", &Template{
-			Title: "Podcast | Off Ended Productions",
+			Title:  "Podcast | Off Ended Productions",
+			Videos: VideoData(),
+			Audio:  AudioData(),
 		})
 	}
 }
@@ -64,6 +66,26 @@ func (m *Repository) Community(w http.ResponseWriter, r *http.Request) {
 	if ok {
 		RenderTemplate(w, r, "community.gohtml", &Template{
 			Title: "Community | Off Ended Productions",
+		})
+	}
+}
+
+func (m *Repository) Events(w http.ResponseWriter, r *http.Request) {
+	ok := HttpErrors(w, r, "GET")
+	if ok {
+		RenderTemplate(w, r, "events.gohtml", &Template{
+			Title:  "Events | Off Ended Productions",
+			Events: EventsData(),
+		})
+	}
+}
+
+func (m *Repository) Businesses(w http.ResponseWriter, r *http.Request) {
+	ok := HttpErrors(w, r, "GET")
+	if ok {
+		RenderTemplate(w, r, "businesses.gohtml", &Template{
+			Title:      "Events | Off Ended Productions",
+			Businesses: BusinessData(),
 		})
 	}
 }

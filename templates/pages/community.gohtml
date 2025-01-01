@@ -2,43 +2,34 @@
 {{define "content"}}
   <main id="community">
     <section>
-      <div class="container flex flex-col xl:grid grid-cols-2 gap-7 items-center justify-center">
+      <div class="container flex flex-col-reverse xl:grid grid-cols-2 gap-7 justify-center">
         <div>
           <div class="text-center xl:text-start">
             <span>Running Springs CA</span>
             <h2 class="">COMMUNITY</h2>
+            <p class="text-4xl permanent-marker-regular">A steady-fast, iron community.</p>
           </div>
+          <br>
           <p>Our community page facilitates residence-specific discussions, enabling us to address the concerns of our local community. We prioritize current local events, recommendations from long-term residents, and intriguing attractions to visit. Additionally, we disseminate pertinent news and information pertaining to our mountain communities.</p>
           <br>
           <p>Nestled in the foothills of the San Bernardino Mountains, Running Springs is a close-knit community renowned for its robust sense of camaraderie and ample outdoor recreational opportunities. The surrounding natural splendor draws outdoor enthusiasts, while the proximity to nearby towns facilitates convenient access to essential services, fostering a harmonious lifestyle for its residents.</p>
-          <div class="mt-10">
-            <a href="/community" class="btn xl:w-[200px]">Learn More</a>
+          <div class="flex flex-row justify-center xl:justify-start mt-10 ">
+            <a class="btn me-5 w-[200px]" href="/community/events">Events</a>
+            <a class="btn w-[200px]" href="/community/businesses">Businesses</a>
           </div>
         </div>
         <div class="img-container__animated">
-          <img class="img-fluid rounded x-translate" src="/public/img/running-springs-ca.webp" alt="Running Springs CA" style="filter: drop-shadow(-5px 5px 3px rgba(0, 0, 0, 0.5));"/>
+          <img class="img-fluid rounded x-translate" src="/public/img/running-springs-ca.webp" alt="Running Springs CA" style="filter: drop-shadow(5px 5px 3px rgba(0, 0, 0, 0.5));"/>
         </div>
-      </div>
-    </section>
-
-    <section id="events">
-      <div class="container text-center md:text-start">
-        <span>Local</span>
-        <h2>Events</h2>
-      </div>
-    </section>
-
-    <section id="business">
-      <div class="container text-center md:text-start">
-        <span>Local</span>
-        <h2>Business</h2>
       </div>
     </section>
   </main>
 {{end}}
-<script src="/public/js/images.js"></script>
-<script>
-  const communityImages = document.querySelector(".img-container__animated")
-  const observer = new IntersectionObserver(handleIntersection, options)
-  observer.observe(communityImages)
-</script>
+{{define "js"}}
+  <script src="/public/js/images.js"></script>
+  <script>
+    const communityImages = document.querySelector(".img-container__animated")
+    const observer = new IntersectionObserver(handleIntersection, options)
+    observer.observe(communityImages)
+  </script>
+{{end}}

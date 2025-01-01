@@ -17,60 +17,80 @@
 {{end}}
 {{define "content"}}
   <main>
-    <section id="hero" class="h-screen flex flex-col items-center justify-center text-white bg-black">
+    <section id="hero" class="relative h-screen flex flex-col items-center justify-center text-white bg-black">
       <div class="container flex flex-col items-center justify-center">
         <h1 class="hidden">OFF ENDED Productions</h1>
         <video autoplay muted playsinline preload="auto">
           <source src="/public/img/hero-brand-logo.mp4" type="video/mp4">
         </video>
-        <span id="motto" class="max-w-[992px] text-2xl raleway-600">
-          <span class="block">Off Ended,</span>
-          <span class="block ms-5">Don’t Get Offended,</span>
-          <span class="block ms-10">No Pun Intended.</span>
+        <span id="motto" class="max-w-[992px] text-2xl permanent-marker-regular">
+          <span></span>
+          <span></span>
+          <span></span>
         </span>
       </div>
-      <button class="mt-[100px]">
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" viewBox="0 0 512 512"><path fill="#fff" d="M504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zM212 140v116h-70.9c-10.7 0-16.1 13-8.5 20.5l114.9 114.3c4.7 4.7 12.2 4.7 16.9 0l114.9-114.3c7.6-7.6 2.2-20.5-8.5-20.5H300V140c0-6.6-5.4-12-12-12h-64c-6.6 0-12 5.4-12 12z"/></svg>
-      </button>
+      <div class="absolute bottom-12 flex items-center justify-center blink">
+        <span class="text-sm">Scroll Down ⤵</span>
+      </div>
+
     </section>
 
-    <section>
-
+    <section id="content" class="overflow-hidden">
+      <div class="text-center">
+        <h2>What we do...</h2>
+      </div>
+      <div class="flex flex-col lg:flex-row flex-wrap items-center justify-evenly">
+        <div class="p-10">
+          <a class="img-container__animated scale" href="/podcast" title="The Off Ended Podcast →" aria-label="The Off Ended Podcast" style="filter: drop-shadow(5px 5px 3px rgba(0, 0, 0, 0.5));">
+            <img class="img-fluid rounded y-translate" src="/public/img/oep-podcast-logo.webp" alt="The Off Ended Podcast">
+          </a>
+        </div>
+        <div class="p-10">
+          <a class="img-container__animated scale" href="/twojz-music" title="2Jz Music →" aria-label="2Jz Music" style="filter: drop-shadow(5px 5px 3px rgba(0, 0, 0, 0.5));">
+            <img class="img-fluid rounded y-translate" src="/public/img/twojz-music-logo.webp" alt="2Jz Music">
+          </a>
+        </div>
+        <div class="p-10">
+          <a class="img-container__animated scale" href="/platinum-signatures" title="Platinum Signatures →" aria-label="Platinum-Signatures" style="filter: drop-shadow(5px 5px 3px rgba(0, 0, 0, 0.5));">
+            <img class="img-fluid rounded y-translate" src="/public/img/platinum-signatures.webp" alt="Platinum Signatures">
+          </a>
+        </div>
+      </div>
     </section>
   </main>
 {{end}}
 {{define "js"}}
   <script src="/public/js/images.js"></script>
   <script>
-    const sectionElements = document.querySelectorAll("section")
-    const downBtn = document.querySelector("#hero button")
+    const contentLinks = document.querySelectorAll(".img-container__animated")
+    const observer = new IntersectionObserver(handleIntersection, options)
     const mottoSpans = document.querySelectorAll("#motto span")
-    let currentSectionIndex = 0
+    const mottos = [
+      ['"Off Ended,', 'Don’t Get Offended,', 'No Pun Intended."'],
+      ['"Trust The Process,', 'Finesse The Hustle."'],
+      ['"Take The Bitter,', 'With The Sweet."'],
+      ['"Ain\'t Nowhere to,', 'Go To But Starting,', 'From Rock Bottom."'],
+      ['"Why Put Off,', 'Tomorrow What Can,', 'Be Done Today."']
+    ]
+
+    function generateArrayElement (arr) {
+      return arr[Math.floor(Math.random() * arr.length)]
+    }
+
+    getMotto = generateArrayElement(mottos)
+    mottoSpans.forEach((span, index) => {
+      if (index !== getMotto.length) {
+        span.innerText = getMotto[index]
+      }
+    })
 
     setTimeout(function () {
       showImages(mottoSpans)
     }, 1500)
 
-
-    function scrollDown() {
-      currentSectionIndex++
-      if (currentSectionIndex < sectionElements.length) {
-        sectionElements[currentSectionIndex].scrollIntoView({ behavior: "smooth" })
-        currentSectionIndex = 0
-      }
-    }
-
-    function reset() {
-      if (window.scrollY === 0) {
-        downBtn.classList.remove("invisible")
-      }
-      if (window.scrollY > 0) {
-        downBtn.classList.add("invisible")
-      }
-    }
-
-    downBtn.addEventListener("click", scrollDown)
-    window.addEventListener("scroll", reset)
+    contentLinks.forEach(li => {
+      observer.observe(li)
+    })
   </script>
 {{end}}
 

@@ -11,6 +11,35 @@ type Template struct {
 	Error      string
 	Title      string
 	Production bool
-	Other      interface{}
-	Products   interface{}
+	Videos     interface{}
+	Audio      interface{}
+	Events     interface{}
+	Businesses interface{}
+}
+
+type Video struct {
+	Path string
+}
+
+type Audio struct {
+	Path  string
+	Title string
+}
+
+type Event struct {
+	Path        string
+	Title       string
+	Description string
+	Img         string
+	Date        string
+}
+
+type Business struct {
+	Path        string
+	Title       string
+	Description string
+	Img         string
+	Location    string
+	Hours       string
+	Phone       string
 }

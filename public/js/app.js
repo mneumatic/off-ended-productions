@@ -5,8 +5,8 @@ let last = 0
 
 function onScroll() {
   window.scrollY > 0
-    ? navbar.classList.add('shadow-lg')
-    : navbar.classList.remove('shadow-lg')
+    ? navbar.classList.add('site-navigation-navbar__shadow')
+    : navbar.classList.remove('site-navigation-navbar__shadow')
 }
 
 function closeMenuOnScroll () {
