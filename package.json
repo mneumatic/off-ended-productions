@@ -1,5 +1,5 @@
 {
-  "name": " ",
+  "name": "off-ended-productions",
   "version": "0.0.1",
   "description": "",
   "private": true,
@@ -7,11 +7,11 @@
     ""
   ],
   "license": "",
-  "author": "",
+  "author": "Michael Neumann (MNEUMATIC)",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch:sass": "sass --watch --style=compressed public/css/main.sass css/main.css",
-    "tailwind": "npx tailwindcss -i public/css/main.css -o public/css/main.min.css --watch"
+    "watch:sass": "sass --watch --style=compressed ./public/css/main.sass ./public/css/main.css",
+    "tailwind": "npx tailwindcss -i ./public/css/main.css -o ./public/css/main.min.css --watch"
   },
   "devDependencies": {
     "sass": "^1.81.0",

@@ -606,10 +606,6 @@ video {
   visibility: collapse;
 }
 
-.static {
-  position: static;
-}
-
 .fixed {
   position: fixed;
 }
@@ -622,20 +618,16 @@ video {
   position: relative;
 }
 
-.bottom-0 {
-  bottom: 0px;
-}
-
 .left-0 {
   left: 0px;
 }
 
-.top-0 {
-  top: 0px;
-}
-
 .top-16 {
   top: 4rem;
+}
+
+.top-0 {
+  top: 0px;
 }
 
 .float-left {
@@ -651,11 +643,6 @@ video {
   margin-right: 0.5rem;
 }
 
-.my-0 {
-  margin-top: 0px;
-  margin-bottom: 0px;
-}
-
 .my-12 {
   margin-top: 3rem;
   margin-bottom: 3rem;
@@ -666,7 +653,8 @@ video {
   margin-bottom: 1.25rem;
 }
 
-.mb-0 {
+.my-0 {
+  margin-top: 0px;
   margin-bottom: 0px;
 }
 
@@ -678,10 +666,6 @@ video {
   margin-bottom: 3rem;
 }
 
-.mb-5 {
-  margin-bottom: 1.25rem;
-}
-
 .me-2 {
   margin-inline-end: 0.5rem;
 }
@@ -690,24 +674,12 @@ video {
   margin-inline-end: 0.75rem;
 }
 
-.ml-6 {
-  margin-left: 1.5rem;
-}
-
 .ms-10 {
   margin-inline-start: 2.5rem;
 }
 
-.ms-20 {
-  margin-inline-start: 5rem;
-}
-
 .ms-5 {
   margin-inline-start: 1.25rem;
-}
-
-.mt-0 {
-  margin-top: 0px;
 }
 
 .mt-10 {
@@ -730,16 +702,28 @@ video {
   margin-top: 100px;
 }
 
+.mb-0 {
+  margin-bottom: 0px;
+}
+
+.mb-5 {
+  margin-bottom: 1.25rem;
+}
+
+.ml-6 {
+  margin-left: 1.5rem;
+}
+
+.mt-0 {
+  margin-top: 0px;
+}
+
 .block {
   display: block;
 }
 
 .inline-block {
   display: inline-block;
-}
-
-.inline {
-  display: inline;
 }
 
 .flex {
@@ -766,10 +750,6 @@ video {
   height: 4rem;
 }
 
-.h-auto {
-  height: auto;
-}
-
 .h-screen {
   height: 100vh;
 }
@@ -782,24 +762,24 @@ video {
   max-height: 100%;
 }
 
-.w-auto {
-  width: auto;
-}
-
 .w-full {
   width: 100%;
+}
+
+.w-auto {
+  width: auto;
 }
 
 .max-w-\[992px\] {
   max-width: 992px;
 }
 
-.flex-shrink {
-  flex-shrink: 1;
-}
-
 .flex-shrink-0 {
   flex-shrink: 0;
+}
+
+.flex-shrink {
+  flex-shrink: 1;
 }
 
 .border-collapse {
@@ -909,11 +889,6 @@ video {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
 }
 
-.px-4 {
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
 .py-2 {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
@@ -922,6 +897,11 @@ video {
 .py-5 {
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
+}
+
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .pb-5 {
@@ -1011,11 +991,6 @@ video {
 
 .outline {
   outline-style: solid;
-}
-
-.blur {
-  --tw-blur: blur(8px);
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
 .drop-shadow {
