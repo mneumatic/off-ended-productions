@@ -18,7 +18,7 @@
             <a href="/#platinum-signatures" class="btn xl:w-[200px]" title="Platinum Signatures" aria-label="Platinum Signatures" target="_blank" rel="noreferrer noopener">Learn More</a>
           </div>
         </div>
-        <div class="ps-images">
+        <div class="img-container__animated">
           <!-- TODO: Image needs to be rework for clarity. -->
           <img class="img-fluid rounded x-translate" src="/public/img/platinum-signatures.webp" alt="platinum-signatures" style="filter: drop-shadow(5px 5px 3px rgba(0, 0, 0, 0.5));"/>
         </div>
@@ -29,7 +29,7 @@
 {{define "js"}}
   <script src="/public/js/images.js"></script>
   <script>
-    const PSImages = document.querySelector("#platinum-signatures .ps-images")
+    const PSImages = document.querySelector(".img-container__animated")
     const observer = new IntersectionObserver(handleIntersection, options)
     observer.observe(PSImages)
   </script>

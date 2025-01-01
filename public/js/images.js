@@ -31,19 +31,19 @@ function handleIntersection(entries, observer) {
 }
 
 function showImages (element) {
-  element[0].classList.add("show-image")
+  element[0].classList.add("show-img")
 
   setTimeout(function () {
-    element[1].classList.add("show-image")
+    element[1].classList.add("show-img")
   }, 300);
 
   setTimeout(function () {
-    element[2].classList.add("show-image")
+    element[2].classList.add("show-img")
   }, 600);
 }
 
 function slideImage (element) {
-  element.classList.add("slide-in-image")
+  element.classList.add("slide-img")
 }
 
 // const observer = new IntersectionObserver(handleIntersection, options);

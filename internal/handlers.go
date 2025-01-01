@@ -41,10 +41,10 @@ func (m *Repository) Podcast(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func (m *Repository) Music(w http.ResponseWriter, r *http.Request) {
+func (m *Repository) TwoJzMusic(w http.ResponseWriter, r *http.Request) {
 	ok := HttpErrors(w, r, "GET")
 	if ok {
-		RenderTemplate(w, r, "2jz-music.gohtml", &Template{
+		RenderTemplate(w, r, "twojz-music.gohtml", &Template{
 			Title: "2Jz Music | Off Ended Productions",
 		})
 	}

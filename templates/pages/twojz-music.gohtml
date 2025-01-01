@@ -1,6 +1,6 @@
 {{template "base" .}}
 {{define "content"}}
-  <main id="music">
+  <main id="twojz-music">
     <section>
       <div class="container flex flex-col-reverse xl:grid grid-cols-2 gap-7">
         <div>
@@ -20,7 +20,7 @@
             </div>
           </div>
         </div>
-        <div class="img-container">
+        <div class="img-container__animated">
           <img class="img-fluid rounded invisible" src="/public/img/2Jz-music-blue.webp" alt="2Jz Music" style="filter: drop-shadow(5px 5px 3px rgba(0, 0, 0, 0.5));"/>
           <img class="img-fluid rounded invisible" src="/public/img/2Jz-music-purple.webp" alt="2Jz Music" style="filter: drop-shadow(5px 5px 3px rgba(0, 0, 0, 0.5));"/>
           <img class="img-fluid rounded invisible" src="/public/img/2Jz-music-red.webp" alt="2Jz Music" style="filter: drop-shadow(5px 5px 3px rgba(0, 0, 0, 0.5));"/>
@@ -32,7 +32,7 @@
 {{define "js"}}
   <script src="/public/js/images.js"></script>
   <script>
-    const musicImages = document.querySelector("#music .img-container")
+    const musicImages = document.querySelector(".img-container__animated")
     const observer = new IntersectionObserver(handleIntersection, options)
     observer.observe(musicImages)
   </script>

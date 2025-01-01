@@ -1,6 +1,6 @@
 {{template "base" .}}
 {{define "content"}}
-  <main  id="community">
+  <main id="community">
     <section>
       <div class="container flex flex-col xl:grid grid-cols-2 gap-7 items-center justify-center">
         <div>
@@ -15,7 +15,7 @@
             <a href="/community" class="btn xl:w-[200px]">Learn More</a>
           </div>
         </div>
-        <div class="community-images">
+        <div class="img-container__animated">
           <img class="img-fluid rounded x-translate" src="/public/img/running-springs-ca.webp" alt="Running Springs CA" style="filter: drop-shadow(-5px 5px 3px rgba(0, 0, 0, 0.5));"/>
         </div>
       </div>
@@ -38,7 +38,7 @@
 {{end}}
 <script src="/public/js/images.js"></script>
 <script>
-  const communityImages = document.querySelector("#community .community-images")
+  const communityImages = document.querySelector(".img-container__animated")
   const observer = new IntersectionObserver(handleIntersection, options)
   observer.observe(communityImages)
 </script>

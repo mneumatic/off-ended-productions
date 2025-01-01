@@ -11,7 +11,7 @@ func routes(app *internal.AppConfig) http.Handler {
 	app.URLPaths = []string{
 		"/",
 		"/podcast",
-		"/2jz-music",
+		"/twojz-music",
 		"/platinum-signatures",
 		"/community",
 		"/about",
@@ -19,7 +19,7 @@ func routes(app *internal.AppConfig) http.Handler {
 
 	mux.HandleFunc("GET /", internal.Repo.Home)
 	mux.HandleFunc("GET /podcast", internal.Repo.Podcast)
-	mux.HandleFunc("GET /2jz-music", internal.Repo.Music)
+	mux.HandleFunc("GET /twojz-music", internal.Repo.TwoJzMusic)
 	mux.HandleFunc("GET /platinum-signatures", internal.Repo.PlatinumSignatures)
 	mux.HandleFunc("GET /community", internal.Repo.Community)
 	mux.HandleFunc("GET /about", internal.Repo.About)

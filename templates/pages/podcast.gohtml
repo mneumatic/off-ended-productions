@@ -23,7 +23,7 @@
           </div>
         </div>
         <div>
-          <div class="img-container">
+          <div class="img-container__animated">
             <img class="img-fluid rounded invisible" src="/public/img/oep-pod-mm.webp" alt="The Off Ended Podcast" style="filter: drop-shadow(-5px 5px 3px rgba(0, 0, 0, 0.5));"/>
             <img class="img-fluid rounded invisible" src="/public/img/oep-pod-2jz.webp" alt="The Off Ended Podcast" style="filter: drop-shadow(-5px 5px 3px rgba(0, 0, 0, 0.5));"/>
             <img class="img-fluid rounded invisible" src="/public/img/oep-pod-mo.webp" alt="The Off Ended Podcast" style="filter: drop-shadow(-5px 5px 3px rgba(0, 0, 0, 0.5));"/>
@@ -36,7 +36,7 @@
 {{define "js"}}
   <script src="/public/js/images.js"></script>
   <script>
-    const podcastImages = document.querySelector("#podcast .img-container")
+    const podcastImages = document.querySelector(".img-container__animated")
     const observer = new IntersectionObserver(handleIntersection, options)
     observer.observe(podcastImages)
   </script>
