@@ -23,7 +23,7 @@ func main() {
 	}
 
 	// Format port string
-	addr := fmt.Sprintf("localhost:%s", port)
+	addr := fmt.Sprintf(":%s", port)
 
 	srv := &http.Server{
 		Addr:         addr,
@@ -40,22 +40,8 @@ func main() {
 }
 
 func run() error {
-	// Session
-	//gob.Register(models.Contact{})
-
 	// Set Production / Development
 	app.Production = false
-
-	// Set Sessions
-	//session = scs.New()
-	//session.Lifetime = 24 * time.Hour
-	//session.Cookie.Persist = true
-	//session.Cookie.SameSite = http.SameSiteLaxMode
-	//session.Cookie.Secure = app.Production // Sets Cookie to Secure true in Production.
-	//
-	//app.Session = session
-	//app.Testimonials = data.TestimonialData()
-	//app.Products = data.ProductData()
 
 	tc, err := internal.CreateTemplateCache()
 	if err != nil {
