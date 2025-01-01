@@ -32,11 +32,38 @@ func (m *Repository) Home(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+func (m *Repository) Podcast(w http.ResponseWriter, r *http.Request) {
+	ok := HttpErrors(w, r, "GET")
+	if ok {
+		RenderTemplate(w, r, "podcast.gohtml", &Template{
+			Title: "Podcast | Off Ended Productions",
+		})
+	}
+}
+
+func (m *Repository) Music(w http.ResponseWriter, r *http.Request) {
+	ok := HttpErrors(w, r, "GET")
+	if ok {
+		RenderTemplate(w, r, "2jz-music.gohtml", &Template{
+			Title: "2Jz Music | Off Ended Productions",
+		})
+	}
+}
+
+func (m *Repository) PlatinumSignatures(w http.ResponseWriter, r *http.Request) {
+	ok := HttpErrors(w, r, "GET")
+	if ok {
+		RenderTemplate(w, r, "platinum-signatures.gohtml", &Template{
+			Title: "Platinum Signatures | Off Ended Productions",
+		})
+	}
+}
+
 func (m *Repository) Community(w http.ResponseWriter, r *http.Request) {
 	ok := HttpErrors(w, r, "GET")
 	if ok {
 		RenderTemplate(w, r, "community.gohtml", &Template{
-			Title: "Community | Off Ended",
+			Title: "Community | Off Ended Productions",
 		})
 	}
 }
@@ -45,7 +72,7 @@ func (m *Repository) About(w http.ResponseWriter, r *http.Request) {
 	ok := HttpErrors(w, r, "GET")
 	if ok {
 		RenderTemplate(w, r, "about.gohtml", &Template{
-			Title: "About | Off Ended",
+			Title: "About | Off Ended Productions",
 		})
 	}
 }

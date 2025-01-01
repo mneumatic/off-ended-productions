@@ -1,18 +1,22 @@
 {{template "base" .}}
 {{define "content"}}
-  <main>
-    <section id="community">
-      <div class="container flex flex-col-reverse md:grid grid-cols-2 gap-7">
+  <main  id="community">
+    <section>
+      <div class="container flex flex-col xl:grid grid-cols-2 gap-7 items-center justify-center">
         <div>
-          <div class="text-center md:text-start">
+          <div class="text-center xl:text-start">
             <span>Running Springs CA</span>
-            <h1>COMMUNITY</h1>
+            <h2 class="">COMMUNITY</h2>
           </div>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab at aut dolores ea earum enim error quis quisquam sequi sunt? Cupiditate dignissimos impedit laudantium magnam minus, nam officia quibusdam! Voluptatum</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aut dignissimos dolorem explicabo illum incidunt ipsam, laborum modi molestiae molestias mollitia perferendis possimus qui quia, repudiandae sequi sunt tenetur voluptates? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda distinctio doloribus eveniet excepturi explicabo fugit illo magni natus neque nesciunt nostrum nulla numquam repellat rerum sint soluta, voluptas voluptatum! At.</p>
+          <p>Our community page facilitates residence-specific discussions, enabling us to address the concerns of our local community. We prioritize current local events, recommendations from long-term residents, and intriguing attractions to visit. Additionally, we disseminate pertinent news and information pertaining to our mountain communities.</p>
+          <br>
+          <p>Nestled in the foothills of the San Bernardino Mountains, Running Springs is a close-knit community renowned for its robust sense of camaraderie and ample outdoor recreational opportunities. The surrounding natural splendor draws outdoor enthusiasts, while the proximity to nearby towns facilitates convenient access to essential services, fostering a harmonious lifestyle for its residents.</p>
+          <div class="mt-10">
+            <a href="/community" class="btn xl:w-[200px]">Learn More</a>
+          </div>
         </div>
-        <div>
-          <img class="img-fluid rounded" src="../../public/img/running-springs-ca.webp" alt="Off Ended"/>
+        <div class="community-images">
+          <img class="img-fluid rounded x-translate" src="/public/img/running-springs-ca.webp" alt="Running Springs CA" style="filter: drop-shadow(-5px 5px 3px rgba(0, 0, 0, 0.5));"/>
         </div>
       </div>
     </section>
@@ -32,3 +36,9 @@
     </section>
   </main>
 {{end}}
+<script src="/public/js/images.js"></script>
+<script>
+  const communityImages = document.querySelector("#community .community-images")
+  const observer = new IntersectionObserver(handleIntersection, options)
+  observer.observe(communityImages)
+</script>

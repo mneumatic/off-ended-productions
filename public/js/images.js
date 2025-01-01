@@ -46,25 +46,25 @@ function slideImage (element) {
   element.classList.add("slide-in-image")
 }
 
-const observer = new IntersectionObserver(handleIntersection, options);
+// const observer = new IntersectionObserver(handleIntersection, options);
 
-const podcastImages = document.querySelector("#podcast .img-container")
-const musicImages = document.querySelector("#music .img-container")
+// const podcastImages = document.querySelector("#podcast .img-container")
+// const musicImages = document.querySelector("#music .img-container")
 
-const aboutImage1 = document.querySelector("#about .twojz")
-const aboutImage2 = document.querySelector("#about .mm")
-const aboutImage3 = document.querySelector("#about .mo")
+// const aboutImage1 = document.querySelector("#about .twojz")
+// const aboutImage2 = document.querySelector("#about .mm")
+// const aboutImage3 = document.querySelector("#about .mo")
+//
+// const PSImages = document.querySelector("#platinum-signatures .ps-images")
+// const communityImages = document.querySelector("#community .community-images")
 
-const PSImages = document.querySelector("#platinum-signatures .ps-images")
-const communityImages = document.querySelector("#community .community-images")
+//observer.observe(podcastImages)
+// observer.observe(musicImages)
 
-observer.observe(podcastImages)
-observer.observe(musicImages)
-
-observer.observe(aboutImage1)
-observer.observe(aboutImage2)
-observer.observe(aboutImage3)
-
-observer.observe(PSImages)
-observer.observe(communityImages)
+// observer.observe(aboutImage1)
+// observer.observe(aboutImage2)
+// observer.observe(aboutImage3)
+//
+// observer.observe(PSImages)
+// observer.observe(communityImages)
 
