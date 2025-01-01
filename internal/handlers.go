@@ -32,23 +32,32 @@ func (m *Repository) Home(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-//func (m *Repository) Music(w http.ResponseWriter, r *http.Request) {
-//  ok := HttpErrors(w, r, "GET")
-//  if ok {
-//    RenderTemplate(w, r, "music.gohtml", &Template{
-//      Title: "2Jz Music | Off Ended",
-//    })
-//  }
-//}
-//
-//func (m *Repository) Community(w http.ResponseWriter, r *http.Request) {
-//  ok := HttpErrors(w, r, "GET")
-//  if ok {
-//    RenderTemplate(w, r, "community.gohtml", &Template{
-//      Title: "Community | Off Ended",
-//    })
-//  }
-//}
+//	func (m *Repository) Music(w http.ResponseWriter, r *http.Request) {
+//	 ok := HttpErrors(w, r, "GET")
+//	 if ok {
+//	   RenderTemplate(w, r, "music.gohtml", &Template{
+//	     Title: "2Jz Music | Off Ended",
+//	   })
+//	 }
+//	}
+func (m *Repository) Community(w http.ResponseWriter, r *http.Request) {
+	ok := HttpErrors(w, r, "GET")
+	if ok {
+		RenderTemplate(w, r, "community.gohtml", &Template{
+			Title: "Community | Off Ended",
+		})
+	}
+}
+
+func (m *Repository) About(w http.ResponseWriter, r *http.Request) {
+	ok := HttpErrors(w, r, "GET")
+	if ok {
+		RenderTemplate(w, r, "about.gohtml", &Template{
+			Title: "About | Off Ended",
+		})
+	}
+}
+
 //
 //func (m *Repository) Privacy(w http.ResponseWriter, r *http.Request) {
 //  ok := HttpErrors(w, r, "GET")

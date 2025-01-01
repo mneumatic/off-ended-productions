@@ -1,33 +1,5 @@
-<!DOCTYPE html>
-<html class="no-js" lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>About Us | Off Ended Productions</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../public/css/vendor/normalize.css">
-  <link rel="stylesheet" href="../public/css/main.min.css">
-  <meta name="description" content="Learn more about the fellas at OEP.">
-
-  <meta property="og:title" content="Off Ended Productions">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://offendedproductions.com/about">
-  <meta property="og:image" content="https://offendedproductions.com/img/putting-in-the-time.jpg">
-  <meta property="og:image:alt" content="">
-
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="../public/apple-touch-icon.png">
-
-  <link rel="manifest" href="../public/site.webmanifest">
-  <meta name="theme-color" content="#fafafa">
-</head>
-<body>
-  <navbar-component></navbar-component>
-
+{{template "base" .}}
+{{define "content"}}
   <main>
     <section id="about">
       <div class="container flex flex-col-reverse md:grid grid-cols-2 gap-7">
@@ -41,7 +13,7 @@
         </div>
         <div class="flex justify-center">
           <!-- TODO: Image needs rework for clarity. -->
-          <img class="img-fluid rounded" src="../public/img/group-photo-split.png" alt="The Crew"/>
+          <img class="img-fluid rounded" src="../../public/img/group-photo-split.png" alt="The Crew"/>
         </div>
       </div>
       <div class="container flex flex-row flex-wrap items-center justify-evenly mt-10">
@@ -70,10 +42,4 @@
       </div>
     </section>
   </main>
-
-  <footbar-component></footbar-component>
-
-  <script src="../public/js/components/navbar.js"></script>
-  <script src="../public/js/components/footbar.js"></script>
-</body>
-</html>
+{{end}}

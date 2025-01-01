@@ -130,7 +130,7 @@
           <br>
           <p>Nestled in the foothills of the San Bernardino Mountains, Running Springs is a close-knit community renowned for its robust sense of camaraderie and ample outdoor recreational opportunities. The surrounding natural splendor draws outdoor enthusiasts, while the proximity to nearby towns facilitates convenient access to essential services, fostering a harmonious lifestyle for its residents.</p>
           <div class="mt-10">
-            <a href="community.html" class="btn xl:w-[200px]">Learn More</a>
+            <a href="/community" class="btn xl:w-[200px]">Learn More</a>
           </div>
         </div>
       </div>
@@ -157,44 +157,44 @@
           </div>
         </div>
         <div class="flex justify-center mt-10">
-          <a href="about.html" class="btn xl:w-[200px]">Learn More</a>
+          <a href="/about" class="btn xl:w-[200px]">Learn More</a>
         </div>
       </div>
     </section>
   </main>
-
-  {{block "js" .}}
-    <script src="/public/js/images.js"></script>
-    <script>
-      const sections = document.querySelectorAll("section")
-      const downBtn = document.querySelector("#hero button")
-      const mottoSpans = document.querySelectorAll("#motto span")
-      let currentSectionIndex = 0
-
-      setTimeout(function () {
-        showImages(mottoSpans)
-      }, 1500)
-
-
-      function scrollDown() {
-        currentSectionIndex++
-        if (currentSectionIndex < sections.length) {
-          sections[currentSectionIndex].scrollIntoView({ behavior: "smooth" })
-          currentSectionIndex = 0
-        }
-      }
-
-      function reset() {
-        if (window.scrollY === 0) {
-          downBtn.classList.remove("invisible")
-        }
-        if (window.scrollY > 0) {
-          downBtn.classList.add("invisible")
-        }
-      }
-
-      downBtn.addEventListener("click", scrollDown)
-      window.addEventListener("scroll", reset)
-    </script>
-  {{end}}
 {{end}}
+{{define "js"}}
+  <script src="/public/js/images.js"></script>
+  <script>
+    const sectionElements = document.querySelectorAll("section")
+    const downBtn = document.querySelector("#hero button")
+    const mottoSpans = document.querySelectorAll("#motto span")
+    let currentSectionIndex = 0
+
+    setTimeout(function () {
+      showImages(mottoSpans)
+    }, 1500)
+
+
+    function scrollDown() {
+      currentSectionIndex++
+      if (currentSectionIndex < sectionElements.length) {
+        sectionElements[currentSectionIndex].scrollIntoView({ behavior: "smooth" })
+        currentSectionIndex = 0
+      }
+    }
+
+    function reset() {
+      if (window.scrollY === 0) {
+        downBtn.classList.remove("invisible")
+      }
+      if (window.scrollY > 0) {
+        downBtn.classList.add("invisible")
+      }
+    }
+
+    downBtn.addEventListener("click", scrollDown)
+    window.addEventListener("scroll", reset)
+  </script>
+{{end}}
+
