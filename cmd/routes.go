@@ -10,10 +10,8 @@ func routes(app *internal.AppConfig) http.Handler {
 
 	app.URLPaths = []string{
 		"/",
-		"/music",
 		"/community",
-		"/privacy-policy",
-		"/terms-of-service",
+		"/about",
 	}
 
 	mux.HandleFunc("GET /", internal.Repo.Home)
