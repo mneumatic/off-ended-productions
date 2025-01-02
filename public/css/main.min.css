@@ -626,12 +626,12 @@ video {
   left: 0px;
 }
 
-.top-0 {
-  top: 0px;
-}
-
 .top-16 {
   top: 4rem;
+}
+
+.top-0 {
+  top: 0px;
 }
 
 .float-left {
@@ -652,11 +652,6 @@ video {
   margin-right: 1.25rem;
 }
 
-.my-0 {
-  margin-top: 0px;
-  margin-bottom: 0px;
-}
-
 .my-12 {
   margin-top: 3rem;
   margin-bottom: 3rem;
@@ -667,7 +662,8 @@ video {
   margin-bottom: 1.25rem;
 }
 
-.mb-0 {
+.my-0 {
+  margin-top: 0px;
   margin-bottom: 0px;
 }
 
@@ -687,10 +683,6 @@ video {
   margin-bottom: 1.25rem;
 }
 
-.me-10 {
-  margin-inline-end: 2.5rem;
-}
-
 .me-2 {
   margin-inline-end: 0.5rem;
 }
@@ -701,18 +693,6 @@ video {
 
 .me-5 {
   margin-inline-end: 1.25rem;
-}
-
-.ml-6 {
-  margin-left: 1.5rem;
-}
-
-.ms-0 {
-  margin-inline-start: 0px;
-}
-
-.mt-0 {
-  margin-top: 0px;
 }
 
 .mt-10 {
@@ -729,6 +709,26 @@ video {
 
 .mt-7 {
   margin-top: 1.75rem;
+}
+
+.mb-0 {
+  margin-bottom: 0px;
+}
+
+.me-10 {
+  margin-inline-end: 2.5rem;
+}
+
+.ml-6 {
+  margin-left: 1.5rem;
+}
+
+.ms-0 {
+  margin-inline-start: 0px;
+}
+
+.mt-0 {
+  margin-top: 0px;
 }
 
 .block {
@@ -787,24 +787,24 @@ video {
   width: 320px;
 }
 
-.w-auto {
-  width: auto;
-}
-
 .w-full {
   width: 100%;
+}
+
+.w-auto {
+  width: auto;
 }
 
 .max-w-\[992px\] {
   max-width: 992px;
 }
 
-.flex-shrink {
-  flex-shrink: 1;
-}
-
 .flex-shrink-0 {
   flex-shrink: 0;
+}
+
+.flex-shrink {
+  flex-shrink: 1;
 }
 
 .border-collapse {
@@ -923,11 +923,6 @@ video {
   padding: 1.25rem;
 }
 
-.px-4 {
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
 .py-2 {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
@@ -941,6 +936,11 @@ video {
 .py-5 {
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
+}
+
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .pl-4 {
@@ -1031,12 +1031,6 @@ video {
 
 .filter {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
-}
-
-.transition-shadow {
-  transition-property: box-shadow;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
 }
 
 .ease-in-out {
@@ -1418,8 +1412,8 @@ h1,h2{
   text-decoration:none !important
 }
 
-.site-navigation-navbar__shadow{
-  box-shadow:5px 5px 3px rgba(0,0,0,.5) !important
+.navbar-shadow{
+  box-shadow:0 5px 3px rgba(0,0,0,.5) !important
 }
 
 footer nav a:hover{
