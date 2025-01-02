@@ -40,19 +40,28 @@
         <h2>What we do...</h2>
       </div>
       <div class="flex flex-col lg:flex-row flex-wrap items-center justify-evenly">
-        <div class="p-10">
-          <a class="img-container__animated scale" href="/podcast" title="The Off Ended Podcast →" aria-label="The Off Ended Podcast" style="filter: drop-shadow(5px 5px 3px rgba(0, 0, 0, 0.5));">
+        <div class="p-10 w-[320px] text-center">
+          <a class="img-container__animated scale" href="/podcast" title="The Off Ended Podcast →" aria-label="The Off Ended Podcast">
             <img class="img-fluid rounded y-translate" src="/public/img/oep-podcast-logo.webp" alt="The Off Ended Podcast">
+            <figcaption class="caption permanent-marker-regular transition-opacity mt-2">The Off Ended Podcast</figcaption>
           </a>
         </div>
-        <div class="p-10">
-          <a class="img-container__animated scale" href="/twojz-music" title="2Jz Music →" aria-label="2Jz Music" style="filter: drop-shadow(5px 5px 3px rgba(0, 0, 0, 0.5));">
+        <div class="p-10 w-[320px] text-center">
+          <a class="img-container__animated scale" href="/twojz-music" title="2Jz Music →" aria-label="2Jz Music">
             <img class="img-fluid rounded y-translate" src="/public/img/twojz-music-logo.webp" alt="2Jz Music">
+            <figcaption class="caption permanent-marker-regular transition-opacity mt-2">2Jz Music</figcaption>
           </a>
         </div>
-        <div class="p-10">
-          <a class="img-container__animated scale" href="/platinum-signatures" title="Platinum Signatures →" aria-label="Platinum-Signatures" style="filter: drop-shadow(5px 5px 3px rgba(0, 0, 0, 0.5));">
+        <div class="p-10 w-[320px] text-center">
+          <a class="img-container__animated scale" href="/platinum-signatures" title="Platinum Signatures →" aria-label="Platinum Signatures">
             <img class="img-fluid rounded y-translate" src="/public/img/platinum-signatures.webp" alt="Platinum Signatures">
+            <figcaption class="caption permanent-marker-regular transition-opacity mt-2">Platinum Signatures</figcaption>
+          </a>
+        </div>
+        <div class="p-10 w-[320px] text-center">
+          <a class="img-container__animated  scale" href="/" title="MNEUMATIC Designs →" aria-label="MNEUMATIC Designs">
+            <img class="img-fluid rounded outline y-translate" src="/public/img/mneumatic-desings.webp" alt="MNEUMATIC Designs">
+            <figcaption class="caption permanent-marker-regular transition-opacity mt-2">MNEUMATIC Designs</figcaption>
           </a>
         </div>
       </div>
@@ -63,7 +72,9 @@
   <script src="/public/js/images.js"></script>
   <script>
     const contentLinks = document.querySelectorAll(".img-container__animated")
+    const captions = document.querySelectorAll(".img-container__animated figcaption")
     const observer = new IntersectionObserver(handleIntersection, options)
+    const observerCaptions = new IntersectionObserver(handleCaptions, options)
     const mottoSpans = document.querySelectorAll("#motto span")
     const mottos = [
       ['"Off Ended,', 'Don’t Get Offended,', 'No Pun Intended."'],
@@ -88,8 +99,12 @@
       showImages(mottoSpans)
     }, 1500)
 
-    contentLinks.forEach(li => {
-      observer.observe(li)
+    contentLinks.forEach(link => {
+      observer.observe(link)
+    })
+
+    captions.forEach(caption => {
+      observerCaptions.observe(caption)
     })
   </script>
 {{end}}

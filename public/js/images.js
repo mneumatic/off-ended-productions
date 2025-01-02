@@ -29,6 +29,18 @@ function handleIntersection(entries, observer) {
     }
   })
 }
+function handleCaptions(entries, observer) {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      // Element is in view, do something
+      const elements = entry.target
+      showCaptions(elements)
+
+      // Optionally stop observing the element
+      observer.unobserve(entry.target)
+    }
+  })
+}
 
 function showImages (element) {
   element[0].classList.add("show-img")
@@ -44,4 +56,10 @@ function showImages (element) {
 
 function slideImage (element) {
   element.classList.add("slide-img")
+}
+
+function showCaptions (element) {
+  setTimeout(() => {
+    element.classList.add('show-caption')
+  }, 1200)
 }

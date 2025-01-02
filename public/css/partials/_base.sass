@@ -2,14 +2,12 @@ html
   color: #222
   font-size: 1em
   line-height: 1.4
-  overflow-x: hidden !important
 
 body
   font-family: "Open Sans", sans-serif
   margin: 0
   padding: 0
   height: 100vh
-  overflow-x: hidden !important
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
 
@@ -44,6 +42,9 @@ fieldset
 
 textarea
   resize: vertical
+
+main
+  overflow-x: hidden
 
 section,
 footer
@@ -128,12 +129,19 @@ h2
   visibility: visible !important
   animation: fadein 1s forwards !important
   transform: translateZ(0)
+.caption
+  opacity: 0
+
+.show-caption
+  animation: fadein 1s forwards !important
 
 @keyframes fadein
   from
     opacity: 0
   to
     opacity: 1
+
+
 
 .blink
   opacity: 0
@@ -178,8 +186,14 @@ h2
 .scale
     transition: transform .5s ease-in-out
 
+    img
+      transition: box-shadow .5s ease-in-out
+
     &:hover
       transform: scale(1.2)
+
+      img
+        box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.5)
 
 .classic-link
   color: blue
@@ -198,8 +212,3 @@ h2
   background-repeat: no-repeat
   background-position: center
   background-size: contain
-
-.bg-white-alpha
-  background-color: rgba(255, 255, 255, .8)
-
-

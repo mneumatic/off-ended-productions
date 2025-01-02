@@ -626,12 +626,12 @@ video {
   left: 0px;
 }
 
-.top-16 {
-  top: 4rem;
-}
-
 .top-0 {
   top: 0px;
+}
+
+.top-16 {
+  top: 4rem;
 }
 
 .float-left {
@@ -652,6 +652,11 @@ video {
   margin-right: 1.25rem;
 }
 
+.my-0 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
 .my-12 {
   margin-top: 3rem;
   margin-bottom: 3rem;
@@ -662,8 +667,7 @@ video {
   margin-bottom: 1.25rem;
 }
 
-.my-0 {
-  margin-top: 0px;
+.mb-0 {
   margin-bottom: 0px;
 }
 
@@ -683,6 +687,10 @@ video {
   margin-bottom: 1.25rem;
 }
 
+.me-10 {
+  margin-inline-end: 2.5rem;
+}
+
 .me-2 {
   margin-inline-end: 0.5rem;
 }
@@ -695,8 +703,24 @@ video {
   margin-inline-end: 1.25rem;
 }
 
+.ml-6 {
+  margin-left: 1.5rem;
+}
+
+.ms-0 {
+  margin-inline-start: 0px;
+}
+
+.mt-0 {
+  margin-top: 0px;
+}
+
 .mt-10 {
   margin-top: 2.5rem;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
 }
 
 .mt-3 {
@@ -709,26 +733,6 @@ video {
 
 .mt-7 {
   margin-top: 1.75rem;
-}
-
-.mb-0 {
-  margin-bottom: 0px;
-}
-
-.me-10 {
-  margin-inline-end: 2.5rem;
-}
-
-.ml-6 {
-  margin-left: 1.5rem;
-}
-
-.ms-0 {
-  margin-inline-start: 0px;
-}
-
-.mt-0 {
-  margin-top: 0px;
 }
 
 .block {
@@ -787,24 +791,24 @@ video {
   width: 320px;
 }
 
-.w-full {
-  width: 100%;
-}
-
 .w-auto {
   width: auto;
+}
+
+.w-full {
+  width: 100%;
 }
 
 .max-w-\[992px\] {
   max-width: 992px;
 }
 
-.flex-shrink-0 {
-  flex-shrink: 0;
-}
-
 .flex-shrink {
   flex-shrink: 1;
+}
+
+.flex-shrink-0 {
+  flex-shrink: 0;
 }
 
 .border-collapse {
@@ -895,6 +899,11 @@ video {
   border-width: 1px;
 }
 
+.border-black {
+  --tw-border-opacity: 1;
+  border-color: rgb(0 0 0 / var(--tw-border-opacity, 1));
+}
+
 .bg-black {
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity, 1));
@@ -910,6 +919,10 @@ video {
   background-color: rgb(220 38 38 / var(--tw-bg-opacity, 1));
 }
 
+.bg-transparent {
+  background-color: transparent;
+}
+
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
@@ -921,6 +934,11 @@ video {
 
 .p-5 {
   padding: 1.25rem;
+}
+
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .py-2 {
@@ -936,11 +954,6 @@ video {
 .py-5 {
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
-}
-
-.px-4 {
-  padding-left: 1rem;
-  padding-right: 1rem;
 }
 
 .pl-4 {
@@ -1008,6 +1021,10 @@ video {
   text-decoration-line: underline;
 }
 
+.opacity-0 {
+  opacity: 0;
+}
+
 .shadow-lg {
   --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
@@ -1033,6 +1050,22 @@ video {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
+.transition-opacity {
+  transition-property: opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.transition-shadow {
+  transition-property: box-shadow;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.ease-in {
+  transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+}
+
 .ease-in-out {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -1040,8 +1073,7 @@ video {
 html{
   color:#222;
   font-size:1em;
-  line-height:1.4;
-  overflow-x:hidden !important
+  line-height:1.4
 }
 
 body{
@@ -1049,7 +1081,6 @@ body{
   margin:0;
   padding:0;
   height:100vh;
-  overflow-x:hidden !important;
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale
 }
@@ -1085,6 +1116,10 @@ fieldset{
 
 textarea{
   resize:vertical
+}
+
+main{
+  overflow-x:hidden
 }
 
 section,footer{
@@ -1179,6 +1214,14 @@ h1,h2{
   transform:translateZ(0)
 }
 
+.caption{
+  opacity:0
+}
+
+.show-caption{
+  animation:fadein 1s forwards !important
+}
+
 @keyframes fadein{
   from{
     opacity:0
@@ -1247,8 +1290,16 @@ h1,h2{
   transition:transform .5s ease-in-out
 }
 
+.scale img{
+  transition:box-shadow .5s ease-in-out
+}
+
 .scale:hover{
   transform:scale(1.2)
+}
+
+.scale:hover img{
+  box-shadow:5px 5px 8px rgba(0,0,0,.5)
 }
 
 .classic-link{
@@ -1271,10 +1322,6 @@ h1,h2{
   background-repeat:no-repeat;
   background-position:center;
   background-size:contain
-}
-
-.bg-white-alpha{
-  background-color:hsla(0,0%,100%,.8)
 }
 
 #site-navigation-navbar{
@@ -1413,7 +1460,7 @@ h1,h2{
 }
 
 .navbar-shadow{
-  box-shadow:0 5px 3px rgba(0,0,0,.5) !important
+  box-shadow:0 5px 8px rgba(0,0,0,.5)
 }
 
 footer nav a:hover{
