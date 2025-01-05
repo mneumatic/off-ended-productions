@@ -1,7 +1,9 @@
-package internal
+package data
 
-func EventsData() []Event {
-	return []Event{
+import "off-ended-productions/internal/models"
+
+func EventsData() []models.Event {
+	return []models.Event{
 		{
 			Path:        "/",
 			Title:       "Demo Event 1",

@@ -1,25 +1,27 @@
-package internal
+package render
 
 import (
 	"bytes"
 	"html/template"
 	"log"
 	"net/http"
+	"off-ended-productions/internal/configs"
+	"off-ended-productions/internal/models"
 	"path/filepath"
 )
 
-var app *AppConfig
+var app *configs.AppConfig
 
-func NewTemplates(a *AppConfig) {
+func NewTemplates(a *configs.AppConfig) {
 	app = a
 }
 
-func AddDefaultData(td *Template, r *http.Request) *Template {
+func AddDefaultData(td *models.Template, r *http.Request) *models.Template {
 	//td.CSRFToken = nosurf.Token(r)
 	return td
 }
 
-func RenderTemplate(w http.ResponseWriter, r *http.Request, tmpl string, td *Template) {
+func RenderTemplate(w http.ResponseWriter, r *http.Request, tmpl string, td *models.Template) {
 	var tc map[string]*template.Template
 
 	if app.UseCache {

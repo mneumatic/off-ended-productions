@@ -43,30 +43,14 @@
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum eaque, earum, eos et hic magni possimus quaerat quia quibusdam quo sapiente sed similique veritatis, vitae voluptatem. Ex omnis quo repellat.</p>
         </div>
         <div class="flex flex-col lg:flex-row flex-wrap items-center justify-evenly">
-          <div class="p-10 w-[320px] text-center">
-            <a class="img-container__animated scale" href="/podcast" title="The Off Ended Podcast →" aria-label="The Off Ended Podcast">
-              <img class="img-fluid rounded y-translate" src="/public/img/oep-podcast-logo.webp" alt="The Off Ended Podcast">
-              <figcaption class="caption permanent-marker-regular transition-opacity mt-2">The Off Ended Podcast</figcaption>
-            </a>
-          </div>
-          <div class="p-10 w-[320px] text-center">
-            <a class="img-container__animated scale" href="/twojz-music" title="2Jz Music →" aria-label="2Jz Music">
-              <img class="img-fluid rounded y-translate" src="/public/img/twojz-music-logo.webp" alt="2Jz Music">
-              <figcaption class="caption permanent-marker-regular transition-opacity mt-2">2Jz Music</figcaption>
-            </a>
-          </div>
-          <div class="p-10 w-[320px] text-center">
-            <a class="img-container__animated scale" href="/platinum-signatures" title="Platinum Signatures →" aria-label="Platinum Signatures">
-              <img class="img-fluid rounded y-translate" src="/public/img/platinum-signatures.webp" alt="Platinum Signatures">
-              <figcaption class="caption permanent-marker-regular transition-opacity mt-2">Platinum Signatures</figcaption>
-            </a>
-          </div>
-          <div class="p-10 w-[320px] text-center">
-            <a class="img-container__animated  scale" href="/" title="MNEUMATIC Designs →" aria-label="MNEUMATIC Designs">
-              <img class="img-fluid rounded outline y-translate" src="/public/img/mneumatic-desings.webp" alt="MNEUMATIC Designs">
-              <figcaption class="caption permanent-marker-regular transition-opacity mt-2">MNEUMATIC Designs</figcaption>
-            </a>
-          </div>
+          {{range .Categories}}
+            <div class="p-10 w-[320px] text-center">
+              <a class="img-container__animated scale" href="{{.Url}}" title="{{.Title}} →" aria-label="{{.Title}}">
+                <img class="img-fluid rounded outline y-translate" src="/public/img/{{.Img}}" alt="{{.Title}}">
+                <figcaption class="caption permanent-marker-regular transition-opacity mt-2">{{.Title}}</figcaption>
+              </a>
+            </div>
+          {{end}}
         </div>
       </div>
     </section>

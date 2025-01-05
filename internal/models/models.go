@@ -1,4 +1,4 @@
-package internal
+package models
 
 type Template struct {
 	StringMap  map[string]string
@@ -15,6 +15,7 @@ type Template struct {
 	Audio      interface{}
 	Events     interface{}
 	Businesses interface{}
+	Categories interface{}
 }
 
 type Video struct {
@@ -42,4 +43,10 @@ type Business struct {
 	Location    string
 	Hours       string
 	Phone       string
+}
+
+type Category struct {
+	Url   string
+	Img   string
+	Title string
 }

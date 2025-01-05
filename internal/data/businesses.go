@@ -1,7 +1,11 @@
-package internal
+package data
 
-func BusinessData() []Business {
-	return []Business{
+import (
+	"off-ended-productions/internal/models"
+)
+
+func BusinessData() []models.Business {
+	return []models.Business{
 		{
 			Path:        "/",
 			Title:       "Demo Business 1",

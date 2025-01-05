@@ -4,12 +4,14 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"off-ended-productions/internal"
+	"off-ended-productions/internal/configs"
+	"off-ended-productions/internal/handlers"
+	"off-ended-productions/internal/render"
 	"os"
 	"time"
 )
 
-var app internal.AppConfig
+var app configs.AppConfig
 
 func main() {
 	err := run()
@@ -43,17 +45,17 @@ func run() error {
 	// Set Production / Development
 	app.Production = false
 
-	tc, err := internal.CreateTemplateCache()
+	tc, err := render.CreateTemplateCache()
 	if err != nil {
-		log.Fatal("cannot create template cache")
+		log.Fatal("cannot create template cache", err)
 	}
 
 	app.TemplateCache = tc
 	app.UseCache = false
 
-	repo := internal.NewRepo(&app)
-	internal.NewHandlers(repo)
+	repo := handlers.NewRepo(&app)
+	handlers.NewHandlers(repo)
 
-	internal.NewTemplates(&app)
+	render.NewTemplates(&app)
 	return nil
 }
