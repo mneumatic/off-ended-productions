@@ -76,6 +76,15 @@ func (m *Repository) MNEUMATICDesigns(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+func (m *Repository) Gaming(w http.ResponseWriter, r *http.Request) {
+	ok := errors.HttpErrors(w, r, "GET")
+	if ok {
+		render.RenderTemplate(w, r, "gaming.gohtml", &models.Template{
+			Title: "Gaming | Off Ended Productions",
+		})
+	}
+}
+
 func (m *Repository) Community(w http.ResponseWriter, r *http.Request) {
 	ok := errors.HttpErrors(w, r, "GET")
 	if ok {

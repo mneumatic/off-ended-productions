@@ -1,8 +1,8 @@
 {{template "base" .}}
 {{define "content"}}
   <main id="about">
-    <section>
-      <div class="container flex flex-col-reverse md:grid grid-cols-2 gap-7">
+    <section class="bg-black">
+      <div class="container flex flex-col-reverse md:grid grid-cols-2 gap-7 items-center justify-center text-white">
         <div>
           <div class="text-center md:text-start">
             <span>The Crew</span>
@@ -16,6 +16,8 @@
           <img class="img-fluid rounded" src="../../public/img/group-photo-split.png" alt="The Crew"/>
         </div>
       </div>
+    </section>
+    <section>
       <div class="container flex flex-row flex-wrap items-center justify-evenly mt-10">
         <div class="flex flex-col items-center justify-center">
           <span class="text-xl raleway-600">Michael Neumann (Mountain Mike)</span>

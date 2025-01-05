@@ -25,6 +25,7 @@ func routes(app *configs.AppConfig) http.Handler {
 	mux.HandleFunc("GET /twojz-music", handlers.Repo.TwoJzMusic)
 	mux.HandleFunc("GET /platinum-signatures", handlers.Repo.PlatinumSignatures)
 	mux.HandleFunc("GET /mneumatic-designs", handlers.Repo.MNEUMATICDesigns)
+	mux.HandleFunc("GET /gaming", handlers.Repo.Gaming)
 	mux.HandleFunc("GET /community", handlers.Repo.Community)
 	mux.HandleFunc("GET /community/events", handlers.Repo.Events)
 	mux.HandleFunc("GET /community/businesses", handlers.Repo.Businesses)

@@ -27,7 +27,7 @@ func CategoryData() []models.Category {
 			Title: "MNEUMATIC Designs",
 		},
 		{
-			Url:   "/",
+			Url:   "/gaming",
 			Img:   "oep-gaming.webp",
 			Title: "Off Ended Gaming",
 		},

@@ -16,6 +16,7 @@ var urls = []string{
 	"/twojz-music",
 	"/platinum-signatures",
 	"/mneumatic-designs",
+	"/gaming",
 	"/community",
 	"/community/events",
 	"/community/businesses",
