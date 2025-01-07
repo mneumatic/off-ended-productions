@@ -3,6 +3,7 @@ module.exports = {
   content: [
     "./templates/layouts/*.gohtml",
     "./templates/pages/*.gohtml",
+    "./templates/partials/*.gohtml",
     "./public/css/*.css",
     "./public/js/*.js"
   ],

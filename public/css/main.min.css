@@ -981,6 +981,15 @@ video {
   font-size: 100px;
 }
 
+.text-\[70px\] {
+  font-size: 70px;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -989,23 +998,6 @@ video {
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
-}
-
-.text-lg {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
-}
-
-.text-\[200px\] {
-  font-size: 200px;
-}
-
-.text-\[75px\] {
-  font-size: 75px;
-}
-
-.text-\[70px\] {
-  font-size: 70px;
 }
 
 .font-bold {
@@ -1572,8 +1564,8 @@ footer nav a:hover{
     flex-direction: row;
   }
 
-  .lg\:justify-start {
-    justify-content: flex-start;
+  .lg\:justify-evenly {
+    justify-content: space-evenly;
   }
 }
 
