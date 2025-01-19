@@ -1,0 +1,48 @@
+{{template "base" .}}
+{{define "content"}}
+  <main id="community">
+    <section class="bg-black">
+      <div class="container flex flex-col-reverse xl:grid grid-cols-2 gap-7 items-center justify-center text-white">
+        <div>
+          <div class="text-center xl:text-start">
+            <span>Local</span>
+            <h2>Events</h2>
+            <p class="text-4xl permanent-marker-regular">Awesome local events!</p>
+          </div>
+          <br>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aperiam, consequuntur debitis eum, maiores molestias mollitia pariatur quibusdam quod ratione sit voluptatem. Et harum nemo praesentium quia quisquam tenetur voluptas!</p>
+        </div>
+        <div class="img-container__animated">
+          <img class="img-fluid rounded x-translate" src="/public/img/running-springs-ca.webp" alt="Running Springs CA" style="filter: drop-shadow(5px 5px 3px rgba(0, 0, 0, 0.5));"/>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="container flex flex-row flex-wrap justify-center lg:justify-evenly">
+        {{range .Events}}
+          <div class="bg-gray-100 p-5 my-5 mx-5 lg:me-10 lg:ms-0 rounded w-[320px]">
+            <img class="img-fluid rounded" src="{{.Img}}" alt="{{.Title}}">
+            <div>
+              <h3 class="py-5">{{.Title}}</h3>
+              <p>{{.Description}}</p>
+              <p class="font-bold text-end py-3">On: {{.Date}}</p>
+              <a class="btn mt-3" href="{{.Path}}">Check it out!</a>
+            </div>
+          </div>
+        {{end}}
+      </div>
+      <div class="container flex flex-row items-center justify-between mt-10">
+        <a class="btn w-[175px] lg:w-[200px]" href="/community">← Community</a>
+        <a class="btn w-[175px] lg:w-[200px]" href="/community/businesses">Businesses →</a>
+      </div>
+    </section>
+  </main>
+{{end}}
+{{define "js"}}
+  <script src="/public/js/images.js"></script>
+  <script>
+    const communityImages = document.querySelector(".img-container__animated")
+    const observer = new IntersectionObserver(handleIntersection, options)
+    observer.observe(communityImages)
+  </script>
+{{end}}

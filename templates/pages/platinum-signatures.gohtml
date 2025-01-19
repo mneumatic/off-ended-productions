@@ -1,0 +1,32 @@
+{{template "base" .}}
+{{define "content"}}
+  <main id="platinum-signatures">
+    <section>
+      <div class="container flex flex-col-reverse xl:grid grid-cols-2 gap-7 justify-center">
+        <div>
+          <div class="text-center xl:text-start">
+            <span>The Professional</span>
+            <h2 class="display-2 raleway-600">Platinum Signatures</h2>
+            <p class="text-4xl permanent-marker-regular">Get it done right.</p>
+          </div>
+          <br>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A magni nemo nisi nostrum recusandae. Aut autem, blanditiis corporis cupiditate eligendi labore maiores, nam nihil obcaecati quam qui repellendus sequi, veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi illo magni tenetur veritatis. Esse eum modi officia possimus qui repudiandae ut. Accusantium cum dicta distinctio, ex impedit iste laboriosam sequi?</p>
+          <br>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam blanditiis cupiditate dignissimos eos est, eveniet excepturi expedita fugiat, impedit itaque nemo nesciunt nostrum nulla odit officiis ratione tenetur voluptas? Beatae.</p>
+        </div>
+        <div class="img-container__animated">
+          <!-- TODO: Image needs to be rework for clarity. -->
+          <img class="img-fluid rounded x-translate" src="/public/img/platinum-signatures.webp" alt="platinum-signatures" style="filter: drop-shadow(5px 5px 3px rgba(0, 0, 0, 0.5));"/>
+        </div>
+      </div>
+    </section>
+  </main>
+{{end}}
+{{define "js"}}
+  <script src="/public/js/images.js"></script>
+  <script>
+    const PSImages = document.querySelector(".img-container__animated")
+    const observer = new IntersectionObserver(handleIntersection, options)
+    observer.observe(PSImages)
+  </script>
+{{end}}

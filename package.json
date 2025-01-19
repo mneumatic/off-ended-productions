@@ -1,5 +1,5 @@
 {
-  "name": " ",
+  "name": "off-ended-productions",
   "version": "0.0.1",
   "description": "",
   "private": true,
@@ -7,22 +7,14 @@
     ""
   ],
   "license": "",
-  "author": "",
+  "author": "Michael Neumann (MNEUMATIC)",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack serve --open --config webpack.config.dev.js",
-    "watch:sass": "sass --watch --style=compressed css/main.sass css/main.css",
-    "tailwind": "npx tailwindcss -i ./css/main.css -o ./css/main.min.css --watch",
-    "build": "webpack --config webpack.config.prod.js"
+    "watch:sass": "sass --watch --style=compressed ./public/css/main.sass ./public/css/main.css",
+    "tailwind": "npx tailwindcss -i ./public/css/main.css -o ./public/css/main.min.css --watch"
   },
   "devDependencies": {
-    "copy-webpack-plugin": "^11.0.0",
-    "html-webpack-plugin": "^5.6.0",
     "sass": "^1.81.0",
-    "tailwindcss": "^3.4.15",
-    "webpack": "^5.91.0",
-    "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^5.0.4",
-    "webpack-merge": "^5.10.0"
+    "tailwindcss": "^3.4.15"
   }
 }

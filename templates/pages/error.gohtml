@@ -1,0 +1,22 @@
+{{template "base" .}}
+
+{{define "css"}}
+  <style>
+    html,
+    body {
+      height: 100%;
+    }
+  </style>
+{{end}}
+
+{{define "content"}}
+  <main class="flex flex-col items-center justify-center h-screen text-center">
+    <section>
+      <h1>Page Not <span>Found.</span></h1>
+      <p>Sorry! We couldn't find what you where looking for... Please Try again.</p>
+      <div class="flex justify-center mt-10">
+        <a href="/" class="btn xl:w-[200px]">Home</a>
+      </div>
+    </section>
+  </main>
+{{end}}

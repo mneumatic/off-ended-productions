@@ -1,0 +1,31 @@
+{{template "base" .}}
+{{define "content"}}
+  <main id="mneumatic-designs">
+    <section class="bg-black">
+      <div class="container flex flex-col-reverse xl:grid grid-cols-2 gap-7 items-center justify-center text-white">
+        <div>
+          <div class="text-center xl:text-start">
+            <span>The Nerd</span>
+            <h1 class="text-[70px]">MNEUMATIC Designs</h1>
+            <p class="text-4xl permanent-marker-regular">Design, Prototype, Build!</p>
+          </div>
+          <br>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab architecto beatae dolorum eius exercitationem, facilis maiores minima molestias nesciunt, nihil nulla obcaecati officia omnis porro quaerat quis quod quos veritatis!</p>
+        </div>
+        <div>
+          <div class="img-container__animated">
+            <img class="img-fluid rounded x-translate" src="/public/img/mneumatic-designs.webp" alt="MNEUMATIC Designs"/>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+{{end}}
+{{define "js"}}
+  <script src="/public/js/images.js"></script>
+  <script>
+    const PSImages = document.querySelector(".img-container__animated")
+    const observer = new IntersectionObserver(handleIntersection, options)
+    observer.observe(PSImages)
+  </script>
+{{end}}

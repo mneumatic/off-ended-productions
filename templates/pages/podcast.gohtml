@@ -1,0 +1,76 @@
+{{template "base" .}}
+{{define "content"}}
+  {{template "backButton"}}
+  <main id="podcast">
+    <section class="bg-black">
+      <div class="container flex flex-col-reverse xl:grid grid-cols-2 gap-7 items-center justify-center text-white">
+        <div>
+          <div class="text-center xl:text-start">
+            <span>The Off Ended</span>
+            <h1>PODCAST</h1>
+            <p class="text-4xl permanent-marker-regular">Unfiltered opinions, brutally served.</p>
+          </div>
+          <br>
+          <p>Join the crew of “The Off Ended Podcast” as we delve into a diverse range of topics, spanning from the controversial to the extraordinary. Brace yourself for an engaging experience as we engage in candid discussions 	with 2Jz Da Grown Folk DJ, Mountain Mike, and M.O., who will explore subjects that may elicit uncomfortable reactions in ordinary conversations.</p>
+          <br>
+          <span class="text-sm italic"><span class="font-extrabold">Disclaimer</span> - This podcast is not intended for individuals with a delicate sensibility or those who are easily offended. We acknowledge that this show may not appeal to everyone, and we welcome that fact.</span>
+        </div>
+        <div>
+          <div class="img-container__animated">
+            <img class="img-fluid rounded invisible" src="/public/img/oep-pod-mm.webp" alt="The Off Ended Podcast"/>
+            <img class="img-fluid rounded invisible" src="/public/img/oep-pod-2jz.webp" alt="The Off Ended Podcast"/>
+            <img class="img-fluid rounded invisible" src="/public/img/oep-pod-mo.webp" alt="The Off Ended Podcast"/>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container flex flex-col xl:grid grid-cols-2 gap-7 justify-center">
+        <div class="">
+          <div class="text-center xl:text-start">
+            <h2>Latest Ep.</h2>
+            <p class="text-4xl permanent-marker-regular">Watch on YouTube!</p>
+          </div>
+          <br>
+          <div class="flex justify-center xl:justify-start">
+            <div class="bg-gray-100 p-5 mb-5 rounded">
+              <iframe width="600" height="340" src="https://www.youtube-nocookie.com/embed?listType=playlist&list=UUMnM73TlYYTlgIsSjj1wEKg" frameborder="0" allowfullscreen ></iframe>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div  class="text-center xl:text-start">
+            <h2>Audio Only</h2>
+            <p class="text-4xl permanent-marker-regular">Listen here!</p>
+          </div>
+          <br>
+          {{range .Audio}}
+            <div class="bg-gray-100 p-5 mb-5 rounded">
+              <div class="flex flex-col justify-center xl:justify-start ">
+                <label class="block mb-3">{{.Title}}</label>
+                <audio controls class="w-full">
+                  <source src="{{.Path}}" type="audio/mpeg">
+                  Your browser does not support the audio element.
+                </audio>
+              </div>
+            </div>
+          {{end}}
+        </div>
+      </div>
+      <div class="flex flex-row text-sm items-center justify-center mt-10">
+        <span class="me-3">Not Seeing what you're looking for? Probably got banned. Listen to the audio here or try:</span>
+        <a class="scale" href="/" title="OEP on Rumble" aria-label="OEP on Rumble" target="_blank" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" baseProfile="basic" viewBox="0 0 48 48"><path fill="#8bc34a" d="M38.544,16.899C34.578,13.008,23.053,5,16,5c-3,0-6,1-8,6S6,24,6,24s0,8,2,13s5,6,8,6	c7.053,0,18.578-8.008,22.544-11.899C40.204,29.473,42,27.422,42,24C42,20.578,40.204,18.527,38.544,16.899z"/><path fill="#fff" d="M16.472,19.839c-0.296,2.881-0.296,5.441,0,8.322c0.209,2.031,2.321,3.298,4.187,2.469	c1.979-0.879,4.578-2.234,7.324-4.22c1.629-1.178,1.629-3.642,0-4.82c-2.746-1.986-5.345-3.342-7.324-4.22	C18.793,16.541,16.681,17.808,16.472,19.839z"/></svg></a>
+      </div>
+    </section>
+
+  </main>
+{{end}}
+{{define "js"}}
+  <script src="/public/js/images.js"></script>
+  <script>
+    const podcastImages = document.querySelector(".img-container__animated")
+    const observer = new IntersectionObserver(handleIntersection, options)
+    observer.observe(podcastImages)
+  </script>
+{{end}}
