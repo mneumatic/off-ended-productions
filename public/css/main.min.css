@@ -1105,6 +1105,12 @@ main{
   overflow-x:hidden
 }
 
+@media(max-width: 768px){
+  main{
+    padding-top:2.5rem
+  }
+}
+
 section,footer{
   padding-top:2.5rem;
   padding-bottom:2.5rem
@@ -1561,10 +1567,6 @@ footer nav a:hover{
 }
 
 @media (min-width: 1280px) {
-  .xl\:mb-0 {
-    margin-bottom: 0px;
-  }
-
   .xl\:grid {
     display: grid;
   }
