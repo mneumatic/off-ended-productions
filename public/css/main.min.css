@@ -811,6 +811,10 @@ video {
   flex-shrink: 0;
 }
 
+.shrink-0 {
+  flex-shrink: 0;
+}
+
 .border-collapse {
   border-collapse: collapse;
 }
@@ -1581,6 +1585,10 @@ footer nav a:hover{
 
   .lg\:text-start {
     text-align: start;
+  }
+
+  .lg\:text-\[70px\] {
+    font-size: 70px;
   }
 }
 
