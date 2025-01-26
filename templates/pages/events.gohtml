@@ -17,19 +17,25 @@
         </div>
       </div>
     </section>
-    <section>
-      <div class="container flex flex-row flex-wrap justify-center lg:justify-evenly">
-        {{range .Events}}
-          <div class="bg-gray-100 p-5 my-5 mx-5 lg:me-10 lg:ms-0 rounded w-[320px]">
-            <img class="img-fluid rounded" src="{{.Img}}" alt="{{.Title}}">
-            <div>
-              <h3 class="py-5">{{.Title}}</h3>
-              <p>{{.Description}}</p>
-              <p class="font-bold text-end py-3">On: {{.Date}}</p>
-              <a class="btn mt-3" href="{{.Path}}">Check it out!</a>
+    <section class="oep-stickman">
+      <div>
+        <h2 class="text-center">Upcoming Events</h2>
+        <div class="container flex flex-row flex-wrap justify-center lg:justify-evenly">
+          {{range .Events}}
+            <div class="event bg-gray-100 p-5 my-5 mx-5 lg:me-10 lg:ms-0 rounded w-[320px]">
+              <img class="img-fluid rounded" src="{{.Img}}" alt="{{.Title}}">
+              <div>
+                <h3 class="py-5">{{.Title}}</h3>
+                <p>{{.Description}}</p>
+                <div class="flex flex-col text-end py-3">
+                  <span>{{.Hours}}</span>
+                  <address>{{.Location}}</address>
+                </div>
+                <p class="date font-bold text-end py-3">On: {{.Date}}</p>
+              </div>
             </div>
-          </div>
-        {{end}}
+          {{end}}
+        </div>
       </div>
       <div class="container flex flex-row items-center justify-between mt-10">
         <a class="btn w-[175px] lg:w-[200px]" href="/community">← Community</a>
@@ -40,9 +46,22 @@
 {{end}}
 {{define "js"}}
   <script src="/public/js/images.js"></script>
+  <script src="/public/js/vendor/moment.js"></script>
   <script>
     const communityImages = document.querySelector(".img-container__animated")
     const observer = new IntersectionObserver(handleIntersection, options)
     observer.observe(communityImages)
+
+    const events = document.querySelectorAll('.event')
+    const date = new Date()
+
+    // TODO: Add an additional day to event so even appears on the day of said event.
+    events.forEach(element => {
+      const tmp = moment(date).format()
+      const eventDate = moment(element.querySelector('.date').innerText).format()
+      if (tmp > eventDate) {
+        element.remove()
+      }
+    })
   </script>
 {{end}}

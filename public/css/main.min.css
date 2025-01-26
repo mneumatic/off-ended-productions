@@ -1578,6 +1578,10 @@ footer nav a:hover{
   .lg\:justify-evenly {
     justify-content: space-evenly;
   }
+
+  .lg\:text-start {
+    text-align: start;
+  }
 }
 
 @media (min-width: 1280px) {

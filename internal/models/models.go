@@ -34,6 +34,8 @@ type Event struct {
 	Description string
 	Img         string
 	Date        string
+	Location    string
+	Hours       string
 }
 
 type Music struct {
