@@ -1589,6 +1589,10 @@ footer nav a:hover{
     width: 200px;
   }
 
+  .xl\:flex-col-reverse {
+    flex-direction: column-reverse;
+  }
+
   .xl\:justify-start {
     justify-content: flex-start;
   }
@@ -1599,6 +1603,10 @@ footer nav a:hover{
 
   .xl\:text-start {
     text-align: start;
+  }
+
+  .xl\:text-end {
+    text-align: end;
   }
 }
 
