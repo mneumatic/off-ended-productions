@@ -1333,6 +1333,10 @@ h1,h2{
   background-color:hsla(0,0%,100%,.5)
 }
 
+.bg-black-alpha{
+  filter:blur(3px)
+}
+
 #site-navigation-navbar{
   z-index:3
 }

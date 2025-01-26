@@ -42,6 +42,8 @@ type Music struct {
 	Description string
 	Img         string
 	Date        string
+	Location    string
+	Hours       string
 }
 
 type Business struct {
