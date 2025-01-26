@@ -15,8 +15,12 @@ module.exports = {
           DEFAULT: '1rem',
           md: '0'
         }
-      }
+      },
     },
+    colors: {
+      white: '#f2f0ef',
+      black: '#000000',
+    }
   },
   plugins: [],
 }
