@@ -13,6 +13,7 @@ type Template struct {
 	Production bool
 	Videos     interface{}
 	Audio      interface{}
+	Music      interface{}
 	Events     interface{}
 	Businesses interface{}
 	Categories interface{}
@@ -28,6 +29,14 @@ type Audio struct {
 }
 
 type Event struct {
+	Path        string
+	Title       string
+	Description string
+	Img         string
+	Date        string
+}
+
+type Music struct {
 	Path        string
 	Title       string
 	Description string

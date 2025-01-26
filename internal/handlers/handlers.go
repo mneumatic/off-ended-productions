@@ -54,6 +54,7 @@ func (m *Repository) TwoJzMusic(w http.ResponseWriter, r *http.Request) {
 	if ok {
 		render.RenderTemplate(w, r, "twojz-music.gohtml", &models.Template{
 			Title: "2Jz Music | Off Ended Productions",
+			Music: data.MusicData(),
 		})
 	}
 }

@@ -17,10 +17,6 @@ module.exports = {
         }
       },
     },
-    colors: {
-      white: '#f2f0ef',
-      black: '#000000',
-    }
   },
   plugins: [],
 }
