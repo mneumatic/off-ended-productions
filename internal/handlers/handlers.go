@@ -42,9 +42,7 @@ func (m *Repository) Podcast(w http.ResponseWriter, r *http.Request) {
 	ok := errors.HttpErrors(w, r, "GET")
 	if ok {
 		render.RenderTemplate(w, r, "podcast.gohtml", &models.Template{
-			Title:  "Podcast | Off Ended Productions",
-			Videos: data.VideoData(),
-			Audio:  data.AudioData(),
+			Title: "Podcast | Off Ended Productions",
 		})
 	}
 }
@@ -119,7 +117,8 @@ func (m *Repository) About(w http.ResponseWriter, r *http.Request) {
 	ok := errors.HttpErrors(w, r, "GET")
 	if ok {
 		render.RenderTemplate(w, r, "about.gohtml", &models.Template{
-			Title: "About | Off Ended Productions",
+			Title:      "About | Off Ended Productions",
+			Categories: data.CategoryData(),
 		})
 	}
 }

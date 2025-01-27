@@ -11,21 +11,10 @@ type Template struct {
 	Error      string
 	Title      string
 	Production bool
-	Videos     interface{}
-	Audio      interface{}
 	Music      interface{}
 	Events     interface{}
 	Businesses interface{}
 	Categories interface{}
-}
-
-type Video struct {
-	Path string
-}
-
-type Audio struct {
-	Path  string
-	Title string
 }
 
 type Event struct {
