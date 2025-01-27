@@ -1589,6 +1589,10 @@ footer nav a:hover{
     margin-top: 0px;
   }
 
+  .xl\:ml-6 {
+    margin-left: 1.5rem;
+  }
+
   .xl\:inline-block {
     display: inline-block;
   }
@@ -1605,6 +1609,10 @@ footer nav a:hover{
     display: none;
   }
 
+  .xl\:max-h-full {
+    max-height: 100%;
+  }
+
   .xl\:w-\[200px\] {
     width: 200px;
   }
@@ -1617,12 +1625,20 @@ footer nav a:hover{
     flex-direction: row;
   }
 
+  .xl\:items-center {
+    align-items: center;
+  }
+
   .xl\:justify-start {
     justify-content: flex-start;
   }
 
   .xl\:justify-end {
     justify-content: flex-end;
+  }
+
+  .xl\:justify-between {
+    justify-content: space-between;
   }
 
   .xl\:px-4 {
