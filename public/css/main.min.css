@@ -1498,6 +1498,12 @@ footer nav a:hover{
   text-underline-position:under !important
 }
 
+@media (min-width: 640px) {
+  .sm\:flex-row {
+    flex-direction: row;
+  }
+}
+
 @media (min-width: 768px) {
   .md\:mt-0 {
     margin-top: 0px;
@@ -1577,6 +1583,10 @@ footer nav a:hover{
 
   .xl\:w-\[200px\] {
     width: 200px;
+  }
+
+  .xl\:flex-row {
+    flex-direction: row;
   }
 
   .xl\:justify-start {
