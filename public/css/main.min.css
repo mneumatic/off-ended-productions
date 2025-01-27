@@ -1601,6 +1601,10 @@ footer nav a:hover{
     display: grid;
   }
 
+  .xl\:hidden {
+    display: none;
+  }
+
   .xl\:w-\[200px\] {
     width: 200px;
   }
