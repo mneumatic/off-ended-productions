@@ -1521,6 +1521,10 @@ footer nav a:hover{
     width: auto;
   }
 
+  .md\:justify-end {
+    justify-content: flex-end;
+  }
+
   .md\:text-start {
     text-align: start;
   }
@@ -1539,6 +1543,10 @@ footer nav a:hover{
     margin-inline-start: 0px;
   }
 
+  .lg\:grid {
+    display: grid;
+  }
+
   .lg\:w-\[200px\] {
     width: 200px;
   }
@@ -1547,8 +1555,16 @@ footer nav a:hover{
     flex-direction: row;
   }
 
+  .lg\:justify-end {
+    justify-content: flex-end;
+  }
+
   .lg\:justify-evenly {
     justify-content: space-evenly;
+  }
+
+  .lg\:text-start {
+    text-align: start;
   }
 
   .lg\:text-\[70px\] {
@@ -1569,6 +1585,10 @@ footer nav a:hover{
     margin-bottom: 0px;
   }
 
+  .xl\:mt-0 {
+    margin-top: 0px;
+  }
+
   .xl\:inline-block {
     display: inline-block;
   }
@@ -1583,6 +1603,10 @@ footer nav a:hover{
 
   .xl\:w-\[200px\] {
     width: 200px;
+  }
+
+  .xl\:w-auto {
+    width: auto;
   }
 
   .xl\:flex-row {
