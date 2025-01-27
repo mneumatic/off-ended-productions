@@ -7,12 +7,12 @@ import (
 func AudioData() []models.Audio {
 	return []models.Audio{
 		{
-			Path:  "/public/audio/pilot-2.mp3",
-			Title: "Pilot #2",
+			Path:  "https://anchor.fm/s/f71e47c0/podcast/rss",
+			Title: "Ep. 2 - 2Jz Finds His Bracelet | CA Fires",
 		},
 		{
-			Path:  "/public/audio/pilot-1.mp3",
-			Title: "Pilot #1",
+			Path:  "https://anchor.fm/s/f71e47c0/podcast/rss",
+			Title: "Ep. 1 - 2Jz Loses His Bracelet",
 		},
 	}
 }
