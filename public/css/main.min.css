@@ -618,6 +618,10 @@ video {
   position: relative;
 }
 
+.sticky {
+  position: sticky;
+}
+
 .bottom-12 {
   bottom: 3rem;
 }
@@ -634,12 +638,21 @@ video {
   top: 4rem;
 }
 
+.top-\[70px\] {
+  top: 70px;
+}
+
 .float-left {
   float: left;
 }
 
 .m-0 {
   margin: 0px;
+}
+
+.mx-1 {
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
 }
 
 .mx-2 {
@@ -788,12 +801,21 @@ video {
   height: 100vh;
 }
 
+.h-fit {
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
 .max-h-0 {
   max-height: 0px;
 }
 
 .max-h-full {
   max-height: 100%;
+}
+
+.w-6 {
+  width: 1.5rem;
 }
 
 .w-\[175px\] {
@@ -957,6 +979,10 @@ video {
   padding: 2.5rem;
 }
 
+.p-2 {
+  padding: 0.5rem;
+}
+
 .p-5 {
   padding: 1.25rem;
 }
@@ -1034,6 +1060,10 @@ video {
   font-weight: 800;
 }
 
+.uppercase {
+  text-transform: uppercase;
+}
+
 .italic {
   font-style: italic;
 }
@@ -1094,7 +1124,6 @@ video {
 }
 
 html{
-  background-color:#fff;
   color:#222;
   font-size:1em;
   line-height:1.4
@@ -1317,18 +1346,11 @@ h1,h2{
 }
 
 .scale{
-  transition:transform .5s ease-in-out
-}
-
-.scale img{
-  transition:box-shadow .5s ease-in-out
+  transition:transform .5s ease-in-out,box-shadow .5s ease-in-out
 }
 
 .scale:hover{
-  transform:scale(1.2)
-}
-
-.scale:hover img{
+  transform:scale(1.2);
   box-shadow:5px 5px 8px rgba(0,0,0,.5)
 }
 
@@ -1514,6 +1536,10 @@ footer nav a:hover{
 }
 
 @media (min-width: 768px) {
+  .md\:absolute {
+    position: absolute;
+  }
+
   .md\:inline-block {
     display: inline-block;
   }
@@ -1532,6 +1558,10 @@ footer nav a:hover{
 }
 
 @media (min-width: 1024px) {
+  .lg\:absolute {
+    position: absolute;
+  }
+
   .lg\:me-10 {
     margin-inline-end: 2.5rem;
   }
@@ -1554,6 +1584,10 @@ footer nav a:hover{
 }
 
 @media (min-width: 1280px) {
+  .xl\:absolute {
+    position: absolute;
+  }
+
   .xl\:relative {
     position: relative;
   }

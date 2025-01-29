@@ -46,8 +46,8 @@
             <div class="p-10 w-[320px] text-center">
               <a class="img-container__animated scale" href="{{.Url}}" title="{{.Title}} →" aria-label="{{.Title}}">
                 <img class="img-fluid rounded outline y-translate" src="/public/img/{{.Img}}" alt="{{.Title}}">
-                <figcaption class="caption permanent-marker-regular transition-opacity mt-2">{{.Title}}</figcaption>
               </a>
+              <figcaption class="caption permanent-marker-regular transition-opacity mt-2">{{.Title}}</figcaption>
             </div>
           {{end}}
         </div>
@@ -59,7 +59,7 @@
   <script src="/public/js/images.js"></script>
   <script>
     const contentLinks = document.querySelectorAll(".img-container__animated")
-    const captions = document.querySelectorAll(".img-container__animated figcaption")
+    const captions = document.querySelectorAll("figcaption")
     const observer = new IntersectionObserver(handleIntersection, options)
     const observerCaptions = new IntersectionObserver(handleCaptions, options)
     const mottoSpans = document.querySelectorAll("#motto span")

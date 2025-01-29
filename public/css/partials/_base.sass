@@ -1,5 +1,4 @@
 html
-  background-color:  theme('colors.white')
   color: #222
   font-size: 1em
   line-height: 1.4
@@ -186,16 +185,11 @@ h2
     width: 100%
 
 .scale
-    transition: transform .5s ease-in-out
-
-    img
-      transition: box-shadow .5s ease-in-out
+    transition: transform .5s ease-in-out, box-shadow .5s ease-in-out
 
     &:hover
       transform: scale(1.2)
-
-      img
-        box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.5)
+      box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.5)
 
 .classic-link
   color: blue

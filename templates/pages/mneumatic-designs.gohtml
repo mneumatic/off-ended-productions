@@ -23,16 +23,23 @@
     </section>
     <section class="oep-stickman">
       <div>
-
+        <div class="text-center">
+          <h2>Projects</h2>
+        </div>
+        <div class="container relative flex flex-col xl:grid grid-cols-2 gap-7">
+          <div id="github-user" class="flex justify-center"></div>
+          <div id="github-repos" class="flex flex-wrap justify-center"></div>
+        </div>
       </div>
     </section>
   </main>
 {{end}}
 {{define "js"}}
   <script src="/public/js/images.js"></script>
+  <script src="/public/js/github.js"></script>
   <script>
-    const PSImages = document.querySelector(".img-container__animated")
+    const MNEUMATICImages = document.querySelector(".img-container__animated")
     const observer = new IntersectionObserver(handleIntersection, options)
-    observer.observe(PSImages)
+    observer.observe(MNEUMATICImages)
   </script>
 {{end}}
