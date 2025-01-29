@@ -22,17 +22,19 @@
       </div>
     </section>
     <section class="oep-stickman">
-      <div>
-
+      <div class="container flex flex-col-reverse xl:grid grid-cols-2 gap-7 justify-center">
+        <div id="github-user"></div>
+        <div id="github-repos"></div>
       </div>
     </section>
   </main>
 {{end}}
 {{define "js"}}
   <script src="/public/js/images.js"></script>
+  <script src="/public/js/github.js"></script>
   <script>
-    const PSImages = document.querySelector(".img-container__animated")
+    const MNEUMATICImages = document.querySelector(".img-container__animated")
     const observer = new IntersectionObserver(handleIntersection, options)
-    observer.observe(PSImages)
+    observer.observe(MNEUMATICImages)
   </script>
 {{end}}
