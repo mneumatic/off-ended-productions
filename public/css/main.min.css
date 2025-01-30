@@ -1015,6 +1015,14 @@ video {
   padding-top: 1.25rem;
 }
 
+.pe-1 {
+  padding-inline-end: 0.25rem;
+}
+
+.pe-3 {
+  padding-inline-end: 0.75rem;
+}
+
 .text-center {
   text-align: center;
 }
@@ -1058,6 +1066,10 @@ video {
 
 .font-extrabold {
   font-weight: 800;
+}
+
+.font-light {
+  font-weight: 300;
 }
 
 .uppercase {
