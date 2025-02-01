@@ -5,6 +5,9 @@ const Mottos = require('../models/mottos');
 const MusicEvents = require('../models/music');
 const CommunityEvents = require('../models/communityEvents');
 const CommunityBusinesses = require('../models/communityBusinesses');
+const GitBadges = require('../models/gitbadges');
+const gitUser = require('../data/gituser.json');
+const gitRepos = require('../data/gitrepos.json');
 
 
 /* GET home page. */
@@ -37,7 +40,13 @@ router.get('/platinum-signatures', async (req, res) => {
 });
 
 router.get('/mneumatic-designs', async (req, res) => {
-  res.render('mneumatic-designs', { title: 'MNEUMATIC Designs | OEP' });
+  const gitBadges = await GitBadges.find({});
+  res.render('mneumatic-designs', {
+    title: 'MNEUMATIC Designs | OEP',
+    gitUser,
+    gitRepos,
+    gitBadges
+  });
 });
 
 router.get('/community', async (req, res) => {

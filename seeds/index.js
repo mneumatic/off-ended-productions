@@ -9,7 +9,7 @@ db.on("error", console.error.bind(console, "connection error:"))
 
 const data = [
     {
-        imagePath:  "/img/oep-podcast.ejs-logo.webp",
+        imagePath:  "/img/oep-podcast-logo.webp",
         title:  "The Off Ended Podcast",
         urlPath:    "/podcast.ejs"
     },

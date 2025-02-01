@@ -185,16 +185,17 @@ h2
     width: 100%
 
 .scale
-    transition: transform .5s ease-in-out
-
-    img
-      transition: box-shadow .5s ease-in-out
+    transition: transform .5s ease-in-out, box-shadow .5s ease-in-out
 
     &:hover
-      transform: scale(1.2)
+      transform: scale(1.1)
+      box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5)
 
-      img
-        box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.5)
+#github-user a.scale,
+#github-repos a.scale
+  &:hover
+    transform: scale(1.05) !important
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5)
 
 .classic-link
   color: blue
@@ -220,3 +221,23 @@ h2
 
 .bg-black-alpha
   filter: blur(3px)
+
+.read-more-state
+  display: none
+
+.read-more-target
+  opacity: 0
+  max-height: 0
+  font-size: 0
+  transition: opacity 1s ease-in-out
+
+.read-more-state:checked ~ ul .read-more-wrap .read-more-target
+  opacity: 1
+  font-size: inherit
+  max-height: 999em
+
+.read-more-state ~ .read-more-trigger:before
+  content: 'More'
+
+.read-more-state:checked ~ .read-more-trigger:before
+  content: 'Close'

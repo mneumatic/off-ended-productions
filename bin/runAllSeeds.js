@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const { exec } = require('child_process');
 
-const directoryPath = path.join(__dirname, './');
+const directoryPath = path.join(__dirname, '../seeds/');
 
 fs.readdir(directoryPath, (err, files) => {
   if (err) {
