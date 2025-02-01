@@ -1,0 +1,55 @@
+{
+  "status": "ok",
+  "feed": {
+    "url": "https://anchor.fm/s/f71e47c0/podcast/rss",
+    "title": "The Off Ended Podcast",
+    "link": "https://podcasters.spotify.com/pod/show/michael44769",
+    "author": "Michael",
+    "description": "Join the fearless crew of \"The Off Ended Podcast\" as we tackle a brutal range of topics, from the forbidden to the outrageous. Get ready for an unfiltered experience as 2Jz Da Grown Folk DJ, Mountain Mike, and M.O. dive headfirst into discussions that are bound to make even the boldest squirm.",
+    "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/41359568/41359568-1737936440789-1a771df040211.jpg"
+  },
+  "items": [
+    {
+      "title": "Ep. 2 - 2Jz Finds His Bracelet | CA Fires",
+      "pubDate": "2025-01-27 00:27:40",
+      "link": "https://podcasters.spotify.com/pod/show/michael44769/episodes/Ep--2---2Jz-Finds-His-Bracelet--CA-Fires-e2u14hk",
+      "guid": "2af74109-ac0c-402b-8acd-34d2552a81e3",
+      "author": "Michael",
+      "thumbnail": "",
+      "description": "<p>The guys are back after a week of power outages, raging winds, and fires.\n\n</p>",
+      "content": "<p>The guys are back after a week of power outages, raging winds, and fires.\n\n</p>",
+      "enclosure": {
+        "link": "https://anchor.fm/s/f71e47c0/podcast/play/97603572/https://d3ctxlq1ktw2nl.cloudfront.net/staging/2025-0-27/4e547520-48ac-a071-cc9b-16f0a2b0c337.mp3",
+        "type": "audio/mpeg",
+        "length": 55937759,
+        "duration": 3496,
+        "rating": {
+          "scheme": "urn:itunes",
+          "value": "No"
+        }
+      },
+      "categories": []
+    },
+    {
+      "title": "Ep. 1 - 2Jz Loses His Bracelet",
+      "pubDate": "2025-01-27 00:25:18",
+      "link": "https://podcasters.spotify.com/pod/show/michael44769/episodes/Ep--1---2Jz-Loses-His-Bracelet-e2u14ev",
+      "guid": "fbc8a7c4-9efb-42c3-b9bd-995113e643b1",
+      "author": "Michael",
+      "thumbnail": "",
+      "description": "<p>The first time back at it in 2025! \n\nToday the gentlemen discuss the tragedy in New Orleans, the Steam Deck and the loss of 2Jz bracelet.\n\n</p>",
+      "content": "<p>The first time back at it in 2025! \n\nToday the gentlemen discuss the tragedy in New Orleans, the Steam Deck and the loss of 2Jz bracelet.\n\n</p>",
+      "enclosure": {
+        "link": "https://anchor.fm/s/f71e47c0/podcast/play/97603487/https://d3ctxlq1ktw2nl.cloudfront.net/staging/2025-0-27/1c6ecc0d-b944-b272-2174-743324c2a273.mp3",
+        "type": "audio/mpeg",
+        "length": 47953639,
+        "duration": 2997,
+        "rating": {
+          "scheme": "urn:itunes",
+          "value": "No"
+        }
+      },
+      "categories": []
+    }
+  ]
+}
