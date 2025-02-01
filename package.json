@@ -6,7 +6,7 @@
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www",
     "seeds": "node ./bin/runAllSeeds.js",
-    "github": "node ./bin/github.js",
+    "github": "node bin/getData.js",
     "watch:sass": "sass --watch --style=compressed ./public/css/main.sass ./public/css/main.css",
     "tailwind": "tailwindcss --config tailwind.config.js -i ./public/css/main.css -o ./public/css/main.min.css --watch"
   },

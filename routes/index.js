@@ -8,6 +8,7 @@ const CommunityBusinesses = require('../models/communityBusinesses');
 const GitBadges = require('../models/gitbadges');
 const gitUser = require('../data/gituser.json');
 const gitRepos = require('../data/gitrepos.json');
+const rssFeed = require('../data/rss.json');
 
 
 /* GET home page. */
@@ -24,7 +25,11 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/podcast', async (req, res) => {
-  res.render('podcast', { title: 'Podcast | OEP' });
+  const recentItems = rssFeed.items.slice(0, 3);
+  res.render('podcast', {
+    title: 'Podcast | OEP',
+    rssFeed: recentItems
+  });
 });
 
 router.get('/twojz-music', async (req, res) => {
