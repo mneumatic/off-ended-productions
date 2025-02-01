@@ -10,31 +10,38 @@ function handleIntersection(entries, observer) {
       // Element is in view, do something
       const elements = entry.target.children
       let array = []
+      let multipliers = [0, 400, 800]
 
-      if (elements.length > 2) {
-        for (let i = 0; i < elements.length; i++) {
-          if (elements[i].tagName === 'IMG') {
-            array.push(elements[i])
-          } else {
-            array.push(elements[i].querySelector('img'))
-          }
-        }
-        showImages(array)
-      } else {
-        slideImage(elements[0])
+      for (let i = 0; i < elements.length; i++) {
+          array.push(elements[i])
       }
+
+      console.log(array)
+      array.forEach((element, index) => {
+        setTimeout(function () {
+          if (element.classList.contains('y-translate')) {
+            element.classList.add("slide-element")
+          } else {
+            element.classList.add("show-element")
+          }
+
+        }, multipliers[index]);
+      })
 
       // Optionally stop observing the element
       observer.unobserve(entry.target)
     }
   })
 }
+
 function handleCaptions(entries, observer) {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
       // Element is in view, do something
       const elements = entry.target
-      showCaptions(elements)
+      setTimeout(() => {
+        elements.classList.add('show-caption')
+      }, 1200)
 
       // Optionally stop observing the element
       observer.unobserve(entry.target)
@@ -45,19 +52,14 @@ function handleCaptions(entries, observer) {
 function showImages (elements) {
   let multipliers = [0, 400, 800]
 
-  elements.forEach((entry, index) => {
+  elements.forEach((element, index) => {
     setTimeout(function () {
-      entry.classList.add("show-img")
+      if (element.classList.contains('y-translate')) {
+        element.classList.add("slide-img")
+      } else {
+        element.classList.add("show-img")
+      }
+
     }, multipliers[index]);
   })
-}
-
-function slideImage (element) {
-  element.classList.add("slide-img")
-}
-
-function showCaptions (element) {
-  setTimeout(() => {
-    element.classList.add('show-caption')
-  }, 1200)
 }

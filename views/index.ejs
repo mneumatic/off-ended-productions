@@ -30,7 +30,7 @@
               <div class="flex flex-col sm:flex-row flex-wrap items-center justify-evenly">
                   <% for (let category of categories) { %>
                       <div class="p-10 w-[320px] text-center">
-                          <a class="img-container__animated scale rounded" href="<%- category.urlPath %>" title="<%= category.title %> →" aria-label="<%= category.title %>">
+                          <a class="container__animated scale rounded" href="<%- category.urlPath %>" title="<%= category.title %> →" aria-label="<%= category.title %>">
                               <img class="img-fluid y-translate rounded" src="<%- category.imagePath %>" alt="<%= category.title %>">
                           </a>
                           <figcaption class="caption permanent-marker-regular transition-opacity mt-2"><%= category.title %></figcaption>
@@ -44,7 +44,7 @@
   <%- include('partials/scripts.ejs') %>
   <script src="js/images.js"></script>
   <script>
-      const contentLinks = document.querySelectorAll(".img-container__animated")
+      const contentLinks = document.querySelectorAll(".container__animated")
       const captions = document.querySelectorAll("figcaption")
       const observer = new IntersectionObserver(handleIntersection, options)
       const observerCaptions = new IntersectionObserver(handleCaptions, options)

@@ -15,8 +15,8 @@
                     <br>
                     <p>Off Ended Productions is all about amplifying the pulse of our local community by backing the events that bring us all together. From vibrant street festivals that showcase local talent to groundbreaking tech expos and inspiring arts showcases, we're right there in the mix, lending our support and expertise. We believe in the power of shared experiences to spark creativity, foster connections, and celebrate the spirit of our community. At Off Ended Productions, we're not just participants—we're passionate advocates for the events that make our local scene so dynamic and unforgettable.</p>
                 </div>
-                <div class="img-container__animated">
-                    <img class="img-fluid rounded x-translate" src="/img/running-springs-ca.webp" alt="Running Springs CA" />
+                <div class="container__animated">
+                    <img class="img-fluid rounded invisible" src="/img/running-springs-ca.webp" alt="Running Springs CA" />
                 </div>
             </div>
         </section>
@@ -25,8 +25,8 @@
                 <h2 class="text-center">Upcoming Events</h2>
                 <div class="container flex flex-row flex-wrap justify-center lg:justify-evenly">
                     <% for (let event of events ) { %>
-                        <div class="event bg-gray-100 p-5 my-5 mx-5 lg:me-10 lg:ms-0 rounded w-[320px]">
-                            <img class="img-fluid rounded" src="<%- event.imagePath %>" alt="<%- event.title %>">
+                        <div class="event bg-black p-5 my-5 mx-5 lg:me-10 lg:ms-0 rounded w-[320px]">
+                            <img class="img-fluid rounded outline outline-1" src="<%- event.imagePath %>" alt="<%- event.title %>">
                             <div>
                                 <h3 class="py-5"><%= event.title %></h3>
                                 <p><%- event.description %></p>
@@ -41,8 +41,8 @@
                 </div>
             </div>
             <div class="container flex flex-row items-center justify-between mt-10">
-                <a class="btn w-[175px] lg:w-[200px]" href="/community">← Community</a>
-                <a class="btn w-[175px] lg:w-[200px]" href="/community/businesses">Businesses →</a>
+                <a class="btn w-[175px] lg:w-[200px] outline outline-1" href="/community">← Community</a>
+                <a class="btn w-[175px] lg:w-[200px] outline outline-1" href="/community/businesses">Businesses →</a>
             </div>
         </section>
     </main>
@@ -51,7 +51,7 @@
     <script src="/js/images.js"></script>
     <script src="/js/vendor/moment.js"></script>
     <script>
-        const communityImages = document.querySelector(".img-container__animated")
+        const communityImages = document.querySelector(".container__animated")
         const observer = new IntersectionObserver(handleIntersection, options)
         observer.observe(communityImages)
 

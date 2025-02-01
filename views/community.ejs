@@ -16,10 +16,9 @@
                     <p>Our community page facilitates residence-specific discussions, enabling us to address the concerns of our local community. We prioritize current local events, recommendations from long-term residents, and intriguing attractions to visit. Additionally, we disseminate pertinent news and information pertaining to our mountain communities.</p>
                     <br>
                     <p>Nestled in the foothills of the San Bernardino Mountains, Running Springs is a close-knit community renowned for its robust sense of camaraderie and ample outdoor recreational opportunities. The surrounding natural splendor draws outdoor enthusiasts, while the proximity to nearby towns facilitates convenient access to essential services, fostering a harmonious lifestyle for its residents.</p>
-
                 </div>
-                <div class="img-container__animated">
-                    <img class="img-fluid rounded x-translate" src="/img/running-springs-ca.webp" alt="Running Springs CA"/>
+                <div class="container__animated">
+                    <img class="img-fluid rounded invisible" src="/img/running-springs-ca.webp" alt="Running Springs CA"/>
                 </div>
             </div>
         </section>
@@ -29,9 +28,9 @@
                     <h2>Running Springs</h2>
                     <p class="text-4xl permanent-marker-regular">Check Out Our Mountain Community!</p>
                 </div>
-                <div class="flex flex-row justify-center mt-10 ">
-                    <a class="btn me-5 w-[200px]" href="/community/events">Events</a>
-                    <a class="btn w-[200px]" href="/community/businesses">Businesses</a>
+                <div class="flex flex-row container__animated-flex justify-center mt-10 ">
+                    <a class="btn me-5 w-[200px] y-translate" href="/community/events">Events</a>
+                    <a class="btn w-[200px] y-translate" href="/community/businesses">Businesses</a>
                 </div>
             </div>
         </section>
@@ -40,9 +39,17 @@
     <%- include('partials/scripts.ejs') %>
     <script src="/js/images.js"></script>
     <script>
-        const communityImages = document.querySelector(".img-container__animated")
+        const communityImages = document.querySelectorAll(".container__animated")
+        const communityDivs = document.querySelectorAll(".container__animated-flex")
         const observer = new IntersectionObserver(handleIntersection, options)
-        observer.observe(communityImages)
+
+        communityImages.forEach(element => {
+          observer.observe(element)
+        })
+
+        communityDivs.forEach(element => {
+          observer.observe(element)
+        })
     </script>
 </body>
 </html>

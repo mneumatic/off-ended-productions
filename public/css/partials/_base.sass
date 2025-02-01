@@ -129,7 +129,7 @@ h2
     background-color: black
     color: white
 
-.show-img
+.show-element
   visibility: visible !important
   animation: fadein 1s forwards !important
   transform: translateZ(0)
@@ -138,9 +138,9 @@ h2
   opacity: 0
 
 .show-caption
-  animation: fadein 1s forwards !important
+  animation: fade-in 1s forwards !important
 
-@keyframes fadein
+@keyframes fade-in
   from
     opacity: 0
   to
@@ -158,33 +158,32 @@ h2
   to
     opacity: 0
 
-.x-translate
-  transform: translateX(100vw)
-
-.-x-translate
-  transform: translateX(-100vw)
-
 .y-translate
   transform: translateY(100vh)
 
-.slide-img
-  animation: slide-in 1s forwards !important
+.slide-element
+  animation: slide-in 1s forwards, fade-in 3s forwards !important
 
 @keyframes slide-in
   to
     transform: translateX(0) translateY(0)
 
-.img-container__animated
+.container__animated
   display: grid
   grid-template-columns: 1fr
   grid-template-rows: 1fr
 
-
   img
     grid-column: 1
     grid-row: 1
-    overflow: hidden
+    overflow-x: hidden
     width: 100%
+
+.container__animated-flex
+  display: flex !important
+  flex-wrap: wrap !important
+  overflow: hidden
+
 
 .scale
     transition: transform .5s ease-in-out, box-shadow .5s ease-in-out

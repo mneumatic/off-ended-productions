@@ -8,7 +8,7 @@
             <div class="container flex flex-col-reverse xl:grid grid-cols-2 gap-7 justify-center text-white">
                 <div>
                     <div class="text-center xl:text-start">
-                        <span>The Professional</span>
+                        <span>The Muscle</span>
                         <h2 class="display-2 raleway-600">Platinum Signatures</h2>
                         <p class="text-4xl permanent-marker-regular">Doing it right the first time!</p>
                     </div>
@@ -17,8 +17,8 @@
                     <br>
                     <p>At Platinum Signatures, we take the hassle out of tax season by offering expert tax preparation services tailored to your unique financial situation. Our experienced professionals stay up-to-date with the latest tax laws and regulations to ensure your tax return is accurate, maximizes your deductions, and minimizes your liabilities. Whether you're an individual filer or own a small business, we provide personalized support and meticulous attention to detail that gives you peace of mind. From simple tax returns to complex filings, we’re dedicated to getting it right the first time, so you can confidently navigate the tax landscape with ease.</p>
                 </div>
-                <div class="img-container__animated">
-                    <img class="img-fluid rounded x-translate" src="/img/platinum-signatures.webp" alt="platinum-signatures"/>
+                <div class="container__animated">
+                    <img class="img-fluid rounded invisible" src="/img/platinum-signatures.webp" alt="platinum-signatures"/>
                 </div>
             </div>
         </section>
@@ -34,7 +34,7 @@
     <%- include('partials/scripts.ejs') %>
     <script src="/js/images.js"></script>
     <script>
-        const PSImages = document.querySelector(".img-container__animated")
+        const PSImages = document.querySelector(".container__animated")
         const observer = new IntersectionObserver(handleIntersection, options)
         observer.observe(PSImages)
     </script>
