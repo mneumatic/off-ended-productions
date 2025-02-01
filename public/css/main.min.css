@@ -2092,6 +2092,10 @@ video {
   border-width: 1px;
 }
 
+.border-2 {
+  border-width: 2px;
+}
+
 .border-x {
   border-left-width: 1px;
   border-right-width: 1px;
@@ -2153,6 +2157,16 @@ video {
 .border-black {
   --tw-border-opacity: 1;
   border-color: rgb(0 0 0 / var(--tw-border-opacity, 1));
+}
+
+.border-gray-200 {
+  --tw-border-opacity: 1;
+  border-color: rgb(229 231 235 / var(--tw-border-opacity, 1));
+}
+
+.border-gray-300 {
+  --tw-border-opacity: 1;
+  border-color: rgb(209 213 219 / var(--tw-border-opacity, 1));
 }
 
 .bg-black {
@@ -2833,6 +2847,46 @@ video {
 
 .outline-double {
   outline-style: double;
+}
+
+.outline-0 {
+  outline-width: 0px;
+}
+
+.outline-1 {
+  outline-width: 1px;
+}
+
+.outline-2 {
+  outline-width: 2px;
+}
+
+.outline-4 {
+  outline-width: 4px;
+}
+
+.outline-8 {
+  outline-width: 8px;
+}
+
+.outline-gray-500 {
+  outline-color: #6b7280;
+}
+
+.outline-gray-400 {
+  outline-color: #9ca3af;
+}
+
+.outline-gray-100 {
+  outline-color: #f3f4f6;
+}
+
+.outline-gray-300 {
+  outline-color: #d1d5db;
+}
+
+.outline-gray-200 {
+  outline-color: #e5e7eb;
 }
 
 .ring {
