@@ -185,11 +185,16 @@ h2
     width: 100%
 
 .scale
-    transition: transform .5s ease-in-out, box-shadow .5s ease-in-out
+    transition: transform .5s ease-in-out
+
+    img
+      transition: box-shadow .5s ease-in-out
 
     &:hover
       transform: scale(1.2)
-      box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.5)
+
+      img
+        box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.5)
 
 .classic-link
   color: blue
@@ -204,7 +209,7 @@ h2
     text-decoration: underline
 
 .oep-stickman
-  background-image: url("/public/img/oep-stickman.svg")
+  background-image: url("/img/oep-stickman.svg")
   background-repeat: no-repeat
   background-position: center
   background-size: cover

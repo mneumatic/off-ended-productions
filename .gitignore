@@ -6,5 +6,4 @@ dist
 .cache
 .idea
 main
-public/video
-public/audio
+

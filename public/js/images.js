@@ -42,16 +42,14 @@ function handleCaptions(entries, observer) {
   })
 }
 
-function showImages (element) {
-  element[0].classList.add("show-img")
+function showImages (elements) {
+  let multipliers = [0, 400, 800]
 
-  setTimeout(function () {
-    element[1].classList.add("show-img")
-  }, 300);
-
-  setTimeout(function () {
-    element[2].classList.add("show-img")
-  }, 600);
+  elements.forEach((entry, index) => {
+    setTimeout(function () {
+      entry.classList.add("show-img")
+    }, multipliers[index]);
+  })
 }
 
 function slideImage (element) {
