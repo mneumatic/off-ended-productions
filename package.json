@@ -1,11 +1,11 @@
 {
-  "name": "oep-node",
+  "name": "off-ended-productions",
   "version": "0.0.0",
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www",
-    "seeds": "node seeds/*.js",
+    "seeds": "node ./seeds/runAll.js",
     "watch:sass": "sass --watch --style=compressed ./public/css/main.sass ./public/css/main.css",
     "tailwind": "tailwindcss --config tailwind.config.js -i ./public/css/main.css -o ./public/css/main.min.css --watch"
   },
@@ -20,6 +20,7 @@
     "morgan": "~1.9.1"
   },
   "devDependencies": {
+    "glob": "^11.0.1",
     "nodemon": "^3.1.9",
     "sass": "^1.83.4",
     "tailwindcss": "^3.4.15"

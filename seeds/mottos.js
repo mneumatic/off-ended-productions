@@ -6,9 +6,6 @@ mongoose.connect('mongodb://localhost:27017/oep')
 const db = mongoose.connection;
 
 db.on("error", console.error.bind(console, "connection error:"))
-db.once("open", () => {
-    console.log("Database connected")
-});
 
 const data = [
     ["Don't Sweat ", 'The ', 'Small Stuff.'],
@@ -32,3 +29,5 @@ const seedDB = async () => {
 seedDB().then(() => {
     mongoose.connection.close()
 })
+
+console.log("Mottos Seeded.")
