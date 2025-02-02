@@ -50,9 +50,13 @@
       const observerCaptions = new IntersectionObserver(handleCaptions, options)
       const mottoSpans = document.querySelectorAll("#motto span")
 
-      setTimeout(function () {
-          showImages(mottoSpans)
-      }, 1500)
+      const multiplier = [0, 400, 800]
+      mottoSpans.forEach((element, index) => {
+          setTimeout(function () {
+              element.classList.add('show-element')
+          }, 1500 + multiplier[index])
+      })
+
 
       contentLinks.forEach(link => {
           observer.observe(link)

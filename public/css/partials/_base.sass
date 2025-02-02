@@ -131,7 +131,7 @@ h2
 
 .show-element
   visibility: visible !important
-  animation: fadein 1s forwards !important
+  animation: fade-in 1s forwards !important
   transform: translateZ(0)
 
 .caption
@@ -186,17 +186,21 @@ h2
 
 
 .scale
-    transition: transform .5s ease-in-out, box-shadow .5s ease-in-out
+  transition: transform .5s ease-in-out, box-shadow .5s ease-in-out
+
+  &:hover
+    transform: scale(1.1)
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5)
+
+#github,
+#repos
+  a
+    transition: background-color .3s ease-in-out, fill .3s ease-in-out
 
     &:hover
-      transform: scale(1.1)
-      box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5)
-
-#github-user a.scale,
-#github-repos a.scale
-  &:hover
-    transform: scale(1.05) !important
-    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5)
+      background-color: #fff
+      svg path
+        fill: #000 !important
 
 .classic-link
   color: blue

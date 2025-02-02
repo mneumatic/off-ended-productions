@@ -10,13 +10,12 @@ function handleIntersection(entries, observer) {
       // Element is in view, do something
       const elements = entry.target.children
       let array = []
-      let multipliers = [0, 400, 800]
+      let multiplier = [0, 400, 800, 1200, 1600]
 
       for (let i = 0; i < elements.length; i++) {
           array.push(elements[i])
       }
 
-      console.log(array)
       array.forEach((element, index) => {
         setTimeout(function () {
           if (element.classList.contains('y-translate')) {
@@ -24,8 +23,7 @@ function handleIntersection(entries, observer) {
           } else {
             element.classList.add("show-element")
           }
-
-        }, multipliers[index]);
+        }, multiplier[index]);
       })
 
       // Optionally stop observing the element
