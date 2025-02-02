@@ -21,11 +21,15 @@
             </div>
         </section>
         <section class="oep-stickman">
-            <div>
-                <h2 class="text-center">Local Businesses</h2>
-                <div class="container flex flex-row flex-wrap justify-center lg:justify-evenly">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="caption">Local Businesses</h2>
+                    <p class="caption font-bold">Running Springs, California, is home to a variety of wonderful local businesses that make the community vibrant and welcoming. From charming cafes like Old Country Coffee Shop and LuluBelle’s Coffee House and Bakery, to delightful dining options such as Neo's Pizza House and Toto, there's something for everyone to enjoy. Outdoor enthusiasts will appreciate shops like AE Wood Products for gear and supplies, while antique lovers can explore treasures at Mountain Thrift & Video. The Running Springs Farmers Market and Artisan Faire is a perfect spot to find fresh produce and unique handmade goods. Whether you're looking for a cozy place to relax, a delicious meal, or outdoor adventure gear, Running Springs has it all.</p>
+                </div>
+
+                <div class="container__animated-flex flex flex-row flex-wrap justify-center lg:justify-evenly pt-10">
                     <% for (let business of businesses ) { %>
-                    <div class="bg-black p-5 my-5 mx-5 lg:me-10 lg:ms-0 rounded w-[320px]">
+                    <div class="y-translate bg-black p-5 my-5 mx-5 lg:me-10 lg:ms-0 rounded w-[320px]">
                         <img class="img-fluid rounded outline outline-1" src="<%- business.imagePath %>" alt="<%- business.title %>">
                         <div>
                             <h3 class="py-5"><%- business.title %></h3>
@@ -40,9 +44,8 @@
                     <% } %>
                 </div>
             </div>
-            <div class="container flex flex-row items-center justify-between mt-10">
-                <a class="btn w-[175px] lg:w-[200px] outline outline-1" href="/community">← Community</a>
-                <a class="btn w-[175px] lg:w-[200px] outline outline-1" href="/community/events">Events →</a>
+            <div class="container container__animated-flex flex flex-row items-center justify-center mt-10">
+                <a class="btn w-[175px] lg:w-[200px] y-translate" href="/community/events">Events</a>
             </div>
         </section>
     </main>
@@ -50,9 +53,24 @@
     <%- include('partials/scripts.ejs') %>
     <script src="/js/images.js"></script>
     <script>
-        const communityImages = document.querySelector(".container__animated")
+        const images = document.querySelectorAll(".container__animated")
+        const businesses = document.querySelectorAll(".container__animated-flex")
+        const captions = document.querySelectorAll(".caption")
+
         const observer = new IntersectionObserver(handleIntersection, options)
-        observer.observe(communityImages)
+        const observerCaptions = new IntersectionObserver(handleCaptions, options)
+
+        images.forEach(element => {
+          observer.observe(element)
+        })
+
+        businesses.forEach(element => {
+          observer.observe(element)
+        })
+
+        captions.forEach(element => {
+          observerCaptions.observe(element)
+        })
     </script>
 </body>
 </html>

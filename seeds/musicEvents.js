@@ -32,6 +32,22 @@ const data = [
         location: "1111 Silver Spruce Dr. Running Springs CA 92382",
         hours: "6pm - 10pm",
     },
+  {
+    title: "Demo Event 4",
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam autem beatae distinctio doloremque, harum incidunt ipsam ipsum magnam maxime odit officia perferendis quas quisquam quos tempore, tenetur unde voluptatem voluptates?",
+    imagePath: "/img/twojz-music-logo.webp",
+    date: "7/01/2025",
+    location: "1111 Silver Spruce Dr. Running Springs CA 92382",
+    hours: "6pm - 10pm",
+  },
+  {
+    title: "Demo Event 5",
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam autem beatae distinctio doloremque, harum incidunt ipsam ipsum magnam maxime odit officia perferendis quas quisquam quos tempore, tenetur unde voluptatem voluptates?",
+    imagePath: "/img/twojz-music-logo.webp",
+    date: "8/01/2025",
+    location: "1111 Silver Spruce Dr. Running Springs CA 92382",
+    hours: "6pm - 10pm",
+  },
 ]
 
 const seedDB = async () => {

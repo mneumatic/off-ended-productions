@@ -771,6 +771,10 @@ video {
   height: 512px;
 }
 
+.h-auto {
+  height: auto;
+}
+
 .h-fit {
   height: -moz-fit-content;
   height: fit-content;
@@ -920,6 +924,11 @@ video {
 .border-black {
   --tw-border-opacity: 1;
   border-color: rgb(0 0 0 / var(--tw-border-opacity, 1));
+}
+
+.border-white {
+  --tw-border-opacity: 1;
+  border-color: rgb(255 255 255 / var(--tw-border-opacity, 1));
 }
 
 .bg-black {
@@ -1075,6 +1084,10 @@ video {
   outline-width: 1px;
 }
 
+.outline-2 {
+  outline-width: 2px;
+}
+
 .transition-all {
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -1218,7 +1231,7 @@ h1,h2{
 
 .btn,.btn-reverse{
   background-color:#000;
-  border:#000 1px solid;
+  border:#fff 1px solid;
   color:#fff;
   display:block;
   padding:.5rem;

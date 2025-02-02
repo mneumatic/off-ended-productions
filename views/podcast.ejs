@@ -31,8 +31,8 @@
           <div class="container flex flex-col xl:grid grid-cols-2 gap-7 justify-center">
               <div>
                   <div class="text-center xl:text-start">
-                      <h2>Latest Ep.</h2>
-                      <p class="text-4xl permanent-marker-regular">Watch Here!</p>
+                      <h2 class="caption">Latest Ep.</h2>
+                      <p class="caption text-4xl permanent-marker-regular">Watch Here!</p>
                   </div>
                   <br>
                   <div id="youtube" class="flex flex-col justify-center container__animated-flex">
@@ -46,18 +46,18 @@
                   </div>
               </div>
               <div>
-                  <div  class="text-center xl:text-start">
-                      <h2>Audio Only</h2>
-                      <p class="text-4xl permanent-marker-regular">Listen Here!</p>
+                  <div class="text-center xl:text-start">
+                      <h2 class="caption">Audio Only</h2>
+                      <p class="caption text-4xl permanent-marker-regular">Listen Here!</p>
                   </div>
                   <br>
                   <div>
                       <div id="rss-feed" class="container__animated-flex">
                           <% for (let item of rssFeed) { %>
-                              <div class="bg-black p-5 mb-5 rounded y-translate">
+                              <div class="bg-black p-5 mb-5 rounded y-translate w-full">
                                   <h3><%- item.title %></h3>
                                   <p><%- item.description %></p>
-                                  <audio class="mt-3" controls controlslist="nodownload">
+                                  <audio class="mt-3 w-full" controls controlslist="nodownload">
                                       <source src="<%- item.enclosure.link %>" type="audio/mpeg">Your browser does not support the audio element.
                                   </audio>
                               </div>

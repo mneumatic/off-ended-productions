@@ -11,7 +11,7 @@ const data = [
     {
         imagePath:  "/img/oep-podcast-logo.webp",
         title:  "The Off Ended Podcast",
-        urlPath:    "/podcast.ejs"
+        urlPath:    "/podcast"
     },
     {
         imagePath:  "/img/twojz-music-logo.webp",

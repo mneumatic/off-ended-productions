@@ -32,11 +32,12 @@
                     </div>
 
                     <div class="flex flex-col items-center justify-center">
-                        <div class="text-center">
+                        <div class="caption text-center">
                             <h2>GitHub Profile</h2>
                         </div>
                         <div class="container__animated-flex flex-row items-center justify-center sm:items-start w-[320px] md:w-auto">
-                            <div class="y-translate flex flex-col sm:grid grid-cols-2 sm:gap-7 bg-black my-5 p-5 rounded">
+                            <div class="y-translate hidden"></div>
+                            <div class="y-translate flex flex-col sm:grid grid-cols-2 sm:gap-7 bg-black my-5 p-5 rounded" data-delay="true">
                                 <div class="relative">
                                     <img class="img-fluid rounded outline outline-1" src="<%- gitUser.avatar_url %>" alt="Github Avatar" />
                                     <% if (gitUser.hireable) { %>
@@ -82,7 +83,7 @@
             </section>
             <section class="pt-0">
                 <div class="container">
-                    <div class="text-center">
+                    <div class="caption text-center">
                         <h2>GitHub Repos</h2>
                     </div>
                     <div id="repos" class="container container__animated-flex justify-between">
@@ -126,29 +127,25 @@
     <%- include('partials/scripts.ejs') %>
     <script src="/js/images.js"></script>
     <script>
-        const heroImage = document.querySelectorAll("#mneumatic-designs .container__animated")
-        const github = document.querySelectorAll("#github .container__animated-flex")
-        const repos = document.querySelectorAll("#repos.container__animated-flex")
+        const heroImage = document.querySelectorAll(".container__animated")
+        let github = document.querySelectorAll(".container__animated-flex")
         const captions = document.querySelectorAll(".caption")
 
         const observer = new IntersectionObserver(handleIntersection, options)
         const observerCaptions = new IntersectionObserver(handleCaptions, options)
 
-        heroImage.forEach(element => {
-            observer.observe(element)
-        })
+        // heroImage.forEach(element => {
+        //     observer.observe(element)
+        // })
 
         github.forEach(element => {
-            observer.observe(element)
-        })
-
-        repos.forEach(element => {
             observer.observe(element)
         })
 
         captions.forEach(element => {
             observerCaptions.observe(element)
         })
+
     </script>
 </body>
 </html>

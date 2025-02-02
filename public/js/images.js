@@ -10,7 +10,8 @@ function handleIntersection(entries, observer) {
       // Element is in view, do something
       const elements = entry.target.children
       let array = []
-      let multiplier = [0, 400, 800, 1200, 1600]
+      let multiplier = []
+      multiplier = loadArray(multiplier)
 
       for (let i = 0; i < elements.length; i++) {
           array.push(elements[i])
@@ -47,17 +48,12 @@ function handleCaptions(entries, observer) {
   })
 }
 
-function showImages (elements) {
-  let multipliers = [0, 400, 800]
-
-  elements.forEach((element, index) => {
-    setTimeout(function () {
-      if (element.classList.contains('y-translate')) {
-        element.classList.add("slide-img")
-      } else {
-        element.classList.add("show-img")
-      }
-
-    }, multipliers[index]);
-  })
+function loadArray(array) {
+  for (let i = 0; i <= 10; i++) {
+    array.push(i * 4);
+  }
+  return array.map(element => {
+    return element * 100;
+  });
 }
+

@@ -31,9 +31,9 @@
                   <% for (let category of categories) { %>
                       <div class="p-10 w-[320px] text-center">
                           <a class="container__animated scale rounded" href="<%- category.urlPath %>" title="<%= category.title %> →" aria-label="<%= category.title %>">
-                              <img class="img-fluid y-translate rounded" src="<%- category.imagePath %>" alt="<%= category.title %>">
+                              <img class="img-fluid y-translate rounded bg-black" src="<%- category.imagePath %>" alt="<%= category.title %>">
                           </a>
-                          <figcaption class="caption permanent-marker-regular transition-opacity mt-2"><%= category.title %></figcaption>
+                          <span class="caption permanent-marker-regular transition-opacity mt-2"><%= category.title %></span>
                       </div>
                   <% } %>
               </div>
@@ -44,21 +44,22 @@
   <%- include('partials/scripts.ejs') %>
   <script src="js/images.js"></script>
   <script>
-      const contentLinks = document.querySelectorAll(".container__animated")
-      const captions = document.querySelectorAll("figcaption")
-      const observer = new IntersectionObserver(handleIntersection, options)
-      const observerCaptions = new IntersectionObserver(handleCaptions, options)
-      const mottoSpans = document.querySelectorAll("#motto span")
+    const content = document.querySelectorAll(".container__animated")
+    const captions = document.querySelectorAll(".caption")
+    const mottoSpans = document.querySelectorAll("#motto span")
 
-      const multiplier = [0, 400, 800]
-      mottoSpans.forEach((element, index) => {
-          setTimeout(function () {
-              element.classList.add('show-element')
-          }, 1500 + multiplier[index])
-      })
+    const observer = new IntersectionObserver(handleIntersection, options)
+    const observerCaptions = new IntersectionObserver(handleCaptions, options)
 
+    let multiplier = [1500, 1900, 2300]
 
-      contentLinks.forEach(link => {
+    mottoSpans.forEach((element, index) => {
+        setTimeout(() => {
+            element.classList.add("show-element")
+        }, multiplier[index])
+    })
+
+      content.forEach(link => {
           observer.observe(link)
       })
 

@@ -25,8 +25,8 @@
         <section class="oep-stickman">
             <div>
                 <div class="text-center">
-                    <h2>Running Springs</h2>
-                    <p class="text-4xl permanent-marker-regular">Check Out Our Mountain Community!</p>
+                    <h2 class="caption">Running Springs</h2>
+                    <p class="caption text-4xl permanent-marker-regular">Check Out Our Mountain Community!</p>
                 </div>
                 <div class="flex flex-row container__animated-flex justify-center mt-10 ">
                     <a class="btn me-5 w-[200px] y-translate" href="/community/events">Events</a>
@@ -41,7 +41,10 @@
     <script>
         const communityImages = document.querySelectorAll(".container__animated")
         const communityDivs = document.querySelectorAll(".container__animated-flex")
+        const captions = document.querySelectorAll(".caption")
+
         const observer = new IntersectionObserver(handleIntersection, options)
+        const observerCaptions = new IntersectionObserver(handleCaptions, options)
 
         communityImages.forEach(element => {
           observer.observe(element)
@@ -49,6 +52,10 @@
 
         communityDivs.forEach(element => {
           observer.observe(element)
+        })
+
+        captions.forEach(element => {
+          observerCaptions.observe(element)
         })
     </script>
 </body>
