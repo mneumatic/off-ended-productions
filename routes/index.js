@@ -46,10 +46,11 @@ router.get('/platinum-signatures', async (req, res) => {
 
 router.get('/mneumatic-designs', async (req, res) => {
   const gitBadges = await GitBadges.find({});
+  const recentItems = gitRepos.slice(0, 9);
   res.render('mneumatic-designs', {
     title: 'MNEUMATIC Designs | OEP',
     gitUser,
-    gitRepos,
+    gitRepos: recentItems,
     gitBadges
   });
 });

@@ -771,10 +771,6 @@ video {
   height: 512px;
 }
 
-.h-auto {
-  height: auto;
-}
-
 .h-fit {
   height: -moz-fit-content;
   height: fit-content;
@@ -924,11 +920,6 @@ video {
 .border-black {
   --tw-border-opacity: 1;
   border-color: rgb(0 0 0 / var(--tw-border-opacity, 1));
-}
-
-.border-white {
-  --tw-border-opacity: 1;
-  border-color: rgb(255 255 255 / var(--tw-border-opacity, 1));
 }
 
 .bg-black {
@@ -1082,16 +1073,6 @@ video {
 
 .outline-1 {
   outline-width: 1px;
-}
-
-.outline-2 {
-  outline-width: 2px;
-}
-
-.transition-all {
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
 }
 
 .transition-opacity {
@@ -1341,15 +1322,16 @@ h1,h2{
   box-shadow:4px 4px 8px rgba(0,0,0,.5)
 }
 
-#github a,#repos a{
-  transition:background-color .3s ease-in-out,fill .3s ease-in-out
+#github a,#github label,#repos a,#repos label,#tech a,#tech label{
+  transition:background-color .3s ease-in-out,fill .3s ease-in-out,color .3s ease-in-out
 }
 
-#github a:hover,#repos a:hover{
-  background-color:#fff
+#github a:hover,#github label:hover,#repos a:hover,#repos label:hover,#tech a:hover,#tech label:hover{
+  background-color:#fff;
+  color:#000 !important
 }
 
-#github a:hover svg path,#repos a:hover svg path{
+#github a:hover svg path,#github label:hover svg path,#repos a:hover svg path,#repos label:hover svg path,#tech a:hover svg path,#tech label:hover svg path{
   fill:#000 !important
 }
 

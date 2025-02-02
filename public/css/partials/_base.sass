@@ -193,12 +193,16 @@ h2
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5)
 
 #github,
-#repos
-  a
-    transition: background-color .3s ease-in-out, fill .3s ease-in-out
+#repos,
+#tech
+  a,
+  label
+    transition: background-color .3s ease-in-out, fill .3s ease-in-out, color .3s ease-in-out
 
     &:hover
       background-color: #fff
+      color: #000 !important
+
       svg path
         fill: #000 !important
 
@@ -242,7 +246,7 @@ h2
   max-height: 999em
 
 .read-more-state ~ .read-more-trigger:before
-  content: 'More'
+  content: "More"
 
 .read-more-state:checked ~ .read-more-trigger:before
   content: 'Close'
