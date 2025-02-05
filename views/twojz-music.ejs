@@ -73,9 +73,9 @@
                         <h2>Upcoming Events</h2>
                     </div>
 
-                    <div id="events" class="container container__animated-flex flex flex-row flex-wrap justify-between">
+                    <div id="events" class="container container__animated-flex flex flex-row flex-wrap justify-center xl:justify-between">
                         <% for (let event of musicEvents ) { %>
-                            <div class="event bg-black p-5 my-5 rounded w-[320px] y-translate">
+                            <div class="event bg-black p-5 my-5 mx-5 min-[1535px]:mx-0 rounded w-[320px] y-translate">
                                 <img class="img-fluid rounded outline outline-1" src="<%- event.imagePath %>" alt="<%- event.title %>">
                                 <div>
                                     <h3 class="py-5"><%- event.title %></h3>

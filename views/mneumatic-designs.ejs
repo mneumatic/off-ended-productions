@@ -90,7 +90,7 @@
                     <div id="repos" class="container container__animated-flex justify-between">
                         <% for (let repo of gitRepos ) { %>
                             <% if (!repo.fork && repo.name !== "mneumatic") { %>
-                                <div class="flex flex-col justify-between bg-black p-5 my-5 rounded w-[320px] y-translate">
+                                <div class="flex flex-col justify-between bg-black p-5 my-5 mx-5 min-[1535px]:mx-0 rounded w-[320px] y-translate">
                                     <div class="flex flex-col">
                                         <img class="img-fluid rounded outline outline-1" src="https://raw.githubusercontent.com/<%- repo.owner.login %>/<%- repo.name %>/master/docs/<%- repo.name %>.png" alt="Project Image" />
                                         <div class="flex flex-col text-center py-3">
