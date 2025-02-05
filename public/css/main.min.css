@@ -1493,7 +1493,7 @@ h1,h2{
   position:relative
 }
 
-@media(min-width: 768px){
+@media(min-width: 1280px){
   #site-navigation-navbar #site-navigation-navbar-nav-links nav div a::after{
     content:"";
     position:absolute;
@@ -1528,7 +1528,7 @@ h1,h2{
   color:#000 !important
 }
 
-@media(min-width: 768px){
+@media(min-width: 1280px){
   #site-navigation-navbar #site-navigation-navbar-nav-links nav div a.active{
     background-color:rgba(0,0,0,0) !important;
     color:#fff !important
@@ -1559,6 +1559,10 @@ h1,h2{
 footer nav a:hover{
   text-decoration:underline !important;
   text-underline-position:under !important
+}
+
+@theme{
+  --breakpoint-xl: 1280px
 }
 
 @media (min-width: 640px) {
@@ -1592,10 +1596,6 @@ footer nav a:hover{
     width: auto;
   }
 
-  .md\:text-start {
-    text-align: start;
-  }
-
   .md\:text-end {
     text-align: end;
   }
@@ -1620,10 +1620,6 @@ footer nav a:hover{
 
   .lg\:justify-evenly {
     justify-content: space-evenly;
-  }
-
-  .lg\:text-center {
-    text-align: center;
   }
 }
 
@@ -1684,10 +1680,6 @@ footer nav a:hover{
     justify-content: flex-start;
   }
 
-  .xl\:justify-end {
-    justify-content: flex-end;
-  }
-
   .xl\:justify-between {
     justify-content: space-between;
   }
@@ -1699,10 +1691,6 @@ footer nav a:hover{
 
   .xl\:text-start {
     text-align: start;
-  }
-
-  .xl\:text-end {
-    text-align: end;
   }
 
   .xl\:shadow-none {
