@@ -642,6 +642,10 @@ video {
   margin: 0.25rem;
 }
 
+.m-2 {
+  margin: 0.5rem;
+}
+
 .mx-0 {
   margin-left: 0px;
   margin-right: 0px;
@@ -1203,7 +1207,13 @@ h1,h2{
 }
 
 .display-2{
-  font-size:4.5rem
+  font-size:3.25rem
+}
+
+@media(min-width: 420px){
+  .display-2{
+    font-size:4.5rem
+  }
 }
 
 .display-6{
@@ -1612,8 +1622,8 @@ footer nav a:hover{
     justify-content: space-evenly;
   }
 
-  .lg\:text-\[70px\] {
-    font-size: 70px;
+  .lg\:text-center {
+    text-align: center;
   }
 }
 
