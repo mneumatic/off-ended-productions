@@ -75,46 +75,53 @@
     nav div a
       position: relative
 
-      &::after
-        content: ''
-        position: absolute
-        bottom: 5px
-        left: 0
-        width: 100%
-        height: 0.1em
-        background-color: #fff
-        opacity: 0
-        transition: opacity 300ms, transform 300ms
+      @media (min-width: 768px)
+        &::after
+          content: ''
+          position: absolute
+          bottom: 5px
+          left: 0
+          width: 100%
+          height: 0.1em
+          background-color: #fff
+          opacity: 0
+          transition: opacity 300ms, transform 300ms
 
-      &:hover::after,
-      &:focus::after
-        opacity: 1
-        transform: translate3d(0, 0.2em, 0)
+        &:hover::after,
+        &:focus::after
+          opacity: 1
+          transform: translate3d(0, 0.2em, 0)
 
-      &::after
-        opacity: 1
-        transform: scale(0)
-        transform-origin: center
+        &::after
+          opacity: 1
+          transform: scale(0)
+          transform-origin: center
 
-      &:hover::after,
-      &:focus::after
-        transform: scale(1)
+        &:hover::after,
+        &:focus::after
+          transform: scale(1)
 
     //noinspection ALL
     nav div a.active
       position: relative
+      background-color: #fff !important
+      color: #000 !important
 
-      &::after
-        content: ''
-        position: absolute
-        bottom: 5px
-        left: 0
-        width: 100%
-        height: 0.1em
-        background-color: #fff
-        transition: opacity 300ms, transform 300ms
-        transform-origin: center
-        transform: scale(1)
+      @media (min-width: 768px)
+        background-color: transparent !important
+        color: #fff !important
+
+        &::after
+          content: ''
+          position: absolute
+          bottom: 5px
+          left: 0
+          width: 100%
+          height: 0.1em
+          background-color: #fff
+          transition: opacity 300ms, transform 300ms
+          transform-origin: center
+          transform: scale(1)
 
     nav > a
       text-decoration: none !important

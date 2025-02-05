@@ -642,6 +642,11 @@ video {
   margin: 0.25rem;
 }
 
+.mx-0 {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
 .mx-1 {
   margin-left: 0.25rem;
   margin-right: 0.25rem;
@@ -665,11 +670,6 @@ video {
 .my-5 {
   margin-top: 1.25rem;
   margin-bottom: 1.25rem;
-}
-
-.mx-0 {
-  margin-left: 0px;
-  margin-right: 0px;
 }
 
 .mb-0 {
@@ -1483,48 +1483,59 @@ h1,h2{
   position:relative
 }
 
-#site-navigation-navbar #site-navigation-navbar-nav-links nav div a::after{
-  content:"";
-  position:absolute;
-  bottom:5px;
-  left:0;
-  width:100%;
-  height:.1em;
-  background-color:#fff;
-  opacity:0;
-  transition:opacity 300ms,transform 300ms
-}
+@media(min-width: 768px){
+  #site-navigation-navbar #site-navigation-navbar-nav-links nav div a::after{
+    content:"";
+    position:absolute;
+    bottom:5px;
+    left:0;
+    width:100%;
+    height:.1em;
+    background-color:#fff;
+    opacity:0;
+    transition:opacity 300ms,transform 300ms
+  }
 
-#site-navigation-navbar #site-navigation-navbar-nav-links nav div a:hover::after,#site-navigation-navbar #site-navigation-navbar-nav-links nav div a:focus::after{
-  opacity:1;
-  transform:translate3d(0, 0.2em, 0)
-}
+  #site-navigation-navbar #site-navigation-navbar-nav-links nav div a:hover::after,#site-navigation-navbar #site-navigation-navbar-nav-links nav div a:focus::after{
+    opacity:1;
+    transform:translate3d(0, 0.2em, 0)
+  }
 
-#site-navigation-navbar #site-navigation-navbar-nav-links nav div a::after{
-  opacity:1;
-  transform:scale(0);
-  transform-origin:center
-}
+  #site-navigation-navbar #site-navigation-navbar-nav-links nav div a::after{
+    opacity:1;
+    transform:scale(0);
+    transform-origin:center
+  }
 
-#site-navigation-navbar #site-navigation-navbar-nav-links nav div a:hover::after,#site-navigation-navbar #site-navigation-navbar-nav-links nav div a:focus::after{
-  transform:scale(1)
+  #site-navigation-navbar #site-navigation-navbar-nav-links nav div a:hover::after,#site-navigation-navbar #site-navigation-navbar-nav-links nav div a:focus::after{
+    transform:scale(1)
+  }
 }
 
 #site-navigation-navbar #site-navigation-navbar-nav-links nav div a.active{
-  position:relative
+  position:relative;
+  background-color:#fff !important;
+  color:#000 !important
 }
 
-#site-navigation-navbar #site-navigation-navbar-nav-links nav div a.active::after{
-  content:"";
-  position:absolute;
-  bottom:5px;
-  left:0;
-  width:100%;
-  height:.1em;
-  background-color:#fff;
-  transition:opacity 300ms,transform 300ms;
-  transform-origin:center;
-  transform:scale(1)
+@media(min-width: 768px){
+  #site-navigation-navbar #site-navigation-navbar-nav-links nav div a.active{
+    background-color:rgba(0,0,0,0) !important;
+    color:#fff !important
+  }
+
+  #site-navigation-navbar #site-navigation-navbar-nav-links nav div a.active::after{
+    content:"";
+    position:absolute;
+    bottom:5px;
+    left:0;
+    width:100%;
+    height:.1em;
+    background-color:#fff;
+    transition:opacity 300ms,transform 300ms;
+    transform-origin:center;
+    transform:scale(1)
+  }
 }
 
 #site-navigation-navbar #site-navigation-navbar-nav-links nav>a{
@@ -1571,10 +1582,6 @@ footer nav a:hover{
     width: auto;
   }
 
-  .md\:justify-between {
-    justify-content: space-between;
-  }
-
   .md\:text-start {
     text-align: start;
   }
@@ -1601,18 +1608,6 @@ footer nav a:hover{
     width: 200px;
   }
 
-  .lg\:flex-row {
-    flex-direction: row;
-  }
-
-  .lg\:flex-wrap {
-    flex-wrap: wrap;
-  }
-
-  .lg\:justify-between {
-    justify-content: space-between;
-  }
-
   .lg\:justify-evenly {
     justify-content: space-evenly;
   }
@@ -1629,11 +1624,6 @@ footer nav a:hover{
 
   .xl\:top-0 {
     top: 0px;
-  }
-
-  .xl\:mx-0 {
-    margin-left: 0px;
-    margin-right: 0px;
   }
 
   .xl\:mb-0 {
@@ -1709,20 +1699,6 @@ footer nav a:hover{
     --tw-shadow: 0 0 #0000;
     --tw-shadow-colored: 0 0 #0000;
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-  }
-}
-
-@media (min-width: 1300px) {
-  .min-\[1300px\]\:mx-0 {
-    margin-left: 0px;
-    margin-right: 0px;
-  }
-}
-
-@media (min-width: 1500px) {
-  .min-\[1500px\]\:mx-0 {
-    margin-left: 0px;
-    margin-right: 0px;
   }
 }
 
