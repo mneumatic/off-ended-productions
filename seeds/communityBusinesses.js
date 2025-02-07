@@ -15,7 +15,7 @@ const data = [
         date: "1/01/2025",
         location: "1111 Silver Spruce Dr. Running Springs CA 92382",
         hours: "6pm - 10pm",
-        Phone:       "+19999999999",
+        phone: "+19999999999",
     },
     {
         title: "Demo Business 2",
@@ -24,7 +24,7 @@ const data = [
         date: "3/01/2025",
         location: "1111 Silver Spruce Dr. Running Springs CA 92382",
         hours: "6pm - 10pm",
-        Phone:       "+19999999999",
+        phone: "+19999999999",
     },
     {
         title: "Demo Business 3",
@@ -33,7 +33,7 @@ const data = [
         date: "4/01/2025",
         location: "1111 Silver Spruce Dr. Running Springs CA 92382",
         hours: "6pm - 10pm",
-        Phone:       "+19999999999",
+        phone: "+19999999999",
     },
     {
         title: "Demo Business 4",
@@ -42,7 +42,7 @@ const data = [
         date: "5/01/2025",
         location: "1111 Silver Spruce Dr. Running Springs CA 92382",
         hours: "6pm - 10pm",
-        Phone:       "+19999999999",
+        phone: "+19999999999",
     },
 ]
 
@@ -56,6 +56,7 @@ const seedDB = async () => {
             date: communityBusiness.date,
             location: communityBusiness.location,
             hours: communityBusiness.hours,
+            phone: communityBusiness.phone,
         })
         await communityBusinessInfo.save()
     }

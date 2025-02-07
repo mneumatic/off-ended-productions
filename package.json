@@ -8,8 +8,7 @@
     "seeds": "node ./bin/runAllSeeds.js",
     "getDataFeeds": "node bin/getData.js",
     "watch:sass": "sass --watch --style=compressed ./public/css/main.sass ./public/css/main.css",
-    "tailwind": "tailwindcss --config tailwind.config.js -i ./public/css/main.css -o ./public/css/main.min.css --watch",
-    "mongoDB:start": "sudo systemctl start mongod.service"
+    "tailwind": "tailwindcss --config tailwind.config.js -i ./public/css/main.css -o ./public/css/main.min.css --watch"
   },
   "dependencies": {
     "connect-flash": "^0.1.1",

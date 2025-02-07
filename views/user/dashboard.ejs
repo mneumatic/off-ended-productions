@@ -7,6 +7,10 @@
         <section>
             <div class="container">
                 <h1 class="display-2 text-center">OEP Dashboard</h1>
+                <div class="flex flex-row items-center justify-end">
+                    <label class="me-2" for="">Search</label>
+                    <input class="rounded p-2 bg-black border border-white" type="text">
+                </div>
             </div>
         </section>
         <section>
@@ -15,17 +19,60 @@
                     <div>
                         <h2 class="display-2 text-center">Events</h2>
 
-                        <div class="flex justify-end">
+                        <div class="flex justify-end mb-5">
                             <a class="btn w-[200px]" href="">+ Add Event</a>
+                        </div>
+                        <div>
+                            <% for (let event of events ) { %>
+                                <div class="event flex flex-col lg:flex-row border border-white rounded p-5 mb-5">
+                                    <img class="thumbnail rounded outline outline-1" src="<%- event.imagePath %>" alt="<%- event.title %>">
+                                    <div class="ps-3">
+                                        <h3 class="py-5"><%= event.title %></h3>
+                                        <p><%- event.description %></p>
+                                        <div class="flex flex-col text-end py-3">
+                                            <span><%- event.hours %></span>
+                                            <address><%- event.location %></address>
+                                        </div>
+                                        <p class="date font-bold text-end py-3">On: <%- event.date %></p>
+                                        <div class="flex flex-row justify-end">
+                                            <div class="flex flex-row items-center">
+                                                <a class="btn me-3" href=""><svg xmlns="http://www.w3.org/2000/svg" width="16" viewBox="0 0 2048 2048"><path fill="#fff" d="M2048 335q0 66-25 128t-73 110L633 1890 0 2048l158-633L1475 98q48-48 110-73t128-25q69 0 130 26.5t106.5 72 72 106.5 26.5 130zM326 1428q106 35 182.5 111.5T620 1722L1701 640l-293-293zm-150 444l329-82q-10-46-32.5-87t-54.5-73-73-54.5-87-32.5zM1792 549q25-25 48-47t41-46.5 28.5-53T1920 336q0-43-16.5-80.5t-45-66-66-45T1712 128q-38 0-66.5 10.5t-53 28.5-46.5 41-47 48z"/></svg></a>
+                                                <a class="btn" href=""><svg xmlns="http://www.w3.org/2000/svg" width="16" viewBox="0 0 2048 2048"><path fill="#fff" d="M1792 384h-128v1472q0 40-15 75t-41 61-61 41-75 15H448q-40 0-75-15t-61-41-41-61-15-75V384H128V256h512V128q0-27 10-50t27.5-40.5T718 10t50-10h384q27 0 50 10t40.5 27.5T1270 78t10 50v128h512v128zM768 256h384V128H768v128zm768 128H384v1472q0 26 19 45t45 19h1024q26 0 45-19t19-45V384zM768 1664H640V640h128v1024zm256 0H896V640h128v1024zm256 0h-128V640h128v1024z"/></svg></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <% } %>
                         </div>
                     </div>
                     <div>
                         <h2 class="display-2 text-center">Businesses</h2>
 
-                        <div class="flex justify-end">
+                        <div class="flex justify-end mb-5">
                             <a class="btn w-[200px]" href="">+ Add Business</a>
                         </div>
-
+                        <div>
+                            <% for (let business of businesses ) { %>
+                                <div class="event flex flex-row border border-white rounded p-5 mb-5">
+                                    <img class="thumbnail rounded outline outline-1" src="<%- business.imagePath %>" alt="<%- business.title %>">
+                                    <div class="ps-3">
+                                        <h3 class="py-5"><%= business.title %></h3>
+                                        <p><%- business.description %></p>
+                                        <div class="flex flex-col text-end py-3">
+                                            <span><%- business.hours %></span>
+                                            <address><%- business.location %></address>
+                                        </div>
+                                        <p class="font-bold text-end py-3">Phone: <%- business.phone %></p>
+                                        <div class="flex flex-row justify-end">
+                                            <div class="flex flex-row items-center">
+                                                <a class="btn me-3" href=""><svg xmlns="http://www.w3.org/2000/svg" width="16" viewBox="0 0 2048 2048"><path fill="#fff" d="M2048 335q0 66-25 128t-73 110L633 1890 0 2048l158-633L1475 98q48-48 110-73t128-25q69 0 130 26.5t106.5 72 72 106.5 26.5 130zM326 1428q106 35 182.5 111.5T620 1722L1701 640l-293-293zm-150 444l329-82q-10-46-32.5-87t-54.5-73-73-54.5-87-32.5zM1792 549q25-25 48-47t41-46.5 28.5-53T1920 336q0-43-16.5-80.5t-45-66-66-45T1712 128q-38 0-66.5 10.5t-53 28.5-46.5 41-47 48z"/></svg></a>
+                                                <a class="btn" href=""><svg xmlns="http://www.w3.org/2000/svg" width="16" viewBox="0 0 2048 2048"><path fill="#fff" d="M1792 384h-128v1472q0 40-15 75t-41 61-61 41-75 15H448q-40 0-75-15t-61-41-41-61-15-75V384H128V256h512V128q0-27 10-50t27.5-40.5T718 10t50-10h384q27 0 50 10t40.5 27.5T1270 78t10 50v128h512v128zM768 256h384V128H768v128zm768 128H384v1472q0 26 19 45t45 19h1024q26 0 45-19t19-45V384zM768 1664H640V640h128v1024zm256 0H896V640h128v1024zm256 0h-128V640h128v1024z"/></svg></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <% } %>
+                        </div>
                     </div>
                 </div>
             </div>
