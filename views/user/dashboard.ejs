@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<%- include('../partials/head.ejs') %>
+<body>
+    <main>
+        <%- include('../partials/flash.ejs') %>
+        <section>
+            <div class="container">
+                <h1 class="display-2 text-center">OEP Dashboard</h1>
+            </div>
+        </section>
+        <section>
+            <div class="container">
+                <div class="flex flex-col sm:grid grid-cols-2 sm:gap-7">
+                    <div>
+                        <h2 class="display-2 text-center">Events</h2>
+
+                        <div class="flex justify-end">
+                            <a class="btn w-[200px]" href="">+ Add Event</a>
+                        </div>
+                    </div>
+                    <div>
+                        <h2 class="display-2 text-center">Businesses</h2>
+
+                        <div class="flex justify-end">
+                            <a class="btn w-[200px]" href="">+ Add Business</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

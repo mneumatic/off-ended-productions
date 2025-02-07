@@ -2,6 +2,7 @@
 module.exports = {
   content: [
     "./views/partials/*.ejs",
+    "./views/user/*.ejs",
     "./views/*.ejs",
     "./public/css/*.css",
     "./public/js/*.js"

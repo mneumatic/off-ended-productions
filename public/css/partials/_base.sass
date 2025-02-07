@@ -253,3 +253,13 @@ h2
 
 .read-more-state:checked ~ .read-more-trigger:before
   content: 'Close'
+
+input::-ms-reveal
+  filter: invert(100%)
+
+.fade-out
+  animation: fade-out 8s forwards !important
+
+  @keyframes fade-out
+    to
+      opacity: 0

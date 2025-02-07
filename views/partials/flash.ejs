@@ -1,0 +1,16 @@
+<% if(success && success.length) {%>
+    <div class="flash fixed top-0 bg-green-600 py-5 fade-out w-full" role="alert">
+        <div class="container flex justify-center">
+            <%= success %>
+        </div>
+
+    </div>
+<% } %>
+
+<% if(error && error.length) {%>
+<div class="flash fixed top-0 bg-red-600 py-5 fade-out w-full" role="alert">
+    <div class="container flex justify-center">
+        <%= error %>
+    </div>
+</div>
+<% } %>

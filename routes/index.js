@@ -10,7 +10,6 @@ const gitUser = require('../data/gituser.json');
 const gitRepos = require('../data/gitrepos.json');
 const rssFeed = require('../data/rss.json');
 
-
 /* GET home page. */
 router.get('/', async (req, res) => {
   const categories = await Categories.find({});

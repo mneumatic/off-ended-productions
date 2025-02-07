@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<%- include('../partials/head.ejs') %>
+<body>
+    <main>
+        <%- include('../partials/flash.ejs') %>
+        <%- include('../partials/navbar.ejs') %>
+        <section class="h-screen">
+            <div class="container flex flex-col items-center justify-center">
+                <h1 class="display-2 pt-5">Login</h1>
+                <form action="/login" method="POST" class="validated-form flex flex-col items-center justify-center" novalidate>
+                    <div class="flex flex-row items-center justify-between w-full py-5">
+                        <label for="username" class="me-2">Username</label>
+                        <input class="rounded p-2 bg-black border border-white" type="text" id="username" name="username" required>
+                    </div>
+
+                    <div class="flex flex-row items-center justify-between w-full">
+                        <label for="password" class="me-2">Password</label>
+                        <input class="rounded p-2 bg-black border border-white" type="password" id="password" name="password" required>
+                    </div>
+                    <div class="flex flex-row items-center justify-end w-full pt-5">
+                        <button class="btn ">Login</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+    <script src='/js/validateForms.js'></script>
+</body>
+</html>
