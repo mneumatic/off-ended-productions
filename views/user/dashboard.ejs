@@ -2,14 +2,17 @@
 <html lang="en" class="no-js">
 <%- include('../partials/head.ejs') %>
 <body>
-    <main>
+    <main class="oep-stickman">
         <%- include('../partials/flash.ejs') %>
         <section>
+            <div class="container flex justify-start">
+                <a class="btn" href="/login/logout">Logout</a>
+            </div>
             <div class="container">
                 <h1 class="display-2 text-center">OEP Dashboard</h1>
                 <div class="flex flex-row items-center justify-end">
-                    <label class="me-2" for="">Search</label>
-                    <input class="rounded p-2 bg-black border border-white" type="text">
+                    <label class="font-bold me-2" for="">Search</label>
+                    <input id="search-input" class="rounded p-2 bg-black border border-white" type="text" oninput="searchFunction()">
                 </div>
             </div>
         </section>
@@ -24,7 +27,7 @@
                         </div>
                         <div>
                             <% for (let event of events ) { %>
-                                <div class="event flex flex-col lg:flex-row border border-white rounded p-5 mb-5">
+                                <div class="event flex flex-col lg:flex-row bg-black border border-white rounded p-5 mb-5">
                                     <img class="thumbnail rounded outline outline-1" src="<%- event.imagePath %>" alt="<%- event.title %>">
                                     <div class="ps-3">
                                         <h3 class="py-5"><%= event.title %></h3>
@@ -53,7 +56,7 @@
                         </div>
                         <div>
                             <% for (let business of businesses ) { %>
-                                <div class="event flex flex-row border border-white rounded p-5 mb-5">
+                                <div class="business flex flex-row bg-black border border-white rounded p-5 mb-5">
                                     <img class="thumbnail rounded outline outline-1" src="<%- business.imagePath %>" alt="<%- business.title %>">
                                     <div class="ps-3">
                                         <h3 class="py-5"><%= business.title %></h3>
@@ -78,5 +81,23 @@
             </div>
         </section>
     </main>
+    <script>
+      function searchFunction() {
+        let input = document.getElementById('search-input').value.toUpperCase();
+        let keywords = input.split(' ').filter(keyword => keyword !== "");
+        const items = document.querySelectorAll('.event, .business');
+
+        for (let i = 0; i < items.length; i++) {
+          const title = items[i].getElementsByTagName('h3')[0]
+          let item = title.textContent || title.innerText;
+          let match = keywords.every(keyword => item.toUpperCase().includes(keyword));
+          if (match) {
+            items[i].style.display = "";
+          } else {
+            items[i].style.display = "none";
+          }
+        }
+      }
+    </script>
 </body>
 </html>
