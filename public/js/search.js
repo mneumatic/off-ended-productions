@@ -12,3 +12,11 @@ function searchFunction(input, items, tag) {
     }
   }
 }
+
+function filters(toggle, section) {
+    if (!event.target.checked) {
+      section.style.display = "none";
+    } else {
+      section.style.display = "";
+    }
+}
