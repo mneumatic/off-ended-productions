@@ -31,9 +31,9 @@ router.get('/dashboard', isLoggedIn, async (req, res) => {
 })
 
 router.get('/logout', async (req, res) => {
-  req.logout();
-  req.flash('success', "Goodbye!");
-  res.redirect('/');
+  req.logOut()
+  req.reqflash('success', "Goodbye!");
+  res.redirect('views/index');
 })
 
 module.exports = router;
