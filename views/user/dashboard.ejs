@@ -8,8 +8,9 @@
             <div class="container flex items-center justify-between">
                 <a class="btn" href="/logout">Logout</a>
                 <div class="flex flex-row items-center">
-                    <label class="font-bold me-2" for="">Filter</label>
-                    <input id="search-input" class="rounded p-2 bg-black border border-white" type="text" oninput="searchFunction()">
+                    <label class="font-bold me-2" for="search-input">Filter</label>
+<!--                    TODO: Replace with toggle switches for filters-->
+                    <input id="search-input" class="rounded p-2 bg-black border border-white" type="text" oninput="searchFunction(this.value.toUpperCase(), document.querySelectorAll('section > div'), 'h2')">
                 </div>
             </div>
         </header>
@@ -20,10 +21,14 @@
             <section>
                 <div class="container">
                     <h2 class="display-2 text-center">2Jz Music</h2>
-                    <div class="flex justify-end mb-5">
-                        <a class="btn w-[200px]" href="">+ Add Event</a>
+                    <div class="flex justify-between mb-5">
+                        <a class="btn" href="" style="padding-left: 0.75rem; padding-right: 0.75rem;">+</a>
+                        <div class="flex flex-row items-center">
+                            <label class="font-bold me-2" for="music-search-input">Search</label>
+                            <input id="music-search-input" class="rounded p-2 bg-black border border-white" type="text" oninput="searchFunction(this.value.toUpperCase(), document.querySelectorAll('.music-event'), 'h3')">
+                        </div>
                     </div>
-                    <div class="flex flex-col">
+                    <div class="flex flex-col sm:grid grid-cols-2 sm:gap-7">
                         <% for (let event of music ) { %>
                             <div class="music-event flex flex-col lg:flex-row bg-black border border-white rounded p-5 mb-5">
                                 <img class="thumbnail rounded outline outline-1" src="<%- event.imagePath %>" alt="<%- event.title %>">
@@ -50,10 +55,14 @@
             <section>
                 <div class="container">
                     <h2 class="display-2 text-center">Local Events</h2>
-                    <div class="flex justify-end mb-5">
-                        <a class="btn w-[200px]" href="">+ Add Event</a>
+                    <div class="flex justify-between mb-5">
+                        <a class="btn" href="" style="padding-left: 0.75rem; padding-right: 0.75rem;">+</a>
+                        <div class="flex flex-row items-center">
+                            <label class="font-bold me-2" for="music-search-input">Search</label>
+                            <input id="music-search-input" class="rounded p-2 bg-black border border-white" type="text" oninput="searchFunction(this.value.toUpperCase(), document.querySelectorAll('.local-event'), 'h3')">
+                        </div>
                     </div>
-                    <div class="flex flex-col">
+                    <div class="flex flex-col sm:grid grid-cols-2 sm:gap-7">
                         <% for (let event of events ) { %>
                             <div class="local-event flex flex-col lg:flex-row bg-black border border-white rounded p-5 mb-5">
                                 <img class="thumbnail rounded outline outline-1" src="<%- event.imagePath %>" alt="<%- event.title %>">
@@ -80,10 +89,14 @@
             <section>
                 <div class="container">
                     <h2 class="display-2 text-center">Local Businesses</h2>
-                    <div class="flex justify-end mb-5">
-                        <a class="btn w-[200px]" href="">+ Add Business</a>
+                    <div class="flex justify-between mb-5">
+                        <a class="btn" href="" style="padding-left: 0.75rem; padding-right: 0.75rem;">+</a>
+                        <div class="flex flex-row items-center">
+                            <label class="font-bold me-2" for="music-search-input">Search</label>
+                            <input id="music-search-input" class="rounded p-2 bg-black border border-white" type="text" oninput="searchFunction(this.value.toUpperCase(), document.querySelectorAll('.local-business'))">
+                        </div>
                     </div>
-                    <div class="flex flex-col">
+                    <div class="flex flex-col sm:grid grid-cols-2 sm:gap-7">
                         <% for (let business of businesses ) { %>
                             <div class="local-business flex flex-row bg-black border border-white rounded p-5 mb-5">
                                 <img class="thumbnail rounded outline outline-1" src="<%- business.imagePath %>" alt="<%- business.title %>">
@@ -109,23 +122,6 @@
             </section>
         </div>
     </main>
-    <script>
-      function searchFunction() {
-        let input = document.getElementById('search-input').value.toUpperCase();
-        let keywords = input.split(' ').filter(keyword => keyword !== "");
-        const items = document.querySelectorAll('.music-event, .local-event, .local-business');
-
-        for (let i = 0; i < items.length; i++) {
-          const title = items[i].getElementsByTagName('h3')[0]
-          let item = title.textContent || title.innerText;
-          let match = keywords.every(keyword => item.toUpperCase().includes(keyword));
-          if (match) {
-            items[i].style.display = "";
-          } else {
-            items[i].style.display = "none";
-          }
-        }
-      }
-    </script>
+    <script src="/js/search.js"></script>
 </body>
 </html>

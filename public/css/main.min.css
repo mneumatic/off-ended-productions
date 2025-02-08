@@ -1404,16 +1404,16 @@ h1,h2{
   box-shadow:4px 4px 8px rgba(0,0,0,.5)
 }
 
-#github a,#github label,#repos a,#repos label,#tech a,#tech label,.event a,.event label{
+#github a,#github label,#repos a,#repos label,#tech a,#tech label,.event a,.event label,.music-event a,.music-event label,.local-event a,.local-event label,.local-business a,.local-business label{
   transition:background-color .3s ease-in-out,fill .3s ease-in-out,color .3s ease-in-out
 }
 
-#github a:hover,#github label:hover,#repos a:hover,#repos label:hover,#tech a:hover,#tech label:hover,.event a:hover,.event label:hover{
+#github a:hover,#github label:hover,#repos a:hover,#repos label:hover,#tech a:hover,#tech label:hover,.event a:hover,.event label:hover,.music-event a:hover,.music-event label:hover,.local-event a:hover,.local-event label:hover,.local-business a:hover,.local-business label:hover{
   background-color:#fff;
   color:#000 !important
 }
 
-#github a:hover svg path,#github label:hover svg path,#repos a:hover svg path,#repos label:hover svg path,#tech a:hover svg path,#tech label:hover svg path,.event a:hover svg path,.event label:hover svg path{
+#github a:hover svg path,#github label:hover svg path,#repos a:hover svg path,#repos label:hover svg path,#tech a:hover svg path,#tech label:hover svg path,.event a:hover svg path,.event label:hover svg path,.music-event a:hover svg path,.music-event label:hover svg path,.local-event a:hover svg path,.local-event label:hover svg path,.local-business a:hover svg path,.local-business label:hover svg path{
   fill:#000 !important
 }
 
