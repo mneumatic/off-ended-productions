@@ -1,8 +1,8 @@
-function searchFunction(input, items, tag) {
+function searchFunction(input, items) {
   let keywords = input.split(' ').filter(keyword => keyword !== "");
 
   for (let i = 0; i < items.length; i++) {
-    const title = items[i].getElementsByTagName(tag)[0]
+    const title = items[i].getElementsByTagName('h3')[0]
     let item = title.textContent || title.innerText;
     let match = keywords.every(keyword => item.toUpperCase().includes(keyword));
     if (match) {
@@ -19,4 +19,21 @@ function filters(toggle, section) {
     } else {
       section.style.display = "";
     }
+}
+
+// Resets Filters on Click of Search All input
+function toggleFilters() {
+  document.querySelectorAll('.switch input').forEach(checkbox => {
+    checkbox.checked = true
+  })
+  document.getElementById('music').style.display = "";
+  document.getElementById('local-events').style.display = "";
+  document.getElementById('local-businesses').style.display = "";
+}
+
+function clearInput(input, items) {
+  document.getElementById(input).value = '';
+  items.forEach(item => {
+    item.style.display = "";
+  })
 }

@@ -1519,6 +1519,33 @@ input::-ms-reveal{
   transform:translateX(26px)
 }
 
+.input-container{
+  position:relative;
+  width:200px
+}
+
+.input-container input{
+  width:100%;
+  padding:10px;
+  box-sizing:border-box
+}
+
+.input-container button{
+  position:absolute;
+  right:10px;
+  top:50%;
+  transform:translateY(-50%);
+  background:none;
+  border:none;
+  cursor:pointer
+}
+
+.input-container button:before{
+  content:"✖";
+  font-size:16px;
+  color:#ccc
+}
+
 #site-navigation-navbar{
   z-index:3
 }
@@ -1783,6 +1810,10 @@ footer nav a:hover{
 
   .xl\:w-auto {
     width: auto;
+  }
+
+  .xl\:flex-row {
+    flex-direction: row;
   }
 
   .xl\:items-start {

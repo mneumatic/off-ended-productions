@@ -138,10 +138,6 @@
         const observer = new IntersectionObserver(handleIntersection, options)
         const observerCaptions = new IntersectionObserver(handleCaptions, options)
 
-        // heroImage.forEach(element => {
-        //     observer.observe(element)
-        // })
-
         github.forEach(element => {
             observer.observe(element)
         })
@@ -149,7 +145,6 @@
         captions.forEach(element => {
             observerCaptions.observe(element)
         })
-
     </script>
 </body>
 </html>
