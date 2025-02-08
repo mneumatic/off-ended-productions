@@ -2,11 +2,11 @@
 <html lang="en" class="no-js">
 <%- include('../partials/head.ejs') %>
 <body>
-    <main class="oep-stickman">
+    <main class="oep-stickman" style="padding: 0">
         <%- include('../partials/flash.ejs') %>
         <%- include('../partials/navbar.ejs') %>
-        <section class="h-screen">
-            <div class="container flex flex-col items-center justify-center">
+        <section class="h-screen" style="padding: 0">
+            <div class="container flex flex-col items-center justify-center h-screen">
                 <h1 class="display-2 pt-5">Login</h1>
                 <form action="/login" method="POST" class="validated-form flex flex-col items-center justify-center" novalidate>
                     <div class="flex flex-row items-center justify-between w-full py-5">

@@ -2,11 +2,12 @@
 <html lang="en" class="no-js">
 <%- include('../partials/head.ejs') %>
 <body>
-    <main>
+    <%- include('../partials/navbar.ejs') %>
+    <main id="dashboard">
         <%- include('../partials/flash.ejs') %>
-        <header class="fixed flex items-center h-16 w-full transition-shadow bg-black text-white">
+        <div class="fixed top-[62px] flex items-center h-16 w-full transition-shadow bg-black text-white">
             <div class="container flex items-center justify-between">
-                <a class="btn" href="/logout">Logout</a>
+                <a class="btn" href="/login/logout">Logout</a>
                 <div class="flex flex-row items-center">
                     <span class="font-bold me-2">Filters</span>
                     <div class="flex flex-row border border-white rounded p-2">
@@ -35,8 +36,8 @@
 
                 </div>
             </div>
-        </header>
-        <section>
+        </div>
+        <section style="padding-top: 124px;">
             <h1 class="display-2 text-center">OEP Dashboard</h1>
         </section>
         <div class="oep-stickman">
@@ -144,29 +145,8 @@
             </section>
         </div>
     </main>
+    <%- include('../partials/footbar.ejs') %>
+    <%- include('../partials/scripts.ejs') %>
     <script src="/js/search.js"></script>
-    <script>
-      const sections = document.querySelectorAll('.oep-stickman section');
-      const switches = document.querySelectorAll('.switch');
-
-      // switches.forEach((element, index) => {
-      //   element.addEventListener('change', () => {
-      //     if (!event.target.checked) {
-      //       sections[index].style.display = "none";
-      //     } else {
-      //       sections[index].style.display = "";
-      //     }
-      //   })
-      // })
-
-
-      // document.querySelector('.switch input').addEventListener('change', function(event) {
-      //   if (event.target.checked) {
-      //     document.getElementById('music').style.display = "none";
-      //   } else {
-      //     document.getElementById('music').style.display = "";
-      //   }
-      // });
-    </script>
 </body>
 </html>

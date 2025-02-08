@@ -19,7 +19,8 @@ router.get('/', async (req, res) => {
   res.render('index', {
     title: 'Off Ended Productions',
     categories,
-    motto
+    motto,
+    authenticated: res.locals.currentUser,
   });
 });
 
@@ -27,7 +28,8 @@ router.get('/podcast', async (req, res) => {
   const recentItems = rssFeed.items.slice(0, 3);
   res.render('podcast', {
     title: 'Podcast | OEP',
-    rssFeed: recentItems
+    rssFeed: recentItems,
+    authenticated: res.locals.currentUser,
   });
 });
 
@@ -35,12 +37,16 @@ router.get('/twojz-music', async (req, res) => {
   const musicEvents = await MusicEvents.find({});
   res.render('twojz-music', {
     title: '2Jz Music | OEP',
-    musicEvents
+    musicEvents,
+    authenticated: res.locals.currentUser,
   });
 });
 
 router.get('/platinum-signatures', async (req, res) => {
-  res.render('platinum-signatures', { title: 'Platinum Signatures | OEP' });
+  res.render('platinum-signatures', {
+    title: 'Platinum Signatures | OEP',
+    authenticated: res.locals.currentUser,
+  });
 });
 
 router.get('/mneumatic-designs', async (req, res) => {
@@ -50,19 +56,24 @@ router.get('/mneumatic-designs', async (req, res) => {
     title: 'MNEUMATIC Designs | OEP',
     gitUser,
     gitRepos: recentItems,
-    gitBadges
+    gitBadges,
+    authenticated: res.locals.currentUser,
   });
 });
 
 router.get('/community', async (req, res) => {
-  res.render('community', { title: 'Community | OEP' });
+  res.render('community', {
+    title: 'Community | OEP',
+    authenticated: res.locals.currentUser,
+  });
 });
 
 router.get('/community/events', async (req, res) => {
   const events = await CommunityEvents.find({})
   res.render('community-events', {
     title: 'Community Events | OEP',
-    events
+    events,
+    authenticated: res.locals.currentUser,
   });
 });
 
@@ -70,12 +81,16 @@ router.get('/community/businesses', async (req, res) => {
   const businesses = await CommunityBusinesses.find({});
   res.render('community-businesses', {
     title: 'Community Businesses | OEP',
-    businesses
+    businesses,
+    authenticated: res.locals.currentUser,
   });
 });
 
 router.get('/about', async (req, res) => {
-  res.render('about', { title: 'The Crew | OEP' });
+  res.render('about', {
+    title: 'The Crew | OEP',
+    authenticated: res.locals.currentUser,
+  });
 });
 
 module.exports = router;

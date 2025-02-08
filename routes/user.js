@@ -1,6 +1,6 @@
 const express = require('express');
 const passport = require("passport");
-const {isLoggedIn} = require("../middleware");
+const {isLoggedIn, authenticate} = require("../middleware");
 const router = express.Router();
 const Music = require("../models/music");
 const CommunityEvents = require('../models/communityEvents');
@@ -8,7 +8,10 @@ const CommunityBusinesses = require('../models/communityBusinesses');
 
 
 router.get('/', async (req, res) => {
-  res.render('user/login', { title: "Login | OEP"});
+  res.render('user/login', {
+    title: "Login | OEP",
+    authenticated: res.locals.currentUser,
+  });
 })
 
 router.post('/', passport.authenticate('local', { failureFlash: true, failureRedirect: '/login' }), (req, res) => {
@@ -26,14 +29,19 @@ router.get('/dashboard', isLoggedIn, async (req, res) => {
     title: "Dashboard | OEP",
     music,
     events,
-    businesses
+    businesses,
+    authenticated: res.locals.currentUser
   });
 })
 
-router.get('/logout', async (req, res) => {
-  req.logOut()
-  req.reqflash('success', "Goodbye!");
-  res.redirect('views/index');
+router.get('/logout', (req, res) => {
+  req.logout(function(err) {
+    if (err) { return next(err); }
+    req.flash('success', "Goodbye!");
+    res.redirect('/login');
+  });
+  // req.flash('success', "Goodbye!");
+  // res.redirect('/');
 })
 
 module.exports = router;
