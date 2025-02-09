@@ -8,13 +8,18 @@
         <section>
             <div class="container text-center">
                 <h1 class="display-2">Edit</h1>
-                <p class="text-red-600 font-bold">IMPORTANT</p>
-                <ul class="list-disc flex flex-col items-center justify-center">
-                    <li>Do NOT change field formating:</li>
-                    <li>Date needs to be in "XX/XX/XXXX" format</li>
-                    <li>Hours needs to be in "XX:XX:XX - XX:XX:XX" format</li>
-                    <li>Images will need to uploaded manually unless it is a https link.</li>
-                </ul>
+                <div class="flex flex-col items-center justify-center">
+                    <p class="text-red-600 font-bold">IMPORTANT</p>
+                    <ul class="list-disc flex flex-col items-start justify-center">
+                        <li>Do NOT change field formating:</li>
+                        <li class="ms-5">Date needs to be in "XX/XX/XXXX" format</li>
+                        <li class="ms-5">Hours needs to be in "XX:XX:XX - XX:XX:XX" format</li>
+                        <% if (item.imagePath) { %>
+                            <li>Images will need to uploaded manually unless it is a link.</li>
+                            <li class="ms-5">"/img/" has to precede image file name unless source is a link.</li>
+                        <% } %>
+                    </ul>
+                </div>
             </div>
         </section>
         <div class="oep-stickman">
@@ -30,11 +35,13 @@
                             <label class="block" for="description">Description</label>
                             <textarea rows="5" class="rounded p-2 bg-black border border-white w-full" type="text" id="description" name="item[description]" required><%- item.description %>"</textarea>
                         </div>
-                        <div class="mb-3 w-full">
-                            <label class="block" for="imagePath">Image</label>
-                            <input class="rounded p-2 bg-black border border-white w-full" type="text" id="imagePath" name="item[imagePath]"
-                                   value="<%- item.imagePath %>" required>
-                        </div>
+                        <% if (item.imagePath) { %>
+                            <div class="mb-3 w-full">
+                                <label class="block" for="imagePath">Image</label>
+                                <input class="rounded p-2 bg-black border border-white w-full" type="text" id="imagePath" name="item[imagePath]"
+                                       value="<%- item.imagePath %>" required>
+                            </div>
+                        <% } %>
                         <div class="mb-3 w-full">
                             <label class="block" for="date">Date</label>
                             <input class="rounded p-2 bg-black border border-white w-full" type="text" id="date" name="item[date]"
@@ -50,9 +57,14 @@
                             <input class="rounded p-2 bg-black border border-white w-full" type="text" id="hours" name="item[hours]"
                                    value="<%- item.hours %>" required>
                         </div>
-                        <div class="flex flex-row items-start justify-start mt-3 w-full">
-                            <button class="btn me-3">Update</button>
-                            <a class="btn" href="/dashboard">Done</a>
+                        <div class="flex flex-row items-start justify-between mt-3 w-full">
+                            <div class="flex flex-row">
+                                <button class="btn me-3">Update</button>
+                                <a class="btn" href="/dashboard">Done</a>
+                            </div>
+                            <form action="/<%- item._id %>?_method=DELETE" method="POST">
+                                <button class="btn svg-transition" onclick="confirmDelete(`<%- item.title %>`)"  title="Delete Item" aria-label="Delete Item"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 2048 2048"><path fill="#fff" d="M1792 384h-128v1472q0 40-15 75t-41 61-61 41-75 15H448q-40 0-75-15t-61-41-41-61-15-75V384H128V256h512V128q0-27 10-50t27.5-40.5T718 10t50-10h384q27 0 50 10t40.5 27.5T1270 78t10 50v128h512v128zM768 256h384V128H768v128zm768 128H384v1472q0 26 19 45t45 19h1024q26 0 45-19t19-45V384zM768 1664H640V640h128v1024zm256 0H896V640h128v1024zm256 0h-128V640h128v1024z"/></svg></button>
+                            </form>
                         </div>
                     </form>
                 </div>
@@ -62,5 +74,6 @@
     <%- include('../partials/footbar.ejs') %>
     <%- include('../partials/scripts.ejs') %>
     <script src='/js/validateForms.js'></script>
+    <script src="/js/search.js"></script>
 </body>
 </html>

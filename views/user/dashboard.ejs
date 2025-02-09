@@ -57,7 +57,6 @@
                     <div class="flex flex-col sm:grid grid-cols-2 sm:gap-7">
                         <% for (let event of music ) { %>
                             <div class="music-event flex flex-col lg:flex-row bg-black border border-white rounded p-5 mb-5">
-                                <img class="thumbnail rounded outline outline-1" src="<%- event.imagePath %>" alt="<%- event.title %>">
                                 <div class="ps-3">
                                     <h3 class="py-5"><%= event.title %></h3>
                                     <p><%- event.description %></p>
@@ -94,7 +93,6 @@
                     <div class="flex flex-col sm:grid grid-cols-2 sm:gap-7">
                         <% for (let event of events ) { %>
                             <div class="local-event flex flex-col lg:flex-row bg-black border border-white rounded p-5 mb-5">
-                                <img class="thumbnail rounded outline outline-1" src="<%- event.imagePath %>" alt="<%- event.title %>">
                                 <div class="ps-3">
                                     <h3 class="py-5"><%= event.title %></h3>
                                     <p><%- event.description %></p>
