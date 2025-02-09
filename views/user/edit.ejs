@@ -8,45 +8,50 @@
         <section>
             <div class="container text-center">
                 <h1 class="display-2">Edit</h1>
-                <span><%- item.title %></span>
+                <p class="text-red-600 font-bold">IMPORTANT</p>
+                <ul class="list-disc flex flex-col items-center justify-center">
+                    <li>Do NOT change field formating:</li>
+                    <li>Date needs to be in "XX/XX/XXXX" format</li>
+                    <li>Hours needs to be in "XX:XX:XX - XX:XX:XX" format</li>
+                    <li>Images will need to uploaded manually unless it is a https link.</li>
+                </ul>
             </div>
         </section>
         <div class="oep-stickman">
             <section>
                 <div class="container">
+                    <h2 class="display-2 font-bold">Editing: <%- item.title %></h2>
                     <form action="/<%= item._id %>?_method=PUT" method="POST" class="validated-form flex flex-col items-center justify-center">
-                        <div class="mb-3">
-                            <label class="form-label" for="title">Title</label>
-                            <input class="rounded p-2 bg-black border border-white" type="text" id="title" name="item[title]"
-                                   value="<%- item.title %>" required>
+                        <div class="mb-3 w-full">
+                            <label class="block" for="title">Title</label>
+                            <input class="rounded p-2 bg-black border border-white w-full" type="text" id="title" name="item[title]" value="<%- item.title %>" required>
                         </div>
-                        <div class="mb-3">
-                            <label class="form-label" for="title">Description</label>
-                            <textarea class="rounded p-2 bg-black border border-white" type="text" id="description" name="item[description]"
-                                      required><%- item.description %>"</textarea>
+                        <div class="mb-3 w-full">
+                            <label class="block" for="description">Description</label>
+                            <textarea rows="5" class="rounded p-2 bg-black border border-white w-full" type="text" id="description" name="item[description]" required><%- item.description %>"</textarea>
                         </div>
-                        <div class="mb-3">
-                            <label class="form-label" for="title">Image</label>
-                            <input class="rounded p-2 bg-black border border-white" type="text" id="imagePath" name="item[imagePath]"
+                        <div class="mb-3 w-full">
+                            <label class="block" for="imagePath">Image</label>
+                            <input class="rounded p-2 bg-black border border-white w-full" type="text" id="imagePath" name="item[imagePath]"
                                    value="<%- item.imagePath %>" required>
                         </div>
-                        <div class="mb-3">
-                            <label class="form-label" for="title">Date</label>
-                            <input class="rounded p-2 bg-black border border-white" type="text" id="date" name="item[date]"
+                        <div class="mb-3 w-full">
+                            <label class="block" for="date">Date</label>
+                            <input class="rounded p-2 bg-black border border-white w-full" type="text" id="date" name="item[date]"
                                    value="<%- item.date %>" required>
                         </div>
-                        <div class="mb-3">
-                            <label class="form-label" for="title">Location</label>
-                            <input class="rounded p-2 bg-black border border-white" type="text" id="location" name="item[location]"
+                        <div class="mb-3 w-full">
+                            <label class="block" for="location">Location</label>
+                            <input class="rounded p-2 bg-black border border-white w-full" type="text" id="location" name="item[location]"
                                    value="<%- item.location %>" required>
                         </div>
-                        <div class="mb-3">
-                            <label class="form-label" for="title">Hours</label>
-                            <input class="rounded p-2 bg-black border border-white" type="text" id="hours" name="item[hours]"
+                        <div class="mb-3 w-full">
+                            <label class="block" for="hours">Hours</label>
+                            <input class="rounded p-2 bg-black border border-white w-full" type="text" id="hours" name="item[hours]"
                                    value="<%- item.hours %>" required>
                         </div>
-                        <div class="mb-3">
-                            <button class="btn">Update</button>
+                        <div class="flex flex-row items-start justify-start mt-3 w-full">
+                            <button class="btn me-3">Update</button>
                             <a class="btn" href="/dashboard">Done</a>
                         </div>
                     </form>
