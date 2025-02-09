@@ -40,6 +40,20 @@ function toggleFilters() {
   document.getElementById('local-businesses').style.display = "";
 }
 
+function toggleInput(input) {
+  const element = document.getElementById(input);
+  element.classList.toggle('active');
+  element.nextElementSibling.classList.toggle('active');
+}
+
+function showFilters(button) {
+  button.classList.toggle('svg-transition-toggle');
+  document.getElementById('filters').classList.toggle('active');
+  if (!document.getElementById('filters').classList.contains('active')) {
+    toggleFilters()
+  }
+}
+
 function clearInput(input, items) {
   document.getElementById(input).value = '';
   items.forEach(item => {

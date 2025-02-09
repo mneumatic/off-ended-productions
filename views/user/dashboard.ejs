@@ -10,12 +10,12 @@
             <div class="flex items-center justify-center w-full">
                 <div class="container flex items-center justify-center">
                     <div class="flex flex-col items-center">
-                        <div class="input-container flex flex-row items-center">
-                            <label class="font-bold me-2" for="search-all-input"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg></label>
-                            <input id="search-all-input" class="clear-input rounded p-2 bg-black border border-white" type="text" onclick="toggleFilters()" oninput="searchFunction(this.value.toUpperCase(), document.querySelectorAll('.music-event, .local-event, .local-business'))" title="Search All" aria-label="Search All" placeholder="Search All">
-                            <button class="clear-button" onclick="clearInput('search-all-input', document.querySelectorAll('.music-event, .local-event, .local-business'))"></button>
+                        <div class="input-container flex flex-row items-center justify-center">
+                            <input id="search-all-input" class="clear-input rounded p-2 bg-black border border-white w-[250px]" type="text" oninput="searchFunction(this.value.toUpperCase(), document.querySelectorAll('.music-event, .local-event, .local-business'))" title="Search All" aria-label="Search All" placeholder="Search All">
+                            <button class="btn clear-button mx-3 svg-transition" onclick="clearInput('search-all-input', document.querySelectorAll('.music-event, .local-event, .local-business'))" title="Delete Search" aria-label="Delete Search"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 2048 2048"><path fill="#fff" d="M1792 384h-128v1472q0 40-15 75t-41 61-61 41-75 15H448q-40 0-75-15t-61-41-41-61-15-75V384H128V256h512V128q0-27 10-50t27.5-40.5T718 10t50-10h384q27 0 50 10t40.5 27.5T1270 78t10 50v128h512v128zM768 256h384V128H768v128zm768 128H384v1472q0 26 19 45t45 19h1024q26 0 45-19t19-45V384zM768 1664H640V640h128v1024zm256 0H896V640h128v1024zm256 0h-128V640h128v1024z"/></svg></button>
+                            <button class="btn svg-transition" onclick="showFilters(this)" title="Toggle Filters" aria-label="Toggle Filters"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 42 39"><path fill="#fff" d="M696.5,1340h2.713a5.494,5.494,0,0,0,10.574,0H735.5a1.5,1.5,0,0,0,0-3H709.787a5.494,5.494,0,0,0-10.574,0H696.5A1.5,1.5,0,0,0,696.5,1340Zm8-4a2.5,2.5,0,1,1-2.5,2.5A2.5,2.5,0,0,1,704.5,1336Zm31,15H721.118a5.492,5.492,0,0,0-10.236,0H696.5a1.5,1.5,0,0,0,0,3h14.1a5.495,5.495,0,0,0,10.808,0h14.1A1.5,1.5,0,0,0,735.5,1351Zm-19.5,4.5a2.5,2.5,0,1,1,2.5-2.5A2.5,2.5,0,0,1,716,1355.5Zm19.5,9.5h-2.713a5.494,5.494,0,0,0-10.574,0H696.5a1.5,1.5,0,0,0,0,3h25.713a5.494,5.494,0,0,0,10.574,0H735.5A1.5,1.5,0,0,0,735.5,1365Zm-8,4a2.5,2.5,0,1,1,2.5-2.5A2.5,2.5,0,0,1,727.5,1369Z" transform="translate(-695 -1333)"/></svg></button>
                         </div>
-                        <div class="flex flex-col xl:flex-row p-2">
+                        <div id="filters" class="flex flex-col sm:flex-row p-2">
                             <div class="flex items-center justify-between m-2">
                                 <span class="me-2">Music</span>
                                 <label id="music-switch" class="switch">
@@ -32,13 +32,12 @@
                             </div>
                             <div class="flex items-center justify-between m-2">
                                 <span class="me-2">Local Businesses</span>
-                                <label id="local-businesses-switch" oninput="filters(this, document.getElementById('local-businesses'))" class="switch">
-                                    <input type="checkbox" checked>
+                                <label id="local-businesses-switch" class="switch">
+                                    <input type="checkbox" oninput="filters(this, document.getElementById('local-businesses'))" checked>
                                     <span></span>
                                 </label>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -46,13 +45,13 @@
         <div class="oep-stickman">
             <section id="music">
                 <div class="container">
-                    <h2 class="display-2 text-center">2Jz Music</h2>
-                    <div class="flex justify-between mb-5">
-                        <a class="btn" href="" title="Add New Music Event" aria-label="Add New Music Event" style="padding-left: 0.75rem; padding-right: 0.75rem;">+</a>
-                        <div class="input-container flex flex-row items-center">
-                            <label class="font-bold me-2" for="music-search-input"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg></label>
-                            <input id="music-search-input" class="clear-input rounded p-2 bg-black border border-white" type="text" oninput="searchFunction(this.value.toUpperCase(), document.querySelectorAll('.music-event'))" title="Search 2Jz Music" aria-label="Search 2Jz Music" placeholder="Search 2Jz Music">
-                            <button class="clear-button" onclick="clearInput('music-search-input', document.querySelectorAll('.music-event'))"></button>
+                    <h2 class="display-2 text-center">2Jz Music Events</h2>
+                    <div class="flex items-center justify-end mb-5">
+                        <a class="btn me-3 svg-transition" href="" title="Add New Music Event" aria-label="Add New Music Event"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"><path fill="#fff" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></a>
+                        <div class="search-container">
+                            <label class="icon btn cursor-pointer svg-transition" for="music-search-input" onclick="toggleInput('music-search-input')" title="Open/Close Search" aria-label="Open/Close Search"><svg xmlns="http://www.w3.org/2000/svg" width="24" fill="currentColor" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg></label>
+                            <input id="music-search-input" class="clear-input rounded bg-black border border-white w-[250px]" type="text" oninput="searchFunction(this.value.toUpperCase(), document.querySelectorAll('.music-event'))" title="Search 2Jz Music" aria-label="Search 2Jz Music" placeholder="Search 2Jz Music">
+                            <button class="btn clear-button svg-transition" onclick="clearInput('music-search-input', document.querySelectorAll('.music-event'))" title="Delete Search" aria-label="Delete Search"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 2048 2048"><path fill="#fff" d="M1792 384h-128v1472q0 40-15 75t-41 61-61 41-75 15H448q-40 0-75-15t-61-41-41-61-15-75V384H128V256h512V128q0-27 10-50t27.5-40.5T718 10t50-10h384q27 0 50 10t40.5 27.5T1270 78t10 50v128h512v128zM768 256h384V128H768v128zm768 128H384v1472q0 26 19 45t45 19h1024q26 0 45-19t19-45V384zM768 1664H640V640h128v1024zm256 0H896V640h128v1024zm256 0h-128V640h128v1024z"/></svg></button>
                         </div>
                     </div>
                     <div class="flex flex-col sm:grid grid-cols-2 sm:gap-7">
@@ -69,8 +68,8 @@
                                     <p class="date font-bold text-end py-3">On: <%- event.date %></p>
                                     <div class="flex flex-row justify-end">
                                         <div class="flex flex-row items-center">
-                                            <a class="btn me-3" href=""><svg xmlns="http://www.w3.org/2000/svg" width="16" viewBox="0 0 2048 2048"><path fill="#fff" d="M2048 335q0 66-25 128t-73 110L633 1890 0 2048l158-633L1475 98q48-48 110-73t128-25q69 0 130 26.5t106.5 72 72 106.5 26.5 130zM326 1428q106 35 182.5 111.5T620 1722L1701 640l-293-293zm-150 444l329-82q-10-46-32.5-87t-54.5-73-73-54.5-87-32.5zM1792 549q25-25 48-47t41-46.5 28.5-53T1920 336q0-43-16.5-80.5t-45-66-66-45T1712 128q-38 0-66.5 10.5t-53 28.5-46.5 41-47 48z"/></svg></a>
-                                            <a class="btn" href=""><svg xmlns="http://www.w3.org/2000/svg" width="16" viewBox="0 0 2048 2048"><path fill="#fff" d="M1792 384h-128v1472q0 40-15 75t-41 61-61 41-75 15H448q-40 0-75-15t-61-41-41-61-15-75V384H128V256h512V128q0-27 10-50t27.5-40.5T718 10t50-10h384q27 0 50 10t40.5 27.5T1270 78t10 50v128h512v128zM768 256h384V128H768v128zm768 128H384v1472q0 26 19 45t45 19h1024q26 0 45-19t19-45V384zM768 1664H640V640h128v1024zm256 0H896V640h128v1024zm256 0h-128V640h128v1024z"/></svg></a>
+                                            <a class="btn me-3 svg-transition" href="" title="Edit Event" aria-label="Edit Event"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 2048 2048"><path fill="#fff" d="M2048 335q0 66-25 128t-73 110L633 1890 0 2048l158-633L1475 98q48-48 110-73t128-25q69 0 130 26.5t106.5 72 72 106.5 26.5 130zM326 1428q106 35 182.5 111.5T620 1722L1701 640l-293-293zm-150 444l329-82q-10-46-32.5-87t-54.5-73-73-54.5-87-32.5zM1792 549q25-25 48-47t41-46.5 28.5-53T1920 336q0-43-16.5-80.5t-45-66-66-45T1712 128q-38 0-66.5 10.5t-53 28.5-46.5 41-47 48z"/></svg></a>
+                                            <a class="btn svg-transition" href="" title="Delete Event" aria-label="Delete Event"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 2048 2048"><path fill="#fff" d="M1792 384h-128v1472q0 40-15 75t-41 61-61 41-75 15H448q-40 0-75-15t-61-41-41-61-15-75V384H128V256h512V128q0-27 10-50t27.5-40.5T718 10t50-10h384q27 0 50 10t40.5 27.5T1270 78t10 50v128h512v128zM768 256h384V128H768v128zm768 128H384v1472q0 26 19 45t45 19h1024q26 0 45-19t19-45V384zM768 1664H640V640h128v1024zm256 0H896V640h128v1024zm256 0h-128V640h128v1024z"/></svg></a>
                                         </div>
                                     </div>
                                 </div>
@@ -82,12 +81,12 @@
             <section id="local-events">
                 <div class="container">
                     <h2 class="display-2 text-center">Local Events</h2>
-                    <div class="flex justify-between mb-5">
-                        <a class="btn" href="" title="Add New Local Event" aria-label="Add New Local Event" style="padding-left: 0.75rem; padding-right: 0.75rem;">+</a>
-                        <div class="input-container flex flex-row items-center">
-                            <label class="font-bold me-2" for="music-search-input"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg></label>
+                    <div class="flex items-center justify-end mb-5">
+                        <a class="btn me-3 svg-transition" href="" title="Add New Local Event" aria-label="Add New Local Event"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"><path fill="#fff" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></a>
+                        <div class="search-container">
+                            <label class="icon btn cursor-pointer svg-transition" for="local-events-search-input" onclick="toggleInput('local-events-search-input')" title="Open/Close Search" aria-label="Open/Close Search"><svg xmlns="http://www.w3.org/2000/svg" width="24" fill="currentColor" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg></label>
                             <input id="local-events-search-input" class="rounded p-2 bg-black border border-white" type="text" oninput="searchFunction(this.value.toUpperCase(), document.querySelectorAll('.local-event'))" title="Search Local Events" aria-label="Search Local Events" placeholder="Search Local Events">
-                            <button class="clear-button" onclick="clearInput('local-events-search-input', document.querySelectorAll('.local-event'))"></button>
+                            <button class="btn clear-button svg-transition" onclick="clearInput('local-events-search-input', document.querySelectorAll('.local-event'))" title="Delete Search" aria-label="Delete Search"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 2048 2048"><path fill="#fff" d="M1792 384h-128v1472q0 40-15 75t-41 61-61 41-75 15H448q-40 0-75-15t-61-41-41-61-15-75V384H128V256h512V128q0-27 10-50t27.5-40.5T718 10t50-10h384q27 0 50 10t40.5 27.5T1270 78t10 50v128h512v128zM768 256h384V128H768v128zm768 128H384v1472q0 26 19 45t45 19h1024q26 0 45-19t19-45V384zM768 1664H640V640h128v1024zm256 0H896V640h128v1024zm256 0h-128V640h128v1024z"/></svg></button>
                         </div>
                     </div>
                     <div class="flex flex-col sm:grid grid-cols-2 sm:gap-7">
@@ -104,8 +103,8 @@
                                     <p class="date font-bold text-end py-3">On: <%- event.date %></p>
                                     <div class="flex flex-row justify-end">
                                         <div class="flex flex-row items-center">
-                                            <a class="btn me-3" href=""><svg xmlns="http://www.w3.org/2000/svg" width="16" viewBox="0 0 2048 2048"><path fill="#fff" d="M2048 335q0 66-25 128t-73 110L633 1890 0 2048l158-633L1475 98q48-48 110-73t128-25q69 0 130 26.5t106.5 72 72 106.5 26.5 130zM326 1428q106 35 182.5 111.5T620 1722L1701 640l-293-293zm-150 444l329-82q-10-46-32.5-87t-54.5-73-73-54.5-87-32.5zM1792 549q25-25 48-47t41-46.5 28.5-53T1920 336q0-43-16.5-80.5t-45-66-66-45T1712 128q-38 0-66.5 10.5t-53 28.5-46.5 41-47 48z"/></svg></a>
-                                            <a class="btn" href=""><svg xmlns="http://www.w3.org/2000/svg" width="16" viewBox="0 0 2048 2048"><path fill="#fff" d="M1792 384h-128v1472q0 40-15 75t-41 61-61 41-75 15H448q-40 0-75-15t-61-41-41-61-15-75V384H128V256h512V128q0-27 10-50t27.5-40.5T718 10t50-10h384q27 0 50 10t40.5 27.5T1270 78t10 50v128h512v128zM768 256h384V128H768v128zm768 128H384v1472q0 26 19 45t45 19h1024q26 0 45-19t19-45V384zM768 1664H640V640h128v1024zm256 0H896V640h128v1024zm256 0h-128V640h128v1024z"/></svg></a>
+                                            <a class="btn me-3 svg-transition" href="" title="Edit Event" aria-label="Edit Event"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 2048 2048"><path fill="#fff" d="M2048 335q0 66-25 128t-73 110L633 1890 0 2048l158-633L1475 98q48-48 110-73t128-25q69 0 130 26.5t106.5 72 72 106.5 26.5 130zM326 1428q106 35 182.5 111.5T620 1722L1701 640l-293-293zm-150 444l329-82q-10-46-32.5-87t-54.5-73-73-54.5-87-32.5zM1792 549q25-25 48-47t41-46.5 28.5-53T1920 336q0-43-16.5-80.5t-45-66-66-45T1712 128q-38 0-66.5 10.5t-53 28.5-46.5 41-47 48z"/></svg></a>
+                                            <a class="btn svg-transition" href="" title="Delete Event" aria-label="Delete Event"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 2048 2048"><path fill="#fff" d="M1792 384h-128v1472q0 40-15 75t-41 61-61 41-75 15H448q-40 0-75-15t-61-41-41-61-15-75V384H128V256h512V128q0-27 10-50t27.5-40.5T718 10t50-10h384q27 0 50 10t40.5 27.5T1270 78t10 50v128h512v128zM768 256h384V128H768v128zm768 128H384v1472q0 26 19 45t45 19h1024q26 0 45-19t19-45V384zM768 1664H640V640h128v1024zm256 0H896V640h128v1024zm256 0h-128V640h128v1024z"/></svg></a>
                                         </div>
                                     </div>
                                 </div>
@@ -117,12 +116,12 @@
             <section id="local-businesses">
                 <div class="container">
                     <h2 class="display-2 text-center">Local Businesses</h2>
-                    <div class="flex justify-between mb-5">
-                        <a class="btn" href="" title="Add New Local Business" aria-label="Add New Local Business" style="padding-left: 0.75rem; padding-right: 0.75rem;">+</a>
-                        <div class="input-container flex flex-row items-center">
-                            <label class="font-bold me-2" for="local-businesses-search-input"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg></label>
-                            <input id="local-businesses-search-input" class="rounded p-2 bg-black border border-white" type="text" oninput="searchFunction(this.value.toUpperCase(), document.querySelectorAll('.local-business'))" title="Search Local Business" aria-label="Search Local Business" placeholder="Search Local Business">
-                            <button class="clear-button" onclick="clearInput('local-businesses-search-input', document.querySelectorAll('.local-business'))"></button>
+                    <div class="flex items-center justify-end mb-5">
+                        <a class="btn me-3 svg-transition" href="" title="Add New Local Business" aria-label="Add New Local Business"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"><path fill="#fff" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></a>
+                        <div class="search-container">
+                            <label class="icon btn cursor-pointer svg-transition" for="local-businesses-search-input" onclick="toggleInput('local-businesses-search-input')" title="Open/Close Search" aria-label="Open/Close Search"><svg xmlns="http://www.w3.org/2000/svg" width="24" fill="currentColor" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg></label>
+                            <input id="local-businesses-search-input" class="rounded p-2 bg-black border border-white w-[250px]" type="text" oninput="searchFunction(this.value.toUpperCase(), document.querySelectorAll('.local-business'))" title="Search Local Business" aria-label="Search Local Business" placeholder="Search Local Business">
+                            <button class="btn clear-button svg-transition" onclick="clearInput('local-businesses-search-input', document.querySelectorAll('.local-business'))" title="Delete Search" aria-label="Delete Search"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 2048 2048"><path fill="#fff" d="M1792 384h-128v1472q0 40-15 75t-41 61-61 41-75 15H448q-40 0-75-15t-61-41-41-61-15-75V384H128V256h512V128q0-27 10-50t27.5-40.5T718 10t50-10h384q27 0 50 10t40.5 27.5T1270 78t10 50v128h512v128zM768 256h384V128H768v128zm768 128H384v1472q0 26 19 45t45 19h1024q26 0 45-19t19-45V384zM768 1664H640V640h128v1024zm256 0H896V640h128v1024zm256 0h-128V640h128v1024z"/></svg></button>
                         </div>
                     </div>
                     <div class="flex flex-col sm:grid grid-cols-2 sm:gap-7">
@@ -139,8 +138,8 @@
                                     <p class="font-bold text-end py-3">Phone: <%- business.phone %></p>
                                     <div class="flex flex-row justify-end">
                                         <div class="flex flex-row items-center">
-                                            <a class="btn me-3" href=""><svg xmlns="http://www.w3.org/2000/svg" width="16" viewBox="0 0 2048 2048"><path fill="#fff" d="M2048 335q0 66-25 128t-73 110L633 1890 0 2048l158-633L1475 98q48-48 110-73t128-25q69 0 130 26.5t106.5 72 72 106.5 26.5 130zM326 1428q106 35 182.5 111.5T620 1722L1701 640l-293-293zm-150 444l329-82q-10-46-32.5-87t-54.5-73-73-54.5-87-32.5zM1792 549q25-25 48-47t41-46.5 28.5-53T1920 336q0-43-16.5-80.5t-45-66-66-45T1712 128q-38 0-66.5 10.5t-53 28.5-46.5 41-47 48z"/></svg></a>
-                                            <a class="btn" href=""><svg xmlns="http://www.w3.org/2000/svg" width="16" viewBox="0 0 2048 2048"><path fill="#fff" d="M1792 384h-128v1472q0 40-15 75t-41 61-61 41-75 15H448q-40 0-75-15t-61-41-41-61-15-75V384H128V256h512V128q0-27 10-50t27.5-40.5T718 10t50-10h384q27 0 50 10t40.5 27.5T1270 78t10 50v128h512v128zM768 256h384V128H768v128zm768 128H384v1472q0 26 19 45t45 19h1024q26 0 45-19t19-45V384zM768 1664H640V640h128v1024zm256 0H896V640h128v1024zm256 0h-128V640h128v1024z"/></svg></a>
+                                            <a class="btn me-3 svg-transition" href="" title="Edit Business" aria-label="Edit Business"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 2048 2048"><path fill="#fff" d="M2048 335q0 66-25 128t-73 110L633 1890 0 2048l158-633L1475 98q48-48 110-73t128-25q69 0 130 26.5t106.5 72 72 106.5 26.5 130zM326 1428q106 35 182.5 111.5T620 1722L1701 640l-293-293zm-150 444l329-82q-10-46-32.5-87t-54.5-73-73-54.5-87-32.5zM1792 549q25-25 48-47t41-46.5 28.5-53T1920 336q0-43-16.5-80.5t-45-66-66-45T1712 128q-38 0-66.5 10.5t-53 28.5-46.5 41-47 48z"/></svg></a>
+                                            <a class="btn svg-transition" href="" title="Delete Business" aria-label="Delete Business"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 2048 2048"><path fill="#fff" d="M1792 384h-128v1472q0 40-15 75t-41 61-61 41-75 15H448q-40 0-75-15t-61-41-41-61-15-75V384H128V256h512V128q0-27 10-50t27.5-40.5T718 10t50-10h384q27 0 50 10t40.5 27.5T1270 78t10 50v128h512v128zM768 256h384V128H768v128zm768 128H384v1472q0 26 19 45t45 19h1024q26 0 45-19t19-45V384zM768 1664H640V640h128v1024zm256 0H896V640h128v1024zm256 0h-128V640h128v1024z"/></svg></a>
                                         </div>
                                     </div>
                                 </div>

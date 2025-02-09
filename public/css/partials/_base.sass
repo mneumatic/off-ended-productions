@@ -195,15 +195,7 @@ h2
     transform: scale(1.1)
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5)
 
-#github,
-#repos,
-#tech,
-.event,
-.music-event,
-.local-event,
-.local-business
-  a,
-  label
+.svg-transition
     transition: background-color .3s ease-in-out, fill .3s ease-in-out, color .3s ease-in-out
 
     &:hover
@@ -212,6 +204,13 @@ h2
 
       svg path
         fill: #000 !important
+
+.svg-transition-toggle
+  background-color: #fff
+  color: #000 !important
+
+  svg path
+    fill: #000 !important
 
 .classic-link
   color: blue
@@ -272,6 +271,22 @@ input::-ms-reveal
   width: 150px
   height: 150px
 
+#filters
+  height: 0
+  transition: height 0.5s
+  overflow: hidden
+  opacity: 0
+
+#filters.active
+  height: 160px
+  opacity: 1
+
+
+@media (min-width: 640px)
+  #filters.active
+    height: 60px
+    opacity: 1
+
 .switch
   position: relative
   display: inline-block
@@ -318,28 +333,28 @@ input::-ms-reveal
   input:checked + span:before
     transform: translateX(26px)
 
-.input-container
-  position: relative
-  width: 200px
+.search-container
+  display: flex
+  justify-content: end
+  align-items: center
 
-
-  input
-    width: 100%
-    padding: 10px
-    box-sizing: border-box
-
-
+  input,
   button
-    position: absolute
-    right: 10px
-    top: 50%
-    transform: translateY(-50%)
-    background: none
-    border: none
-    cursor: pointer
+    width: 0
+    transition: width 0.5s
+    overflow: hidden
+    opacity: 0
+    padding: 0
 
 
-    &:before
-      content: '✖'
-      font-size: 16px
-      color: #ccc
+  .active
+    width: 200px
+    opacity: 1
+    margin-left: 12px
+    padding: 0.5rem
+
+  button.active
+    width: auto
+
+  //.icon
+  //  cursor: pointer
