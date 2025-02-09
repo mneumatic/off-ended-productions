@@ -54,9 +54,12 @@
                             <button class="btn clear-button svg-transition" onclick="clearInput('music-search-input', document.querySelectorAll('.music-event'))" title="Delete Search" aria-label="Delete Search"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 2048 2048"><path fill="#fff" d="M1792 384h-128v1472q0 40-15 75t-41 61-61 41-75 15H448q-40 0-75-15t-61-41-41-61-15-75V384H128V256h512V128q0-27 10-50t27.5-40.5T718 10t50-10h384q27 0 50 10t40.5 27.5T1270 78t10 50v128h512v128zM768 256h384V128H768v128zm768 128H384v1472q0 26 19 45t45 19h1024q26 0 45-19t19-45V384zM768 1664H640V640h128v1024zm256 0H896V640h128v1024zm256 0h-128V640h128v1024z"/></svg></button>
                         </div>
                     </div>
-                    <div class="flex flex-col sm:grid grid-cols-2 sm:gap-7">
+                    <div class="flex flex-row flex-wrap justify-center lg:justify-between">
                         <% for (let event of music ) { %>
-                            <div class="music-event flex flex-col lg:flex-row bg-black border border-white rounded p-5 mb-5">
+                            <div class="music-event flex flex-col bg-black border border-white rounded p-5 mb-5 w-[320px]">
+                                <% if (event.imagePath) { %>
+                                    <img class="img-fluid rounded outline outline-1" src="<%- event.imagePath %>" alt="<%- event.title %>">
+                                <% } %>
                                 <div class="ps-3">
                                     <h3 class="py-5"><%= event.title %></h3>
                                     <p><%- event.description %></p>
@@ -90,9 +93,12 @@
                             <button class="btn clear-button svg-transition" onclick="clearInput('local-events-search-input', document.querySelectorAll('.local-event'))" title="Delete Search" aria-label="Delete Search"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 2048 2048"><path fill="#fff" d="M1792 384h-128v1472q0 40-15 75t-41 61-61 41-75 15H448q-40 0-75-15t-61-41-41-61-15-75V384H128V256h512V128q0-27 10-50t27.5-40.5T718 10t50-10h384q27 0 50 10t40.5 27.5T1270 78t10 50v128h512v128zM768 256h384V128H768v128zm768 128H384v1472q0 26 19 45t45 19h1024q26 0 45-19t19-45V384zM768 1664H640V640h128v1024zm256 0H896V640h128v1024zm256 0h-128V640h128v1024z"/></svg></button>
                         </div>
                     </div>
-                    <div class="flex flex-col sm:grid grid-cols-2 sm:gap-7">
+                    <div class="flex flex-row flex-wrap justify-center lg:justify-between">
                         <% for (let event of events ) { %>
-                            <div class="local-event flex flex-col lg:flex-row bg-black border border-white rounded p-5 mb-5">
+                            <div class="local-event flex flex-col bg-black border border-white rounded p-5 mb-5 w-[320px]">
+                                <% if (event.imagePath) { %>
+                                    <img class="img-fluid rounded outline outline-1" src="<%- event.imagePath %>" alt="<%- event.title %>">
+                                <% } %>
                                 <div class="ps-3">
                                     <h3 class="py-5"><%= event.title %></h3>
                                     <p><%- event.description %></p>
@@ -126,10 +132,12 @@
                             <button class="btn clear-button svg-transition" onclick="clearInput('local-businesses-search-input', document.querySelectorAll('.local-business'))" title="Delete Search" aria-label="Delete Search"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 2048 2048"><path fill="#fff" d="M1792 384h-128v1472q0 40-15 75t-41 61-61 41-75 15H448q-40 0-75-15t-61-41-41-61-15-75V384H128V256h512V128q0-27 10-50t27.5-40.5T718 10t50-10h384q27 0 50 10t40.5 27.5T1270 78t10 50v128h512v128zM768 256h384V128H768v128zm768 128H384v1472q0 26 19 45t45 19h1024q26 0 45-19t19-45V384zM768 1664H640V640h128v1024zm256 0H896V640h128v1024zm256 0h-128V640h128v1024z"/></svg></button>
                         </div>
                     </div>
-                    <div class="flex flex-col sm:grid grid-cols-2 sm:gap-7">
+                    <div class="flex flex-row flex-wrap justify-center lg:justify-between">
                         <% for (let business of businesses ) { %>
-                            <div class="local-business flex flex-row bg-black border border-white rounded p-5 mb-5">
-                                <img class="thumbnail rounded outline outline-1" src="<%- business.imagePath %>" alt="<%- business.title %>">
+                            <div class="local-business flex flex-col bg-black border border-white rounded p-5 mb-5 w-[320px]">
+                                <% if (business.imagePath) { %>
+                                    <img class="img-fluid outline outline-1" src="<%- business.imagePath %>" alt="<%- business.title %>">
+                                <% } %>
                                 <div class="ps-3">
                                     <h3 class="py-5"><%= business.title %></h3>
                                     <p><%- business.description %></p>

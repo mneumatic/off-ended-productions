@@ -30,6 +30,9 @@
                 <div class="container__animated-flex flex flex-row flex-wrap justify-center lg:justify-evenly pt-10">
                     <% for (let event of events ) { %>
                         <div class="event y-translate bg-black p-5 my-5 mx-5 min-[1535px]:mx-0 rounded w-[320px]">
+                            <% if (event.imagePath) { %>
+                                <img class="img-fluid rounded outline outline-1" src="<%- event.imagePath %>" alt="<%- event.title %>">
+                            <% } %>
                             <div>
                                 <h3 class="py-5"><%= event.title %></h3>
                                 <p><%- event.description %></p>

@@ -1821,6 +1821,10 @@ footer nav a:hover{
     flex-direction: row;
   }
 
+  .lg\:justify-between {
+    justify-content: space-between;
+  }
+
   .lg\:justify-evenly {
     justify-content: space-evenly;
   }

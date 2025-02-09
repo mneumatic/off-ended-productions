@@ -9,6 +9,7 @@ const data = [
   {
       title: "Music Event 1",
       description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam autem beatae distinctio doloremque, harum incidunt ipsam ipsum magnam maxime odit officia perferendis quas quisquam quos tempore, tenetur unde voluptatem voluptates?",
+      imagePath: "https://1drv.ms/u/c/e25ec7064419b6a1/IQTNfUULGxPMTIomyM1kSQdeAQ-DNWY-CMdpbJds275v3Is?width=1024",
       date: "1/01/2025",
       location: "1111 Silver Spruce Dr. Running Springs CA 92382",
       hours: "6pm - 10pm",
@@ -16,6 +17,7 @@ const data = [
   {
       title: "Music Event 2",
       description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam autem beatae distinctio doloremque, harum incidunt ipsam ipsum magnam maxime odit officia perferendis quas quisquam quos tempore, tenetur unde voluptatem voluptates?",
+      imagePath: "https://1drv.ms/u/c/e25ec7064419b6a1/IQTNfUULGxPMTIomyM1kSQdeAQ-DNWY-CMdpbJds275v3Is?width=1024",
       date: "4/01/2025",
       location: "1111 Silver Spruce Dr. Running Springs CA 92382",
       hours: "6pm - 10pm",
@@ -23,6 +25,7 @@ const data = [
   {
       title: "Music Event 3",
       description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam autem beatae distinctio doloremque, harum incidunt ipsam ipsum magnam maxime odit officia perferendis quas quisquam quos tempore, tenetur unde voluptatem voluptates?",
+      imagePath: "https://1drv.ms/u/c/e25ec7064419b6a1/IQTNfUULGxPMTIomyM1kSQdeAQ-DNWY-CMdpbJds275v3Is?width=1024",
       date: "6/01/2025",
       location: "1111 Silver Spruce Dr. Running Springs CA 92382",
       hours: "6pm - 10pm",
@@ -30,6 +33,7 @@ const data = [
   {
     title: "Music Event 4",
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam autem beatae distinctio doloremque, harum incidunt ipsam ipsum magnam maxime odit officia perferendis quas quisquam quos tempore, tenetur unde voluptatem voluptates?",
+    imagePath: "https://1drv.ms/u/c/e25ec7064419b6a1/IQTNfUULGxPMTIomyM1kSQdeAQ-DNWY-CMdpbJds275v3Is?width=1024",
     date: "7/01/2025",
     location: "1111 Silver Spruce Dr. Running Springs CA 92382",
     hours: "6pm - 10pm",

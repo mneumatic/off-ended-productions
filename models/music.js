@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 const MusicEventsSchema = new Schema({
     title: String,
     description: String,
+    imagePath: String,
     date: String,
     location: String,
     hours: String,
