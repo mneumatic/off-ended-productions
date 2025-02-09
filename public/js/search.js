@@ -60,3 +60,15 @@ function clearInput(input, items) {
     item.style.display = "";
   })
 }
+
+function confirmDelete(title) {
+  const forms = document.querySelectorAll('form');
+  forms.forEach(form => {
+    form.addEventListener('submit', (event) => {
+      const confirmation = confirm(`Do you really want to delete ${title}?`);
+      if (!confirmation) {
+        event.preventDefault();
+      }
+    })
+  })
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<%- include('../partials/head.ejs') %>
+<body>
+    <%- include('../partials/navbar.ejs') %>
+    <%- include('../partials/flash.ejs') %>
+    <main id="dashboard">
+        <section>
+            <div class="container text-center">
+                <h1 class="display-2">Edit</h1>
+                <span><%- item.title %></span>
+            </div>
+        </section>
+        <div class="oep-stickman">
+            <section>
+                <div class="container">
+                    <form action="/<%= item._id %>?_method=PUT" method="POST" class="validated-form flex flex-col items-center justify-center">
+                        <div class="mb-3">
+                            <label class="form-label" for="title">Title</label>
+                            <input class="rounded p-2 bg-black border border-white" type="text" id="title" name="item[title]"
+                                   value="<%- item.title %>" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="title">Description</label>
+                            <textarea class="rounded p-2 bg-black border border-white" type="text" id="description" name="item[description]"
+                                      required><%- item.description %>"</textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="title">Image</label>
+                            <input class="rounded p-2 bg-black border border-white" type="text" id="imagePath" name="item[imagePath]"
+                                   value="<%- item.imagePath %>" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="title">Date</label>
+                            <input class="rounded p-2 bg-black border border-white" type="text" id="date" name="item[date]"
+                                   value="<%- item.date %>" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="title">Location</label>
+                            <input class="rounded p-2 bg-black border border-white" type="text" id="location" name="item[location]"
+                                   value="<%- item.location %>" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="title">Hours</label>
+                            <input class="rounded p-2 bg-black border border-white" type="text" id="hours" name="item[hours]"
+                                   value="<%- item.hours %>" required>
+                        </div>
+                        <div class="mb-3">
+                            <button class="btn">Update</button>
+                            <a class="btn" href="/dashboard">Done</a>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </main>
+    <%- include('../partials/footbar.ejs') %>
+    <%- include('../partials/scripts.ejs') %>
+    <script src='/js/validateForms.js'></script>
+</body>
+</html>
