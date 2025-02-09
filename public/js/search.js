@@ -26,6 +26,15 @@ function toggleFilters() {
   document.querySelectorAll('.switch input').forEach(checkbox => {
     checkbox.checked = true
   })
+
+  document.querySelectorAll('#music-search-input, #local-events-search-input, #local-businesses-search-input').forEach(input => {
+    input.value = ''
+  })
+
+  document.querySelectorAll('.music-event, .local-event, .local-business').forEach(item => {
+    item.style.display = "";
+  })
+
   document.getElementById('music').style.display = "";
   document.getElementById('local-events').style.display = "";
   document.getElementById('local-businesses').style.display = "";
