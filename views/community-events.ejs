@@ -21,6 +21,7 @@
             </div>
         </section>
         <section class="oep-stickman">
+            <div class="spinner"></div>
             <div class="container">
                 <div class="caption">
                     <h2 class="text-center">Upcoming Events</h2>
@@ -56,23 +57,32 @@
     <script src="/js/images.js"></script>
     <script src="/js/vendor/moment.js"></script>
     <script>
-        const images = document.querySelectorAll(".container__animated")
+        const hero = document.querySelectorAll(".container__animated")
         const eventCards = document.querySelectorAll('.container__animated-flex')
         const captions = document.querySelectorAll(".caption")
+        const images = document.querySelectorAll('img')
 
         const observer = new IntersectionObserver(handleIntersection, options)
         const observerCaptions = new IntersectionObserver(handleCaptions, options)
 
-        images.forEach(element => {
+        hero.forEach(element => {
           observer.observe(element)
         })
 
-        eventCards.forEach(element => {
-          observer.observe(element)
-        })
+        let spinner = document.querySelector('.spinner');
+        spinner.style.display = 'block';
 
-        captions.forEach(element => {
-          observerCaptions.observe(element)
+        const promises = Array.from(images).map(img => loadImage(img))
+
+        Promise.all(promises).then(() => {
+          eventCards.forEach(element => {
+            observer.observe(element)
+          })
+
+          captions.forEach(element => {
+            observerCaptions.observe(element)
+          })
+          spinner.style.display = 'none';
         })
 
         const events = document.querySelectorAll('.event')

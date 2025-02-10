@@ -25,6 +25,7 @@
             </div>
         </section>
         <div class="oep-stickman">
+            <div class="spinner"></div>
             <section>
                 <div id="github" class="container relative flex flex-col lg:grid grid-cols-2 gap-7">
                     <div class="container__animated-flex h-fit">
@@ -131,19 +132,28 @@
     <%- include('partials/scripts.ejs') %>
     <script src="/js/images.js"></script>
     <script>
-        const heroImage = document.querySelectorAll(".container__animated")
-        let github = document.querySelectorAll(".container__animated-flex")
+        const hero = document.querySelectorAll(".container__animated")
+        const content = document.querySelectorAll(".container__animated-flex")
         const captions = document.querySelectorAll(".caption")
+        const images = document.querySelectorAll("img")
 
         const observer = new IntersectionObserver(handleIntersection, options)
         const observerCaptions = new IntersectionObserver(handleCaptions, options)
 
-        github.forEach(element => {
-            observer.observe(element)
-        })
+        let spinner = document.querySelector('.spinner');
+        spinner.style.display = 'block';
 
-        captions.forEach(element => {
-            observerCaptions.observe(element)
+        const promises = Array.from(images).map(img => loadImage(img))
+
+        Promise.all(promises).then(() => {
+            content.forEach(element => {
+              observer.observe(element)
+            })
+
+            captions.forEach(element => {
+              observerCaptions.observe(element)
+            })
+            spinner.style.display = 'none';
         })
     </script>
 </body>

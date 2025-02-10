@@ -1,13 +1,13 @@
 const options = {
   root: null,
   threshold: 0,
-  rootMargin: '0px'
+  rootMargin: '-150px'
 }
 
 function handleIntersection(entries, observer) {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      // Element is in view, do something
+
       const elements = entry.target.children
       let array = []
       let multiplier = []
@@ -55,5 +55,16 @@ function loadArray(array) {
   return array.map(element => {
     return element * 100;
   });
+}
+
+const loadImage = (img) => {
+  return new Promise((resolve, reject) => {
+    if (img.complete) {
+      resolve(img); // Resolve immediately if the image is already loaded
+    } else {
+      img.onload = () => resolve(img);
+      img.onerror = () => reject(new Error(`Failed to load image: ${img.src}`));
+    }
+  })
 }
 

@@ -11,7 +11,7 @@ const data = [
     {
         title: "Demo Business 1",
         description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam autem beatae distinctio doloremque, harum incidunt ipsam ipsum magnam maxime odit officia perferendis quas quisquam quos tempore, tenetur unde voluptatem voluptates?",
-        imagePath: "/img/oep-podcast-logo.webp",
+        imagePath: "https://generisonline.com/wp-content/uploads/2022/06/getty_187151618_970583970450096_98031.jpg",
         date: "1/01/2025",
         location: "1111 Silver Spruce Dr. Running Springs CA 92382",
         hours: "6pm - 10pm",
@@ -20,7 +20,7 @@ const data = [
     {
         title: "Demo Business 2",
         description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam autem beatae distinctio doloremque, harum incidunt ipsam ipsum magnam maxime odit officia perferendis quas quisquam quos tempore, tenetur unde voluptatem voluptates?",
-        imagePath: "/img/oep-podcast-logo.webp",
+        imagePath: "https://generisonline.com/wp-content/uploads/2022/06/getty_187151618_970583970450096_98031.jpg",
         date: "3/01/2025",
         location: "1111 Silver Spruce Dr. Running Springs CA 92382",
         hours: "6pm - 10pm",
@@ -29,7 +29,7 @@ const data = [
     {
         title: "Demo Business 3",
         description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam autem beatae distinctio doloremque, harum incidunt ipsam ipsum magnam maxime odit officia perferendis quas quisquam quos tempore, tenetur unde voluptatem voluptates?",
-        imagePath: "/img/oep-podcast-logo.webp",
+        imagePath: "https://generisonline.com/wp-content/uploads/2022/06/getty_187151618_970583970450096_98031.jpg",
         date: "4/01/2025",
         location: "1111 Silver Spruce Dr. Running Springs CA 92382",
         hours: "6pm - 10pm",
@@ -38,7 +38,7 @@ const data = [
     {
         title: "Demo Business 4",
         description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam autem beatae distinctio doloremque, harum incidunt ipsam ipsum magnam maxime odit officia perferendis quas quisquam quos tempore, tenetur unde voluptatem voluptates?",
-        imagePath: "/img/oep-podcast-logo.webp",
+        imagePath: "https://generisonline.com/wp-content/uploads/2022/06/getty_187151618_970583970450096_98031.jpg",
         date: "5/01/2025",
         location: "1111 Silver Spruce Dr. Running Springs CA 92382",
         hours: "6pm - 10pm",

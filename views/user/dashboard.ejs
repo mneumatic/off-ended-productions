@@ -43,10 +43,11 @@
             </div>
         </section>
         <div class="oep-stickman">
+            <div class="spinner"></div>
             <section id="music">
                 <div class="container">
-                    <h2 class="display-2 text-center">2Jz Music Events</h2>
-                    <div class="flex items-center justify-end mb-5">
+                    <h2 class="caption display-2 text-center">2Jz Music Events</h2>
+                    <div class="caption flex items-center justify-end mb-5">
                         <a class="btn me-3 svg-transition" href="" title="Add New Music Event" aria-label="Add New Music Event"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"><path fill="#fff" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></a>
                         <div class="search-container">
                             <label class="icon btn cursor-pointer svg-transition" for="music-search-input" onclick="toggleInput('music-search-input')" title="Open/Close Search" aria-label="Open/Close Search"><svg xmlns="http://www.w3.org/2000/svg" width="24" fill="currentColor" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg></label>
@@ -54,9 +55,9 @@
                             <button class="btn clear-button svg-transition" onclick="clearInput('music-search-input', document.querySelectorAll('.music-event'))" title="Delete Search" aria-label="Delete Search"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 2048 2048"><path fill="#fff" d="M1792 384h-128v1472q0 40-15 75t-41 61-61 41-75 15H448q-40 0-75-15t-61-41-41-61-15-75V384H128V256h512V128q0-27 10-50t27.5-40.5T718 10t50-10h384q27 0 50 10t40.5 27.5T1270 78t10 50v128h512v128zM768 256h384V128H768v128zm768 128H384v1472q0 26 19 45t45 19h1024q26 0 45-19t19-45V384zM768 1664H640V640h128v1024zm256 0H896V640h128v1024zm256 0h-128V640h128v1024z"/></svg></button>
                         </div>
                     </div>
-                    <div class="flex flex-row flex-wrap justify-center lg:justify-between">
+                    <div class="container__animated-flex flex-row flex-wrap justify-center lg:justify-between">
                         <% for (let event of music ) { %>
-                            <div class="music-event flex flex-col bg-black border border-white rounded p-5 mb-5 w-[320px]">
+                            <div class="music-event flex flex-col bg-black border border-white rounded p-5 mb-5 w-[320px] y-translate">
                                 <% if (event.imagePath) { %>
                                     <img class="img-fluid rounded outline outline-1" src="<%- event.imagePath %>" alt="<%- event.title %>">
                                 <% } %>
@@ -84,8 +85,8 @@
             </section>
             <section id="local-events">
                 <div class="container">
-                    <h2 class="display-2 text-center">Local Events</h2>
-                    <div class="flex items-center justify-end mb-5">
+                    <h2 class="caption display-2 text-center">Local Events</h2>
+                    <div class="caption flex items-center justify-end mb-5">
                         <a class="btn me-3 svg-transition" href="" title="Add New Local Event" aria-label="Add New Local Event"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"><path fill="#fff" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></a>
                         <div class="search-container">
                             <label class="icon btn cursor-pointer svg-transition" for="local-events-search-input" onclick="toggleInput('local-events-search-input')" title="Open/Close Search" aria-label="Open/Close Search"><svg xmlns="http://www.w3.org/2000/svg" width="24" fill="currentColor" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg></label>
@@ -93,9 +94,9 @@
                             <button class="btn clear-button svg-transition" onclick="clearInput('local-events-search-input', document.querySelectorAll('.local-event'))" title="Delete Search" aria-label="Delete Search"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 2048 2048"><path fill="#fff" d="M1792 384h-128v1472q0 40-15 75t-41 61-61 41-75 15H448q-40 0-75-15t-61-41-41-61-15-75V384H128V256h512V128q0-27 10-50t27.5-40.5T718 10t50-10h384q27 0 50 10t40.5 27.5T1270 78t10 50v128h512v128zM768 256h384V128H768v128zm768 128H384v1472q0 26 19 45t45 19h1024q26 0 45-19t19-45V384zM768 1664H640V640h128v1024zm256 0H896V640h128v1024zm256 0h-128V640h128v1024z"/></svg></button>
                         </div>
                     </div>
-                    <div class="flex flex-row flex-wrap justify-center lg:justify-between">
+                    <div class="container__animated-flex flex-row flex-wrap justify-center lg:justify-between">
                         <% for (let event of events ) { %>
-                            <div class="local-event flex flex-col bg-black border border-white rounded p-5 mb-5 w-[320px]">
+                            <div class="local-event flex flex-col bg-black border border-white rounded p-5 mb-5 w-[320px] y-translate">
                                 <% if (event.imagePath) { %>
                                     <img class="img-fluid rounded outline outline-1" src="<%- event.imagePath %>" alt="<%- event.title %>">
                                 <% } %>
@@ -123,8 +124,8 @@
             </section>
             <section id="local-businesses">
                 <div class="container">
-                    <h2 class="display-2 text-center">Local Businesses</h2>
-                    <div class="flex items-center justify-end mb-5">
+                    <h2 class="caption display-2 text-center">Local Businesses</h2>
+                    <div class="caption flex items-center justify-end mb-5">
                         <a class="btn me-3 svg-transition" href="" title="Add New Local Business" aria-label="Add New Local Business"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"><path fill="#fff" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></a>
                         <div class="search-container">
                             <label class="icon btn cursor-pointer svg-transition" for="local-businesses-search-input" onclick="toggleInput('local-businesses-search-input')" title="Open/Close Search" aria-label="Open/Close Search"><svg xmlns="http://www.w3.org/2000/svg" width="24" fill="currentColor" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg></label>
@@ -132,9 +133,9 @@
                             <button class="btn clear-button svg-transition" onclick="clearInput('local-businesses-search-input', document.querySelectorAll('.local-business'))" title="Delete Search" aria-label="Delete Search"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 2048 2048"><path fill="#fff" d="M1792 384h-128v1472q0 40-15 75t-41 61-61 41-75 15H448q-40 0-75-15t-61-41-41-61-15-75V384H128V256h512V128q0-27 10-50t27.5-40.5T718 10t50-10h384q27 0 50 10t40.5 27.5T1270 78t10 50v128h512v128zM768 256h384V128H768v128zm768 128H384v1472q0 26 19 45t45 19h1024q26 0 45-19t19-45V384zM768 1664H640V640h128v1024zm256 0H896V640h128v1024zm256 0h-128V640h128v1024z"/></svg></button>
                         </div>
                     </div>
-                    <div class="flex flex-row flex-wrap justify-center lg:justify-between">
+                    <div class="container__animated-flex flex-row flex-wrap justify-center lg:justify-between">
                         <% for (let business of businesses ) { %>
-                            <div class="local-business flex flex-col bg-black border border-white rounded p-5 mb-5 w-[320px]">
+                            <div class="local-business flex flex-col bg-black border border-white rounded p-5 mb-5 w-[320px] y-translate">
                                 <% if (business.imagePath) { %>
                                     <img class="img-fluid outline outline-1" src="<%- business.imagePath %>" alt="<%- business.title %>">
                                 <% } %>
@@ -165,5 +166,29 @@
     <%- include('../partials/footbar.ejs') %>
     <%- include('../partials/scripts.ejs') %>
     <script src="/js/search.js"></script>
+    <script src="/js/images.js"></script>
+    <script>
+        let content = document.querySelectorAll(".container__animated-flex")
+        const captions = document.querySelectorAll(".caption")
+        const images = document.querySelectorAll("img")
+
+        const observer = new IntersectionObserver(handleIntersection, options)
+        const observerCaptions = new IntersectionObserver(handleCaptions, options)
+
+        let spinner = document.querySelector('.spinner');
+        spinner.style.display = 'block';
+
+        const promises = Array.from(images).map(img => loadImage(img))
+
+        Promise.all(promises).then(() => {
+            content.forEach(element => {
+              observer.observe(element)
+            })
+            captions.forEach(element => {
+              observerCaptions.observe(element)
+            })
+            spinner.style.display = 'none';
+        })
+    </script>
 </body>
 </html>

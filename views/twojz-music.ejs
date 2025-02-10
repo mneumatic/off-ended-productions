@@ -24,6 +24,7 @@
         </section>
 
         <div class="oep-stickman">
+            <div class="spinner"></div>
             <section>
                 <div class="container flex flex-col md:grid grid-cols-2 gap-7 justify-center">
                     <div class="container__animated-flex h-fit">
@@ -109,21 +110,46 @@
         const musicImages = document.querySelectorAll("#twojz-music .container__animated")
         const musicEvents = document.querySelectorAll("#twojz-music .container__animated-flex")
         const captions = document.querySelectorAll(".caption")
+        const images = document.querySelectorAll("img")
 
         const observer = new IntersectionObserver(handleIntersection, options)
         const observerCaptions = new IntersectionObserver(handleCaptions, options)
 
+        let spinner = document.querySelector('.spinner');
+        spinner.style.display = 'block';
+
+        const promises = Array.from(images).map(img => loadImage(img))
+
         musicImages.forEach(element => {
-            observer.observe(element)
+          observer.observe(element)
         })
 
-        musicEvents.forEach(element => {
-            observer.observe(element)
+        Promise.all(promises).then(() => {
+            musicEvents.forEach(element => {
+                observer.observe(element)
+            })
+
+            captions.forEach(element => {
+                observerCaptions.observe(element)
+            })
+            spinner.style.display = 'none';
         })
 
-        captions.forEach(element => {
-            observerCaptions.observe(element)
-        })
+        // images.forEach((image) => {
+        //   image.onload = () => {
+        //     musicImages.forEach(element => {
+        //       observer.observe(element)
+        //     })
+        //
+        //     musicEvents.forEach(element => {
+        //       observer.observe(element)
+        //     })
+        //
+        //     captions.forEach(element => {
+        //       observerCaptions.observe(element)
+        //     })
+        //   }
+        // })
 
         const events = document.querySelectorAll('.event')
         const date = new Date()

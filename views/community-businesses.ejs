@@ -21,7 +21,9 @@
             </div>
         </section>
         <section class="oep-stickman">
+            <div class="spinner"></div>
             <div class="container">
+                <div class="spinner"></div>
                 <div class="caption">
                     <h2 class="text-center">Local Businesses</h2>
                     <p class="font-bold">Running Springs, California, is home to a variety of wonderful local businesses that make the community vibrant and welcoming. From charming cafes like Old Country Coffee Shop and LuluBelle’s Coffee House and Bakery, to delightful dining options such as Neo's Pizza House and Toto, there's something for everyone to enjoy. Outdoor enthusiasts will appreciate shops like AE Wood Products for gear and supplies, while antique lovers can explore treasures at Mountain Thrift & Video. The Running Springs Farmers Market and Artisan Faire is a perfect spot to find fresh produce and unique handmade goods. Whether you're looking for a cozy place to relax, a delicious meal, or outdoor adventure gear, Running Springs has it all.</p>
@@ -55,23 +57,32 @@
     <%- include('partials/scripts.ejs') %>
     <script src="/js/images.js"></script>
     <script>
-        const images = document.querySelectorAll(".container__animated")
+        const hero = document.querySelectorAll(".container__animated")
         const businesses = document.querySelectorAll(".container__animated-flex")
         const captions = document.querySelectorAll(".caption")
+        const images = document.querySelectorAll("img")
 
         const observer = new IntersectionObserver(handleIntersection, options)
         const observerCaptions = new IntersectionObserver(handleCaptions, options)
 
-        images.forEach(element => {
+        let spinner = document.querySelector('.spinner');
+        spinner.style.display = 'block';
+
+        hero.forEach(element => {
           observer.observe(element)
         })
 
-        businesses.forEach(element => {
-          observer.observe(element)
-        })
+        const promises = Array.from(images).map(img => loadImage(img))
 
-        captions.forEach(element => {
-          observerCaptions.observe(element)
+        Promise.all(promises).then(() => {
+          businesses.forEach(element => {
+            observer.observe(element)
+          })
+
+          captions.forEach(element => {
+            observerCaptions.observe(element)
+          })
+          spinner.style.display = 'none';
         })
     </script>
 </body>
