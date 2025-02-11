@@ -626,6 +626,10 @@ video {
   left: 0px;
 }
 
+.right-0 {
+  right: 0px;
+}
+
 .top-0 {
   top: 0px;
 }
@@ -636,10 +640,6 @@ video {
 
 .top-\[62px\] {
   top: 62px;
-}
-
-.right-0 {
-  right: 0px;
 }
 
 .z-10 {

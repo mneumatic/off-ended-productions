@@ -6,15 +6,15 @@
     <%- include('../partials/flash.ejs') %>
     <main class="oep-stickman" style="padding: 0">
         <section class="h-screen" style="padding: 0">
-            <div class="container flex flex-col items-center justify-center h-screen">
-                <h1 class="display-2 pt-5">Login</h1>
-                <form action="/login" method="POST" class="validated-form flex flex-col items-center justify-center" novalidate>
-                    <div class="flex flex-row items-center justify-between w-full py-5">
+            <div class="container container__animated-flex flex-col items-center justify-center h-screen">
+                <h1 class="caption display-2 mb-5">Login</h1>
+                <form action="/login" method="POST" class="validated-form flex flex-col items-center justify-center rounded bg-black p-5 y-translate" novalidate>
+                    <div class="flex flex-col w-full py-5">
                         <label for="username" class="me-2">Username</label>
                         <input class="rounded p-2 bg-black border border-white" type="text" id="username" name="username" required>
                     </div>
 
-                    <div class="flex flex-row items-center justify-between w-full">
+                    <div class="flex flex-col w-full">
                         <label for="password" class="me-2">Password</label>
                         <input class="rounded p-2 bg-black border border-white" type="password" id="password" name="password" required>
                     </div>
@@ -27,5 +27,21 @@
     </main>
     <%- include('../partials/footbar.ejs') %>
     <script src='/js/validateForms.js'></script>
+    <script src="/js/images.js"></script>
+    <script>
+        const container = document.querySelectorAll('.container__animated-flex');
+        const captions = document.querySelectorAll('.caption');
+
+        const observer = new IntersectionObserver(handleIntersection, options)
+        const observerCaptions = new IntersectionObserver(handleCaptions, options)
+
+        container.forEach(element => {
+          observer.observe(element)
+        })
+
+        captions.forEach(element => {
+          observerCaptions.observe(element)
+        })
+    </script>
 </body>
 </html>
