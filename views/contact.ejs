@@ -8,8 +8,7 @@
         <section class="bg-black">
             <div class="container flex flex-col-reverse xl:grid grid-cols-2 gap-7 justify-center text-white">
                 <div>
-                    <div class="text-center xl:text-start">
-                        <span>Got a Question?</span>
+                    <div class="text-center xl:text-start mt-10">
                         <h2 class="display-2">Contact Us</h2>
                         <p class="text-4xl permanent-marker-regular">Reach Out. Let's Conquer Together.</p>
                     </div>
@@ -31,7 +30,7 @@
                         </div>
                     <% } else { %>
                         <h2 class="caption display-2 mb-5">Shoot Us A Question</h2>
-                        <div class="rounded p-5 bg-black y-translate">
+                        <div class="rounded p-10 bg-black y-translate">
                             <form action="/contact" method="POST" class="validated-form flex flex-col items-center justify-center" novalidate>
                                 <input type="hidden" name="_csrf" value="<%= csrfToken %>">
                                 <div class="mb-3 w-full">
@@ -50,7 +49,7 @@
                                     <label class="block mb-1" for="message">Message</label>
                                     <textarea rows="5" cols="100" class="rounded p-2 bg-black border border-white w-full" type="text" id="message" name="message" placeholder="Type your message here." aria-placeholder="Type your message here." required></textarea>
                                 </div>
-                                <button class="btn svg-transition" type="submit" title="Send" aria-label="Send"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 16 16"><path fill="#fff" d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z"/></svg></button>
+                                <button class="btn !flex justify-center svg-transition mt-5 w-full" type="submit" title="Send" aria-label="Send"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 16 16"><path fill="#fff" d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z"/></svg></button>
                             </form>
                         </div>
                     <% } %>

@@ -57,26 +57,24 @@
                     </div>
                     <div class="container__animated-flex flex-row flex-wrap justify-center lg:justify-between">
                         <% for (let event of music ) { %>
-                            <div class="music-event flex flex-col bg-black border border-white rounded p-5 mb-5 w-[320px] y-translate">
+                            <div class="music-event flex flex-col bg-black rounded p-10 mb-5 w-[320px] y-translate">
                                 <% if (event.imagePath) { %>
                                     <img class="img-fluid rounded outline outline-1" src="<%- event.imagePath %>" alt="<%- event.title %>">
                                 <% } %>
-                                <div class="ps-3">
-                                    <h3 class="py-5"><%= event.title %></h3>
-                                    <p><%- event.description %></p>
-                                    <div class="flex flex-col text-end py-3">
-                                        <span><%- event.hours %></span>
-                                        <address><%- event.location %></address>
-                                    </div>
-                                    <p class="date font-bold text-end py-3">On: <%- event.date %></p>
-                                    <div class="flex flex-row justify-end">
-                                        <div class="flex flex-row items-center">
-                                            <a class="btn me-3 svg-transition" href="<%- event._id %>/edit" title="Edit Event" aria-label="Edit Event"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"><path fill="#fff" d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg></a>
-                                            <form action="/<%- event._id %>?_method=DELETE" method="POST">
-                                                <button class="btn svg-transition" onclick="confirmDelete(`<%- event.title %>`)"  title="Delete Event" aria-label="Delete Event"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"><path fill="#fff" d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12l1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/></svg></button>
-                                            </form>
-                                        </div>
-                                    </div>
+
+                                <h3 class="py-5"><%= event.title %></h3>
+                                <p><%- event.description %></p>
+                                <div class="flex flex-col text-end py-3">
+                                    <span><%- event.hours %></span>
+                                    <address><%- event.location %></address>
+                                </div>
+                                <p class="date font-bold text-end py-3">On: <%- event.date %></p>
+
+                                <div class="flex flex-row mt-5">
+                                    <a class="btn !flex justify-center me-[6px] svg-transition w-full" href="<%- event._id %>/edit" title="Edit Event" aria-label="Edit Event"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"><path fill="#fff" d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg></a>
+                                    <form class="w-full" action="/<%- event._id %>?_method=DELETE" method="POST">
+                                        <button class="btn !flex justify-center ms-[6px] svg-transition w-full" onclick="confirmDelete(`<%- event.title %>`)"  title="Delete Event" aria-label="Delete Event"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"><path fill="#fff" d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12l1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/></svg></button>
+                                    </form>
                                 </div>
                             </div>
                         <% } %>
@@ -96,26 +94,22 @@
                     </div>
                     <div class="container__animated-flex flex-row flex-wrap justify-center lg:justify-between">
                         <% for (let event of events ) { %>
-                            <div class="local-event flex flex-col bg-black border border-white rounded p-5 mb-5 w-[320px] y-translate">
+                            <div class="local-event flex flex-col bg-black rounded p-10 mb-5 w-[320px] y-translate">
                                 <% if (event.imagePath) { %>
                                     <img class="img-fluid rounded outline outline-1" src="<%- event.imagePath %>" alt="<%- event.title %>">
                                 <% } %>
-                                <div class="ps-3">
-                                    <h3 class="py-5"><%= event.title %></h3>
-                                    <p><%- event.description %></p>
-                                    <div class="flex flex-col text-end py-3">
-                                        <span><%- event.hours %></span>
-                                        <address><%- event.location %></address>
-                                    </div>
-                                    <p class="date font-bold text-end py-3">On: <%- event.date %></p>
-                                    <div class="flex flex-row justify-end">
-                                        <div class="flex flex-row items-center">
-                                            <a class="btn me-3 svg-transition" href="<%- event._id %>/edit" title="Edit Event" aria-label="Edit Event"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"><path fill="#fff" d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg></a>
-                                            <form action="/<%= event._id %>?_method=DELETE" method="POST">
-                                                <button class="btn svg-transition" onclick="confirmDelete(`<%- event.title %>`)"  title="Delete Event" aria-label="Delete Event"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"><path fill="#fff" d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12l1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/></svg></button>
-                                            </form>
-                                        </div>
-                                    </div>
+                                <h3 class="py-5"><%= event.title %></h3>
+                                <p><%- event.description %></p>
+                                <div class="flex flex-col text-end py-3">
+                                    <span><%- event.hours %></span>
+                                    <address><%- event.location %></address>
+                                </div>
+                                <p class="date font-bold text-end py-3">On: <%- event.date %></p>
+                                <div class="flex flex-row mt-5">
+                                    <a class="btn !flex justify-center me-[6px] svg-transition w-full" href="<%- event._id %>/edit" title="Edit Event" aria-label="Edit Event"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"><path fill="#fff" d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg></a>
+                                    <form class="w-full" action="/<%= event._id %>?_method=DELETE" method="POST">
+                                        <button class="btn !flex justify-center ms-[6px] svg-transition w-full" onclick="confirmDelete(`<%- event.title %>`)"  title="Delete Event" aria-label="Delete Event"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"><path fill="#fff" d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12l1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/></svg></button>
+                                    </form>
                                 </div>
                             </div>
                         <% } %>
@@ -135,26 +129,22 @@
                     </div>
                     <div class="container__animated-flex flex-row flex-wrap justify-center lg:justify-between">
                         <% for (let business of businesses ) { %>
-                            <div class="local-business flex flex-col bg-black border border-white rounded p-5 mb-5 w-[320px] y-translate">
+                            <div class="local-business flex flex-col bg-black rounded p-10 mb-5 w-[320px] y-translate">
                                 <% if (business.imagePath) { %>
                                     <img class="img-fluid outline outline-1" src="<%- business.imagePath %>" alt="<%- business.title %>">
                                 <% } %>
-                                <div class="ps-3">
-                                    <h3 class="py-5"><%= business.title %></h3>
-                                    <p><%- business.description %></p>
-                                    <div class="flex flex-col text-end py-3">
-                                        <span><%- business.hours %></span>
-                                        <address><%- business.location %></address>
-                                    </div>
-                                    <p class="font-bold text-end py-3">Phone: <%- business.phone %></p>
-                                    <div class="flex flex-row justify-end">
-                                        <div class="flex flex-row items-center">
-                                            <a class="btn me-3 svg-transition" href="<%- business._id %>/edit" title="Edit Business" aria-label="Edit Business"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"><path fill="#fff" d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg></a>
-                                            <form action="/<%= business._id %>?_method=DELETE" method="POST">
-                                                <button class="btn svg-transition" onclick="confirmDelete(`<%- business.title %>`)"  title="Delete Business" aria-label="Delete Business"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"><path fill="#fff" d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12l1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/></svg></button>
-                                            </form>
-                                        </div>
-                                    </div>
+                                <h3 class="py-5"><%= business.title %></h3>
+                                <p><%- business.description %></p>
+                                <div class="flex flex-col text-end py-3">
+                                    <span><%- business.hours %></span>
+                                    <address><%- business.location %></address>
+                                </div>
+                                <p class="font-bold text-end py-3">Phone: <%- business.phone %></p>
+                                <div class="flex flex-row mt-5">
+                                    <a class="btn !flex justify-center me-[6px] svg-transition w-full" href="<%- business._id %>/edit" title="Edit Business" aria-label="Edit Business"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"><path fill="#fff" d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg></a>
+                                    <form class="w-full" action="/<%= business._id %>?_method=DELETE" method="POST">
+                                        <button class="btn !flex justify-center ms-[6px] svg-transition w-full" onclick="confirmDelete(`<%- business.title %>`)"  title="Delete Business" aria-label="Delete Business"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"><path fill="#fff" d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12l1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/></svg></button>
+                                    </form>
                                 </div>
                             </div>
                         <% } %>

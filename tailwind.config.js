@@ -2,7 +2,7 @@
 module.exports = {
   content: [
     "./views/partials/*.ejs",
-    "./views/user/*.ejs",
+    "./views/admin/*.ejs",
     "./views/*.ejs",
     "./public/css/*.css",
     "./public/js/*.js"
@@ -13,7 +13,6 @@ module.exports = {
         center: true,
         padding: {
           DEFAULT: '1rem',
-          xl: '0'
         }
       },
     },

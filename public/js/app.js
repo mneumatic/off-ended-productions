@@ -31,9 +31,6 @@ function markLinkActive () {
 }
 markLinkActive()
 
-// Remove Login in link in Admin pages
-if (document.getElementById('dashboard')) document.getElementById('login').remove()
-
 window.addEventListener('scroll', onScroll)
 window.addEventListener('scroll', closeMenuOnScroll)
 window.addEventListener('resize', closeMenuOnResize)
