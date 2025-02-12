@@ -616,6 +616,14 @@ video {
   position: relative;
 }
 
+.\!top-0 {
+  top: 0px !important;
+}
+
+.\!top-\[100px\] {
+  top: 100px !important;
+}
+
 .bottom-12 {
   bottom: 3rem;
 }
@@ -638,14 +646,6 @@ video {
 
 .top-\[62px\] {
   top: 62px;
-}
-
-.\!top-0 {
-  top: 0px !important;
-}
-
-.\!top-\[100px\] {
-  top: 100px !important;
 }
 
 .z-0 {
@@ -1872,10 +1872,6 @@ footer nav a:hover{
 }
 
 @media (min-width: 768px) {
-  .md\:inline-block {
-    display: inline-block;
-  }
-
   .md\:grid {
     display: grid;
   }
