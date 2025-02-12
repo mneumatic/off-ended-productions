@@ -13,7 +13,10 @@ const LocalStrategy = require('passport-local');
 const Admin = require('./models/admin');
 
 const indexRouter = require('./routes/index');
-const adminRouter = require('./routes/admin');
+const adminRouter = require('./routes/admin/dashboard');
+const musicRouter = require('./routes/admin/music');
+const eventRouter = require('./routes/admin/events');
+const businessRouter = require('./routes/admin/businesses');
 
 const app = express();
 
@@ -70,7 +73,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '/public')));
 
 app.use('/', indexRouter);
-app.use('/', adminRouter);
+app.use('/admin', adminRouter);
+app.use('/admin/music', musicRouter);
+app.use('/admin/event', eventRouter);
+app.use('/admin/business', businessRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

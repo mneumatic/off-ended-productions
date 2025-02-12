@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
-<%- include('../partials/head.ejs') %>
+<%- include('../../partials/head.ejs') %>
 <body>
-    <%- include('../partials/navbar.ejs') %>
-    <%- include('../partials/flash.ejs') %>
+    <%- include('../../partials/navbar.ejs') %>
+    <%- include('../../partials/flash.ejs') %>
     <main id="dashboard">
         <section>
             <div class="container text-center">
@@ -23,9 +23,9 @@
         <div class="oep-stickman">
             <section>
                 <div class="container__animated-flex flex-col items-center justify-center">
-                    <h2 class="caption display-2 mb-5">Creating: <% if (genre === 'music') { %>Music Event<% } %><% if (genre === 'event') { %>Local Event<% } %><% if (genre === 'business') { %>Business<% } %></h2>
+                    <h2 class="caption display-2 mb-5">Creating: New Business</h2>
                     <div class="rounded p-10 bg-black y-translate">
-                        <form action="/new?genre=<%= genre %>" method="POST" class="validated-form flex flex-col items-center justify-center" novalidate>
+                        <form action="/admin/business" method="POST" class="validated-form flex flex-col items-center justify-center" novalidate>
                             <div class="mb-3 w-full">
                                 <label class="block mb-1" for="title">Title</label>
                                 <input class="rounded p-2 bg-black border border-white w-full" type="text" id="title" name="event[title]" placeholder="Event name" aria-placeholder="Event name" required>
@@ -53,12 +53,10 @@
                                 <label class="block mb-1" for="hours">Hours</label>
                                 <input class="rounded p-2 bg-black border border-white w-full" type="text" id="hours" aria-label="hours" name="event[hours]" placeholder="6am - 7pm" aria-placeholder="6am - 7pm" required>
                             </div>
-                            <% if (genre === 'business') { %>
-                                <div class="mb-3 w-full">
-                                    <label class="block mb-1" for="hours">Phone</label>
-                                    <input class="rounded p-2 bg-black border border-white w-full" type="text" id="phone" aria-label="phone" name="event[phone]" placeholder="+13231234" aria-placeholder="+13231234" required>
-                                </div>
-                            <% } %>
+                            <div class="mb-3 w-full">
+                                <label class="block mb-1" for="hours">Phone</label>
+                                <input class="rounded p-2 bg-black border border-white w-full" type="text" id="phone" aria-label="phone" name="event[phone]" placeholder="+13231234" aria-placeholder="+13231234" required>
+                            </div>
                             <div class="flex flex-row mt-3 w-full">
                                 <button class="btn !flex justify-center me-3 svg-transition w-full" type="submit" title="Create" aria-label="Create"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"><path fill="#fff" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></button>
                                 <button class="btn !flex justify-center svg-transition w-full" type="button" onclick="history.back()" title="Cancel" aria-label="Cancel"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"><path fill="#fff" d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></button>
@@ -69,26 +67,26 @@
             </section>
         </div>
     </main>
-    <%- include('../partials/footbar.ejs') %>
-    <%- include('../partials/scripts.ejs') %>
+    <%- include('../../partials/footbar.ejs') %>
+    <%- include('../../partials/scripts.ejs') %>
     <script src='/js/validateForms.js'></script>
     <script src="/js/images.js"></script>
     <script>
-        const input = document.getElementById('imagePath');
-        const image = document.querySelector('.thumbnail');
-        const container = document.querySelectorAll('.container__animated-flex');
+      const input = document.getElementById('imagePath');
+      const image = document.querySelector('.thumbnail');
+      const container = document.querySelectorAll('.container__animated-flex');
 
-        const observer = new IntersectionObserver(handleIntersection, options)
-        const observerCaptions = new IntersectionObserver(handleCaptions, options)
+      const observer = new IntersectionObserver(handleIntersection, options)
+      const observerCaptions = new IntersectionObserver(handleCaptions, options)
 
-        container.forEach(element => {
-          observer.observe(element)
-        })
+      container.forEach(element => {
+        observer.observe(element)
+      })
 
-        input.addEventListener('change', function () {
-          image.src = input.value;
-          image.alt = input.value;
-        })
+      input.addEventListener('change', function () {
+        image.src = input.value;
+        image.alt = input.value;
+      })
     </script>
 </body>
 </html>

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
-<%- include('../partials/head.ejs') %>
+<%- include('../../partials/head.ejs') %>
 <body>
-    <%- include('../partials/navbar.ejs') %>
-    <%- include('../partials/flash.ejs') %>
+    <%- include('../../partials/navbar.ejs') %>
+    <%- include('../../partials/flash.ejs') %>
     <main id="dashboard">
         <section>
             <div class="container text-center">
@@ -25,7 +25,7 @@
                 <div class="container__animated-flex flex-col items-center justify-center">
                     <h2 class="caption display-2 mb-5">Editing: <%- item.title %></h2>
                     <div class="rounded p-10 bg-black y-translate">
-                        <form action="/<%= item._id %>?_method=PUT" method="POST" class="validated-form flex flex-col items-center justify-center" novalidate>
+                        <form action="/admin/event/edit/<%= item._id %>?_method=PUT" method="POST" class="validated-form flex flex-col items-center justify-center" novalidate>
                             <div class="mb-3 w-full">
                                 <label class="block mb-1" for="title">Title</label>
                                 <input class="rounded p-2 bg-black border border-white w-full" type="text" id="title" name="item[title]" value="<%- item.title %>" required>
@@ -68,8 +68,8 @@
             </section>
         </div>
     </main>
-    <%- include('../partials/footbar.ejs') %>
-    <%- include('../partials/scripts.ejs') %>
+    <%- include('../../partials/footbar.ejs') %>
+    <%- include('../../partials/scripts.ejs') %>
     <script src='/js/validateForms.js'></script>
     <script src="/js/search.js"></script>
     <script src="/js/images.js"></script>
