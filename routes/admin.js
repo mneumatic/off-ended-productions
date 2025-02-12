@@ -9,7 +9,7 @@ const CommunityBusinesses = require('../models/businesses');
 
 
 router.get('/login', async (req, res) => {
-  res.render('user/login', {
+  res.render('admin/login', {
     title: "Login | OEP",
     authenticated: res.locals.currentUser,
   });
@@ -26,7 +26,7 @@ router.get('/dashboard', isLoggedIn, async (req, res) => {
   const music = await Music.find({});
   const events = await CommunityEvents.find({})
   const businesses = await CommunityBusinesses.find({});
-  res.render('user/dashboard', {
+  res.render('admin/dashboard', {
     title: "Dashboard | OEP",
     music,
     events,
@@ -36,7 +36,7 @@ router.get('/dashboard', isLoggedIn, async (req, res) => {
 })
 
 router.get('/new', isLoggedIn, (req, res) => {
-  res.render('user/new', {
+  res.render('admin/new', {
     title: "New Music Event | OEP",
     genre: req.query.genre,
     authenticated: res.locals.currentUser,
@@ -73,7 +73,7 @@ router.get('/:id/edit', isLoggedIn, catchAsync(async (req, res) => {
     return res.redirect('/dashboard');
   }
 
-  res.render('user/edit', {
+  res.render('admin/edit', {
     title: 'Edit | OEP',
     item,
     authenticated: res.locals.currentUser
