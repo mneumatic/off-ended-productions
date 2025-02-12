@@ -14,7 +14,7 @@
                         <li>Do NOT change field formating:</li>
                         <li class="ms-5">Date needs to be in "XX/XX/XXXX" format</li>
                         <li class="ms-5">Hours needs to be in "XX:XX:XX - XX:XX:XX" format</li>
-                        <li>Images will need to be links (URL) from an external source</li>
+                        <li>Images will need to be URL from an external source</li>
                     </ul>
                 </div>
             </div>
@@ -23,20 +23,20 @@
             <div class="spinner"></div>
             <section>
                 <div class="container container__animated-flex items-center justify-center">
-                    <div class="y-translate">
-                        <h2 class="display-2 font-bold">Editing: <%- item.title %></h2>
-                        <form action="/<%= item._id %>?_method=PUT" method="POST" class="validated-form flex flex-col items-center justify-center">
+                    <div class="rounded p-5 bg-black y-translate">
+                        <h2 class="display-2">Editing: <%- item.title %></h2>
+                        <form action="/<%= item._id %>?_method=PUT" method="POST" class="validated-form flex flex-col items-center justify-center" novalidate>
                             <div class="mb-3 w-full">
                                 <label class="block" for="title">Title</label>
                                 <input class="rounded p-2 bg-black border border-white w-full" type="text" id="title" name="item[title]" value="<%- item.title %>" required>
                             </div>
                             <div class="mb-3 w-full">
                                 <label class="block" for="description">Description</label>
-                                <textarea rows="5" class="rounded p-2 bg-black border border-white w-full" type="text" id="description" name="item[description]" required><%- item.description %>"</textarea>
+                                <textarea rows="5" class="rounded p-2 bg-black border border-white w-full" type="text" id="description" name="item[description]" required><%- item.description %></textarea>
                             </div>
                             <% if (item.imagePath) { %>
                                 <div class="mb-3 w-full">
-                                    <label class="block" for="imagePath">Image</label>
+                                    <label class="block" for="imagePath">Image URL</label>
                                     <div class="flex items-center justify-center">
                                         <img class="thumbnail img-fluid rounded outline outline-1 me-5" src="<%- item.imagePath %>" alt="<%- item.title %>">
                                         <input class="rounded p-2 bg-black border border-white w-full" type="text" id="imagePath" name="item[imagePath]" value="<%- item.imagePath %>" required>
@@ -58,14 +58,9 @@
                                 <input class="rounded p-2 bg-black border border-white w-full" type="text" id="hours" name="item[hours]"
                                        value="<%- item.hours %>" required>
                             </div>
-                            <div class="flex flex-row items-start justify-between mt-3 w-full">
-                                <div class="flex flex-row">
-                                    <button class="btn me-3">Update</button>
-                                    <a class="btn" href="/dashboard">Done</a>
-                                </div>
-                                <form action="/<%- item._id %>?_method=DELETE" method="POST">
-                                    <button class="btn svg-transition" onclick="confirmDelete(`<%- item.title %>`)"  title="Delete Item" aria-label="Delete Item"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 2048 2048"><path fill="#fff" d="M1792 384h-128v1472q0 40-15 75t-41 61-61 41-75 15H448q-40 0-75-15t-61-41-41-61-15-75V384H128V256h512V128q0-27 10-50t27.5-40.5T718 10t50-10h384q27 0 50 10t40.5 27.5T1270 78t10 50v128h512v128zM768 256h384V128H768v128zm768 128H384v1472q0 26 19 45t45 19h1024q26 0 45-19t19-45V384zM768 1664H640V640h128v1024zm256 0H896V640h128v1024zm256 0h-128V640h128v1024z"/></svg></button>
-                                </form>
+                            <div class="flex flex-row items-start justify-start mt-3 w-full">
+                                <button class="btn me-3" type="submit" title="Update" aria-label="Update">Update</button>
+                                <button class="btn" type="button" onclick="history.back()" title="Cancel" aria-label="Cancel">Cancel</button>
                             </div>
                         </form>
                     </div>
@@ -94,6 +89,14 @@
           observer.observe(element)
         })
         spinner.style.display = 'none';
+      })
+
+      const input = document.getElementById('imagePath');
+      const image = document.querySelector('.thumbnail');
+
+      input.addEventListener('change', function () {
+        image.src = input.value;
+        image.alt = input.value;
       })
     </script>
 </body>

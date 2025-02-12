@@ -48,7 +48,7 @@
                 <div class="container">
                     <h2 class="caption display-2 text-center">2Jz Music Events</h2>
                     <div class="caption flex items-center justify-end mb-5">
-                        <a class="btn me-3 svg-transition" href="" title="Add New Music Event" aria-label="Add New Music Event"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"><path fill="#fff" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></a>
+                        <a class="btn me-3 svg-transition" href="/new?genre=music" title="Add New Music Event" aria-label="Add New Music Event"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"><path fill="#fff" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></a>
                         <div class="search-container">
                             <label class="icon btn cursor-pointer svg-transition" for="music-search-input" onclick="toggleInput('music-search-input')" title="Open/Close Search" aria-label="Open/Close Search"><svg xmlns="http://www.w3.org/2000/svg" width="24" fill="currentColor" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg></label>
                             <input id="music-search-input" class="clear-input rounded bg-black border border-white w-[250px]" type="text" oninput="searchFunction(this.value.toUpperCase(), document.querySelectorAll('.music-event'))" title="Search 2Jz Music" aria-label="Search 2Jz Music" placeholder="Search 2Jz Music">
@@ -87,7 +87,7 @@
                 <div class="container">
                     <h2 class="caption display-2 text-center">Local Events</h2>
                     <div class="caption flex items-center justify-end mb-5">
-                        <a class="btn me-3 svg-transition" href="" title="Add New Local Event" aria-label="Add New Local Event"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"><path fill="#fff" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></a>
+                        <a class="btn me-3 svg-transition" href="/new?genre=event" title="Add New Local Event" aria-label="Add New Local Event"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"><path fill="#fff" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></a>
                         <div class="search-container">
                             <label class="icon btn cursor-pointer svg-transition" for="local-events-search-input" onclick="toggleInput('local-events-search-input')" title="Open/Close Search" aria-label="Open/Close Search"><svg xmlns="http://www.w3.org/2000/svg" width="24" fill="currentColor" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg></label>
                             <input id="local-events-search-input" class="rounded p-2 bg-black border border-white" type="text" oninput="searchFunction(this.value.toUpperCase(), document.querySelectorAll('.local-event'))" title="Search Local Events" aria-label="Search Local Events" placeholder="Search Local Events">
@@ -126,7 +126,7 @@
                 <div class="container">
                     <h2 class="caption display-2 text-center">Local Businesses</h2>
                     <div class="caption flex items-center justify-end mb-5">
-                        <a class="btn me-3 svg-transition" href="" title="Add New Local Business" aria-label="Add New Local Business"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"><path fill="#fff" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></a>
+                        <a class="btn me-3 svg-transition" href="/new?genre=business" title="Add New Local Business" aria-label="Add New Local Business"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"><path fill="#fff" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></a>
                         <div class="search-container">
                             <label class="icon btn cursor-pointer svg-transition" for="local-businesses-search-input" onclick="toggleInput('local-businesses-search-input')" title="Open/Close Search" aria-label="Open/Close Search"><svg xmlns="http://www.w3.org/2000/svg" width="24" fill="currentColor" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg></label>
                             <input id="local-businesses-search-input" class="rounded p-2 bg-black border border-white w-[250px]" type="text" oninput="searchFunction(this.value.toUpperCase(), document.querySelectorAll('.local-business'))" title="Search Local Business" aria-label="Search Local Business" placeholder="Search Local Business">

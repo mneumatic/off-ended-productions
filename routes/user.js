@@ -1,6 +1,6 @@
 const express = require('express');
 const passport = require("passport");
-const {isLoggedIn} = require("../middleware");
+const { isLoggedIn, validateMusicEvents } = require("../middleware");
 const router = express.Router();
 const catchAsync = require('../utils/catchAsync');
 const Music = require("../models/music");
@@ -35,6 +35,35 @@ router.get('/dashboard', isLoggedIn, async (req, res) => {
   });
 })
 
+router.get('/new', isLoggedIn, (req, res) => {
+  res.render('user/new', {
+    title: "New Music Event | OEP",
+    genre: req.query.genre,
+    authenticated: res.locals.currentUser,
+  });
+})
+
+router.post('/new', isLoggedIn, catchAsync(async (req, res, next) => {
+  let event
+  let genre = req.query.genre
+  if (genre === 'music') {
+    event = new Music(req.body.event);
+    genre = "Music Event"
+  }
+  if (genre === 'event') {
+    event = new CommunityEvents(req.body.event);
+    genre = "Local Event"
+  }
+  if (genre === 'business') {
+    event = new CommunityBusinesses(req.body.event)
+    genre = "Local Business"
+  }
+  await event.save();
+
+  req.flash('success', `Successfully made a new ${genre}!`);
+  res.redirect(`/dashboard`)
+}))
+
 router.get('/:id/edit', isLoggedIn, catchAsync(async (req, res) => {
   const { id } = req.params;
   const item = await Music.findById(id) || await CommunityEvents.findById(id) || await CommunityBusinesses.findById(id)
@@ -63,7 +92,7 @@ router.put('/:id', isLoggedIn, catchAsync(async (req, res) => {
   }
 
   req.flash('success', 'Successfully updated!');
-  res.redirect(`/${item._id}/edit`)
+  res.redirect(`/dashboard`);
 }));
 
 router.delete('/:id', isLoggedIn, catchAsync(async (req, res) => {

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<%- include('../partials/head.ejs') %>
+<body>
+    <%- include('../partials/navbar.ejs') %>
+    <%- include('../partials/flash.ejs') %>
+    <main id="dashboard">
+        <section>
+            <div class="container text-center">
+                <h1 class="display-2">Create</h1>
+                <div class="flex flex-col items-center justify-center">
+                    <p class="text-red-600 font-bold">IMPORTANT</p>
+                    <ul class="list-disc flex flex-col items-start justify-center">
+                        <li>Field formating:</li>
+                        <li class="ms-5">Date needs to be in "XX/XX/XXXX" format</li>
+                        <li class="ms-5">Hours needs to be in "XX:XX:XX - XX:XX:XX" format</li>
+                        <li>Images will need to be URL from an external source</li>
+                        <li class="ms-5">Image will update after URL is entered.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <div class="oep-stickman">
+            <section>
+                <div class="container container__animated-flex items-center justify-center">
+                    <div class="rounded p-5 bg-black y-translate">
+                        <h2 class="display-2 mb-5">Creating: <% if (genre === 'music') { %>Music Event<% } %><% if (genre === 'event') { %>Local Event<% } %><% if (genre === 'business') { %>Business<% } %></h2>
+                        <form action="/new?genre=<%= genre %>" method="POST" class="validated-form flex flex-col items-center justify-center" novalidate>
+                            <div class="mb-3 w-full">
+                                <label class="block" for="title">Title</label>
+                                <input class="rounded p-2 bg-black border border-white w-full" type="text" id="title" name="event[title]" placeholder="Event name" aria-placeholder="Event name" required>
+                            </div>
+                            <div class="mb-3 w-full">
+                                <label class="block" for="description">Description</label>
+                                <textarea rows="5" class="rounded p-2 bg-black border border-white w-full" type="text" id="description" name="event[description]" placeholder="The description of the Event." aria-placeholder="The description of the Event." required></textarea>
+                            </div>
+                            <div class="mb-3 w-full">
+                                <label class="block" for="imagePath">Image URL</label>
+                                <div class="flex items-center justify-center">
+                                    <img class="thumbnail img-fluid rounded outline outline-1 me-5" src="" alt="">
+                                    <input class="rounded p-2 bg-black border border-white w-full" type="text" id="imagePath" name="item[imagePath]" placeholder="https://example.com/image" aria-placeholder="https://example.com/image">
+                                </div>
+                            </div>
+                            <div class="mb-3 w-full">
+                                <label class="block" for="date">Date</label>
+                                <input class="rounded p-2 bg-black border border-white w-full" id="date" name="event[date]" placeholder="1/01/2026" aria-placeholder="1/01/2026" required>
+                            </div>
+                            <div class="mb-3 w-full">
+                                <label class="block" for="location">Location</label>
+                                <input class="rounded p-2 bg-black border border-white w-full" type="text" id="location" name="event[location]" placeholder="1111 Silver Spruce Dr. Running Springs CA 92382" aria-placeholder="1111 Silver Spruce Dr. Running Springs CA 92382" required>
+                            </div>
+                            <div class="mb-3 w-full">
+                                <label class="block" for="hours">Hours</label>
+                                <input class="rounded p-2 bg-black border border-white w-full" type="text" id="hours" aria-label="hours" name="event[hours]" placeholder="6am - 7pm" aria-placeholder="6am - 7pm" required>
+                            </div>
+                            <% if (genre === 'business') { %>
+                                <div class="mb-3 w-full">
+                                    <label class="block" for="hours">Phone</label>
+                                    <input class="rounded p-2 bg-black border border-white w-full" type="text" id="phone" aria-label="phone" name="event[phone]" placeholder="+13231234" aria-placeholder="+13231234" required>
+                                </div>
+                            <% } %>
+                            <div class="flex flex-row items-start justify-start mt-3 w-full">
+                                <button class="btn me-3" type="submit" title="Create" aria-label="Create">Create</button>
+                                <button class="btn" type="button" onclick="history.back()" title="Cancel" aria-label="Cancel">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <%- include('../partials/footbar.ejs') %>
+    <%- include('../partials/scripts.ejs') %>
+    <script src='/js/validateForms.js'></script>
+    <script src="/js/images.js"></script>
+    <script>
+        const input = document.getElementById('imagePath');
+        const image = document.querySelector('.thumbnail');
+        const container = document.querySelectorAll('.container__animated-flex');
+
+        const observer = new IntersectionObserver(handleIntersection, options)
+        const observerCaptions = new IntersectionObserver(handleCaptions, options)
+
+        container.forEach(element => {
+          observer.observe(element)
+        })
+
+        input.addEventListener('change', function () {
+          image.src = input.value;
+          image.alt = input.value;
+        })
+    </script>
+</body>
+</html>
