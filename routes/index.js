@@ -1,5 +1,8 @@
+require('dotenv').config()
 const express = require('express');
 const router = express.Router();
+const csrf = require('csurf')
+const csrfProtection = csrf({ cookie: true })
 const Categories = require('../models/categories');
 const Mottos = require('../models/mottos');
 const MusicEvents = require('../models/music');
@@ -9,6 +12,8 @@ const GitBadges = require('../models/gitbadges');
 const gitUser = require('../data/gituser.json');
 const gitRepos = require('../data/gitrepos.json');
 const rssFeed = require('../data/rss.json');
+const nodemailer = require("nodemailer");
+const xoauth2 = require('xoauth2')
 
 /* GET home page. */
 router.get('/', async (req, res) => {
@@ -92,5 +97,58 @@ router.get('/about', async (req, res) => {
     authenticated: res.locals.currentUser,
   });
 });
+
+router.get('/contact', csrfProtection, async (req, res) => {
+  res.render('contact', {
+    title: 'Contact Us | OEP',
+    email: req.query.valid,
+    authenticated: res.locals.currentUser,
+    csrfToken: req.csrfToken()
+  })
+})
+
+router.post('/contact', async (req, res) => {
+  let transport
+  if (process.env.MODE === 'production') {
+    transport = nodemailer.createTransport({
+      service: process.env.MAIL_SERVICE,
+      auth: {
+        xoauth2: xoauth2.createXOAuth2Generator({
+          user: process.env.MAIL_TO,
+          clientId: process.env.MAIL_ID,
+          clientSecret: process.env.MAIL_SECRET,
+          refreshToken: process.env.MAIL_REFRESH_TOKEN,
+        })
+      }
+    })
+  } else {
+    transport = nodemailer.createTransport({
+      host: "sandbox.smtp.mailtrap.io",
+      port: 2525,
+      auth: {
+        user: process.env.DEV_MAIL_TO,
+        pass: process.env.DEV_MAIL_PASS,
+      }
+    })
+  }
+
+  const mailOptions = {
+    from: req.body.name + ' ' + req.body.email,
+    to: process.env.MAIL_ID,
+    subject: req.body.subject,
+    text: req.body.message
+  }
+
+  transport.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      console.log(error);
+      req.flash('error', 'Oops, something went wrong!');
+      res.redirect('/contact?valid=' + encodeURIComponent('false'))
+    } else {
+      req.flash('success', 'Successfully sent!');
+      res.redirect('/contact?valid=' + encodeURIComponent('true'))
+    }
+  })
+})
 
 module.exports = router;

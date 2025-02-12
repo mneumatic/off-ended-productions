@@ -22,9 +22,9 @@
         </section>
         <div class="oep-stickman">
             <section>
-                <div class="container container__animated-flex items-center justify-center">
+                <div class="container container__animated-flex flex-col items-center justify-center">
+                    <h2 class="caption display-2 mb-5">Creating: <% if (genre === 'music') { %>Music Event<% } %><% if (genre === 'event') { %>Local Event<% } %><% if (genre === 'business') { %>Business<% } %></h2>
                     <div class="rounded p-5 bg-black y-translate">
-                        <h2 class="display-2 mb-5">Creating: <% if (genre === 'music') { %>Music Event<% } %><% if (genre === 'event') { %>Local Event<% } %><% if (genre === 'business') { %>Business<% } %></h2>
                         <form action="/new?genre=<%= genre %>" method="POST" class="validated-form flex flex-col items-center justify-center" novalidate>
                             <div class="mb-3 w-full">
                                 <label class="block" for="title">Title</label>
