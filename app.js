@@ -10,10 +10,10 @@ const session = require('express-session');
 const flash = require('connect-flash');
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
-const User = require('./models/user');
+const Admin = require('./models/admin');
 
 const indexRouter = require('./routes/index');
-const userRouter = require('./routes/user');
+const adminRouter = require('./routes/admin');
 
 const app = express();
 
@@ -49,10 +49,10 @@ app.use(flash());
 
 app.use(passport.initialize());
 app.use(passport.session());
-passport.use(new LocalStrategy(User.authenticate()));
+passport.use(new LocalStrategy(Admin.authenticate()));
 
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+passport.serializeUser(Admin.serializeUser());
+passport.deserializeUser(Admin.deserializeUser());
 
 app.use((req, res, next) => {
   console.log(req.session)
@@ -70,7 +70,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '/public')));
 
 app.use('/', indexRouter);
-app.use('/', userRouter);
+app.use('/', adminRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

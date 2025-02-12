@@ -4,8 +4,8 @@ const { isLoggedIn, validateMusicEvents } = require("../middleware");
 const router = express.Router();
 const catchAsync = require('../utils/catchAsync');
 const Music = require("../models/music");
-const CommunityEvents = require('../models/communityEvents');
-const CommunityBusinesses = require('../models/communityBusinesses');
+const CommunityEvents = require('../models/events');
+const CommunityBusinesses = require('../models/businesses');
 
 
 router.get('/login', async (req, res) => {

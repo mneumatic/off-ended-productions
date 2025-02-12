@@ -3,8 +3,8 @@ const router = express.Router();
 const Categories = require('../models/categories');
 const Mottos = require('../models/mottos');
 const MusicEvents = require('../models/music');
-const CommunityEvents = require('../models/communityEvents');
-const CommunityBusinesses = require('../models/communityBusinesses');
+const Events = require('../models/events');
+const Businesses = require('../models/businesses');
 const GitBadges = require('../models/gitbadges');
 const gitUser = require('../data/gituser.json');
 const gitRepos = require('../data/gitrepos.json');
@@ -69,7 +69,7 @@ router.get('/community', async (req, res) => {
 });
 
 router.get('/community/events', async (req, res) => {
-  const events = await CommunityEvents.find({})
+  const events = await Events.find({})
   res.render('community-events', {
     title: 'Community Events | OEP',
     events,
@@ -78,7 +78,7 @@ router.get('/community/events', async (req, res) => {
 });
 
 router.get('/community/businesses', async (req, res) => {
-  const businesses = await CommunityBusinesses.find({});
+  const businesses = await Businesses.find({});
   res.render('community-businesses', {
     title: 'Community Businesses | OEP',
     businesses,

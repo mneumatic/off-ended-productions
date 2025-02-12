@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const CommunityEvents = require('../models/communityEvents')
+const Events = require('../models/events')
 
 mongoose.connect('mongodb://localhost:27017/oep')
 
@@ -43,9 +43,9 @@ const data = [
 ]
 
 const seedDB = async () => {
-    await CommunityEvents.deleteMany({});
+    await Events.deleteMany({});
     for (const communityEvent of data) {
-        const communityEventInfo = new CommunityEvents({
+        const communityEventInfo = new Events({
             title: communityEvent.title,
             description: communityEvent.description,
             imagePath: communityEvent.imagePath,

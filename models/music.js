@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const MusicEventsSchema = new Schema({
+const MusicSchema = new Schema({
     title: String,
     description: String,
     imagePath: String,
@@ -10,4 +10,4 @@ const MusicEventsSchema = new Schema({
     hours: String,
 });
 
-module.exports = mongoose.model('MusicEvents', MusicEventsSchema);
+module.exports = mongoose.model('Music', MusicSchema);

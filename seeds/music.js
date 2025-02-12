@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const MusicEvents = require('../models/music')
+const Music = require('../models/music')
 
 mongoose.connect('mongodb://localhost:27017/oep')
 
@@ -41,9 +41,9 @@ const data = [
 ]
 
 const seedDB = async () => {
-    await MusicEvents.deleteMany({});
+    await Music.deleteMany({});
     for (const musicEvent of data) {
-        const musicEventInfo = new MusicEvents({
+        const musicEventInfo = new Music({
             title: musicEvent.title,
             description: musicEvent.description,
             imagePath: musicEvent.imagePath,
