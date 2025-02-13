@@ -1,0 +1,88 @@
+@use 'variables' as var
+
+// Site Header
+#sh
+  position: fixed
+  background-color: var.$primary-color
+  padding: 1rem
+  width: 100%
+  z-index: 80
+
+  .sh-controls
+    display: flex
+    flex-direction: row
+    align-items: center
+
+    button
+      border: var.$tertiary-color 1px solid
+
+    a
+      margin-left: 1rem
+
+  .sh-menu
+    background-color: var.$primary-color
+    border-radius: 0 var.$border-radius-lg var.$border-radius-lg 0
+    border: var.$tertiary-color 1px solid
+    position: fixed
+    top: 0
+    left: -320px
+    padding: 1rem
+    height: 100%
+    width: 320px
+    z-index: 90
+
+    .sh-controls
+      justify-content: space-between
+
+      button
+        border: none
+
+    span
+      color: var.$accent-color
+      font-size: 0.75em
+      padding: 6px 8px
+
+    nav
+      display: flex
+      flex-direction: column
+      margin-top: 2rem
+
+      a
+        border-radius: var.$border-radius-sm
+        padding: 6px 8px
+        display: flex
+        flex-direction: row
+        align-items: center
+
+        svg
+          margin-right: 8px
+
+        &:hover
+          background-color: var.$tertiary-color
+
+    .sh-admin
+      margin-top: 3rem
+
+      span
+        display: block
+
+      div
+        margin-top: 1rem
+
+        a
+          display: flex
+          flex-direction: row
+          align-items: center
+          color: lightslategray
+          font-weight: lighter
+          padding: 6px 8px
+
+          svg
+            margin-right: 8px
+
+  .sh-open-menu
+    animation: slide-menu 0.5s forwards
+
+    @keyframes slide-menu
+      to
+        left: 0

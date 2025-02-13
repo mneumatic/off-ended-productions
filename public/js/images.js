@@ -14,7 +14,7 @@ function handleIntersection(entries, observer) {
       multiplier = loadArray(multiplier)
 
       for (let i = 0; i < elements.length; i++) {
-          array.push(elements[i])
+        array.push(elements[i])
       }
 
       array.forEach((element, index) => {
@@ -67,4 +67,3 @@ const loadImage = (img) => {
     }
   })
 }
-

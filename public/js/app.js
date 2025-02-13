@@ -1,36 +1,17 @@
-const navbar = document.getElementById('site-navigation-navbar')
-const toggle = document.getElementById('site-navigation-navbar-toggle')
-const links = document.querySelectorAll('#site-navigation-navbar-nav-links a')
-let last = 0
+const sh = document.getElementById('sh');
+const shMenu = document.querySelector('.sh-menu');
+const shOpenMenuBtn = document.querySelector('.sh-controls')
+const shCloseMenuBtn = document.querySelector('.sh-menu .sh-controls')
 
-function onScroll() {
-  window.scrollY > 0
-    ? navbar.classList.add('navbar-shadow')
-    : navbar.classList.remove('navbar-shadow')
+// Opens Site Header Menu
+function openMenu() {
+  shMenu.classList.add('sh-open-menu');
 }
 
-function closeMenuOnScroll () {
-  const top = window.scrollY
-
-  toggle.checked === true && top < last
-    ? toggle.checked = true
-    : toggle.checked = false
-
-  last = top
+// Closes Site Header Menu
+function closeMenu() {
+  shMenu.classList.remove('sh-open-menu');
 }
 
-function closeMenuOnResize () {
-  if (toggle.checked === true && window.innerWidth >= 768) toggle.checked = false
-}
-
-function markLinkActive () {
-  const mainElement = document.querySelector('main')
-  links.forEach((li) => {
-    if (li.classList.contains(mainElement.id)) li.classList.add('active')
-  })
-}
-markLinkActive()
-
-window.addEventListener('scroll', onScroll)
-window.addEventListener('scroll', closeMenuOnScroll)
-window.addEventListener('resize', closeMenuOnResize)
+shOpenMenuBtn.addEventListener('click', openMenu);
+shCloseMenuBtn.addEventListener('click', closeMenu);

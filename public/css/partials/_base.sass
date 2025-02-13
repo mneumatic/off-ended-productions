@@ -1,12 +1,14 @@
+@use 'variables' as var
+
 html
   background-color: #000
   color: #222
-  font-size: 1em
+  font-size: 0.875em
   line-height: 1.4
 
 body
   font-family: "Open Sans", sans-serif
-  color: white
+  color: var.$secondary-color
   margin: 0
   padding: 0
   height: 100vh
@@ -25,7 +27,7 @@ hr
   display: block
   height: 1px
   border: 0
-  border-top: 1px solid #ccc
+  border-top: 0.085rem solid var.$tertiary-color
   margin: 1em 0
   padding: 0
 
@@ -108,11 +110,9 @@ h2
   height: auto !important
   max-width: 100% !important
 
-.btn,
-.btn-reverse
-  background-color: black
-  border: white 1px solid
-  color: white
+.btn
+  background-color: var.$primary-color
+  color: var.$secondary-color
   display: block
   padding: .5rem
   border-radius: .25rem
@@ -120,17 +120,7 @@ h2
   transition: background-color .3s ease-in-out, color .3s ease-in-out
 
   &:hover
-    background-color: white
-    color: black
-
-.btn-reverse
-  background-color: white
-  border: white 1px solid
-  color: black
-
-  &:hover
-    background-color: black
-    color: white
+    background-color: var.$tertiary-color
 
 .show-element
   visibility: visible !important
@@ -187,43 +177,6 @@ h2
   flex-wrap: wrap !important
   overflow: hidden
 
-
-.scale
-  transition: transform .5s ease-in-out, box-shadow .5s ease-in-out
-
-  &:hover
-    transform: scale(1.1)
-    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5)
-
-.svg-transition
-    transition: background-color .3s ease-in-out, fill .3s ease-in-out, color .3s ease-in-out
-
-    &:hover
-      background-color: #fff
-      color: #000 !important
-
-      svg path
-        fill: #000 !important
-
-.svg-transition-toggle
-  background-color: #fff
-  color: #000 !important
-
-  svg path
-    fill: #000 !important
-
-.classic-link
-  color: blue
-  text-underline-position: under
-  cursor: auto
-
-  &:hover
-    text-decoration: underline
-
-  &:visited
-    color: purple
-    text-decoration: underline
-
 .oep-stickman
   background-image: url("/img/oep-stickman.svg")
   background-repeat: no-repeat
@@ -236,12 +189,6 @@ h2
   background-repeat: no-repeat
   background-position: center
   background-size: contain
-
-.bg-white-alpha
-  background-color: rgba(255, 255, 255, 0.5)
-
-.bg-black-alpha
-  filter: blur(3px)
 
 .read-more-state
   display: none
