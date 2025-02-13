@@ -5,13 +5,15 @@ if (localStorage.getItem('open-viewer')) {
   const index = localStorage.getItem('open-viewer')
   dashContent[index].classList.add('slide-element')
 } else {
-  localStorage.setItem('open-viewer', 0)
+  localStorage.setItem('open-viewer', '0')
   dashContent[0].classList.add('slide-element')
 }
 
 function showContent (content, index) {
   const current = document.querySelector('.dash-content.slide-element')
-  if (current) {
+  if (current === dashContent[index]) {
+    return // Do nothing
+  } else {
     current.classList.add('dash-content-slide-out')
 
     setTimeout(() => {

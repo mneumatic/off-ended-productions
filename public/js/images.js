@@ -62,8 +62,12 @@ const loadImage = (img) => {
     if (img.complete) {
       resolve(img); // Resolve immediately if the image is already loaded
     } else {
-      img.onload = () => resolve(img);
-      img.onerror = () => reject(new Error(`Failed to load image: ${img.src}`));
+      try {
+        img.onload = () => resolve(img);
+        img.onerror = () => reject(new Error(`Failed to load image: ${img.src}`));
+      } catch (error) {
+        reject(error);
+      }
     }
   })
 }
