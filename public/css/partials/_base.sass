@@ -1,4 +1,5 @@
-@use 'variables' as var
+@use 'variables' as variables
+@use 'mixins' as mixins
 
 html
   background-color: #000
@@ -8,7 +9,7 @@ html
 
 body
   font-family: "Open Sans", sans-serif
-  color: var.$secondary-color
+  color: variables.$secondary-color
   margin: 0
   padding: 0
   height: 100vh
@@ -27,7 +28,7 @@ hr
   display: block
   height: 1px
   border: 0
-  border-top: 0.085rem solid var.$tertiary-color
+  border-top: 0.085rem solid variables.$tertiary-color
   margin: 1em 0
   padding: 0
 
@@ -79,12 +80,7 @@ h4
 
 h1,
 h2
-  font-size: 4rem
-
-@media  (min-width: 768px)
-  h1,
-  h2
-    font-size: 5rem
+  @include mixins.display
 
 .raleway-600
   font-family: "Raleway", sans-serif
@@ -97,11 +93,11 @@ h2
   font-weight: 400
   font-style: normal
 
-.display-2
-  font-size: 3.25rem
-
-  @media (min-width: 420px)
-    font-size: 4.5rem
+//.display-2
+//  font-size: 3.25rem
+//
+//  @media (min-width: 420px)
+//    font-size: 4.5rem
 
 .display-6
   font-size: 2.5rem
@@ -112,7 +108,7 @@ h2
 
 .btn
   //background-color: var.$primary-color
-  color: var.$secondary-color
+  color: variables.$secondary-color
   display: block
   padding: .5rem
   border-radius: .25rem
@@ -120,7 +116,7 @@ h2
   transition: background-color .3s ease-in-out, color .3s ease-in-out
 
   &:hover
-    background-color: var.$tertiary-color
+    background-color: variables.$tertiary-color
 
 .show-element
   visibility: visible !important
@@ -164,6 +160,12 @@ h2
 @keyframes slide-out-x
   to
     transform: translateX(100%)
+
+@keyframes slide-out--x
+  from
+    transform: translateX(0)
+  to
+    transform: translateX(-150%)
 
 @keyframes slide-out-y
   to
@@ -294,29 +296,6 @@ input::-ms-reveal
   input:checked + span:before
     transform: translateX(26px)
 
-.search-container
-  display: flex
-  justify-content: end
-  align-items: center
-
-  input,
-  button
-    width: 0
-    transition: width 0.5s
-    overflow: hidden
-    opacity: 0
-    padding: 0
-
-
-  .active
-    width: 200px
-    opacity: 1
-    margin-left: 12px
-    padding: 0.5rem
-
-  button.active
-    width: auto
-
 .spinner
   position: absolute
   top: 50%
@@ -336,25 +315,3 @@ input::-ms-reveal
     transform: translate(-50%, -50%) rotate(0deg)
   100%
     transform: translate(-50%, -50%) rotate(360deg)
-
-.container
-  width: 100%
-  margin-right: auto
-  margin-left: auto
-  padding-right: 1rem
-  padding-left: 1rem
-
-  @media (min-width: 640px)
-    max-width: 640px
-
-  @media (min-width: 768px)
-    max-width: 768px
-
-  @media (min-width: 1024px)
-    max-width: 1024px
-
-  @media (min-width: 1280px)
-    max-width: 1280px
-
-  @media (min-width: 1536px)
-    max-width: 1536px
