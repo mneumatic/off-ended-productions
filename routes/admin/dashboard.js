@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
 })
 
 router.post('/', passport.authenticate('local', { failureFlash: true, failureRedirect: '/admin' }), (req, res) => {
-  req.flash('success', 'Welcome Back!');
+  req.flash('success', `Welcome Back, ${req.user.name}!`);
   const redirectUrl = req.session.returnTo || '/admin/dashboard';
   delete req.session.returnTo;
   res.redirect(redirectUrl);

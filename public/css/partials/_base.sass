@@ -111,7 +111,7 @@ h2
   max-width: 100% !important
 
 .btn
-  background-color: var.$primary-color
+  //background-color: var.$primary-color
   color: var.$secondary-color
   display: block
   padding: .5rem
@@ -160,6 +160,14 @@ h2
 @keyframes slide-in
   to
     transform: translateX(0) translateY(0)
+
+@keyframes slide-out-x
+  to
+    transform: translateX(100%)
+
+@keyframes slide-out-y
+  to
+    transform: translateY(100%)
 
 .container__animated
   display: grid
@@ -216,9 +224,9 @@ input::-ms-reveal
 .fade-out
   animation: fade-out 8s forwards !important
 
-  @keyframes fade-out
-    to
-      opacity: 0
+@keyframes fade-out
+  to
+    opacity: 0
 
 .thumbnail
   width: 150px
@@ -328,3 +336,25 @@ input::-ms-reveal
     transform: translate(-50%, -50%) rotate(0deg)
   100%
     transform: translate(-50%, -50%) rotate(360deg)
+
+.container
+  width: 100%
+  margin-right: auto
+  margin-left: auto
+  padding-right: 1rem
+  padding-left: 1rem
+
+  @media (min-width: 640px)
+    max-width: 640px
+
+  @media (min-width: 768px)
+    max-width: 768px
+
+  @media (min-width: 1024px)
+    max-width: 1024px
+
+  @media (min-width: 1280px)
+    max-width: 1280px
+
+  @media (min-width: 1536px)
+    max-width: 1536px
