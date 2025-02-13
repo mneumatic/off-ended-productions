@@ -5,6 +5,17 @@
     <%- include('../partials/header.ejs') %>
     <%- include('../partials/flash.ejs') %>
     <main id="dash">
+        <dialog class="dash-dialog">
+            <% for (let i = 0; i < 3; i++) { %>
+                <form class="dash-dialog-form" action="" method="POST">
+                    <p class="dash-dialog-message"></p>
+                    <div>
+                        <button type="submit" title="Delete" aria-label="Delete">Delete</button>
+                        <button type="button" onclick="closeDialog()">Cancel</button>
+                    </div>
+                </form>
+            <% } %>
+        </dialog>
         <section>
             <h1>Dashboard</h1>
             <div class="dash-panel">
@@ -23,9 +34,14 @@
                     </div>
                 </div>
                 <div class="dash-panel-search-controls">
-                    <label for="search-all-input" onclick="toggleInput('search-all-input')" title="Open/Close Search" aria-label="Open/Close Search"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"><path fill="#fff" d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></label>
-                    <input id="search-all-input" class="clear-input rounded p-2 bg-black border border-white w-[250px]" type="text" oninput="searchFunction(this.value.toUpperCase(), document.querySelectorAll('.music-event, .local-event, .local-business'))" title="Search All" aria-label="Search All" placeholder="Search All">
-                    <button class="btn clear-button mx-3 svg-transition" onclick="clearInput('search-all-input', document.querySelectorAll('.music-event, .local-event, .local-business'))" title="Delete Search" aria-label="Delete Search"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"><path fill="#fff" d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12l1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/></svg></button>
+                    <div>
+                        <label for="search-all-input" onclick="toggleInput('search-all-input')" title="Open/Close Search" aria-label="Open/Close Search"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"><path fill="#fff" d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></label>
+                        <input id="search-all-input" class="clear-input rounded p-2 bg-black border border-white w-[250px]" type="text" oninput="searchFunction(this.value.toUpperCase(), document.querySelectorAll('.dash-content-music-event, .dash-content-local-event, .dash-content-local-business'))" title="Search..." aria-label="Search..." placeholder="Search...">
+                        <button class="clear-button" onclick="clearInput('search-all-input', document.querySelectorAll('.dash-content-music-event, .dash-content-local-event, .dash-content-local-business'))" title="Delete Search" aria-label="Delete Search"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"><path fill="#fff" d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12l1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/></svg></button>
+                    </div>
+                    <div>
+                        <span></span>
+                    </div>
                 </div>
             </div>
         </section>
@@ -40,24 +56,23 @@
                             <div class="flex flex-row flex-wrap justify-center lg:justify-between">
                                 <div class="spinner"></div>
                                 <% for (let event of music ) { %>
-                                    <div class="music-event flex flex-col bg-black rounded p-10 mb-5 w-[320px]">
+                                    <div class="dash-content-music-event">
                                         <% if (event.imagePath) { %>
-                                            <img class="img-fluid rounded outline outline-1" src="<%- event.imagePath %>" alt="<%- event.title %>">
+                                            <img src="<%- event.imagePath %>" alt="<%- event.title %>">
                                         <% } %>
 
                                         <h3 class="py-5"><%= event.title %></h3>
                                         <p><%- event.description %></p>
-                                        <div class="flex flex-col text-end py-3">
+                                        <div class="dash-content-info">
                                             <span><%- event.hours %></span>
                                             <address><%- event.location %></address>
+                                            <p class="date">On: <%- event.date %></p>
                                         </div>
-                                        <p class="date font-bold text-end py-3">On: <%- event.date %></p>
 
-                                        <div class="flex flex-row mt-5">
+
+                                        <div class="dash-content-controls">
                                             <a class="btn !flex justify-center me-[6px] svg-transition w-full" href="/admin/music/edit/<%- event._id %>" title="Edit Event" aria-label="Edit Event"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"><path fill="#fff" d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg></a>
-                                            <form class="w-full" action="/admin/music/delete/<%- event._id %>?_method=DELETE" method="POST">
-                                                <button class="btn !flex justify-center ms-[6px] svg-transition w-full" onclick="confirmDelete(`<%- event.title %>`)"  title="Delete Event" aria-label="Delete Event"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"><path fill="#fff" d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12l1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/></svg></button>
-                                            </form>
+                                            <button onclick="openDialog(0, '/admin/music/delete/<%- event._id %>?_method=DELETE', '<%- event.title %>')">delete</button>
                                         </div>
                                     </div>
                                 <% } %>
@@ -68,32 +83,27 @@
             <div class="dash-content">
                 <div class="dash-content-events">
                     <h2 class="display-2 text-center">Local Events</h2>
-    <!--                <div class="caption flex items-center justify-end mb-5">-->
-    <!--                    <a class="btn me-3 svg-transition" href="/admin/event" title="Add New Local Event" aria-label="Add New Local Event"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"><path fill="#fff" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></a>-->
-    <!--                    <div class="search-container">-->
-    <!--                        <label class="icon btn cursor-pointer svg-transition" for="local-events-search-input" onclick="toggleInput('local-events-search-input')" title="Open/Close Search" aria-label="Open/Close Search"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"><path fill="#fff" d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></label>-->
-    <!--                        <input id="local-events-search-input" class="rounded p-2 bg-black border border-white" type="text" oninput="searchFunction(this.value.toUpperCase(), document.querySelectorAll('.local-event'))" title="Search Local Events" aria-label="Search Local Events" placeholder="Search Local Events">-->
-    <!--                        <button class="btn clear-button svg-transition" onclick="clearInput('local-events-search-input', document.querySelectorAll('.local-event'))" title="Delete Search" aria-label="Delete Search"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"><path fill="#fff" d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12l1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/></svg></button>-->
-    <!--                    </div>-->
-    <!--                </div>-->
+                    <div class="flex items-center justify-end mb-5">
+                        <a class="dash-content-add" href="/admin/event" title="Add New Local Event" aria-label="Add New Local Event"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"><path fill="#fff" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></a>
+                    </div>
                     <div class="flex flex-row flex-wrap justify-center lg:justify-between">
+                        <div class="spinner"></div>
                         <% for (let event of events ) { %>
-                            <div class="local-event flex flex-col bg-black rounded p-10 mb-5 w-[320px]">
+                            <div class="dash-content-local-event">
                                 <% if (event.imagePath) { %>
-                                    <img class="img-fluid rounded outline outline-1" src="<%- event.imagePath %>" alt="<%- event.title %>">
+                                    <img src="<%- event.imagePath %>" alt="<%- event.title %>">
                                 <% } %>
                                 <h3 class="py-5"><%= event.title %></h3>
                                 <p><%- event.description %></p>
-                                <div class="flex flex-col text-end py-3">
+                                <div class="dash-content-info">
                                     <span><%- event.hours %></span>
                                     <address><%- event.location %></address>
+                                    <p class="date">On: <%- event.date %></p>
                                 </div>
-                                <p class="date font-bold text-end py-3">On: <%- event.date %></p>
-                                <div class="flex flex-row mt-5">
-                                    <a class="btn !flex justify-center me-[6px] svg-transition w-full" href="/admin/event/edit/<%- event._id %>" title="Edit Event" aria-label="Edit Event"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"><path fill="#fff" d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg></a>
-                                    <form class="w-full" action="/admin/event/delete/<%= event._id %>?_method=DELETE" method="POST">
-                                        <button class="btn !flex justify-center ms-[6px] svg-transition w-full" onclick="confirmDelete(`<%- event.title %>`)"  title="Delete Event" aria-label="Delete Event"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"><path fill="#fff" d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12l1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/></svg></button>
-                                    </form>
+
+                                <div class="dash-content-controls">
+                                    <a href="/admin/event/edit/<%- event._id %>" title="Edit Event" aria-label="Edit Event"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"><path fill="#fff" d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg></a>
+                                    <button onclick="openDialog(1, '/admin/event/delete/<%- event._id %>?_method=DELETE', '<%- event.title %>')">delete</button>
                                 </div>
                             </div>
                         <% } %>
@@ -102,32 +112,27 @@
             </div>
                 <div class="dash-content">
                     <h2 class="display-2 text-center">Local Businesses</h2>
-<!--                    <div class="caption flex items-center justify-end mb-5">-->
-<!--                        <a class="btn me-3 svg-transition" href="/admin/business" title="Add New Local Business" aria-label="Add New Local Business"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"><path fill="#fff" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></a>-->
-<!--                        <div class="search-container">-->
-<!--                            <label class="icon btn cursor-pointer svg-transition" for="local-businesses-search-input" onclick="toggleInput('local-businesses-search-input')" title="Open/Close Search" aria-label="Open/Close Search"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"><path fill="#fff" d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></label>-->
-<!--                            <input id="local-businesses-search-input" class="rounded p-2 bg-black border border-white w-[250px]" type="text" oninput="searchFunction(this.value.toUpperCase(), document.querySelectorAll('.local-business'))" title="Search Local Business" aria-label="Search Local Business" placeholder="Search Local Business">-->
-<!--                            <button class="btn clear-button svg-transition" onclick="clearInput('local-businesses-search-input', document.querySelectorAll('.local-business'))" title="Delete Search" aria-label="Delete Search"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"><path fill="#fff" d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12l1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/></svg></button>-->
-<!--                        </div>-->
-<!--                    </div>-->
+                    <div class="flex items-center justify-end mb-5">
+                        <a class="dash-content-add" href="/admin/business" title="Add New Local Business" aria-label="Add New Local Business"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"><path fill="#fff" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></a>
+                    </div>
                     <div class="flex flex-row flex-wrap justify-center lg:justify-between">
+                        <div class="spinner"></div>
                         <% for (let business of businesses ) { %>
-                            <div class="local-business flex flex-col bg-black rounded p-10 mb-5 w-[320px] ">
+                            <div class="dash-content-local-business">
                                 <% if (business.imagePath) { %>
-                                    <img class="img-fluid outline outline-1" src="<%- business.imagePath %>" alt="<%- business.title %>">
+                                    <img src="<%- business.imagePath %>" alt="<%- business.title %>">
                                 <% } %>
                                 <h3 class="py-5"><%= business.title %></h3>
                                 <p><%- business.description %></p>
-                                <div class="flex flex-col text-end py-3">
+                                <div class="dash-content-info">
                                     <span><%- business.hours %></span>
                                     <address><%- business.location %></address>
+                                    <p>Phone: <%- business.phone %></p>
                                 </div>
-                                <p class="font-bold text-end py-3">Phone: <%- business.phone %></p>
-                                <div class="flex flex-row mt-5">
-                                    <a class="btn !flex justify-center me-[6px] svg-transition w-full" href="/admin/business/edit/<%- business._id %>" title="Edit Business" aria-label="Edit Business"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"><path fill="#fff" d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg></a>
-                                    <form class="w-full" action="/admin/business/delete/<%= business._id %>?_method=DELETE" method="POST">
-                                        <button class="btn !flex justify-center ms-[6px] svg-transition w-full" onclick="confirmDelete(`<%- business.title %>`)"  title="Delete Business" aria-label="Delete Business"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"><path fill="#fff" d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12l1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/></svg></button>
-                                    </form>
+
+                                <div class="dash-content-controls">
+                                    <a href="/admin/business/edit/<%- business._id %>" title="Edit Business" aria-label="Edit Business"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"><path fill="#fff" d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg></a>
+                                    <button onclick="openDialog(2, '/admin/business/delete/<%- business._id %>?_method=DELETE', '<%- business.title %>')">delete</button>
                                 </div>
                             </div>
                         <% } %>
@@ -141,19 +146,23 @@
     <script src="/js/search.js"></script>
     <script src="/js/images.js"></script>
     <script>
-        const items = document.querySelectorAll('.music-event, .local-event, .local-business');
+        const content = document.querySelectorAll('.dash-content-music-event, .dash-content-local-event, .dash-content-local-business');
         const images = document.querySelectorAll("img")
 
-        let spinner = document.querySelector('.spinner');
-        spinner.style.display = 'block';
+        let spinners = document.querySelectorAll('.spinner');
+        spinners.forEach(spinner => {
+          spinner.style.display = 'block';
+        })
 
         const promises = Array.from(images).map(img => loadImage(img))
 
         Promise.all(promises).then(() => {
-          items.forEach(item => {
+          content.forEach(item => {
             item.classList.add('show-caption')
           })
+          spinners.forEach(spinner => {
             spinner.style.display = 'none';
+          })
         })
     </script>
 </body>

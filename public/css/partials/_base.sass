@@ -93,12 +93,6 @@ h2
   font-weight: 400
   font-style: normal
 
-//.display-2
-//  font-size: 3.25rem
-//
-//  @media (min-width: 420px)
-//    font-size: 4.5rem
-
 .display-6
   font-size: 2.5rem
 
@@ -117,63 +111,6 @@ h2
 
   &:hover
     background-color: variables.$tertiary-color
-
-.show-element
-  visibility: visible !important
-  animation: fade-in 1s forwards !important
-  transform: translateZ(0)
-
-.caption
-  opacity: 0
-
-.show-caption
-  animation: fade-in 1s forwards !important
-
-@keyframes fade-in
-  from
-    opacity: 0
-  to
-    opacity: 1
-
-.blink
-  opacity: 0
-  animation: blink 3s ease-in-out infinite
-
-@keyframes blink
-  from
-    opacity: 0
-  50%
-    opacity: 1
-  to
-    opacity: 0
-
-.y-translate
-  transform: translateY(100vh)
-
-.slide-element
-  animation: slide-in 1s forwards, fade-in 3s forwards !important
-
-@keyframes slide-in
-  to
-    transform: translateX(0) translateY(0)
-
-@keyframes slide-out
-  to
-    transform: translateX(0) translateY(0)
-
-@keyframes slide-out-x
-  to
-    transform: translateX(100%)
-
-@keyframes slide-out--x
-  from
-    transform: translateX(0)
-  to
-    transform: translateX(-150%)
-
-@keyframes slide-out-y
-  to
-    transform: translateY(100%)
 
 .container__animated
   display: grid
@@ -226,13 +163,6 @@ h2
 
 input::-ms-reveal
   filter: invert(100%)
-
-.fade-out
-  animation: fade-out 8s forwards !important
-
-@keyframes fade-out
-  to
-    opacity: 0
 
 .thumbnail
   width: 150px
@@ -296,7 +226,6 @@ input::-ms-reveal
     background-color: red
     border-color: red
 
-
   input:checked + span:before
     transform: translateX(26px)
 
@@ -313,9 +242,3 @@ input::-ms-reveal
   animation: spin 1s linear infinite
   display: none /* Hide spinner by default */
 
-
-@keyframes spin
-  0%
-    transform: translate(-50%, -50%) rotate(0deg)
-  100%
-    transform: translate(-50%, -50%) rotate(360deg)

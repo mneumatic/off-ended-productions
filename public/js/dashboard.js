@@ -1,5 +1,8 @@
 const dashPanelToggles = document.querySelectorAll('.dash-panel-toggle')
 const dashContent = document.querySelectorAll('.dash-content')
+const dashDialog = document.querySelector('.dash-dialog')
+const dashDialogForms = document.querySelectorAll('.dash-dialog-form')
+const dashDialogMsg = document.querySelectorAll('.dash-dialog-message')
 
 if (localStorage.getItem('open-viewer')) {
   const index = localStorage.getItem('open-viewer')
@@ -23,6 +26,18 @@ function showContent (content, index) {
   }
   localStorage.setItem('open-viewer', index)
   content.classList.add('slide-element')
+}
+
+function openDialog(index, action, title) {
+  dashDialogForms[index].style.display = 'flex'
+  dashDialogForms[index].action = action
+  dashDialogMsg[index].innerHTML = `Delete ${title}?`
+  dashDialog.showModal()
+}
+
+function closeDialog() {
+  dashDialogForms.forEach(form => { form.style.display = 'none' })
+  dashDialog.close()
 }
 
 dashPanelToggles.forEach((toggle, index) => {

@@ -1,0 +1,205 @@
+@use 'variables' as variables
+@use 'mixins' as mixins
+
+#dash
+  .dash-dialog
+    background-color: transparent
+
+    &::backdrop
+      background-color: rgba(0, 0, 0, 0.5)
+      position: fixed
+      left: 0
+      margin: 0
+      height: 100%
+      width: 100%
+
+  .dash-dialog-form
+    background-color: variables.$primary-color
+    border-radius: variables.$border-radius-sm
+    border: variables.$tertiary-color 1px solid
+    color: variables.$secondary-color
+    display: none
+    flex-direction: column
+    justify-content: center
+    padding: 2.5rem
+    width: 320px
+
+    p
+      text-align: center
+      padding-bottom: 1rem
+
+    div
+      display: flex
+      flex-direction: row
+      justify-content: space-between
+
+      button
+        border: variables.$tertiary-color 1px solid
+        width: 100%
+        margin-right: 6px
+        @include mixins.btn
+
+        &:nth-child(2)
+          margin-left: 6px
+          margin-right: 0
+
+  h1
+    text-align: center
+
+  .dash-panel
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    @include mixins.container
+
+    .dash-panel-viewers
+      display: flex
+      flex-direction: row
+      justify-content: center
+
+      div
+        display: flex
+        flex-direction: column
+        justify-content: center
+        margin: 1rem
+
+        label
+          display: flex
+          flex-direction: column
+          align-items: center
+          text-align: center
+
+          span
+            display: block
+
+            &:nth-child(1)
+              background-color: variables.$accent-color
+              border-radius: 50%
+              display: flex
+              align-items: center
+              justify-content: center
+              margin-bottom: 0.50rem
+              height: 75px
+              width: 75px
+              font-size: 2.5rem
+
+        button
+          border: variables.$tertiary-color 1px solid
+          margin-top: 0.50rem
+          @include mixins.btn
+
+  .dash-panel-search-controls
+      display: flex
+      flex-direction: column
+      align-items: center
+      justify-content: center
+      margin-top: 1rem
+
+      div:nth-child(1)
+        display: flex
+        justify-content: center
+        align-items: center
+
+      a,
+      button
+        border: variables.$tertiary-color 1px solid
+        @include mixins.btn
+
+      input
+        width: 200px
+        margin: 0 12px 0 12px
+        padding: 0.625rem
+
+      label
+        cursor: pointer
+
+      input
+        border: variables.$tertiary-color 1px solid
+        border-radius: variables.$border-radius-sm
+        background-color: variables.$primary-color
+
+      div:nth-child(2)
+        display: flex
+        justify-content: center
+        margin-top: 0.50rem
+
+        span
+          font-weight: lighter
+
+  .oep-stickman
+    position: relative
+    display: grid
+    grid-template-columns: 1fr
+    grid-template-rows: 1fr
+
+
+  .dash-content
+    grid-column: 1
+    grid-row: 1
+    overflow-x: hidden
+    width: 100%
+    z-index: 0
+    transform: translateX(150%)
+    @include mixins.container
+
+    .dash-content-music-event,
+    .dash-content-local-event,
+    .dash-content-local-business
+      background-color: variables.$primary-color
+      border: variables.$tertiary-color 1px solid
+      border-radius: variables.$border-radius-sm
+      display: flex
+      flex-direction: column
+      padding: 2.5rem
+      margin-bottom: 1.25rem
+      width: 320px
+      opacity: 0
+
+      img
+        border-radius: variables.$border-radius-sm
+        outline: variables.$tertiary-color solid 1px
+        height: auto !important
+        max-width: 100% !important
+
+      h3
+        padding-top: 1.25rem
+        padding-bottom: 1.25rem
+
+      .dash-content-info
+        display: flex
+        flex-direction: column
+        text-align: end
+        padding: 1rem 0 1rem 0
+
+        p
+          font-weight: bold
+          padding-top: 1rem
+
+      .dash-content-controls
+        display: flex
+        flex-direction: row
+
+        a,
+        button
+          border: variables.$tertiary-color 1px solid
+          border-radius: variables.$border-radius-sm
+          display: flex !important
+          justify-content: center
+          margin-right: 6px
+          width: 100%
+          @include mixins.btn
+
+        button
+          margin-right: 0
+          margin-left: 6px
+
+    .dash-content-add
+      background-color: variables.$fm-success-color
+      @include mixins.btn
+
+
+
+  .dash-content-slide-out
+    animation: slide-out--x 1s forwards !important
+

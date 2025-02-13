@@ -1,0 +1,69 @@
+.show-element
+  visibility: visible !important
+  animation: fade-in 1s forwards !important
+  transform: translateZ(0)
+
+.caption
+  opacity: 0
+
+.show-caption
+  animation: fade-in 1s forwards !important
+
+@keyframes fade-in
+  from
+    opacity: 0
+  to
+    opacity: 1
+
+.blink
+  opacity: 0
+  animation: blink 3s ease-in-out infinite
+
+@keyframes blink
+  from
+    opacity: 0
+  50%
+    opacity: 1
+  to
+    opacity: 0
+
+.y-translate
+  transform: translateY(100vh)
+
+.slide-element
+  animation: slide-in 1s forwards, fade-in 3s forwards !important
+
+@keyframes slide-in
+  to
+    transform: translateX(0) translateY(0)
+
+@keyframes slide-out
+  to
+    transform: translateX(0) translateY(0)
+
+@keyframes slide-out-x
+  to
+    transform: translateX(100%)
+
+@keyframes slide-out--x
+  from
+    transform: translateX(0)
+  to
+    transform: translateX(-150%)
+
+@keyframes slide-out-y
+  to
+    transform: translateY(100%)
+
+.fade-out
+  animation: fade-out 8s forwards !important
+
+@keyframes fade-out
+  to
+    opacity: 0
+
+@keyframes spin
+  0%
+    transform: translate(-50%, -50%) rotate(0deg)
+  100%
+    transform: translate(-50%, -50%) rotate(360deg)
