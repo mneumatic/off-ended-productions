@@ -1,0 +1,63 @@
+@use '../utils/variables' as variables
+@use '../utils/mixins' as mixins
+@use '../utils/animations' as animations
+
+#lp
+  .lp-hero
+    position: relative
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    height: 100vh
+    overflow: hidden
+
+    .lp-brand
+      display: flex
+      flex-direction: column
+      align-items: center
+      justify-content: center
+      @include mixins.container
+
+      h1
+        display: none
+
+      .lp-mottos
+        font-family: "Permanent Marker", sans-serif
+        text-align: center
+        max-width: 992px
+        font-size: 1.5rem
+        line-height: 2rem
+
+        span
+          opacity: 0
+
+    .lp-categories
+      display: flex
+      align-items: center
+      justify-content: center
+
+      .lp-category
+        display: flex
+        flex-direction: column
+        align-items: center
+        padding: 2.5rem
+        width: 320px
+        text-align: center
+        transition: transform .3s ease-in-out
+
+        &:hover
+          transform: scale(1.2)
+
+        a
+          border-radius: variables.$border-radius-sm
+
+          img
+            background-color: variables.$primary-color
+            outline: variables.$tertiary-color 1px solid
+            height: auto !important
+            max-width: 100% !important
+
+        label
+          font-family: "Permanent Marker", sans-serif
+          margin-top: 0.5rem

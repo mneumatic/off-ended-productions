@@ -3,13 +3,10 @@
 @tailwind components
 @tailwind utilities
 
-@include meta.load-css('partials/variables')
 @include meta.load-css('partials/base')
 @include meta.load-css('partials/header')
 @include meta.load-css('partials/footer')
 @include meta.load-css('partials/flash')
-@include meta.load-css('partials/dashboard')
-@include meta.load-css('partials/animations')
 
-@theme
-  --breakpoint-xl: 1280px
+@include meta.load-css('pages/lp')
+@include meta.load-css('pages/dashboard')

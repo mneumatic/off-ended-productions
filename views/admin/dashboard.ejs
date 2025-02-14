@@ -36,60 +36,25 @@
                 <div class="dash-panel-search-controls">
                     <div>
                         <label for="search-all-input" onclick="toggleInput('search-all-input')" title="Open/Close Search" aria-label="Open/Close Search"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"><path fill="#fff" d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></label>
-                        <input id="search-all-input" class="clear-input rounded p-2 bg-black border border-white w-[250px]" type="text" oninput="searchFunction(this.value.toUpperCase(), document.querySelectorAll('.dash-content-music-event, .dash-content-local-event, .dash-content-local-business'))" title="Search..." aria-label="Search..." placeholder="Search...">
+                        <input id="search-all-input" class="clear-input rounded p-2 bg-black border border-white w-[250px]" type="text" oninput="searchFunction(this.value.toUpperCase(), localStorage.getItem('open-viewer'))" title="Search..." aria-label="Search..." placeholder="Search...">
                         <button class="clear-button" onclick="clearInput('search-all-input', document.querySelectorAll('.dash-content-music-event, .dash-content-local-event, .dash-content-local-business'))" title="Delete Search" aria-label="Delete Search"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"><path fill="#fff" d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12l1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/></svg></button>
                     </div>
                     <div>
-                        <span></span>
+                        <span class="dash-panel-matches"></span>
                     </div>
                 </div>
             </div>
         </section>
         <section class="oep-stickman">
                 <div class="dash-content">
-                    <div class="dash-content-music">
-                        <div class="container">
-                            <h2 class="display-2 text-center">2Jz Music Events</h2>
-                            <div class="flex items-center justify-end mb-5">
-                                <a class="dash-content-add" href="/admin/music" title="Add New Music Event" aria-label="Add New Music Event"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"><path fill="#fff" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></a>
-                            </div>
-                            <div class="flex flex-row flex-wrap justify-center lg:justify-between">
-                                <div class="spinner"></div>
-                                <% for (let event of music ) { %>
-                                    <div class="dash-content-music-event">
-                                        <% if (event.imagePath) { %>
-                                            <img src="<%- event.imagePath %>" alt="<%- event.title %>">
-                                        <% } %>
-
-                                        <h3 class="py-5"><%= event.title %></h3>
-                                        <p><%- event.description %></p>
-                                        <div class="dash-content-info">
-                                            <span><%- event.hours %></span>
-                                            <address><%- event.location %></address>
-                                            <p class="date">On: <%- event.date %></p>
-                                        </div>
-
-
-                                        <div class="dash-content-controls">
-                                            <a class="btn !flex justify-center me-[6px] svg-transition w-full" href="/admin/music/edit/<%- event._id %>" title="Edit Event" aria-label="Edit Event"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"><path fill="#fff" d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg></a>
-                                            <button onclick="openDialog(0, '/admin/music/delete/<%- event._id %>?_method=DELETE', '<%- event.title %>')">delete</button>
-                                        </div>
-                                    </div>
-                                <% } %>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            <div class="dash-content">
-                <div class="dash-content-events">
-                    <h2 class="display-2 text-center">Local Events</h2>
+                    <h2 class="display-2 text-center">2Jz Music Events</h2>
                     <div class="flex items-center justify-end mb-5">
-                        <a class="dash-content-add" href="/admin/event" title="Add New Local Event" aria-label="Add New Local Event"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"><path fill="#fff" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></a>
+                        <a class="dash-content-add" href="/admin/music" title="Add New Music Event" aria-label="Add New Music Event"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"><path fill="#fff" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></a>
                     </div>
                     <div class="flex flex-row flex-wrap justify-center lg:justify-between">
                         <div class="spinner"></div>
-                        <% for (let event of events ) { %>
-                            <div class="dash-content-local-event">
+                        <% for (let event of music ) { %>
+                            <div class="dash-content-music-event">
                                 <% if (event.imagePath) { %>
                                     <img src="<%- event.imagePath %>" alt="<%- event.title %>">
                                 <% } %>
@@ -100,14 +65,40 @@
                                     <address><%- event.location %></address>
                                     <p class="date">On: <%- event.date %></p>
                                 </div>
-
                                 <div class="dash-content-controls">
-                                    <a href="/admin/event/edit/<%- event._id %>" title="Edit Event" aria-label="Edit Event"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"><path fill="#fff" d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg></a>
-                                    <button onclick="openDialog(1, '/admin/event/delete/<%- event._id %>?_method=DELETE', '<%- event.title %>')">delete</button>
+                                    <a class="btn !flex justify-center me-[6px] svg-transition w-full" href="/admin/music/edit/<%- event._id %>" title="Edit Event" aria-label="Edit Event"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"><path fill="#fff" d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg></a>
+                                    <button onclick="openDialog(0, '/admin/music/delete/<%- event._id %>?_method=DELETE', '<%- event.title %>')">delete</button>
                                 </div>
                             </div>
                         <% } %>
                     </div>
+                </div>
+            <div class="dash-content">
+                <h2 class="display-2 text-center">Local Events</h2>
+                <div class="flex items-center justify-end mb-5">
+                    <a class="dash-content-add" href="/admin/event" title="Add New Local Event" aria-label="Add New Local Event"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"><path fill="#fff" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></a>
+                </div>
+                <div class="flex flex-row flex-wrap justify-center lg:justify-between">
+                    <div class="spinner"></div>
+                    <% for (let event of events ) { %>
+                        <div class="dash-content-local-event">
+                            <% if (event.imagePath) { %>
+                                <img src="<%- event.imagePath %>" alt="<%- event.title %>">
+                            <% } %>
+                            <h3 class="py-5"><%= event.title %></h3>
+                            <p><%- event.description %></p>
+                            <div class="dash-content-info">
+                                <span><%- event.hours %></span>
+                                <address><%- event.location %></address>
+                                <p class="date">On: <%- event.date %></p>
+                            </div>
+
+                            <div class="dash-content-controls">
+                                <a href="/admin/event/edit/<%- event._id %>" title="Edit Event" aria-label="Edit Event"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"><path fill="#fff" d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg></a>
+                                <button onclick="openDialog(1, '/admin/event/delete/<%- event._id %>?_method=DELETE', '<%- event.title %>')">delete</button>
+                            </div>
+                        </div>
+                    <% } %>
                 </div>
             </div>
                 <div class="dash-content">
@@ -140,10 +131,9 @@
                 </div>
         </section>
     </main>
-
+    <%- include('../partials/footer.ejs') %>
     <%- include('../partials/scripts.ejs') %>
     <script src="/js/dashboard.js"></script>
-    <script src="/js/search.js"></script>
     <script src="/js/images.js"></script>
     <script>
         const content = document.querySelectorAll('.dash-content-music-event, .dash-content-local-event, .dash-content-local-business');

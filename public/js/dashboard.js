@@ -3,6 +3,14 @@ const dashContent = document.querySelectorAll('.dash-content')
 const dashDialog = document.querySelector('.dash-dialog')
 const dashDialogForms = document.querySelectorAll('.dash-dialog-form')
 const dashDialogMsg = document.querySelectorAll('.dash-dialog-message')
+const dpMatches = document.querySelector('.dash-panel-matches');
+const searchFields = document.querySelectorAll('.dash-content');
+
+const data = [
+  '-music-event',
+  '-local-event',
+  '-local-business'
+]
 
 if (localStorage.getItem('open-viewer')) {
   const index = localStorage.getItem('open-viewer')
@@ -18,6 +26,9 @@ function showContent (content, index) {
     return // Do nothing
   } else {
     current.classList.add('dash-content-slide-out')
+
+    dpMatches.innerHTML = ""
+
 
     setTimeout(() => {
       current.classList.remove('slide-element')
@@ -38,6 +49,40 @@ function openDialog(index, action, title) {
 function closeDialog() {
   dashDialogForms.forEach(form => { form.style.display = 'none' })
   dashDialog.close()
+}
+
+function searchFunction(input, viewer) {
+  const items = searchFields[viewer].querySelectorAll(`.dash-content${data[viewer]}`);
+
+  let keywords = input.split(' ').filter(keyword => keyword !== "");
+  let numberOfMatches = 0;
+
+  for (let i = 0; i < items.length; i++) {
+    const title = items[i].getElementsByTagName('h3')[0]
+    let item = title.textContent || title.innerText;
+    let match = keywords.every(keyword => item.toUpperCase().includes(keyword));
+    if (match) {
+      items[i].style.display = "";
+      numberOfMatches++;
+    } else {
+      items[i].style.display = "none";
+    }
+  }
+  dpMatches.innerHTML = `${numberOfMatches} found!`;
+}
+
+function toggleInput(input) {
+  const element = document.getElementById(input);
+  element.classList.toggle('active');
+  element.nextElementSibling.classList.toggle('active');
+}
+
+function clearInput(input, items) {
+  document.getElementById(input).value = '';
+  items.forEach(item => {
+    item.style.display = "";
+  })
+  dpMatches.innerHTML = ""
 }
 
 dashPanelToggles.forEach((toggle, index) => {

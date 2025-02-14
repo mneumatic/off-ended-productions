@@ -64,7 +64,7 @@ const loadImage = (img) => {
     } else {
       try {
         img.onload = () => resolve(img);
-        img.onerror = () => reject(null, new Error(`Failed to load image: ${img.src}`));
+        img.onerror = () => resolve(null);
       } catch (error) {
 
       }

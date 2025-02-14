@@ -620,16 +620,8 @@ video {
   top: 100px !important;
 }
 
-.bottom-12 {
-  bottom: 3rem;
-}
-
 .left-0 {
   left: 0px;
-}
-
-.right-0 {
-  right: 0px;
 }
 
 .top-0 {
@@ -673,11 +665,6 @@ video {
 .mx-2 {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
-}
-
-.mx-3 {
-  margin-left: 0.75rem;
-  margin-right: 0.75rem;
 }
 
 .mx-5 {
@@ -728,10 +715,6 @@ video {
   margin-inline-end: 2.5rem;
 }
 
-.me-3 {
-  margin-inline-end: 0.75rem;
-}
-
 .me-\[6px\] {
   margin-inline-end: 6px;
 }
@@ -754,10 +737,6 @@ video {
 
 .mt-10 {
   margin-top: 2.5rem;
-}
-
-.mt-2 {
-  margin-top: 0.5rem;
 }
 
 .mt-3 {
@@ -847,10 +826,6 @@ video {
 
 .w-full {
   width: 100%;
-}
-
-.max-w-\[992px\] {
-  max-width: 992px;
 }
 
 .border-collapse {
@@ -1048,11 +1023,6 @@ video {
   text-align: end;
 }
 
-.text-2xl {
-  font-size: 1.5rem;
-  line-height: 2rem;
-}
-
 .text-4xl {
   font-size: 2.25rem;
   line-height: 2.5rem;
@@ -1086,10 +1056,6 @@ video {
 
 .underline {
   text-decoration-line: underline;
-}
-
-.opacity-0 {
-  opacity: 0;
 }
 
 .shadow-lg {
@@ -1560,6 +1526,210 @@ footer nav a:hover{
   background-color:#dc2626
 }
 
+.show-element{
+  visibility:visible !important;
+  animation:fade-in 1s forwards !important;
+  transform:translateZ(0)
+}
+
+.caption{
+  opacity:0
+}
+
+.show-caption{
+  animation:fade-in 1s forwards !important
+}
+
+@keyframes fade-in{
+  from{
+    opacity:0
+  }
+
+  to{
+    opacity:1
+  }
+}
+
+@keyframes blink{
+  from{
+    opacity:0
+  }
+
+  50%{
+    opacity:1
+  }
+
+  to{
+    opacity:0
+  }
+}
+
+.y-translate{
+  transform:translateY(100vh)
+}
+
+.slide-element{
+  animation:slide-in 1s forwards,fade-in 3s forwards !important
+}
+
+@keyframes slide-in{
+  to{
+    transform:translateX(0) translateY(0)
+  }
+}
+
+@keyframes slide-out{
+  to{
+    transform:translateX(0) translateY(0)
+  }
+}
+
+@keyframes slide-out-x{
+  to{
+    transform:translateX(100%)
+  }
+}
+
+@keyframes slide-out--x{
+  from{
+    transform:translateX(0)
+  }
+
+  to{
+    transform:translateX(-150%)
+  }
+}
+
+@keyframes slide-out-y{
+  to{
+    transform:translateY(100%)
+  }
+}
+
+.fade-out{
+  animation:fade-out 8s forwards !important
+}
+
+@keyframes fade-out{
+  to{
+    opacity:0
+  }
+}
+
+@keyframes spin{
+  0%{
+    transform:translate(-50%, -50%) rotate(0deg)
+  }
+
+  100%{
+    transform:translate(-50%, -50%) rotate(360deg)
+  }
+}
+
+#lp .lp-hero{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  height:100vh;
+  overflow:hidden
+}
+
+#lp .lp-hero .lp-brand{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  margin-right:auto;
+  margin-left:auto;
+  padding-right:1rem;
+  padding-left:1rem;
+  width:100%
+}
+
+@media(min-width: 640px){
+  #lp .lp-hero .lp-brand{
+    max-width:640px
+  }
+}
+
+@media(min-width: 768px){
+  #lp .lp-hero .lp-brand{
+    max-width:768px
+  }
+}
+
+@media(min-width: 1024px){
+  #lp .lp-hero .lp-brand{
+    max-width:1024px
+  }
+}
+
+@media(min-width: 1280px){
+  #lp .lp-hero .lp-brand{
+    max-width:1280px
+  }
+}
+
+@media(min-width: 1536px){
+  #lp .lp-hero .lp-brand{
+    max-width:1536px
+  }
+}
+
+#lp .lp-hero .lp-brand h1{
+  display:none
+}
+
+#lp .lp-hero .lp-brand .lp-mottos{
+  font-family:"Permanent Marker",sans-serif;
+  text-align:center;
+  max-width:992px;
+  font-size:1.5rem;
+  line-height:2rem
+}
+
+#lp .lp-hero .lp-brand .lp-mottos span{
+  opacity:0
+}
+
+#lp .lp-hero .lp-categories{
+  display:flex;
+  align-items:center;
+  justify-content:center
+}
+
+#lp .lp-hero .lp-categories .lp-category{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:2.5rem;
+  width:320px;
+  text-align:center;
+  transition:transform .3s ease-in-out
+}
+
+#lp .lp-hero .lp-categories .lp-category:hover{
+  transform:scale(1.2)
+}
+
+#lp .lp-hero .lp-categories .lp-category a{
+  border-radius:.25rem
+}
+
+#lp .lp-hero .lp-categories .lp-category a img{
+  background-color:#000;
+  outline:#333 1px solid;
+  height:auto !important;
+  max-width:100% !important
+}
+
+#lp .lp-hero .lp-categories .lp-category label{
+  font-family:"Permanent Marker",sans-serif;
+  margin-top:.5rem
+}
+
 #dash .dash-dialog{
   background-color:rgba(0,0,0,0)
 }
@@ -1759,12 +1929,15 @@ footer nav a:hover{
 }
 
 #dash .dash-panel-search-controls div:nth-child(2){
+  position:relative;
   display:flex;
   justify-content:center;
-  margin-top:.5rem
+  margin-top:.5rem;
+  width:100%
 }
 
 #dash .dash-panel-search-controls div:nth-child(2) span{
+  position:absolute;
   font-weight:lighter
 }
 
@@ -1898,121 +2071,6 @@ footer nav a:hover{
 
 #dash .dash-content-slide-out{
   animation:slide-out--x 1s forwards !important
-}
-
-.show-element{
-  visibility:visible !important;
-  animation:fade-in 1s forwards !important;
-  transform:translateZ(0)
-}
-
-.caption{
-  opacity:0
-}
-
-.show-caption{
-  animation:fade-in 1s forwards !important
-}
-
-@keyframes fade-in{
-  from{
-    opacity:0
-  }
-
-  to{
-    opacity:1
-  }
-}
-
-.blink{
-  opacity:0;
-  animation:blink 3s ease-in-out infinite
-}
-
-@keyframes blink{
-  from{
-    opacity:0
-  }
-
-  50%{
-    opacity:1
-  }
-
-  to{
-    opacity:0
-  }
-}
-
-.y-translate{
-  transform:translateY(100vh)
-}
-
-.slide-element{
-  animation:slide-in 1s forwards,fade-in 3s forwards !important
-}
-
-@keyframes slide-in{
-  to{
-    transform:translateX(0) translateY(0)
-  }
-}
-
-@keyframes slide-out{
-  to{
-    transform:translateX(0) translateY(0)
-  }
-}
-
-@keyframes slide-out-x{
-  to{
-    transform:translateX(100%)
-  }
-}
-
-@keyframes slide-out--x{
-  from{
-    transform:translateX(0)
-  }
-
-  to{
-    transform:translateX(-150%)
-  }
-}
-
-@keyframes slide-out-y{
-  to{
-    transform:translateY(100%)
-  }
-}
-
-.fade-out{
-  animation:fade-out 8s forwards !important
-}
-
-@keyframes fade-out{
-  to{
-    opacity:0
-  }
-}
-
-@keyframes spin{
-  0%{
-    transform:translate(-50%, -50%) rotate(0deg)
-  }
-
-  100%{
-    transform:translate(-50%, -50%) rotate(360deg)
-  }
-}
-
-@theme{
-  --breakpoint-xl: 1280px
-}
-
-@media (min-width: 640px) {
-  .sm\:flex-row {
-    flex-direction: row;
-  }
 }
 
 @media (min-width: 768px) {

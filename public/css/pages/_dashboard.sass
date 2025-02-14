@@ -1,5 +1,5 @@
-@use 'variables' as variables
-@use 'mixins' as mixins
+@use '../utils/variables' as variables
+@use '../utils/mixins' as mixins
 
 #dash
   .dash-dialog
@@ -120,11 +120,14 @@
         background-color: variables.$primary-color
 
       div:nth-child(2)
+        position: relative
         display: flex
         justify-content: center
         margin-top: 0.50rem
+        width: 100%
 
         span
+          position: absolute
           font-weight: lighter
 
   .oep-stickman
