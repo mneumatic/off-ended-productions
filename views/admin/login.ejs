@@ -25,21 +25,6 @@
     </main>
     <%- include('../partials/footer.ejs') %>
     <script src='/js/utils/validateForms.js'></script>
-    <script src="/js/utils/loading.js"></script>
-    <script>
-        const container = document.querySelectorAll('.container__animated-flex');
-        const captions = document.querySelectorAll('.caption');
-
-        const observer = new IntersectionObserver(handleIntersection, options)
-        const observerCaptions = new IntersectionObserver(handleCaptions, options)
-
-        container.forEach(element => {
-          observer.observe(element)
-        })
-
-        captions.forEach(element => {
-          observerCaptions.observe(element)
-        })
-    </script>
+    <script src="/js/pages/login.js" type="module"></script>
 </body>
 </html>

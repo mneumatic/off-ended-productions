@@ -133,10 +133,20 @@
     </main>
     <%- include('../partials/footer.ejs') %>
     <script src="/js/pages/dashboard.js"></script>
-    <script src="/js/utils/loading.js"></script>
-    <script>
+    <script type="module">
         const content = document.querySelectorAll('.dash-content-music-event, .dash-content-local-event, .dash-content-local-business');
         const images = document.querySelectorAll("img")
+
+        const loading = item => {
+          return new Promise((resolve, reject) => {
+            if (item.complete) {
+              resolve(item); // Resolve immediately if the image is already loaded
+            } else {
+             item.onload = () => resolve(item);
+                item.onerror = () => reject(new Error('Failed to load: ' + item));
+            }
+          })
+        }
 
         let spinners = document.querySelectorAll('.spinner');
         spinners.forEach(spinner => {

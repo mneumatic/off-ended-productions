@@ -14,14 +14,14 @@ const data = [
 
 if (localStorage.getItem('open-viewer')) {
   const index = localStorage.getItem('open-viewer')
-  dashContent[index].classList.add('slide-element')
+  dashContent[index].classList.add('show')
 } else {
   localStorage.setItem('open-viewer', '0')
-  dashContent[0].classList.add('slide-element')
+  dashContent[0].classList.add('show')
 }
 
 function showContent (content, index) {
-  const current = document.querySelector('.dash-content.slide')
+  const current = document.querySelector('.dash-content.show')
   if (current === dashContent[index]) {
     return // Do nothing
   } else {
@@ -30,12 +30,12 @@ function showContent (content, index) {
     dpMatches.innerHTML = ""
 
     setTimeout(() => {
-      current.classList.remove('slide-element')
+      current.classList.remove('show')
       current.classList.remove('dash-content-slide-out')
     }, 1000)
   }
   localStorage.setItem('open-viewer', index)
-  content.classList.add('slide-element')
+  content.classList.add('show')
 }
 
 function openDialog(index, action, title) {
