@@ -37,22 +37,6 @@
         </section>
     </main>
     <%- include('partials/footer.ejs') %>
-    <%- include('partials/scripts.ejs') %>
-    <script src="/js/utils/loading.js"></script>
-    <script>
-      const hero = document.querySelectorAll(".container__animated")
-      const captions = document.querySelectorAll(".caption")
-
-      const observer = new IntersectionObserver(handleIntersection, options)
-      const observerCaptions = new IntersectionObserver(handleCaptions, options)
-
-      hero.forEach(element => {
-        observer.observe(element)
-      })
-
-      captions.forEach(caption => {
-        observerCaptions.observe(caption)
-      })
-    </script>
+    <script src="/js/pages/about.js" type="module"></script>
 </body>
 </html>

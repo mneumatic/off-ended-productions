@@ -53,36 +53,6 @@
         </section>
     </main>
     <%- include('partials/footer.ejs') %>
-    <%- include('partials/scripts.ejs') %>
-    <script src="/js/utils/loading.js"></script>
-    <script>
-        const hero = document.querySelectorAll(".container__animated")
-        const businesses = document.querySelectorAll(".container__animated-flex")
-        const captions = document.querySelectorAll(".caption")
-        const images = document.querySelectorAll("img")
-
-        const observer = new IntersectionObserver(handleIntersection, options)
-        const observerCaptions = new IntersectionObserver(handleCaptions, options)
-
-        let spinner = document.querySelector('.spinner');
-        spinner.style.display = 'block';
-
-        hero.forEach(element => {
-          observer.observe(element)
-        })
-
-        const promises = Array.from(images).map(img => loading(img))
-
-        Promise.all(promises).then(() => {
-          businesses.forEach(element => {
-            observer.observe(element)
-          })
-
-          captions.forEach(element => {
-            observerCaptions.observe(element)
-          })
-          spinner.style.display = 'none';
-        })
-    </script>
+    <script src="/js/pages/businesses.js" type="module"></script>
 </body>
 </html>

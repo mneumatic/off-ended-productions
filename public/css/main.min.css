@@ -2240,6 +2240,7 @@ footer nav a:hover{
 #music .content-samples div{
   background-color:#000;
   border-radius:.25rem;
+  border:#333 1px solid;
   padding:2.5rem;
   margin-bottom:1.25rem;
   width:100%;
@@ -2439,6 +2440,91 @@ footer nav a:hover{
   background-position:center;
   background-size:cover;
   background-attachment:fixed
+}
+
+.show{
+  visibility:visible !important;
+  animation:slide-in 1s forwards,fade-in 3s forwards !important
+}
+
+.slide{
+  animation:slide-in 1s forwards,fade-in 3s forwards !important
+}
+
+.caption{
+  opacity:0
+}
+
+.show-caption{
+  animation:fade-in 1s forwards !important
+}
+
+@keyframes fade-in{
+  from{
+    opacity:0
+  }
+
+  to{
+    opacity:1
+  }
+}
+
+.y-translate{
+  transform:translateY(100vh) translateZ(0)
+}
+
+@keyframes slide-in{
+  to{
+    transform:translateX(0) translateY(0) translateZ(0)
+  }
+}
+
+@keyframes slide-out{
+  to{
+    transform:translateX(0) translateY(0)
+  }
+}
+
+@keyframes slide-out-x{
+  to{
+    transform:translateX(100%)
+  }
+}
+
+@keyframes slide-out--x{
+  from{
+    transform:translateX(0)
+  }
+
+  to{
+    transform:translateX(-150%)
+  }
+}
+
+@keyframes slide-out-y{
+  to{
+    transform:translateY(100%)
+  }
+}
+
+.fade-out{
+  animation:fade-out 8s forwards !important
+}
+
+@keyframes fade-out{
+  to{
+    opacity:0
+  }
+}
+
+@keyframes spin{
+  from{
+    transform:translate(-50%, -50%) rotate(0deg)
+  }
+
+  to{
+    transform:translate(-50%, -50%) rotate(360deg)
+  }
 }
 
 #dash .dash-dialog{

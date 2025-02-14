@@ -58,28 +58,7 @@
         </div>
     </main>
     <%- include('partials/footer.ejs') %>
-    <%- include('partials/scripts.ejs') %>
     <script src='/js/utils/validateForms.js'></script>
-    <script src="../public/js/utils/loading.js"></script>
-    <script>
-      const hero = document.querySelectorAll(".container__animated")
-      const container = document.querySelectorAll('.container__animated-flex');
-      const captions = document.querySelectorAll(".caption")
-
-      const observer = new IntersectionObserver(handleIntersection, options)
-      const observerCaptions = new IntersectionObserver(handleCaptions, options)
-
-      hero.forEach(element => {
-        observer.observe(element)
-      })
-
-      container.forEach(element => {
-        observer.observe(element)
-      })
-
-      captions.forEach(caption => {
-        observerCaptions.observe(caption)
-      })
-    </script>
+    <script src="/js/pages/contact.js" type="module"></script>
 </body>
 </html>

@@ -6,6 +6,7 @@ const csrfProtection = csrf({ cookie: true })
 const Categories = require('../models/categories');
 const Mottos = require('../models/mottos');
 const MusicEvents = require('../models/music');
+const Tracks = require('../models/tracks');
 const Events = require('../models/events');
 const Businesses = require('../models/businesses');
 const GitBadges = require('../models/gitbadges');
@@ -44,8 +45,10 @@ router.get('/podcast', async (req, res) => {
 
 router.get('/music', async (req, res) => {
   const musicEvents = await MusicEvents.find({});
+  const tracks = await Tracks.find({})
   res.render('music', {
     title: '2Jz Music | OEP',
+    tracks,
     musicEvents,
     authenticated: res.locals.currentUser,
   });

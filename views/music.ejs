@@ -34,13 +34,15 @@
                         </div>
                         <br>
                         <div class="content-samples">
+                            <% for (let track of tracks) { %>
                             <div>
-                                <h3>Tack</h3>
-                                <p>Description</p>
+                                <h3><%- track.title %></h3>
+                                <p><%- track.description %></p>
                                 <audio controls controlslist="nodownload">
-                                    <source src="" type="audio/mpeg">Your browser does not support the audio element.
+                                    <source src="/audio/<%- track.url %>" type="audio/<%- track.format %>">Your browser does not support the audio element.
                                 </audio>
                             </div>
+                            <% } %>
                         </div>
                     </div>
                     <div>
