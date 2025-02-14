@@ -29,7 +29,6 @@ function showContent (content, index) {
 
     dpMatches.innerHTML = ""
 
-
     setTimeout(() => {
       current.classList.remove('slide-element')
       current.classList.remove('dash-content-slide-out')

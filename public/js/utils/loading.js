@@ -1,14 +1,12 @@
-export const loading = (img) => {
+export const loading = item => {
   return new Promise((resolve, reject) => {
-    if (img.complete) {
-      resolve(img); // Resolve immediately if the image is already loaded
+    if (item.complete) {
+      resolve(item); // Resolve immediately if the image is already loaded
     } else {
       try {
-        img.onload = () => resolve(img);
-        img.onerror = () => resolve(null);
-      } catch (error) {
-
-      }
+        item.onload = () => resolve(item);
+        item.onerror = () => reject(null);
+      } catch (error) { console.log(error); }
     }
   })
 }
