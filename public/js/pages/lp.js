@@ -1,9 +1,11 @@
-const content = document.querySelectorAll(".container__animated")
-const captions = document.querySelectorAll(".caption")
+import * as Observer from '../utils/observers.js'
+
+const observeImgs = document.querySelectorAll(".lp-category a")
+const observeLabels = document.querySelectorAll(".lp-category label")
 const mottoSpans = document.querySelectorAll(".lp-mottos span")
 
-const observer = new IntersectionObserver(handleIntersection, options)
-const observerCaptions = new IntersectionObserver(handleCaptions, options)
+const imgObserver = new IntersectionObserver(Observer.images, Observer.options)
+const labelObserver = new IntersectionObserver(Observer.opacity, Observer.options)
 
 let multiplier = [1500, 1900, 2300]
 let currentIndex = 0
@@ -12,7 +14,7 @@ function displayMotto() {
   return new Promise((resolve, reject) => {
     mottoSpans.forEach((element, index) => {
       setTimeout(() => {
-        element.classList.add("show-element")
+        element.classList.add("show")
       }, multiplier[index])
     })
     currentIndex++
@@ -22,14 +24,14 @@ function displayMotto() {
 
 function displayContent() {
   setTimeout(() => {
-    content.forEach(link => {
-      observer.observe(link)
+    observeImgs.forEach(link => {
+      imgObserver.observe(link)
     })
 
-    captions.forEach(caption => {
-      observerCaptions.observe(caption)
+    observeLabels.forEach(caption => {
+      labelObserver.observe(caption)
     })
-  }, multiplier[currentIndex])
+  }, multiplier[currentIndex] + 500)
 }
 
 displayMotto().then(displayContent)

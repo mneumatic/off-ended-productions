@@ -1,10 +1,10 @@
-const options = {
+export const options = {
   root: null,
   threshold: 0,
-  rootMargin: '-150px'
+  rootMargin: '0px'
 }
 
-function handleIntersection(entries, observer) {
+export function images(entries, observer) {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
 
@@ -19,11 +19,7 @@ function handleIntersection(entries, observer) {
 
       array.forEach((element, index) => {
         setTimeout(function () {
-          if (element.classList.contains('y-translate')) {
-            element.classList.add("slide-element")
-          } else {
-            element.classList.add("show-element")
-          }
+          element.classList.add('show')
         }, multiplier[index]);
       })
 
@@ -33,8 +29,8 @@ function handleIntersection(entries, observer) {
   })
 }
 
-function handleCaptions(entries, observer) {
-  entries.forEach((entry) => {
+export function opacity(entries, observer) {
+  entries.forEach(entry => {
     if (entry.isIntersecting) {
       // Element is in view, do something
       const elements = entry.target
@@ -48,6 +44,10 @@ function handleCaptions(entries, observer) {
   })
 }
 
+function getAnimation(animation) {
+  return ANIMATION
+}
+
 function loadArray(array) {
   for (let i = 0; i <= 10; i++) {
     array.push(i * 4);
@@ -55,19 +55,4 @@ function loadArray(array) {
   return array.map(element => {
     return element * 100;
   });
-}
-
-const loadImage = (img) => {
-  return new Promise((resolve, reject) => {
-    if (img.complete) {
-      resolve(img); // Resolve immediately if the image is already loaded
-    } else {
-      try {
-        img.onload = () => resolve(img);
-        img.onerror = () => resolve(null);
-      } catch (error) {
-
-      }
-    }
-  })
 }

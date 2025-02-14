@@ -21,7 +21,7 @@ if (localStorage.getItem('open-viewer')) {
 }
 
 function showContent (content, index) {
-  const current = document.querySelector('.dash-content.slide-element')
+  const current = document.querySelector('.dash-content.slide')
   if (current === dashContent[index]) {
     return // Do nothing
   } else {

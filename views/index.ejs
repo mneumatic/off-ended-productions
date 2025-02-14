@@ -19,18 +19,16 @@
           <div class="lp-categories">
               <% for (let category of categories) { %>
                   <div class="lp-category">
-                      <a class="container__animated" href="<%- category.url %>" title="<%= category.title %> →" aria-label="<%= category.title %>">
-                          <img class="y-translate" src="/img/<%- category.image %>" alt="<%= category.title %>">
+                      <a href="<%- category.url %>" title="<%= category.title %> →" aria-label="<%= category.title %>">
+                          <img src="/img/<%- category.image %>" alt="<%= category.title %>">
                       </a>
-                      <label class="caption"><%= category.title %></label>
+                      <label><%= category.title %></label>
                   </div>
               <% } %>
           </div>
       </section>
   </main>
   <%- include('partials/footer.ejs') %>
-  <%- include('partials/scripts.ejs') %>
-  <script src="/js/images.js"></script>
-  <script src="/js/pages/lp.js"></script>
+  <script src="/js/pages/lp.js" type="module"></script>
 </body>
 </html>

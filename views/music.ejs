@@ -93,7 +93,7 @@
     </main>
     <%- include('partials/footer.ejs') %>
     <%- include('partials/scripts.ejs') %>
-    <script src="/js/images.js"></script>
+    <script src="/js/utils/loading.js"></script>
     <script src="/js/vendor/moment.js"></script>
     <script>
         const hero = document.querySelectorAll(".container__animated")
@@ -108,7 +108,7 @@
         let spinner = document.querySelector('.spinner');
         spinner.style.display = 'block';
 
-        const promises = Array.from(images).map(img => loadImage(img))
+        const promises = Array.from(images).map(img => loading(img))
 
         hero.forEach(element => {
           observer.observe(element)

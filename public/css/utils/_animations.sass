@@ -1,7 +1,9 @@
-.show-element
+.show
   visibility: visible !important
-  animation: fade-in 1s forwards !important
-  transform: translateZ(0)
+  animation: slide-in 1s forwards, fade-in 3s forwards !important
+
+.slide
+  animation: slide-in 1s forwards, fade-in 3s forwards !important
 
 .caption
   opacity: 0
@@ -15,27 +17,12 @@
   to
     opacity: 1
 
-//.blink
-//  opacity: 0
-//  animation: blink 3s ease-in-out infinite
-
-@keyframes blink
-  from
-    opacity: 0
-  50%
-    opacity: 1
-  to
-    opacity: 0
-
 .y-translate
-  transform: translateY(100vh)
-
-.slide-element
-  animation: slide-in 1s forwards, fade-in 3s forwards !important
+  transform: translateY(100vh) translateZ(0)
 
 @keyframes slide-in
   to
-    transform: translateX(0) translateY(0)
+    transform: translateX(0) translateY(0) translateZ(0)
 
 @keyframes slide-out
   to
@@ -63,7 +50,7 @@
     opacity: 0
 
 @keyframes spin
-  0%
+  from
     transform: translate(-50%, -50%) rotate(0deg)
-  100%
+  to
     transform: translate(-50%, -50%) rotate(360deg)

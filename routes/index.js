@@ -14,6 +14,7 @@ const gitRepos = require('../data/gitrepos.json');
 const rssFeed = require('../data/rss.json');
 const nodemailer = require("nodemailer");
 const xoauth2 = require('xoauth2')
+const cleanString = require('../utils/cleanString');
 
 /* GET home page. */
 router.get('/', async (req, res) => {
@@ -31,6 +32,9 @@ router.get('/', async (req, res) => {
 
 router.get('/podcast', async (req, res) => {
   const recentItems = rssFeed.items.slice(0, 3);
+  recentItems.forEach(item => {
+    item.description = cleanString(item.description);
+  })
   res.render('podcast', {
     title: 'Podcast | OEP',
     rssFeed: recentItems,

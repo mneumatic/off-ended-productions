@@ -45,6 +45,7 @@
         width: 320px
         text-align: center
         transition: transform .3s ease-in-out
+        @include mixins.animated-flex
 
         &:hover
           transform: scale(1.2)
@@ -57,7 +58,10 @@
             outline: variables.$tertiary-color 1px solid
             height: auto !important
             max-width: 100% !important
+            transform: translateY(100vh) translateZ(0)
+
 
         label
           font-family: "Permanent Marker", sans-serif
           margin-top: 0.5rem
+          opacity: 0

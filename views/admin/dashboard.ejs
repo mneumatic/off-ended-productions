@@ -133,8 +133,8 @@
     </main>
     <%- include('../partials/footer.ejs') %>
     <%- include('../partials/scripts.ejs') %>
-    <script src="/js/dashboard.js"></script>
-    <script src="/js/images.js"></script>
+    <script src="/js/pages/dashboard.js"></script>
+    <script src="/js/utils/loading.js"></script>
     <script>
         const content = document.querySelectorAll('.dash-content-music-event, .dash-content-local-event, .dash-content-local-business');
         const images = document.querySelectorAll("img")
@@ -144,7 +144,7 @@
           spinner.style.display = 'block';
         })
 
-        const promises = Array.from(images).map(img => loadImage(img))
+        const promises = Array.from(images).map(img => loading(img))
 
         Promise.all(promises).then(() => {
           content.forEach(item => {

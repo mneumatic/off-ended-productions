@@ -38,3 +38,26 @@
 
   @media (min-width: 420px)
     font-size: 4.5rem
+
+@mixin animated-grid
+  display: grid
+  grid-template-columns: 1fr
+  grid-template-rows: 1fr
+
+  img
+    grid-column: 1
+    grid-row: 1
+    overflow-x: hidden
+    width: 100%
+
+@mixin animated-flex
+  display: flex !important
+  flex-wrap: wrap !important
+  overflow: hidden
+
+@mixin oep-stickman
+  background-image: url("/img/oep-stickman.svg")
+  background-repeat: no-repeat
+  background-position: center
+  background-size: cover
+  background-attachment: fixed
