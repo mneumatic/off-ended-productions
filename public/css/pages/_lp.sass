@@ -3,68 +3,71 @@
 @use '../utils/animations' as animations
 
 #lp
-  .lp-hero
-    position: relative
-    display: flex
-    flex-direction: column
+  .hero
+    height: 100%
+
+  .oep-logo
+    display: none
+    height: auto
+    max-width: 768px
+    transform: translateX(48px)
+    @include mixins.img-fluid
+    @media (min-width: 992px)
+      display: block
+
+
+  .oep-logo-mobile
+    height: auto
+    max-width: 768px
+    padding: 0 1rem 0 1rem
+    @include mixins.img-fluid
+    @media (min-width: 992px)
+      display: none
+
+
+  .lp-mottos
+    font-family: "Permanent Marker", sans-serif
+    text-align: center
+    max-width: 992px
+    font-size: 1.5rem
+    margin-top: 5rem
+
+    span
+      opacity: 0
+
+  .content-wrapper
+    display: flex !important
+    flex-wrap: wrap
     align-items: center
     justify-content: center
-    overflow: hidden
+    margin-top: 5rem
+    @include mixins.container
 
-    .lp-brand
-      display: flex
+
+    .content-category
       flex-direction: column
       align-items: center
-      justify-content: center
-      @include mixins.container
+      width: 320px
+      text-align: center
+      transition: transform .3s ease-in-out
+      @include mixins.animated-flex
 
-      h1
-        display: none
+      &:hover
+        transform: scale(1.2)
 
-      .lp-mottos
+      a
+        padding-top: 1rem
+
+        img
+          background-color: variables.$primary-color
+          border-radius: variables.$border-radius-sm
+          outline: variables.$tertiary-color 1px solid !important
+          transform: translateY(100vh) translateZ(0)
+          padding: 2.5rem
+          height: 250px
+          width: auto
+
+      label
         font-family: "Permanent Marker", sans-serif
-        text-align: center
-        max-width: 992px
-        font-size: 1.5rem
-        line-height: 2rem
-
-        span
-          opacity: 0
-
-    .lp-categories
-      display: flex
-      flex-wrap: wrap
-      align-items: center
-      justify-content: center
-
-      //@media screen and (max-width: 768px)
-      //height: 100vh
-
-      .lp-category
-        display: flex
-        flex-direction: column
-        align-items: center
-        padding: 2.5rem
-        width: 320px
-        text-align: center
-        transition: transform .3s ease-in-out
-        @include mixins.animated-flex
-
-        &:hover
-          transform: scale(1.2)
-
-        a
-          img
-            background-color: variables.$primary-color
-            border-radius: variables.$border-radius-sm
-            outline: variables.$tertiary-color 1px solid
-            transform: translateY(100vh) translateZ(0)
-            padding: 2.5rem
-            height: 250px
-            width: auto
-
-
-        label
-          font-family: "Permanent Marker", sans-serif
-          margin-top: 0.5rem
-          opacity: 0
+        margin-top: 0.5rem
+        opacity: 0

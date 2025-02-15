@@ -4,21 +4,18 @@
 <body>
   <%- include('partials/header.ejs') %>
   <main id="lp">
-      <section class="lp-hero">
-          <div class="lp-brand">
-              <h1>OFF ENDED Productions</h1>
-              <video autoplay muted playsinline preload="auto">
-                  <source src="img/hero-brand-logo.mp4" type="video/mp4">
-              </video>
-              <span class="lp-mottos">
-                <% for (let mot of motto.motto ) { %>
-                    <span><%= mot %></span>
-                <% } %>
-              </span>
-          </div>
-          <div class="lp-categories">
+      <section class="hero">
+          <h1>OFF ENDED Productions</h1>
+          <img class="oep-logo" src="/img/oep-logo.webp" alt="Off Ended Productions"/>
+          <img class="oep-logo-mobile" src="/img/oep-logo-mobile.webp" alt="Off Ended Productions"/>
+          <span class="lp-mottos">
+            <% for (let mot of motto.motto ) { %>
+                <span><%= mot %></span>
+            <% } %>
+          </span>
+          <div class="content-wrapper">
               <% for (let category of categories) { %>
-                  <div class="lp-category">
+                  <div class="content-category">
                       <a href="<%- category.url %>" title="<%= category.title %> →" aria-label="<%= category.title %>">
                           <img src="/img/<%- category.image %>" alt="<%= category.title %>">
                       </a>
@@ -26,6 +23,7 @@
                   </div>
               <% } %>
           </div>
+          <div class="hero-ripple"></div>
       </section>
   </main>
   <%- include('partials/footer.ejs') %>

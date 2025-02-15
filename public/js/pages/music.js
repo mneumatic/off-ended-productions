@@ -1,6 +1,6 @@
 import * as Observer from '../utils/observers.js'
 import { loading } from "../utils/loading.js";
-import { rippleEffect } from "../partials/hero.js";
+import { rippleEffect } from "../partials/notification.js";
 
 const contentImages = document.querySelectorAll(".content-images")
 const contentCards = document.querySelectorAll(".content-events")

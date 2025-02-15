@@ -1,5 +1,5 @@
 import * as Observer from '../utils/observers.js'
-import { rippleEffect } from "../partials/hero.js";
+import { rippleEffect } from "../partials/notification.js";
 
 const contentImages = document.querySelectorAll(".content-images")
 const captions = document.querySelectorAll(".content-header, .content-more")

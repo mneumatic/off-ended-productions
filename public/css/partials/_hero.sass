@@ -11,12 +11,15 @@
   height: 100vh
   overflow: hidden !important
 
+  h1
+    display: none
+
   img
     outline: none !important
     height: 768px
     width: auto
 
-  div
+  .hero-notification
     display: flex
     align-items: center
     justify-content: center
@@ -25,7 +28,6 @@
 
     span
       animation: blink 2s ease-in-out infinite
-      animation-delay: 3s
       opacity: 0
       color: variables.$accent-color
       font-size: 0.875rem

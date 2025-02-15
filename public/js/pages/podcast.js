@@ -1,6 +1,6 @@
 import * as Observer from '../utils/observers.js'
 import { loading } from "../utils/loading.js";
-import { rippleEffect } from "../partials/hero.js";
+import { rippleEffect } from "../partials/notification.js";
 
 const observeImgs = document.querySelectorAll(".content-images")
 const observeYT = document.querySelectorAll(".content-youtube")

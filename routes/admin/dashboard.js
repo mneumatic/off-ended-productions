@@ -22,7 +22,8 @@ router.post('/', passport.authenticate('local', { failureFlash: true, failureRed
   res.redirect(redirectUrl);
 })
 
-router.get('/dashboard', isLoggedIn, async (req, res) => {
+// TODO: Enable isLoadedIn
+router.get('/dashboard', async (req, res) => {
   const music = await Music.find({});
   const events = await Events.find({})
   const businesses = await Businesses.find({});

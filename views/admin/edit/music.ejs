@@ -2,7 +2,6 @@
 <html lang="en" class="no-js">
 <%- include('../../partials/head.ejs') %>
 <body>
-    <%- include('../../partials/header.ejs') %>
     <%- include('../../partials/flash.ejs') %>
     <main id="dashboard">
         <section>
@@ -72,30 +71,30 @@
     <script src='/js/utils/validateForms.js'></script>
     <script src="/js/utils/loading.js"></script>
     <script>
-      const content = document.querySelectorAll('.container__animated-flex')
-      const images = document.querySelectorAll('img')
-
-      const observer = new IntersectionObserver(handleIntersection, options)
-
-      let spinner = document.querySelector('.spinner');
-      spinner.style.display = 'block';
-
-      const promises = Array.from(images).map(img => loading(img))
-
-      Promise.all(promises).then(() => {
-        content.forEach(element => {
-          observer.observe(element)
-        })
-        spinner.style.display = 'none';
-      })
-
-      const input = document.getElementById('imagePath');
-      const image = document.querySelector('.thumbnail');
-
-      input.addEventListener('change', function () {
-        image.src = input.value;
-        image.alt = input.value;
-      })
+      // const content = document.querySelectorAll('.container__animated-flex')
+      // const images = document.querySelectorAll('img')
+      //
+      // const observer = new IntersectionObserver(handleIntersection, options)
+      //
+      // let spinner = document.querySelector('.spinner');
+      // spinner.style.display = 'block';
+      //
+      // const promises = Array.from(images).map(img => loading(img))
+      //
+      // Promise.all(promises).then(() => {
+      //   content.forEach(element => {
+      //     observer.observe(element)
+      //   })
+      //   spinner.style.display = 'none';
+      // })
+      //
+      // const input = document.getElementById('imagePath');
+      // const image = document.querySelector('.thumbnail');
+      //
+      // input.addEventListener('change', function () {
+      //   image.src = input.value;
+      //   image.alt = input.value;
+      // })
     </script>
 </body>
 </html>
