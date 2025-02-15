@@ -1,7 +1,7 @@
 import * as Observer from '../utils/observers.js'
 import { loading } from "../utils/loading.js";
 
-const hero = document.querySelectorAll(".hero-images")
+const contentImages = document.querySelectorAll(".content-images")
 const contentCards = document.querySelectorAll(".content-events")
 const samples = document.querySelectorAll(".content-samples")
 const captions = document.querySelectorAll(".content-header, .content-more")
@@ -15,7 +15,7 @@ spinner.style.display = 'block';
 
 const promises = Array.from(images).map(img => loading(img))
 
-hero.forEach(element => {
+contentImages.forEach(element => {
   observer.observe(element)
 })
 

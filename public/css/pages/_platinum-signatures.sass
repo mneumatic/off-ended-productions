@@ -3,8 +3,8 @@
 @use '../utils/animations' as animations
 
 #platinum-signatures
-  .hero
-    .hero-wrapper
+  .content
+    .content-wrapper
       display: flex
       justify-content: center
       @include mixins.container
@@ -13,7 +13,7 @@
         grid-template-columns: repeat(2, minmax(0, 1fr))
         gap: 2.5rem
 
-      .hero-info
+      .content-info
         div
           text-align: center
           margin-top: 2.5rem
@@ -25,7 +25,7 @@
             font-family: "Permanent Marker", sans-serif
             font-size: 2.25rem
 
-      .hero-images
+      .content-images
         @include mixins.animated-grid
 
         img

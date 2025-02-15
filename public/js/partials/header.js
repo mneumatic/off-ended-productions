@@ -4,6 +4,13 @@ const shDialog = document.querySelector('.sh-dialog');
 const shOpenMenuBtn = document.querySelector('.sh-controls button');
 const shCloseMenuBtn = document.querySelector('.sh-menu .sh-controls');
 
+// Add shadow on scroll
+function onScroll() {
+  window.scrollY > 0
+    ? sh.classList.add('sh-shadow')
+    : sh.classList.remove('sh-shadow')
+}
+
 // Opens Site Header Menu
 function openMenu() {
   shMenu.classList.add('sh-open-menu');
@@ -23,6 +30,7 @@ function closeMenuIf() {
   }
 }
 
+window.addEventListener('scroll', onScroll)
 shOpenMenuBtn.addEventListener('click', openMenu);
 shCloseMenuBtn.addEventListener('click', closeMenu);
 shDialog.addEventListener('click', closeMenuIf);

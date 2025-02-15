@@ -1,9 +1,9 @@
 import * as Observer from '../utils/observers.js'
 import { loading } from "../utils/loading.js";
 
-const hero = document.querySelectorAll(".hero-images")
-const content = document.querySelectorAll(".container__animated-flex")
-const captions = document.querySelectorAll(".caption")
+const hero = document.querySelectorAll(".content-images")
+const content = document.querySelectorAll(".content-github, .content-repos")
+const captions = document.querySelectorAll(".content-header, .content-more")
 const images = document.querySelectorAll("img")
 
 const observer = new IntersectionObserver(Observer.images, Observer.options)

@@ -1,0 +1,133 @@
+@use '../utils/variables' as variables
+@use '../utils/mixins' as mixins
+@use '../utils/animations' as animations
+
+#mneumatic-designs
+  .hero
+    img
+      position: absolute
+      border-radius: 50%
+      height: auto !important
+      max-width: 100% !important
+
+  .content-github
+    display: flex
+    align-items: center
+    justify-content: center
+    @include mixins.animated-flex
+
+    .content-github-wrapper
+      background-color: variables.$primary-color
+      border-radius: variables.$border-radius-sm
+      border: variables.$tertiary-color 1px solid
+      padding: 2.5rem
+      margin-bottom: 1.25rem
+      transform: translateY(100vh) translateZ(0)
+
+      .content-github-avatar
+        display: flex
+        justify-content: center
+
+        img
+          @include mixins.img-fluid
+
+      .content-github-info
+        display: flex
+        flex-direction: column
+
+        > div
+          display: flex
+          flex-direction: column
+          align-items: center
+          justify-content: center
+          padding: 0.75rem 0 0.75rem 0
+
+          .content-github-info-name
+            font-family: "Permanent Marker", sans-serif
+            text-transform: uppercase
+
+          .content-github-info-hireable
+            background-color: variables.$fm-success-color
+            font-size: 0.875rem
+            margin: 0.75rem 0 0.75rem 0
+            width: fit-content
+            @include mixins.btn
+
+            &:hover
+              background-color: variables.$fm-success-color
+
+          .content-github-more
+            display: flex
+            flex-direction: column
+            align-items: end
+
+            ul
+              list-style-type: none
+              display: flex
+              flex-wrap: wrap
+              align-items: center
+              justify-content: center
+
+              @media (min-width: 1280px)
+                justify-content: flex-start
+
+              img
+                margin: 0.25rem
+                @include mixins.img-fluid
+
+      .content-github-controls
+        display: flex
+        justify-content: space-between
+        margin-top: 1.25rem
+        width: 100%
+
+        div,
+          > a
+            display: flex
+            flex-direction: column
+            text-align: center
+            border: variables.$tertiary-color 1px solid
+            border-radius: variables.$border-radius-sm
+            width: 100%
+            @include mixins.btn
+
+            span
+              font-weight: bold
+              display: block
+
+              &:nth-child(even)
+                font-weight: normal
+
+        div:nth-child(1)
+          background-color: variables.$tertiary-color
+          border: none
+
+        a
+          display: flex !important
+          align-items: center
+          justify-content: center
+
+          &:nth-child(2)
+            margin: 0 12px 0 12px
+
+  .content-repos
+    display: flex
+    align-items: center
+    justify-content: center
+    @include mixins.animated-flex
+
+    @media (min-width: 1024px)
+      justify-content: space-between !important
+
+    .content-card-body
+      > div
+        flex-direction: row !important
+        padding-bottom: 0
+
+        a
+          display: flex !important
+          align-items: center
+          justify-content: center
+          border: variables.$tertiary-color 1px solid
+          border-radius: variables.$border-radius-sm
+          @include mixins.btn

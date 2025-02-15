@@ -160,6 +160,12 @@ h2
 .read-more-state:checked ~ .read-more-trigger:before
   content: 'Close'
 
+.read-more-trigger
+  border: variables.$tertiary-color 1px solid
+  cursor: pointer
+  font-size: 0.875rem
+  @include mixins.btn
+
 input::-ms-reveal
   filter: invert(100%)
 

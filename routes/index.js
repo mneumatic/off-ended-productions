@@ -43,10 +43,10 @@ router.get('/podcast', async (req, res) => {
   });
 });
 
-router.get('/music', async (req, res) => {
+router.get('/twojz-music', async (req, res) => {
   const musicEvents = await MusicEvents.find({});
   const tracks = await Tracks.find({})
-  res.render('music', {
+  res.render('twojz-music', {
     title: '2Jz Music | OEP',
     tracks,
     musicEvents,

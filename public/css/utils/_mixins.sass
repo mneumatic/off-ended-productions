@@ -1,4 +1,4 @@
-@use 'variables' as var
+@use 'variables' as variables
 
 @mixin container
   margin-right: auto
@@ -23,7 +23,7 @@
     max-width: 1536px
 
 @mixin btn
-  color: var.$secondary-color
+  color: variables.$secondary-color
   display: block
   padding: .5rem
   border-radius: .25rem
@@ -31,7 +31,7 @@
   transition: background-color .3s ease-in-out, color .3s ease-in-out
 
   &:hover
-    background-color: var.$tertiary-color
+    background-color: variables.$tertiary-color
 
 @mixin display
   font-size: 3.25rem
@@ -61,3 +61,9 @@
   background-position: center
   background-size: cover
   background-attachment: fixed
+
+@mixin img-fluid
+  border-radius: variables.$border-radius-sm
+  outline: variables.$tertiary-color solid 1px
+  height: auto !important
+  max-width: 100% !important

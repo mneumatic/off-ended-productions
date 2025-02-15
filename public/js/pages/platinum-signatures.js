@@ -1,6 +1,15 @@
 import * as Observer from '../utils/observers.js'
 
-const PSImages = document.querySelector(".hero-images")
-const observer = new IntersectionObserver(Observer.images, Observer.options)
+const contentImages = document.querySelectorAll(".content-images")
+const captions = document.querySelectorAll(".content-header, .content-more")
 
-observer.observe(PSImages)
+const observer = new IntersectionObserver(Observer.images, Observer.options)
+const observerCaptions = new IntersectionObserver(Observer.opacity, Observer.options)
+
+contentImages.forEach(element => {
+  observer.observe(element)
+})
+
+captions.forEach(element => {
+  observerCaptions.observe(element)
+})

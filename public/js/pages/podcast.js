@@ -1,7 +1,7 @@
 import * as Observer from '../utils/observers.js'
 import { loading } from "../utils/loading.js";
 
-const observeImgs = document.querySelectorAll(".hero-images")
+const observeImgs = document.querySelectorAll(".content-images")
 const observeYT = document.querySelectorAll(".content-youtube")
 const observeSpotify = document.querySelectorAll(".content-spotify")
 const observeLabels = document.querySelectorAll(".content-header, .content-more")

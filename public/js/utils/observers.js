@@ -35,17 +35,13 @@ export function opacity(entries, observer) {
       // Element is in view, do something
       const elements = entry.target
       setTimeout(() => {
-        elements.classList.add('show-caption')
+        elements.classList.add('show')
       }, 1200)
 
       // Optionally stop observing the element
       observer.unobserve(entry.target)
     }
   })
-}
-
-function getAnimation(animation) {
-  return ANIMATION
 }
 
 function loadArray(array) {
