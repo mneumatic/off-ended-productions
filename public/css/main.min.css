@@ -682,10 +682,6 @@ video {
   margin-inline-end: 1.25rem;
 }
 
-.me-\[6px\] {
-  margin-inline-end: 6px;
-}
-
 .mt-0 {
   margin-top: 0px;
 }
@@ -805,6 +801,10 @@ video {
 
 .items-center {
   align-items: center;
+}
+
+.justify-start {
+  justify-content: flex-start;
 }
 
 .justify-end {
@@ -2734,6 +2734,22 @@ footer nav a:hover{
   font-weight:lighter
 }
 
+#dashboard .dashboard-sidebar-left label,#dashboard .dashboard-sidebar-right label{
+  color:red;
+  font-size:.75em;
+  margin:1rem 0 1rem 0
+}
+
+#dashboard .dashboard-sidebar-left a,#dashboard .dashboard-sidebar-left button,#dashboard .dashboard-sidebar-right a,#dashboard .dashboard-sidebar-right button{
+  width:-moz-fit-content;
+  width:fit-content
+}
+
+#dashboard .dashboard-sidebar-left a:hover,#dashboard .dashboard-sidebar-left button:hover,#dashboard .dashboard-sidebar-right a:hover,#dashboard .dashboard-sidebar-right button:hover{
+  text-decoration:underline;
+  text-underline-position:under
+}
+
 #dashboard .dashboard-sidebar-right{
   border-right:none;
   border-left:#333 1px solid;
@@ -2756,7 +2772,13 @@ footer nav a:hover{
   width:100%
 }
 
-#dashboard .dashboard-content details .summary-wrapper form img{
+#dashboard .dashboard-content details .summary-wrapper form .img-wrapper{
+  position:relative;
+  height:130px !important;
+  width:225px !important
+}
+
+#dashboard .dashboard-content details .summary-wrapper form .img-wrapper img{
   height:100%;
   width:225px
 }
@@ -2884,10 +2906,6 @@ footer nav a:hover{
 @media (min-width: 1024px) {
   .lg\:w-\[200px\] {
     width: 200px;
-  }
-
-  .lg\:justify-between {
-    justify-content: space-between;
   }
 
   .lg\:justify-evenly {

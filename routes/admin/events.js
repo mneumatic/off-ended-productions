@@ -5,7 +5,7 @@ const catchAsync = require('../../utils/catchAsync');
 const { isLoggedIn } = require("../../middleware");
 
 // GET:
-router.get('/', isLoggedIn, catchAsync(async (req, res) => {
+router.get('/',  catchAsync(async (req, res) => {
   res.render('admin/new/event', {
     title: "New Events Event | OEP",
     authenticated: res.locals.currentUser,
@@ -13,7 +13,7 @@ router.get('/', isLoggedIn, catchAsync(async (req, res) => {
 }))
 
 // POST:
-router.post('/', isLoggedIn, catchAsync(async (req, res, next) => {
+router.post('/',  catchAsync(async (req, res, next) => {
   const event = new Events(req.body.event)
   await event.save();
   req.flash('success', `Successfully made a new Local Event!`);
@@ -21,7 +21,7 @@ router.post('/', isLoggedIn, catchAsync(async (req, res, next) => {
 }))
 
 // GET:
-router.get('/edit/:id/', isLoggedIn, catchAsync(async (req, res) => {
+router.get('/edit/:id/', catchAsync(async (req, res) => {
   const { id } = req.params;
   const item = await Events.findById(id)
 
@@ -38,9 +38,9 @@ router.get('/edit/:id/', isLoggedIn, catchAsync(async (req, res) => {
 }))
 
 // POST:
-router.put('/edit/:id', isLoggedIn, catchAsync(async (req, res) => {
+router.put('/edit/:id', catchAsync(async (req, res) => {
   const { id } = req.params;
-  let item = await Events.findByIdAndUpdate(id, { ...req.body.item })
+  let item = await Events.findByIdAndUpdate(id, { ...req.body.event })
 
   if (!item) {
     req.flash('error', 'Update Failed!');
@@ -53,7 +53,7 @@ router.put('/edit/:id', isLoggedIn, catchAsync(async (req, res) => {
 
 //
 // DELETE
-router.delete('/delete/:id', isLoggedIn, catchAsync(async (req, res) => {
+router.delete('/delete/:id', catchAsync(async (req, res) => {
   const { id } = req.params;
   await Events.findByIdAndDelete(id);
 

@@ -4,17 +4,14 @@
 <body>
     <%- include('../partials/flash.ejs') %>
     <main id="dashboard">
-<!--        Delete Dialog-->
         <dialog class="dashboard-dialog">
-            <% for (let i = 0; i < 3; i++) { %>
-                <form class="dashboard-dialog-form" action="" method="POST">
-                    <p class="dash-dialog-message"></p>
-                    <div>
-                        <button type="submit" title="Delete" aria-label="Delete">Delete</button>
-                        <button type="button" onclick="closeDialog()">Cancel</button>
-                    </div>
-                </form>
-            <% } %>
+            <form class="dashboard-dialog-form" action="" method="POST">
+                <p class="dash-dialog-message"></p>
+                <div>
+                    <button type="submit" title="Delete" aria-label="Delete">Delete</button>
+                    <button type="button" onclick="closeDialog()">Cancel</button>
+                </div>
+            </form>
         </dialog>
         <aside class="dashboard-sidebar-left">
             <h1>Dashboard</h1>
@@ -37,13 +34,14 @@
                     <span class="dash-panel-matches"></span>
                 </div>
             </div>
+            <hr>
             <nav>
                 <div class="flex flex-col">
-                    <label>Add</label>
-                    <a href="/#">New Music Event</a>
-                    <a href="#">New Music Track</a>
-                    <a href="#">New Local Event</a>
-                    <a href="#">New Local Business</a>
+                    <label style="margin-top: 0">+ Add</label>
+                    <button onclick="openDialog(0, 'music', 'Add New Event')">New Music Event</button>
+                    <button>New Music Track</button>
+                    <button>New Local Event</button>
+                    <button>New Local Business</button>
                 </div>
                 <div class="flex flex-col">
                     <label>Commands</label>
@@ -60,14 +58,16 @@
             </nav>
         </aside>
         <section class="dashboard-content">
-            <div class="spinner"></div>
             <div class="container">
                 <details open>
                     <summary class="mb-4"><span>2Jz Music Events</span></summary>
                     <div class="summary-wrapper">
                     <% for (let event of music ) { %>
-                        <form action="/admin/music/edit/<%= event._id %>?_method=PUT" method="POST" class="flex flex-row items-start mb-4 validated-form" novalidate>
-                            <img class="outline outline-1" src="<%- event.imagePath %>" alt="<%- event.title %>">
+                        <form action="/admin/music/edit/<%= event._id %>?_method=PUT" data-title="<%- event.title %>"  method="POST" class="flex flex-row items-start mb-4 validated-form" novalidate>
+                            <div class="img-wrapper">
+                                <div class="spinner"></div>
+                                <img class="outline outline-1" src="<%- event.imagePath %>" alt="<%- event.title %>">
+                            </div>
                             <div class="card-info flex flex-col px-8 w-full">
                                 <br>
                                 <label><strong>Image:</strong>
@@ -96,201 +96,106 @@
                                 <hr>
                                 <div class="flex flex-row justify-end w-full">
                                     <button type="submit" title="Update Event" aria-label="Update Event">Update</button>
-                                    <button type="button" onclick="openDialog(0, '/admin/music/delete/<%- event._id %>?_method=DELETE', '<%- event.title %>')">Delete</button>
+                                    <button onclick="deleteItem(0, 'music', '<%- event._id %>', '<%- event.title %>')" type="button">Delete</button>
                                 </div>
                                 <br>
                             </div>
                         </form>
                     <% } %>
+                    <form method="POST" class="delete-form validated-form" novalidate></form>
                     </div>
                 </details>
                 <details open>
                     <summary class="mb-4"><span>Local Events</span></summary>
                     <div class="summary-wrapper">
                     <% for (let event of events ) { %>
-                        <form action="" class="flex flex-row items-start mb-4">
-                            <img class="outline outline-1" src="<%- event.imagePath %>" alt="<%- event.title %>">
+                        <form action="/admin/events/edit/<%= event._id %>?_method=PUT" data-title="<%- event.title %>" method="POST" class="flex flex-row items-start mb-4">
+                            <div class="img-wrapper">
+                                <div class="spinner"></div>
+                                <img class="outline outline-1" src="<%- event.imagePath %>" alt="<%- event.title %>">
+                            </div>
                             <div class="card-info flex flex-col px-8 w-full">
                                 <br>
+                                <label><strong>Image:</strong>
+                                    <input type="text" name="event[imagePath]" value="<%- event.imagePath %>" required>
+                                </label>
+                                <hr>
                                 <label><strong>Title:</strong>
-                                    <input type="text" value="<%= event.title %>">
+                                    <input type="text" name="event[title]" value="<%= event.title %>" required>
                                 </label>
                                 <hr>
                                 <label><strong>Description:</strong>
-                                    <textarea type="text"><%- event.description %></textarea>
+                                    <textarea type="text" name="event[description]" required><%- event.description %></textarea>
                                 </label>
                                 <hr>
                                 <label><strong>Operational Hours:</strong>
-                                    <input type="text" value="<%- event.hours %>">
+                                    <input type="text" name="event[hours]" value="<%- event.hours %>" required>
                                 </label>
                                 <hr>
                                 <label><strong>Location:</strong>
-                                    <input type="text" value="<%- event.location %>">
+                                    <input type="text" name="event[location]" value="<%- event.location %>" required>
                                 </label>
                                 <hr>
                                 <label><strong>Date Of:</strong>
-                                    <input type="text" value="<%- event.date %>">
+                                    <input type="text" name="event[date]" value="<%- event.date %>" required>
                                 </label>
                                 <hr>
                                 <div class="flex flex-row justify-end w-full">
-                                    <a href="/admin/event/edit/<%- event._id %>" title="Edit Event" aria-label="Edit Event">Edit</a>
-                                    <button onclick="openDialog(1, '/admin/event/delete/<%- event._id %>?_method=DELETE', '<%- event.title %>')">Delete</button>
+                                    <button type="submit" title="Update Event" aria-label="Update Event">Update</button>
+                                    <button onclick="deleteItem(1, 'events', '<%- event._id %>', '<%- event.title %>')" type="button">Delete</button>
                                 </div>
                                 <br>
                             </div>
                         </form>
-                    <% } %>
+                        <% } %>
+                        <form method="POST" class="delete-form validated-form" novalidate></form>
                     </div>
                 </details>
                 <details open>
                     <summary class="mb-4"><span>Local Businesses</span></summary>
                     <div class="summary-wrapper">
                     <% for (let business of businesses ) { %>
-                        <form action="" class="flex flex-row items-start mb-4">
-                            <img class="outline outline-1" src="<%- business.imagePath %>" alt="<%- business.title %>">
+                        <form action="/admin/businesses/edit/<%= business._id %>?_method=PUT" data-title="<%- business.title %>" method="POST" class="flex flex-row items-start mb-4">
+                            <div class="img-wrapper">
+                                <div class="spinner"></div>
+                                <img class="outline outline-1" src="<%- business.imagePath %>" alt="<%- business.title %>">
+                            </div>
                             <div class="card-info flex flex-col px-8 w-full">
                                 <br>
                                 <label><strong>Title:</strong>
-                                    <input type="text" value="<%= business.title %>">
+                                    <input name="business[title]" type="text" value="<%= business.title %>">
                                 </label>
                                 <hr>
                                 <label><strong>Description:</strong>
-                                    <textarea type="text"><%- business.description %></textarea>
+                                    <textarea type="text" name="business[description]"><%- business.description %></textarea>
                                 </label>
                                 <hr>
                                 <label><strong>Operational Hours:</strong>
-                                    <input type="text" value="<%- business.hours %>">
+                                    <input type="text" name="business[hours]" value="<%- business.hours %>">
                                 </label>
                                 <hr>
                                 <label><strong>Location:</strong>
-                                    <input type="text" value="<%- business.location %>">
+                                    <input type="text" name="business[location]" value="<%- business.location %>">
                                 </label>
                                 <hr>
-                                <label><strong>Date Of:</strong>
-                                    <input type="text" value="<%- business.phone %>">
+                                <label><strong>Phone:</strong>
+                                    <input type="text" name="business[phone]" value="<%- business.phone %>">
                                 </label>
                                 <hr>
                                 <div class="flex flex-row justify-end w-full">
-                                    <a href="/admin/business/edit/<%- business._id %>" title="Edit Business" aria-label="Edit Business">Edit</a>
-                                    <button onclick="openDialog(2, '/admin/business/delete/<%- business._id %>?_method=DELETE', '<%- business.title %>')">Delete</button>
+                                    <button type="submit" title="Update Business" aria-label="Update Business">Update</button>
+                                    <button onclick="deleteItem(2, 'events', '<%- business._id %>', '<%- business.title %>')" type="button">Delete</button>
                                 </div>
                                 <br>
                             </div>
                         </form>
-                    <% } %>
+                        <% } %>
+                        <form method="POST" class="delete-form validated-form" novalidate></form>
                     </div>
                 </details>
             </div>
         </section>
-<!--        <section>-->
-<!--                <div class="dash-content">-->
-<!--                    <h2 class="">2Jz Music Events</h2>-->
-<!--                    <div class="flex flex-row flex-wrap justify-center lg:justify-between">-->
-<!--                        <div class="spinner"></div>-->
-<!--                        <% for (let event of music ) { %>-->
-<!--                            <div class="dash-content-music-event">-->
-<!--                                <% if (event.imagePath) { %>-->
-<!--                                    <img src="<%- event.imagePath %>" alt="<%- event.title %>">-->
-<!--                                <% } %>-->
-<!--                                <h3 class="py-5"><%= event.title %></h3>-->
-<!--                                <p><%- event.description %></p>-->
-<!--                                <div class="dash-content-info">-->
-<!--                                    <span><%- event.hours %></span>-->
-<!--                                    <address><%- event.location %></address>-->
-<!--                                    <p class="date">On: <%- event.date %></p>-->
-<!--                                </div>-->
-<!--                                <div class="dash-content-controls">-->
-<!--                                    <a class="btn !flex justify-center me-[6px] svg-transition w-full" href="/admin/music/edit/<%- event._id %>" title="Edit Event" aria-label="Edit Event"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"><path fill="#fff" d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg></a>-->
-<!--                                    <button onclick="openDialog(0, '/admin/music/delete/<%- event._id %>?_method=DELETE', '<%- event.title %>')">delete</button>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        <% } %>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            <div class="dash-content">-->
-<!--                <h2>Local Events</h2>-->
-<!--                <div class="flex flex-row flex-wrap justify-center lg:justify-between">-->
-<!--                    <div class="spinner"></div>-->
-<!--                    <% for (let event of events ) { %>-->
-<!--                        <div class="dash-content-local-event">-->
-<!--                            <% if (event.imagePath) { %>-->
-<!--                                <img src="<%- event.imagePath %>" alt="<%- event.title %>">-->
-<!--                            <% } %>-->
-<!--                            <h3 class="py-5"><%= event.title %></h3>-->
-<!--                            <p><%- event.description %></p>-->
-<!--                            <div class="dash-content-info">-->
-<!--                                <span><%- event.hours %></span>-->
-<!--                                <address><%- event.location %></address>-->
-<!--                                <p class="date">On: <%- event.date %></p>-->
-<!--                            </div>-->
-
-<!--                            <div class="dash-content-controls">-->
-<!--                                <a href="/admin/event/edit/<%- event._id %>" title="Edit Event" aria-label="Edit Event"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"><path fill="#fff" d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg></a>-->
-<!--                                <button onclick="openDialog(1, '/admin/event/delete/<%- event._id %>?_method=DELETE', '<%- event.title %>')">delete</button>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    <% } %>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--                <div class="dash-content">-->
-<!--                    <h2>Local Businesses</h2>-->
-<!--                    <div class="flex flex-row flex-wrap justify-center lg:justify-between">-->
-<!--                        <div class="spinner"></div>-->
-<!--                        <% for (let business of businesses ) { %>-->
-<!--                            <div class="dash-content-local-business">-->
-<!--                                <% if (business.imagePath) { %>-->
-<!--                                    <img src="<%- business.imagePath %>" alt="<%- business.title %>">-->
-<!--                                <% } %>-->
-<!--                                <h3 class="py-5"><%= business.title %></h3>-->
-<!--                                <p><%- business.description %></p>-->
-<!--                                <div class="dash-content-info">-->
-<!--                                    <span><%- business.hours %></span>-->
-<!--                                    <address><%- business.location %></address>-->
-<!--                                    <p>Phone: <%- business.phone %></p>-->
-<!--                                </div>-->
-
-<!--                                <div class="dash-content-controls">-->
-<!--                                    <a href="/admin/business/edit/<%- business._id %>" title="Edit Business" aria-label="Edit Business"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"><path fill="#fff" d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg></a>-->
-<!--                                    <button onclick="openDialog(2, '/admin/business/delete/<%- business._id %>?_method=DELETE', '<%- business.title %>')">delete</button>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        <% } %>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--        </section>-->
     </main>
-    <script src="/js/pages/dashboard.js"></script>
-    <script type="module">
-        const contentDialogs = document.querySelectorAll('.dashboard-content dialog');
-        const summaries = document.querySelectorAll('.summary-wrapper')
-        const images = document.querySelectorAll("img")
-
-        // const loading = item => {
-        //   return new Promise((resolve, reject) => {
-        //     if (item.complete) {
-        //       resolve(item); // Resolve immediately if the image is already loaded
-        //     } else {
-        //      item.onload = () => resolve(item);
-        //         item.onerror = () => reject(new Error('Failed to load: ' + item));
-        //     }
-        //   })
-        // }
-        //
-        // let spinners = document.querySelectorAll('.spinner');
-        // spinners.forEach(spinner => {
-        //   spinner.style.display = 'block';
-        // })
-        //
-        // const promises = Array.from(images).map(img => loading(img))
-        //
-        // Promise.all(promises).then(() => {
-        //   summaries.forEach(item => {
-        //     item.style.display = 'block'
-        //   })
-        //   spinners.forEach(spinner => {
-        //     spinner.style.display = 'none';
-        //   })
-        // })
-    </script>
+    <script src="/js/pages/dashboard.js" type="module"></script>
 </body>
 </html>

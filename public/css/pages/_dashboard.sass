@@ -54,6 +54,19 @@
           position: absolute
           font-weight: lighter
 
+    label
+      color: variables.$accent-color
+      font-size: 0.75em
+      margin: 1rem 0 1rem 0
+
+    a,
+    button
+      width: fit-content
+
+      &:hover
+        text-decoration: underline
+        text-underline-position: under
+
   .dashboard-sidebar-right
     border-right: none
     border-left: variables.$tertiary-color 1px solid
@@ -76,9 +89,14 @@
         form
           width: 100%
 
-          img
-            height: 100%
-            width: 225px
+          .img-wrapper
+            position: relative
+            height: 130px !important
+            width: 225px !important
+
+            img
+              height: 100%
+              width: 225px
 
           .card-info
             border-radius: variables.$border-radius-sm

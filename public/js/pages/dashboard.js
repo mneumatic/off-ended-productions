@@ -1,47 +1,63 @@
-const dashPanelToggles = document.querySelectorAll('.dash-panel-toggle')
-const dashContent = document.querySelectorAll('.dash-content')
+import { loading } from "../utils/loading.js";
+
+// const dashPanelToggles = document.querySelectorAll('.dash-panel-toggle')
+// const dashContent = document.querySelectorAll('.dash-content')
+
 const dashDialog = document.querySelector('.dashboard-dialog')
 const dashDialogForms = document.querySelectorAll('.dashboard-dialog-form')
 const dashDialogMsg = document.querySelectorAll('.dash-dialog-message')
-const dpMatches = document.querySelector('.dash-panel-matches');
-const searchFields = document.querySelectorAll('.dash-content');
 
-const data = [
-  '-music-event',
-  '-local-event',
-  '-local-business'
-]
-//
-// if (localStorage.getItem('open-viewer')) {
-//   const index = localStorage.getItem('open-viewer')
-//   dashContent[index].classList.add('show')
-// } else {
-//   localStorage.setItem('open-viewer', '0')
-//   dashContent[0].classList.add('show')
-// }
-//
-// function showContent (content, index) {
-//   const current = document.querySelector('.dash-content.show')
-//   if (current === dashContent[index]) {
-//     return // Do nothing
-//   } else {
-//     current.classList.add('dash-content-slide-out')
-//
-//     dpMatches.innerHTML = ""
-//
-//     setTimeout(() => {
-//       current.classList.remove('show')
-//       current.classList.remove('dash-content-slide-out')
-//     }, 1000)
-//   }
-//   localStorage.setItem('open-viewer', index)
-//   content.classList.add('show')
-// }
-//
-function openDialog(index, action, title) {
-  dashDialogForms[index].style.display = 'flex'
-  dashDialogForms[index].action = action
-  dashDialogMsg[index].innerHTML = `Delete ${title}?`
+// const dpMatches = document.querySelector('.dash-panel-matches');
+// const searchFields = document.querySelectorAll('.dash-content');
+
+const addForms = document.querySelectorAll('.add-form');
+
+const summaryForms = document.querySelectorAll('.summary-wrapper form')
+const deleteForms = document.querySelectorAll('.summary-wrapper .delete-form')
+
+const spinners = document.querySelectorAll('.spinner')
+const images = document.querySelectorAll('img')
+
+spinners.forEach(spinner => {
+  spinner.style.display = 'block';
+})
+
+const promises = Array.from(images).map(img => loading(img))
+Promise.all(promises).then(() => {
+  spinners.forEach(spinner => {
+    spinner.style.display = 'none';
+  })
+})
+
+addForms.forEach(form => {
+  form.addEventListener('submit', (e) => {
+
+  })
+})
+
+summaryForms.forEach(form => {
+  form.addEventListener('submit', (e) => {
+    const title = form.getAttribute('data-title')
+    const confirmed = confirm(`Update ${ title }?`)
+    if (!confirmed) {
+      e.preventDefault();  // Prevent form submission if the user cancels
+    }
+  })
+})
+
+// Circumvents having to submission buttons in form.
+function deleteItem (index, route, id, title) {
+  deleteForms[index].action = `/admin/${ route }/delete/${ id }?_method=DELETE`
+  const confirmed = confirm(`Delete ${ title }?`)
+  if (confirmed) {
+    deleteForms[index].submit()
+  }
+}
+
+function openDialog(index, route, msg) {
+  addForms[index].style.display = 'flex'
+  addForms[index].action = `/admin/${ route }`
+  dashDialogMsg[index].innerHTML = `${msg}`
   dashDialog.showModal()
 }
 
