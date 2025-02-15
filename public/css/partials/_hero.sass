@@ -9,6 +9,12 @@
   align-items: center
   justify-content: center
   height: 100vh
+  overflow: hidden !important
+
+  img
+    outline: none !important
+    height: 768px
+    width: auto
 
   div
     display: flex
@@ -24,3 +30,11 @@
       color: variables.$accent-color
       font-size: 0.875rem
 
+  .hero-ripple
+    position: absolute
+    border-radius: 50%
+    transform: scale(0)
+    opacity: .5
+    animation: ripple-animation 1s linear
+    background: variables.$accent-color
+    z-index: 99

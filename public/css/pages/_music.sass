@@ -8,7 +8,7 @@
     justify-content: center
     @include mixins.animated-flex
 
-    div
+    > div
       background-color: variables.$primary-color
       border-radius: variables.$border-radius-sm
       border: variables.$tertiary-color 1px solid
@@ -30,3 +30,17 @@
     @media (min-width: 1024px)
       justify-content: space-evenly
 
+
+.ripple
+  position: absolute
+  border-radius: 50%
+  transform: scale(0)
+  animation: ripple-animation 1s linear
+  background: variables.$accent-color
+  z-index: 99
+
+
+@keyframes ripple-animation
+  to
+    transform: scale(4)
+    opacity: 0

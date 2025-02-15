@@ -1403,13 +1403,27 @@ input::-ms-reveal{
   }
 }
 
+@keyframes ripple-animation{
+  to{
+    transform:scale(4);
+    opacity:0
+  }
+}
+
 .hero{
   position:relative;
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
-  height:100vh
+  height:100vh;
+  overflow:hidden !important
+}
+
+.hero img{
+  outline:none !important;
+  height:768px;
+  width:auto
 }
 
 .hero div{
@@ -1426,6 +1440,16 @@ input::-ms-reveal{
   opacity:0;
   color:red;
   font-size:.875rem
+}
+
+.hero .hero-ripple{
+  position:absolute;
+  border-radius:50%;
+  transform:scale(0);
+  opacity:.5;
+  animation:ripple-animation 1s linear;
+  background:red;
+  z-index:99
 }
 
 .content{
@@ -1728,13 +1752,19 @@ footer nav a:hover{
   }
 }
 
+@keyframes ripple-animation{
+  to{
+    transform:scale(4);
+    opacity:0
+  }
+}
+
 #lp .lp-hero{
   position:relative;
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
-  height:100vh;
   overflow:hidden
 }
 
@@ -1798,6 +1828,7 @@ footer nav a:hover{
 
 #lp .lp-hero .lp-categories{
   display:flex;
+  flex-wrap:wrap;
   align-items:center;
   justify-content:center
 }
@@ -1818,16 +1849,14 @@ footer nav a:hover{
   transform:scale(1.2)
 }
 
-#lp .lp-hero .lp-categories .lp-category a{
-  border-radius:.25rem
-}
-
 #lp .lp-hero .lp-categories .lp-category a img{
   background-color:#000;
+  border-radius:.25rem;
   outline:#333 1px solid;
-  height:auto !important;
-  max-width:100% !important;
-  transform:translateY(100vh) translateZ(0)
+  transform:translateY(100vh) translateZ(0);
+  padding:2.5rem;
+  height:250px;
+  width:auto
 }
 
 #lp .lp-hero .lp-categories .lp-category label{
@@ -1915,6 +1944,13 @@ footer nav a:hover{
   }
 
   to{
+    opacity:0
+  }
+}
+
+@keyframes ripple-animation{
+  to{
+    transform:scale(4);
     opacity:0
   }
 }
@@ -2050,6 +2086,13 @@ footer nav a:hover{
   }
 }
 
+@keyframes ripple-animation{
+  to{
+    transform:scale(4);
+    opacity:0
+  }
+}
+
 #music .content-samples{
   flex-direction:column;
   justify-content:center;
@@ -2058,7 +2101,7 @@ footer nav a:hover{
   overflow:hidden
 }
 
-#music .content-samples div{
+#music .content-samples>div{
   background-color:#000;
   border-radius:.25rem;
   border:#333 1px solid;
@@ -2068,11 +2111,11 @@ footer nav a:hover{
   transform:translateY(100vh) translateZ(0)
 }
 
-#music .content-samples div p{
+#music .content-samples>div p{
   padding:.25rem 0 1.25rem 0
 }
 
-#music .content-samples div audio{
+#music .content-samples>div audio{
   width:100%
 }
 
@@ -2086,6 +2129,22 @@ footer nav a:hover{
 @media(min-width: 1024px){
   #music .content-events{
     justify-content:space-evenly
+  }
+}
+
+.ripple{
+  position:absolute;
+  border-radius:50%;
+  transform:scale(0);
+  animation:ripple-animation 1s linear;
+  background:red;
+  z-index:99
+}
+
+@keyframes ripple-animation{
+  to{
+    transform:scale(4);
+    opacity:0
   }
 }
 
@@ -2168,6 +2227,13 @@ footer nav a:hover{
   }
 
   to{
+    opacity:0
+  }
+}
+
+@keyframes ripple-animation{
+  to{
+    transform:scale(4);
     opacity:0
   }
 }
@@ -2340,6 +2406,13 @@ footer nav a:hover{
   }
 
   to{
+    opacity:0
+  }
+}
+
+@keyframes ripple-animation{
+  to{
+    transform:scale(4);
     opacity:0
   }
 }

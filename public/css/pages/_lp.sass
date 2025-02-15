@@ -9,7 +9,6 @@
     flex-direction: column
     align-items: center
     justify-content: center
-    height: 100vh
     overflow: hidden
 
     .lp-brand
@@ -34,8 +33,12 @@
 
     .lp-categories
       display: flex
+      flex-wrap: wrap
       align-items: center
       justify-content: center
+
+      //@media screen and (max-width: 768px)
+      //height: 100vh
 
       .lp-category
         display: flex
@@ -51,14 +54,14 @@
           transform: scale(1.2)
 
         a
-          border-radius: variables.$border-radius-sm
-
           img
             background-color: variables.$primary-color
+            border-radius: variables.$border-radius-sm
             outline: variables.$tertiary-color 1px solid
-            height: auto !important
-            max-width: 100% !important
             transform: translateY(100vh) translateZ(0)
+            padding: 2.5rem
+            height: 250px
+            width: auto
 
 
         label

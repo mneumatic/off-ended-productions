@@ -1,5 +1,6 @@
 import * as Observer from '../utils/observers.js'
 import { loading } from "../utils/loading.js";
+import { rippleEffect } from "../partials/hero.js";
 
 const hero = document.querySelectorAll(".content-images")
 const content = document.querySelectorAll(".content-github, .content-repos")
@@ -8,6 +9,8 @@ const images = document.querySelectorAll("img")
 
 const observer = new IntersectionObserver(Observer.images, Observer.options)
 const observerCaptions = new IntersectionObserver(Observer.opacity, Observer.options)
+
+rippleEffect()
 
 let spinner = document.querySelectorAll('.spinner');
 for (let element of spinner) {

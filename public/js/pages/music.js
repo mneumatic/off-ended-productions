@@ -1,5 +1,6 @@
 import * as Observer from '../utils/observers.js'
 import { loading } from "../utils/loading.js";
+import { rippleEffect } from "../partials/hero.js";
 
 const contentImages = document.querySelectorAll(".content-images")
 const contentCards = document.querySelectorAll(".content-events")
@@ -9,6 +10,8 @@ const images = document.querySelectorAll(".content-card img")
 
 const observer = new IntersectionObserver(Observer.images, Observer.options)
 const observerCaptions = new IntersectionObserver(Observer.opacity, Observer.options)
+
+rippleEffect()
 
 let spinner = document.querySelector('.spinner');
 spinner.style.display = 'block';

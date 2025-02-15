@@ -12,7 +12,7 @@ const data = [
         url:    "/podcast"
     },
     {
-        image:  "twojz-music-logo.webp",
+        image:  "twojz-red-white-logo.webp",
         title:  "2Jz Music",
         url:    "/twojz-music"
     },
