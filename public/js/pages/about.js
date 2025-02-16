@@ -1,15 +1,15 @@
 import * as Observer from '../utils/observers.js'
 
-const hero = document.querySelectorAll(".container__animated")
-const captions = document.querySelectorAll(".caption")
+const communityImages = document.querySelectorAll(".content-images")
+const captions = document.querySelectorAll(".content-header, .content-more")
 
 const observer = new IntersectionObserver(Observer.images, Observer.options)
 const observerCaptions = new IntersectionObserver(Observer.opacity, Observer.options)
 
-hero.forEach(element => {
+communityImages.forEach(element => {
   observer.observe(element)
 })
 
-captions.forEach(caption => {
-  observerCaptions.observe(caption)
+captions.forEach(element => {
+  observerCaptions.observe(element)
 })

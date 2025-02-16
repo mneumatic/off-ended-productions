@@ -3,12 +3,8 @@
 @use '../utils/animations' as animations
 
 #mneumatic-designs
-  .hero
-    img
-      position: absolute
-      border-radius: 50%
-      height: auto !important
-      max-width: 100% !important
+  padding-top: 0
+  @include mixins.oep-stickman
 
   .content-github
     display: flex

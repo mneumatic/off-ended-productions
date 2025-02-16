@@ -878,13 +878,17 @@ textarea{
 }
 
 main{
-  padding-top:5.5rem;
+  padding:5.5rem 0 5.5rem 0;
   overflow-x:hidden
 }
 
 section,footer{
   padding-top:2.5rem;
   padding-bottom:2.5rem
+}
+
+section:last-child{
+  padding-bottom:0
 }
 
 @media(min-width: 768px){
@@ -1327,6 +1331,7 @@ input::-ms-reveal{
 }
 
 .hero{
+  background-color:#000;
   position:relative;
   display:flex;
   flex-direction:column;
@@ -1342,9 +1347,17 @@ input::-ms-reveal{
 }
 
 .hero img{
+  padding:0 1rem 0 1rem;
   outline:none !important;
-  height:768px;
-  width:auto
+  height:auto;
+  width:100%
+}
+
+@media(min-width: 985px){
+  .hero img{
+    height:768px;
+    width:auto
+  }
 }
 
 .hero .hero-notification{
@@ -1370,14 +1383,6 @@ input::-ms-reveal{
   animation:ripple-animation 1s linear;
   background:red;
   z-index:99
-}
-
-.content{
-  background-image:url("/img/oep-stickman.svg");
-  background-repeat:no-repeat;
-  background-position:center;
-  background-size:cover;
-  background-attachment:fixed
 }
 
 .content .content-wrapper{
@@ -1722,6 +1727,14 @@ footer nav a:hover{
   }
 }
 
+#lp{
+  background-image:url("/img/oep-stickman.svg");
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:cover;
+  background-attachment:fixed
+}
+
 #lp .hero{
   height:100%
 }
@@ -1920,6 +1933,15 @@ footer nav a:hover{
   }
 }
 
+#podcast{
+  padding-top:0;
+  background-image:url("/img/oep-stickman.svg");
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:cover;
+  background-attachment:fixed
+}
+
 #podcast .content-youtube{
   flex-direction:column;
   justify-content:center;
@@ -2058,6 +2080,15 @@ footer nav a:hover{
   }
 }
 
+#music{
+  padding-top:0;
+  background-image:url("/img/oep-stickman.svg");
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:cover;
+  background-attachment:fixed
+}
+
 #music .content-samples{
   flex-direction:column;
   justify-content:center;
@@ -2185,6 +2216,15 @@ footer nav a:hover{
     transform:scale(4);
     opacity:0
   }
+}
+
+#platinum-signatures{
+  padding-top:0;
+  background-image:url("/img/oep-stickman.svg");
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:cover;
+  background-attachment:fixed
 }
 
 #platinum-signatures .content .content-wrapper{
@@ -2366,11 +2406,13 @@ footer nav a:hover{
   }
 }
 
-#mneumatic-designs .hero img{
-  position:absolute;
-  border-radius:50%;
-  height:auto !important;
-  max-width:100% !important
+#mneumatic-designs{
+  padding-top:0;
+  background-image:url("/img/oep-stickman.svg");
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:cover;
+  background-attachment:fixed
 }
 
 #mneumatic-designs .content-github{
@@ -2551,14 +2593,6 @@ footer nav a:hover{
   background-color:#333
 }
 
-#community .content{
-  background-color:#000
-}
-
-#community .content:nth-child(1){
-  background-image:none
-}
-
 #community .rs .content-wrapper{
   display:flex !important;
   flex-direction:column;
@@ -2605,11 +2639,6 @@ footer nav a:hover{
   background-color:#333
 }
 
-#local-events .content:nth-child(1){
-  background-color:#000;
-  background-image:none
-}
-
 #local-events .content-events{
   position:relative;
   justify-content:center;
@@ -2640,11 +2669,6 @@ footer nav a:hover{
   background-color:#333
 }
 
-#local-businesses .content:nth-child(1){
-  background-color:#000;
-  background-image:none
-}
-
 #local-businesses .content-businesses{
   position:relative;
   justify-content:center;
@@ -2673,11 +2697,6 @@ footer nav a:hover{
 
 #local-businesses .content-more a:hover{
   background-color:#333
-}
-
-#contact .content:nth-child(1){
-  background-color:#000;
-  background-image:none
 }
 
 @media(min-width: 1280px){
