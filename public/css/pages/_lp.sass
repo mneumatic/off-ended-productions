@@ -3,24 +3,22 @@
 @use '../utils/animations' as animations
 
 #lp
-  @include mixins.oep-stickman
+  padding-top: 0
 
-  .hero
-    height: 100%
+  section:last-child
+    padding-top: 0
+    padding-bottom: 5rem
 
   .oep-logo
-    padding: 0 1rem 0 1rem
+    @media (min-width: 1200px)
+      transform: translateX(60px)
 
-    @include mixins.img-fluid
-    @media (min-width: 992px)
-      transform: translateX(48px)
 
   .lp-mottos
     font-family: "Permanent Marker", sans-serif
     text-align: center
     max-width: 992px
     font-size: 1.5rem
-    margin-top: 5rem
 
     span
       opacity: 0
@@ -30,34 +28,35 @@
     flex-wrap: wrap
     align-items: center
     justify-content: center
-    margin-top: 5rem
     @include mixins.container
 
+    .content-categories
+      display: flex
+      flex-direction: row
+      flex-wrap: wrap
+      justify-content: space-between
+      overflow: hidden
 
-    .content-category
-      flex-direction: column
-      align-items: center
-      width: 320px
-      text-align: center
-      transition: transform .3s ease-in-out
-      @include mixins.animated-flex
+      .content-card
+        background: variables.$primary-color
+        text-align: center
+        padding: 1rem
+        margin: 1rem
+        transition: transform 0.3s ease-in-out
 
-      &:hover
-        transform: scale(1.2)
-
-      a
-        padding-top: 1rem
+        &:hover
+          transform: scale(1.1)
 
         img
           background-color: variables.$primary-color
-          border-radius: variables.$border-radius-sm
+          border-radius: variables.$border-radius-md
           outline: variables.$tertiary-color 1px solid !important
           transform: translateY(100vh) translateZ(0)
           padding: 2.5rem
           height: 250px
           width: auto
+          margin-bottom: 1rem
 
-      label
-        font-family: "Permanent Marker", sans-serif
-        margin-top: 0.5rem
-        opacity: 0
+        label
+          font-family: "Permanent Marker", sans-serif
+          opacity: 0

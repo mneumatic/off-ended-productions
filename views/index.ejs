@@ -6,23 +6,32 @@
   <main id="lp">
       <section class="hero">
           <h1>OFF ENDED Productions</h1>
-          <img class="oep-logo" src="/img/oep-logo.webp" alt="Off Ended Productions"/>
+          <img class="oep-logo" src="/img/oep-logo-768px.webp" alt="Off Ended Productions"/>
           <span class="lp-mottos">
             <% for (let mot of motto.motto ) { %>
                 <span><%= mot %></span>
             <% } %>
           </span>
-          <div class="content-wrapper">
-              <% for (let category of categories) { %>
-                  <div class="content-category">
-                      <a href="<%- category.url %>" title="<%= category.title %> →" aria-label="<%= category.title %>">
-                          <img src="/img/<%- category.image %>" alt="<%= category.title %>">
-                      </a>
-                      <label><%= category.title %></label>
-                  </div>
-              <% } %>
+          <div class="hero-notification">
+              <span>Scroll Down ⤵</span>
           </div>
           <div class="hero-ripple"></div>
+      </section>
+      <section>
+          <div class="content-wrapper">
+              <div class="content-categories">
+              <% for (let category of categories) { %>
+                  <div class="content-card">
+                      <div class="content-card-body">
+                          <a href="<%- category.url %>" title="<%= category.title %> →" aria-label="<%= category.title %>">
+                              <img src="/img/<%- category.image %>" alt="<%= category.title %>">
+                          </a>
+                          <label><%= category.title %></label>
+                      </div>
+                  </div>
+              <% } %>
+              </div>
+          </div>
       </section>
   </main>
   <%- include('partials/footer.ejs') %>

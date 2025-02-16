@@ -878,7 +878,7 @@ textarea{
 }
 
 main{
-  padding:5.5rem 0 5.5rem 0;
+  padding:4.5rem 0 4.5rem 0;
   overflow-x:hidden
 }
 
@@ -1349,14 +1349,16 @@ input::-ms-reveal{
 .hero img{
   padding:0 1rem 0 1rem;
   outline:none !important;
-  height:auto;
-  width:100%
+  border-radius:.25rem;
+  outline:#333 solid 1px;
+  height:auto !important;
+  max-width:100% !important
 }
 
-@media(min-width: 985px){
+@media(min-width: 1200px){
   .hero img{
-    height:768px;
-    width:auto
+    height:768px !important;
+    width:inherit
   }
 }
 
@@ -1728,28 +1730,17 @@ footer nav a:hover{
 }
 
 #lp{
-  background-image:url("/img/oep-stickman.svg");
-  background-repeat:no-repeat;
-  background-position:center;
-  background-size:cover;
-  background-attachment:fixed
+  padding-top:0
 }
 
-#lp .hero{
-  height:100%
+#lp section:last-child{
+  padding-top:0;
+  padding-bottom:5rem
 }
 
-#lp .oep-logo{
-  padding:0 1rem 0 1rem;
-  border-radius:.25rem;
-  outline:#333 solid 1px;
-  height:auto !important;
-  max-width:100% !important
-}
-
-@media(min-width: 992px){
+@media(min-width: 1200px){
   #lp .oep-logo{
-    transform:translateX(48px)
+    transform:translateX(60px)
   }
 }
 
@@ -1757,8 +1748,7 @@ footer nav a:hover{
   font-family:"Permanent Marker",sans-serif;
   text-align:center;
   max-width:992px;
-  font-size:1.5rem;
-  margin-top:5rem
+  font-size:1.5rem
 }
 
 #lp .lp-mottos span{
@@ -1770,7 +1760,6 @@ footer nav a:hover{
   flex-wrap:wrap;
   align-items:center;
   justify-content:center;
-  margin-top:5rem;
   margin-right:auto;
   margin-left:auto;
   padding-right:1rem;
@@ -1808,38 +1797,39 @@ footer nav a:hover{
   }
 }
 
-#lp .content-wrapper .content-category{
-  flex-direction:column;
-  align-items:center;
-  width:320px;
-  text-align:center;
-  transition:transform .3s ease-in-out;
-  display:flex !important;
-  flex-wrap:wrap !important;
+#lp .content-wrapper .content-categories{
+  display:flex;
+  flex-direction:row;
+  flex-wrap:wrap;
+  justify-content:space-between;
   overflow:hidden
 }
 
-#lp .content-wrapper .content-category:hover{
-  transform:scale(1.2)
+#lp .content-wrapper .content-categories .content-card{
+  background:#000;
+  text-align:center;
+  padding:1rem;
+  margin:1rem;
+  transition:transform .3s ease-in-out
 }
 
-#lp .content-wrapper .content-category a{
-  padding-top:1rem
+#lp .content-wrapper .content-categories .content-card:hover{
+  transform:scale(1.1)
 }
 
-#lp .content-wrapper .content-category a img{
+#lp .content-wrapper .content-categories .content-card img{
   background-color:#000;
-  border-radius:.25rem;
+  border-radius:.5rem;
   outline:#333 1px solid !important;
   transform:translateY(100vh) translateZ(0);
   padding:2.5rem;
   height:250px;
-  width:auto
+  width:auto;
+  margin-bottom:1rem
 }
 
-#lp .content-wrapper .content-category label{
+#lp .content-wrapper .content-categories .content-card label{
   font-family:"Permanent Marker",sans-serif;
-  margin-top:.5rem;
   opacity:0
 }
 
