@@ -1,0 +1,52 @@
+@use '../utils/variables' as variables
+@use '../utils/mixins' as mixins
+
+#contact
+  .content:nth-child(1)
+    background-color: variables.$primary-color
+    background-image: none
+
+  .contact
+    .content-wrapper
+      @media (min-width: 1280px)
+        display: flex !important
+
+
+      .content-info
+        display: flex
+        flex-direction: column
+        align-items: center
+
+        .content-form
+          form
+            background-color: variables.$primary-color
+            border: variables.$tertiary-color 1px solid
+            padding: 2.5rem
+            height: auto
+            max-width: 992px
+            border-radius: variables.$border-radius-md
+            transform: translateY(100vh)
+
+            div
+              margin: 0 0 0.75rem 0
+
+              label
+                display: block
+                margin-bottom: 0.25rem
+
+              input,
+              textarea
+                background-color: variables.$primary-color
+                border-radius: variables.$border-radius-sm
+                border: variables.$tertiary-color 1px solid
+                padding: 0.5rem
+                width: 100%
+
+            button
+              border-radius: variables.$border-radius-sm
+              border: variables.$tertiary-color 1px solid
+              width: 200px
+              margin-top: 1.25rem
+              @include mixins.btn
+
+
