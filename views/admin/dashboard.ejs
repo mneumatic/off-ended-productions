@@ -2,72 +2,123 @@
 <html lang="en" class="no-js">
 <%- include('../partials/head.ejs') %>
 <body>
-    <%- include('../partials/flash.ejs') %>
     <main id="dashboard">
+
         <dialog class="dashboard-dialog">
-            <form class="dashboard-dialog-form" action="" method="POST">
-                <p class="dash-dialog-message"></p>
-                <div>
-                    <button type="submit" title="Delete" aria-label="Delete">Delete</button>
-                    <button type="button" onclick="closeDialog()">Cancel</button>
+            <form class="dashboard-dialog-form" method="POST">
+                <p class="dialog-msg"></p>
+                <div class="img-wrapper">
+                    <img class="outline outline-1" src="" alt="">
+                    <label><strong>Image:</strong>
+                        <input type="text" name="event[imagePath]">
+                    </label>
+                </div>
+                <hr>
+                <label><strong>Title:</strong>
+                    <input type="text" name="event[title]" required>
+                </label>
+                <hr>
+                <label><strong>Description:</strong>
+                    <textarea type="text" name="event[description]"></textarea>
+                </label>
+                <hr>
+                <label><strong>Operational Hours:</strong>
+                    <input type="text" name="event[hours]" required>
+                </label>
+                <hr>
+                <label><strong>Location:</strong>
+                    <input type="text" name="event[location]" required>
+                </label>
+                <hr>
+                <label><strong class="form-change">Date Of:</strong>
+                    <input type="text" name="event[date]" required>
+                </label>
+                <hr>
+                <div class="flex flex-row justify-end w-full">
+                    <button type="submit" title="Add" aria-label="Add">Add</button>
+                    <button onclick="closeDialog()" type="button" title="Cancel" aria-label="Cancel">Cancel</button>
                 </div>
             </form>
         </dialog>
+
         <aside class="dashboard-sidebar-left">
-            <h1>Dashboard</h1>
+            <div class="flex flex-row justify-between w-full">
+                <h1>OEP Dashboard</h1>
+                <a href="/admin/logout">Logout</a>
+            </div>
+
             <div>
-                <label><span>2Jz Music Events</span>: <span><%- music.length %></span></label>
+                <label>2Jz Music Events: <%- music.length %></label>
             </div>
             <div class="dash-panel-viewer">
-                <label><span>Local Events</span>: <span><%- events.length %></span></label>
+                <label>Local Events: <%- events.length %></label>
             </div>
             <div class="dash-panel-viewer">
-                <label><span>Local Businesses</span>: <span><%- businesses.length %></span></label>
+                <label>Local Businesses: <%- businesses.length %></label>
             </div>
-            <div class="dash-panel-search-controls">
+            <div class="dashboard-sidebar-search">
+                <label for="search-all-input">Search</label>
                 <div>
-                    <label for="search-all-input" onclick="toggleInput('search-all-input')" title="Open/Close Search" aria-label="Open/Close Search">Search</label>
-                    <input id="search-all-input" class="clear-input rounded p-2 bg-black border border-white w-[250px]" type="text" oninput="searchFunction(this.value.toUpperCase(), localStorage.getItem('open-viewer'))" title="Search..." aria-label="Search..." placeholder="Search...">
-                    <button class="clear-button" onclick="clearInput('search-all-input', document.querySelectorAll('.dash-content-music-event, .dash-content-local-event, .dash-content-local-business'))" title="Delete Search" aria-label="Delete Search"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"><path fill="#fff" d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12l1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/></svg></button>
-                </div>
-                <div>
-                    <span class="dash-panel-matches"></span>
+                    <input id="search-all-input" class="clear-input" type="text" oninput="search(this.value.toUpperCase(), document.querySelectorAll('.item-form'))" title="Search" aria-label="Search">
+                    <button class="clear-button" onclick="clearInput('search-all-input', document.querySelectorAll('.item-form'))" title="Delete Search" aria-label="Delete Search">x</button>
                 </div>
             </div>
             <hr>
             <nav>
                 <div class="flex flex-col">
-                    <label style="margin-top: 0">+ Add</label>
+                    <label style="margin-top: 0">Website</label>
+                    <a href="/">Home</a>
+                    <a href="/twojz-music">2Jz Music</a>
+                    <a href="/platinum-signatures">Platinum Signatures</a>
+                    <a href="/mneumatic-designs">MNEUMATIC Designs</a>
+                    <a href="/community">Community</a>
+                    <a href="/community/events">Local Events</a>
+                    <a href="/community/businesses">Local Businesses</a>
+                    <a href="/contact">Contact Us</a>
+                </div>
+                <div class="flex flex-col">
+                    <label>+ Add</label>
                     <button onclick="openDialog(0, 'music', 'Add New Event')">New Music Event</button>
-                    <button>New Music Track</button>
-                    <button>New Local Event</button>
-                    <button>New Local Business</button>
+                    <button onclick="openDialog(0, 'events', 'Add New Event')">New Local Event</button>
+                    <button onclick="openDialog(0, 'businesses', 'Add New Business')">New Local Business</button>
                 </div>
                 <div class="flex flex-col">
                     <label>Commands</label>
-                    <a href="#">Update Spotify RSS Feed</a>
-                    <a href="#">Update GitHub Information</a>
+                    <a href="/admin/update-rss">Update Spotify RSS Feed</a>
+                    <a href="/admin/update-github">Update GitHub Information</a>
                 </div>
             </nav>
         </aside>
         <aside class="dashboard-sidebar-right">
-            <h1>Dashboard</h1>
-            <nav class="flex flex-col">
-                <a href="#">Facebook Page</a>
-                <a href="#">Instagram</a>
-            </nav>
+            <div>
+                <h2>Information</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid amet architecto at atque dolore, excepturi ipsam maxime, minima, nisi nobis omnis porro praesentium quidem sed sequi similique soluta voluptas voluptatibus?</p>
+            </div>
+            <hr>
+            <div>
+                <h2>Social Media</h2>
+                <nav class="flex flex-col">
+                    <a href="https://www.facebook.com/profile.php?id=61567183989485" title="Follow Us on FaceBook" aria-label="Follow Us on FaceBook" target="_blank" rel="noreferrer noopener">Facebook</a>
+                    <a href="https://www.instagram.com/off_ended_productions" title="Follow Us on Instagram" aria-label="Follow Us on Instagram" target="_blank" rel="noreferrer noopener">Instagram</a>
+                </nav>
+            </div>
         </aside>
         <section class="dashboard-content">
+            <%- include('../partials/flash.ejs') %>
             <div class="container">
                 <details open>
                     <summary class="mb-4"><span>2Jz Music Events</span></summary>
                     <div class="summary-wrapper">
                     <% for (let event of music ) { %>
-                        <form action="/admin/music/edit/<%= event._id %>?_method=PUT" data-title="<%- event.title %>"  method="POST" class="flex flex-row items-start mb-4 validated-form" novalidate>
-                            <div class="img-wrapper">
-                                <div class="spinner"></div>
-                                <img class="outline outline-1" src="<%- event.imagePath %>" alt="<%- event.title %>">
+                        <form action="/admin/music/edit/<%= event._id %>?_method=PUT" data-title="<%- event.title %>"  method="POST" class=" item-form flex flex-row items-start mb-4 validated-form" novalidate>
+                            <div class="flex flex-col">
+                                <h3><%- event.title %></h3>
+                                <div class="img-wrapper">
+                                    <div class="spinner"></div>
+                                    <img class="outline outline-1" src="<%- event.imagePath %>" alt="<%- event.title %>">
+                                </div>
                             </div>
+
                             <div class="card-info flex flex-col px-8 w-full">
                                 <br>
                                 <label><strong>Image:</strong>
@@ -75,7 +126,7 @@
                                 </label>
                                 <hr>
                                 <label><strong>Title:</strong>
-                                    <input type="text" name="event[title]" value="<%= event.title %>" required>
+                                    <input class="title" type="text" name="event[title]" value="<%= event.title %>" required>
                                 </label>
                                 <hr>
                                 <label><strong>Description:</strong>
@@ -109,10 +160,13 @@
                     <summary class="mb-4"><span>Local Events</span></summary>
                     <div class="summary-wrapper">
                     <% for (let event of events ) { %>
-                        <form action="/admin/events/edit/<%= event._id %>?_method=PUT" data-title="<%- event.title %>" method="POST" class="flex flex-row items-start mb-4">
-                            <div class="img-wrapper">
-                                <div class="spinner"></div>
-                                <img class="outline outline-1" src="<%- event.imagePath %>" alt="<%- event.title %>">
+                        <form action="/admin/events/edit/<%= event._id %>?_method=PUT" data-title="<%- event.title %>" method="POST" class="item-form flex flex-row items-start mb-4">
+                            <div class="flex flex-col">
+                                <h3><%- event.title %></h3>
+                                <div class="img-wrapper">
+                                    <div class="spinner"></div>
+                                    <img class="outline outline-1" src="<%- event.imagePath %>" alt="<%- event.title %>">
+                                </div>
                             </div>
                             <div class="card-info flex flex-col px-8 w-full">
                                 <br>
@@ -121,7 +175,7 @@
                                 </label>
                                 <hr>
                                 <label><strong>Title:</strong>
-                                    <input type="text" name="event[title]" value="<%= event.title %>" required>
+                                    <input class="title" type="text" name="event[title]" value="<%= event.title %>" required>
                                 </label>
                                 <hr>
                                 <label><strong>Description:</strong>
@@ -155,15 +209,18 @@
                     <summary class="mb-4"><span>Local Businesses</span></summary>
                     <div class="summary-wrapper">
                     <% for (let business of businesses ) { %>
-                        <form action="/admin/businesses/edit/<%= business._id %>?_method=PUT" data-title="<%- business.title %>" method="POST" class="flex flex-row items-start mb-4">
-                            <div class="img-wrapper">
-                                <div class="spinner"></div>
-                                <img class="outline outline-1" src="<%- business.imagePath %>" alt="<%- business.title %>">
+                        <form action="/admin/businesses/edit/<%= business._id %>?_method=PUT" data-title="<%- business.title %>" method="POST" class="item-form flex flex-row items-start mb-4">
+                            <div class="flex flex-col">
+                                <h3><%- business.title %></h3>
+                                <div class="img-wrapper">
+                                    <div class="spinner"></div>
+                                    <img class="outline outline-1" src="<%- business.imagePath %>" alt="<%- business.title %>">
+                                </div>
                             </div>
                             <div class="card-info flex flex-col px-8 w-full">
                                 <br>
                                 <label><strong>Title:</strong>
-                                    <input name="business[title]" type="text" value="<%= business.title %>">
+                                    <input class="title" name="business[title]" type="text" value="<%= business.title %>">
                                 </label>
                                 <hr>
                                 <label><strong>Description:</strong>
@@ -184,7 +241,7 @@
                                 <hr>
                                 <div class="flex flex-row justify-end w-full">
                                     <button type="submit" title="Update Business" aria-label="Update Business">Update</button>
-                                    <button onclick="deleteItem(2, 'events', '<%- business._id %>', '<%- business.title %>')" type="button">Delete</button>
+                                    <button onclick="deleteItem(2, 'businesses', '<%- business._id %>', '<%- business.title %>')" type="button">Delete</button>
                                 </div>
                                 <br>
                             </div>
@@ -196,6 +253,23 @@
             </div>
         </section>
     </main>
-    <script src="/js/pages/dashboard.js" type="module"></script>
+    <script src="/js/pages/dashboard.js"></script>
+    <script type="module">
+      import { loading } from "/js/utils/loading.js";
+
+      const spinners = document.querySelectorAll('.spinner')
+      const images = document.querySelectorAll('.dashboard-content img')
+
+      spinners.forEach(spinner => {
+        spinner.style.display = 'block';
+      })
+
+      const promises = Array.from(images).map(img => loading(img))
+      Promise.all(promises).then(() => {
+        spinners.forEach(spinner => {
+          spinner.style.display = 'none';
+        })
+      })
+    </script>
 </body>
 </html>

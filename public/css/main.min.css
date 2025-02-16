@@ -738,10 +738,6 @@ video {
   width: 200px;
 }
 
-.w-\[250px\] {
-  width: 250px;
-}
-
 .w-\[320px\] {
   width: 320px;
 }
@@ -1406,9 +1402,9 @@ input::-ms-reveal{
   }
 }
 
-@keyframes slide-out-y{
+@keyframes slide-out--y{
   to{
-    transform:translateY(100%)
+    transform:translateY(-100%)
   }
 }
 
@@ -1690,25 +1686,65 @@ footer nav a:hover{
   text-underline-position:under !important
 }
 
+#fm{
+  position:relative;
+  margin-right:auto;
+  margin-left:auto;
+  width:1509px !important
+}
+
 #fm .fm-success,#fm .fm-error{
-  animation:slide-in .5s forwards,slide-out-x .5s forwards;
+  animation:slide-in .5s ease forwards,slide-out--y .5s ease forwards;
   animation-delay:0s,10s;
   background-color:#16a34a;
-  border-radius:.5rem 0 0 .5rem;
-  text-align:center;
+  border-bottom-right-radius:.5rem;
+  border-bottom-left-radius:.5rem;
+  font-weight:bold;
   position:fixed;
-  top:90px;
-  right:0;
+  top:0;
   display:flex;
   flex-direction:row;
   align-items:center;
+  justify-content:space-between;
   padding:1rem;
-  transform:translateX(100%);
-  z-index:90
+  transform:translateY(-100%);
+  z-index:90;
+  width:1509px !important;
+  margin-right:auto;
+  margin-left:auto;
+  padding-right:1rem;
+  padding-left:1rem;
+  width:100%
 }
 
-#fm .fm-success button,#fm .fm-error button{
-  margin-left:.5rem
+@media(min-width: 640px){
+  #fm .fm-success,#fm .fm-error{
+    max-width:640px
+  }
+}
+
+@media(min-width: 768px){
+  #fm .fm-success,#fm .fm-error{
+    max-width:768px
+  }
+}
+
+@media(min-width: 1024px){
+  #fm .fm-success,#fm .fm-error{
+    max-width:1024px
+  }
+}
+
+@media(min-width: 1280px){
+  #fm .fm-success,#fm .fm-error{
+    max-width:1280px
+  }
+}
+
+@media(min-width: 1536px){
+  #fm .fm-success,#fm .fm-error{
+    max-width:1536px
+  }
 }
 
 #fm .fm-error{
@@ -1758,9 +1794,9 @@ footer nav a:hover{
   }
 }
 
-@keyframes slide-out-y{
+@keyframes slide-out--y{
   to{
-    transform:translateY(100%)
+    transform:translateY(-100%)
   }
 }
 
@@ -1973,9 +2009,9 @@ footer nav a:hover{
   }
 }
 
-@keyframes slide-out-y{
+@keyframes slide-out--y{
   to{
-    transform:translateY(100%)
+    transform:translateY(-100%)
   }
 }
 
@@ -2111,9 +2147,9 @@ footer nav a:hover{
   }
 }
 
-@keyframes slide-out-y{
+@keyframes slide-out--y{
   to{
-    transform:translateY(100%)
+    transform:translateY(-100%)
   }
 }
 
@@ -2256,9 +2292,9 @@ footer nav a:hover{
   }
 }
 
-@keyframes slide-out-y{
+@keyframes slide-out--y{
   to{
-    transform:translateY(100%)
+    transform:translateY(-100%)
   }
 }
 
@@ -2435,9 +2471,9 @@ footer nav a:hover{
   }
 }
 
-@keyframes slide-out-y{
+@keyframes slide-out--y{
   to{
-    transform:translateY(100%)
+    transform:translateY(-100%)
   }
 }
 
@@ -2674,25 +2710,40 @@ footer nav a:hover{
   top:0;
   left:0;
   height:100vh;
+  width:409px;
   z-index:99
+}
+
+#dashboard .dashboard-sidebar-left h1,#dashboard .dashboard-sidebar-left h2,#dashboard .dashboard-sidebar-right h1,#dashboard .dashboard-sidebar-right h2{
+  font-size:1.5rem;
+  text-decoration:underline;
+  text-underline-position:under;
+  margin-bottom:1rem
 }
 
 #dashboard .dashboard-sidebar-left .dashboard-sidebar-search,#dashboard .dashboard-sidebar-right .dashboard-sidebar-search{
   display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  margin-top:1rem
+  flex-direction:column
 }
 
-#dashboard .dashboard-sidebar-left .dashboard-sidebar-search div:nth-child(1),#dashboard .dashboard-sidebar-right .dashboard-sidebar-search div:nth-child(1){
+#dashboard .dashboard-sidebar-left .dashboard-sidebar-search>div,#dashboard .dashboard-sidebar-right .dashboard-sidebar-search>div{
   display:flex;
-  justify-content:center;
-  align-items:center
+  flex-direction:row;
+  justify-content:space-between
 }
 
-#dashboard .dashboard-sidebar-left .dashboard-sidebar-search a,#dashboard .dashboard-sidebar-left .dashboard-sidebar-search button,#dashboard .dashboard-sidebar-right .dashboard-sidebar-search a,#dashboard .dashboard-sidebar-right .dashboard-sidebar-search button{
+#dashboard .dashboard-sidebar-left .dashboard-sidebar-search>div input,#dashboard .dashboard-sidebar-right .dashboard-sidebar-search>div input{
+  background-color:rgba(0,0,0,0);
   border:#333 1px solid;
+  border-radius:.25rem;
+  padding:.5rem;
+  width:100%
+}
+
+#dashboard .dashboard-sidebar-left .dashboard-sidebar-search>div button,#dashboard .dashboard-sidebar-right .dashboard-sidebar-search>div button{
+  border:#333 1px solid;
+  padding:0 1rem 0 1rem !important;
+  margin-left:.5rem;
   color:#fff;
   display:block;
   padding:.5rem;
@@ -2701,37 +2752,9 @@ footer nav a:hover{
   transition:background-color .3s ease-in-out,color .3s ease-in-out
 }
 
-#dashboard .dashboard-sidebar-left .dashboard-sidebar-search a:hover,#dashboard .dashboard-sidebar-left .dashboard-sidebar-search button:hover,#dashboard .dashboard-sidebar-right .dashboard-sidebar-search a:hover,#dashboard .dashboard-sidebar-right .dashboard-sidebar-search button:hover{
-  background-color:#333
-}
-
-#dashboard .dashboard-sidebar-left .dashboard-sidebar-search input,#dashboard .dashboard-sidebar-right .dashboard-sidebar-search input{
-  width:200px;
-  margin:0 12px 0 12px;
-  padding:.625rem
-}
-
-#dashboard .dashboard-sidebar-left .dashboard-sidebar-search label,#dashboard .dashboard-sidebar-right .dashboard-sidebar-search label{
-  cursor:pointer
-}
-
-#dashboard .dashboard-sidebar-left .dashboard-sidebar-search input,#dashboard .dashboard-sidebar-right .dashboard-sidebar-search input{
-  border:#333 1px solid;
-  border-radius:.25rem;
-  background-color:#000
-}
-
-#dashboard .dashboard-sidebar-left .dashboard-sidebar-search div:nth-child(2),#dashboard .dashboard-sidebar-right .dashboard-sidebar-search div:nth-child(2){
-  position:relative;
-  display:flex;
-  justify-content:center;
-  margin-top:.5rem;
-  width:100%
-}
-
-#dashboard .dashboard-sidebar-left .dashboard-sidebar-search div:nth-child(2) span,#dashboard .dashboard-sidebar-right .dashboard-sidebar-search div:nth-child(2) span{
-  position:absolute;
-  font-weight:lighter
+#dashboard .dashboard-sidebar-left .dashboard-sidebar-search>div button:hover,#dashboard .dashboard-sidebar-right .dashboard-sidebar-search>div button:hover{
+  background-color:#333;
+  text-decoration:none
 }
 
 #dashboard .dashboard-sidebar-left label,#dashboard .dashboard-sidebar-right label{
@@ -2741,8 +2764,14 @@ footer nav a:hover{
 }
 
 #dashboard .dashboard-sidebar-left a,#dashboard .dashboard-sidebar-left button,#dashboard .dashboard-sidebar-right a,#dashboard .dashboard-sidebar-right button{
+  display:flex;
+  align-items:center;
   width:-moz-fit-content;
   width:fit-content
+}
+
+#dashboard .dashboard-sidebar-left a svg,#dashboard .dashboard-sidebar-left button svg,#dashboard .dashboard-sidebar-right a svg,#dashboard .dashboard-sidebar-right button svg{
+  margin-right:.5rem
 }
 
 #dashboard .dashboard-sidebar-left a:hover,#dashboard .dashboard-sidebar-left button:hover,#dashboard .dashboard-sidebar-right a:hover,#dashboard .dashboard-sidebar-right button:hover{
@@ -2768,74 +2797,6 @@ footer nav a:hover{
   padding:1rem
 }
 
-#dashboard .dashboard-content details .summary-wrapper form{
-  width:100%
-}
-
-#dashboard .dashboard-content details .summary-wrapper form .img-wrapper{
-  position:relative;
-  height:130px !important;
-  width:225px !important
-}
-
-#dashboard .dashboard-content details .summary-wrapper form .img-wrapper img{
-  height:100%;
-  width:225px
-}
-
-#dashboard .dashboard-content details .summary-wrapper form .card-info{
-  border-radius:.25rem;
-  margin-left:2rem
-}
-
-#dashboard .dashboard-content details .summary-wrapper form .card-info:nth-child(even){
-  background-color:rgba(51,51,51,.5)
-}
-
-#dashboard .dashboard-content details .summary-wrapper form .card-info span{
-  margin-left:1rem;
-  margin-bottom:.25rem
-}
-
-#dashboard .dashboard-content details .summary-wrapper form .card-info input,#dashboard .dashboard-content details .summary-wrapper form .card-info textarea{
-  background-color:rgba(0,0,0,0);
-  width:100%
-}
-
-#dashboard .dashboard-content details .summary-wrapper form .card-info input:hover,#dashboard .dashboard-content details .summary-wrapper form .card-info textarea:hover{
-  cursor:pointer
-}
-
-#dashboard .dashboard-content details .summary-wrapper form .card-info a{
-  width:-moz-fit-content;
-  width:fit-content;
-  border:#333 1px solid;
-  color:#fff;
-  display:block;
-  padding:.5rem;
-  border-radius:.25rem;
-  text-align:center;
-  transition:background-color .3s ease-in-out,color .3s ease-in-out
-}
-
-#dashboard .dashboard-content details .summary-wrapper form .card-info a:hover{
-  background-color:#333
-}
-
-#dashboard .dashboard-content details .summary-wrapper form .card-info button{
-  border:#333 1px solid;
-  color:#fff;
-  display:block;
-  padding:.5rem;
-  border-radius:.25rem;
-  text-align:center;
-  transition:background-color .3s ease-in-out,color .3s ease-in-out
-}
-
-#dashboard .dashboard-content details .summary-wrapper form .card-info button:hover{
-  background-color:#333
-}
-
 #dashboard .dashboard-dialog{
   background-color:rgba(0,0,0,0)
 }
@@ -2849,6 +2810,78 @@ footer nav a:hover{
   width:100%
 }
 
+#dashboard form{
+  width:100%
+}
+
+#dashboard form .img-wrapper{
+  position:relative;
+  height:130px !important;
+  width:225px !important
+}
+
+#dashboard form .img-wrapper h3{
+  display:none
+}
+
+#dashboard form .img-wrapper img{
+  height:100%;
+  width:225px
+}
+
+#dashboard form .card-info{
+  border-radius:.25rem;
+  margin-left:2rem
+}
+
+#dashboard form .card-info:nth-child(even){
+  background-color:rgba(51,51,51,.5)
+}
+
+#dashboard form .card-info span{
+  margin-left:1rem;
+  margin-bottom:.25rem
+}
+
+#dashboard form input,#dashboard form textarea{
+  background-color:rgba(0,0,0,0);
+  width:100%
+}
+
+#dashboard form input:hover,#dashboard form textarea:hover{
+  cursor:pointer
+}
+
+#dashboard form a{
+  width:-moz-fit-content;
+  width:fit-content;
+  border:#333 1px solid;
+  color:#fff;
+  display:block;
+  padding:.5rem;
+  border-radius:.25rem;
+  text-align:center;
+  transition:background-color .3s ease-in-out,color .3s ease-in-out
+}
+
+#dashboard form a:hover{
+  background-color:#333
+}
+
+#dashboard form button{
+  border:#333 1px solid;
+  color:#fff;
+  display:block;
+  padding:.5rem;
+  border-radius:.25rem;
+  text-align:center;
+  transition:background-color .3s ease-in-out,color .3s ease-in-out
+}
+
+#dashboard form button:hover{
+  background-color:#333
+}
+
 #dashboard .dashboard-dialog-form{
   background-color:#000;
   border-radius:.25rem;
@@ -2858,21 +2891,23 @@ footer nav a:hover{
   flex-direction:column;
   justify-content:center;
   padding:2.5rem;
-  width:320px
+  width:100%
 }
 
-#dashboard .dashboard-dialog-form p{
-  text-align:center;
-  padding-bottom:1rem
-}
-
-#dashboard .dashboard-dialog-form div{
+#dashboard .dashboard-dialog-form .img-wrapper{
   display:flex;
   flex-direction:row;
-  justify-content:space-between
+  height:auto !important;
+  width:auto !important
 }
 
-#dashboard .dashboard-dialog-form div button{
+#dashboard .dashboard-dialog-form .img-wrapper img{
+  height:50px;
+  width:50px;
+  margin-right:1rem
+}
+
+#dashboard .dashboard-dialog-form button{
   border:#333 1px solid;
   width:100%;
   margin-right:6px;
@@ -2884,11 +2919,11 @@ footer nav a:hover{
   transition:background-color .3s ease-in-out,color .3s ease-in-out
 }
 
-#dashboard .dashboard-dialog-form div button:hover{
+#dashboard .dashboard-dialog-form button:hover{
   background-color:#333
 }
 
-#dashboard .dashboard-dialog-form div button:nth-child(2){
+#dashboard .dashboard-dialog-form button:nth-child(2){
   margin-left:6px;
   margin-right:0
 }

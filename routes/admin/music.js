@@ -5,7 +5,7 @@ const catchAsync = require('../../utils/catchAsync');
 const { isLoggedIn } = require("../../middleware");
 
 // GET:
-router.get('/', isLoggedIn, catchAsync(async (req, res) => {
+router.get('/', catchAsync(async (req, res) => {
   res.render('admin/new/music', {
     title: "New Music Event | OEP",
     authenticated: res.locals.currentUser,
@@ -13,7 +13,7 @@ router.get('/', isLoggedIn, catchAsync(async (req, res) => {
 }))
 
 // POST:
-router.post('/', isLoggedIn, catchAsync(async (req, res, next) => {
+router.post('/', catchAsync(async (req, res, next) => {
   const event = new Music(req.body.event)
   await event.save();
   req.flash('success', `Successfully made a new Music Event!`);
