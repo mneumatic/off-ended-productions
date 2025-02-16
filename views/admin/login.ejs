@@ -4,21 +4,20 @@
 <body>
     <%- include('../partials/header.ejs') %>
     <%- include('../partials/flash.ejs') %>
-    <main class="oep-stickman" style="padding: 0">
-        <section class="h-screen" style="padding: 0">
-            <div class="container container__animated-flex flex-col items-center justify-center h-screen">
-                <h1 class="caption display-2 mb-5">Login</h1>
-                <form action="/admin" method="POST" class="validated-form flex flex-col items-center justify-center rounded bg-black p-10 y-translate" novalidate>
-                    <div class="mb-3 w-full">
-                        <label for="username" class="block mb-1">Username</label>
-                        <input class="rounded p-2 bg-black border border-white" type="text" id="username" name="username" required>
+    <main id="login">
+        <section class="content">
+            <div class="content-wrapper">
+                <h1>Login</h1>
+                <form action="/admin" method="POST" class="validated-form" novalidate>
+                    <div>
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" required>
                     </div>
-
-                    <div class="mb-3 w-full">
-                        <label for="password" class="block mb-1">Password</label>
-                        <input class="rounded p-2 bg-black border border-white" type="password" id="password" name="password" required>
+                    <div>
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required>
                     </div>
-                    <button class="btn !flex justify-center mt-5 w-full">Login</button>
+                    <button>Login</button>
                 </form>
             </div>
         </section>

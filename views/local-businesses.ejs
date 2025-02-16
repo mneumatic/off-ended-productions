@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+    <%- include('partials/head.ejs') %>
+<body>
+    <%- include('partials/header.ejs') %>
+    <main id="local-businesses">
+        <section class="content">
+            <div class="content-wrapper">
+                <div class="content-infor">
+                    <div>
+                        <h2>Local Business</h2>
+                        <p>Radical Local Businesses!</p>
+                    </div>
+                    <br>
+                    <p>At Off Ended Productions, we take pride in championing local businesses that fuel our community's spirit and innovation. From the cozy coffee shops that keep our creative juices flowing to the tech startups redefining the digital landscape, we believe in the power of local enterprises to drive change and inspire greatness. Whether it's through collaboration, promotion, or simply showing up and supporting, Off Ended Productions is committed to uplifting the local heroes who make our community vibrant and unique. Together, we create a dynamic ecosystem where creativity thrives and possibilities are endless.</p>
+                </div>
+                <div class="content-images">
+                    <img src="/img/running-springs-ca.webp" alt="Running Springs CA"/>
+                </div>
+            </div>
+        </section>
+
+        <section class="content">
+            <div class="content-wrapper">
+                <div class="spinner"></div>
+                <div>
+                    <div class="content-header">
+                        <h2>Something</h2>
+                        <p>Something</p>
+                    </div>
+                    <br>
+                    <div>
+<!--                       TODO: Put something here-->
+                    </div>
+                </div>
+                <div>
+                    <div class="content-header">
+                        <h2>Local Businesses</h2>
+                        <p>Look at these badass businesses!</p>
+                    </div>
+                    <br>
+                    <div class="content-businesses">
+                        <% for (let business of businesses ) { %>
+                        <div class="content-card">
+                            <% if (business.imagePath) { %>
+                            <img src="<%- business.imagePath %>" alt="<%- business.title %>">
+                            <% } %>
+                            <div class="content-card-body">
+                                <h3><%- business.title %></h3>
+                                <p><%- business.description %></p>
+                                <div>
+                                    <span><%- business.hours %></span>
+                                    <address><%- business.location %></address>
+                                    <a href="tel:<%- business.phone %>">Call Now!</a>
+                                </div>
+                            </div>
+                        </div>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+            <div class="content-more">
+                <span>Check out our local events!</span>
+                <div>
+                    <a href="/community/events">Events</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <%- include('partials/footer.ejs') %>
+    <script src="/js/pages/local-businesses.js" type="module"></script>
+</body>
+</html>

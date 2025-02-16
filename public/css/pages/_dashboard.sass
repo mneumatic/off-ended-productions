@@ -48,7 +48,6 @@
 
     label
       color: variables.$accent-color
-      font-size: 0.75em
       margin: 1rem 0 1rem 0
 
     a,
@@ -70,14 +69,22 @@
     left: unset
     right: 0
 
+    ul
+      list-style: disc
+      margin-top: 0.5rem
+
+      li
+        margin-bottom: 0.5rem
+
   .dashboard-content
     position: relative
 
     details
       summary
         background-color: variables.$tertiary-color
-        border-radius: variables.$border-radius-sm
+        border-radius: variables.$border-radius-md
         cursor: pointer
+        user-select: none
         padding: 1rem
 
   .dashboard-dialog
@@ -103,6 +110,8 @@
         display: none
 
       img
+        border-radius: variables.$border-radius-sm
+        outline: variables.$tertiary-color 1px solid
         height: 100%
         width: 225px
 
@@ -154,6 +163,8 @@
       width: auto !important
 
       img
+        border-radius: variables.$border-radius-sm
+        outline: variables.$tertiary-color 1px solid
         height: 50px
         width: 50px
         margin-right: 1rem

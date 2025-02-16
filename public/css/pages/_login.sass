@@ -1,0 +1,54 @@
+@use '../utils/variables' as variables
+@use '../utils/mixins' as mixins
+
+#login
+  padding: 0
+  @include mixins.oep-stickman
+
+  .content
+    padding: 0
+    height: 100vh
+
+    .content-wrapper
+      flex-direction: column
+      align-items: center
+      justify-content: center
+      height: 100vh
+
+      @include mixins.animated-flex
+      @include mixins.container
+
+
+      form
+        background-color: variables.$primary-color
+        border: variables.$tertiary-color 1px solid
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: center
+        padding: 2.5rem
+        border-radius: variables.$border-radius-md
+        transform: translateY(100vh)
+
+        div
+          margin-bottom: 0.75rem
+          width: 100%
+
+          label
+            display: block
+            margin-bottom: 0.25rem
+
+          input
+            background-color: variables.$primary-color
+            border-radius: variables.$border-radius-sm
+            border: variables.$tertiary-color 1px solid
+            padding: 0.5rem
+
+        button
+          border-radius: variables.$border-radius-sm
+          border: variables.$tertiary-color 1px solid
+          display: flex
+          justify-content: center
+          margin-top: 1.25rem
+          width: 100%
+          @include mixins.btn

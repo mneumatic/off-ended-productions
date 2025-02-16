@@ -82,7 +82,7 @@ router.get('/community', async (req, res) => {
 
 router.get('/community/events', async (req, res) => {
   const events = await Events.find({})
-  res.render('events', {
+  res.render('local-events', {
     title: 'Community Events | OEP',
     events,
     authenticated: res.locals.currentUser,
@@ -91,7 +91,7 @@ router.get('/community/events', async (req, res) => {
 
 router.get('/community/businesses', async (req, res) => {
   const businesses = await Businesses.find({});
-  res.render('businesses', {
+  res.render('local-businesses', {
     title: 'Community Businesses | OEP',
     businesses,
     authenticated: res.locals.currentUser,

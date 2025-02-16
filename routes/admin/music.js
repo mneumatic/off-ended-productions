@@ -5,7 +5,7 @@ const catchAsync = require('../../utils/catchAsync');
 const { isLoggedIn } = require("../../middleware");
 
 // GET:
-router.get('/', catchAsync(async (req, res) => {
+router.get('/', isLoggedIn, catchAsync(async (req, res) => {
   res.render('admin/new/music', {
     title: "New Music Event | OEP",
     authenticated: res.locals.currentUser,
@@ -13,15 +13,14 @@ router.get('/', catchAsync(async (req, res) => {
 }))
 
 // POST:
-router.post('/', catchAsync(async (req, res, next) => {
+router.post('/', isLoggedIn, catchAsync(async (req, res, next) => {
   const event = new Music(req.body.event)
   await event.save();
   req.flash('success', `Successfully made a new Music Event!`);
   res.redirect(`/admin/dashboard`)
 }))
 
-// GET: TODO: isLoggedIn
-router.get('/edit/:id', catchAsync(async (req, res) => {
+router.get('/edit/:id', isLoggedIn, catchAsync(async (req, res) => {
   const { id } = req.params;
   const item = await Music.findById(id)
 
@@ -37,8 +36,7 @@ router.get('/edit/:id', catchAsync(async (req, res) => {
   });
 }))
 
-// POST: TODO: isLoggedIn
-router.put('/edit/:id', catchAsync(async (req, res) => {
+router.put('/edit/:id', isLoggedIn, catchAsync(async (req, res) => {
   const { id } = req.params;
   let item = await Music.findByIdAndUpdate(id, { ...req.body.event })
 
@@ -51,9 +49,7 @@ router.put('/edit/:id', catchAsync(async (req, res) => {
   res.redirect(`/admin/dashboard`);
 }));
 
-//
-// DELETE TODO: isLoggedIn
-router.delete('/delete/:id', catchAsync(async (req, res) => {
+router.delete('/delete/:id', isLoggedIn, catchAsync(async (req, res) => {
   const { id } = req.params;
   await Music.findByIdAndDelete(id);
 

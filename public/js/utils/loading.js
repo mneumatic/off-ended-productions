@@ -1,10 +1,6 @@
 export const loading = item => {
   return new Promise((resolve, reject) => {
     if (item.complete) {
-      if (document.querySelector('.spinner')) {
-        const spinner = item.previousElementSibling
-        spinner.style.display = 'none'
-      }
       resolve(item); // Resolve immediately if the image is already loaded
     } else {
       try {

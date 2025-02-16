@@ -24,8 +24,7 @@ router.post('/', passport.authenticate('local', { failureFlash: true, failureRed
   res.redirect(redirectUrl);
 })
 
-// TODO: Enable isLoadedIn
-router.get('/dashboard', async (req, res) => {
+router.get('/dashboard', isLoggedIn, async (req, res) => {
   const music = await Music.find({});
   const events = await Events.find({})
   const businesses = await Businesses.find({});
@@ -38,7 +37,7 @@ router.get('/dashboard', async (req, res) => {
   });
 })
 
-router.get('/update-rss', async (req, res) => {
+router.get('/update-rss', isLoggedIn, async (req, res) => {
   try {
     fetch(process.env.SPOTIFY_RSS_URL)
       .then(response => response.json())
@@ -67,7 +66,7 @@ router.get('/update-rss', async (req, res) => {
   res.redirect(redirectUrl);
 })
 
-router.get('/update-github', async (req, res) => {
+router.get('/update-github', isLoggedIn, async (req, res) => {
   try {
     fetch(`https://api.github.com/users/mneumatic`)
       .then(response => response.json())

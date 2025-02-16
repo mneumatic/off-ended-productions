@@ -32,13 +32,11 @@ export function images(entries, observer) {
 export function opacity(entries, observer) {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      // Element is in view, do something
       const elements = entry.target
       setTimeout(() => {
         elements.classList.add('show')
       }, 1200)
 
-      // Optionally stop observing the element
       observer.unobserve(entry.target)
     }
   })

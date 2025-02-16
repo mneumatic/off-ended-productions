@@ -1,16 +1,44 @@
 const dashDialog = document.querySelector('.dashboard-dialog')
-const dashDialogForms = document.querySelectorAll('.dashboard-dialog-form')
+const dashDialogForm = document.querySelector('.dashboard-dialog-form')
 const dashDialogMsg = document.querySelector('.dialog-msg')
 const addForms = document.querySelectorAll('.dashboard-dialog-form');
 const summaryForms = document.querySelectorAll('.summary-wrapper form')
 const deleteForms = document.querySelectorAll('.summary-wrapper .delete-form')
+const updateImage = document.querySelector('.dashboard-dialog-form .img-wrapper input')
+const detailsElements = document.querySelectorAll('details')
+const summariesElements = document.querySelectorAll('details summary')
 
+if (!localStorage.getItem('details-states')) {
+  const arr = []
+  summariesElements.forEach(detail => {
+    arr.push(true)
+  })
+  localStorage.setItem('details-states', JSON.stringify(arr))
+}
 
-addForms.forEach(form => {
-  form.addEventListener('submit', (e) => {
+loadDetailStates()
 
+function saveDetailStates(value) {
+    const states = JSON.parse(localStorage.getItem('details-states'))
+    states[value] = Boolean(!states[value])
+    const arr = JSON.parse(localStorage.getItem('details-states'))
+    arr[value] = states[value]
+    localStorage.setItem('details-states', JSON.stringify(arr))
+}
+
+summariesElements.forEach((item, index) => {
+  item.addEventListener('click', (e) => {
+    saveDetailStates(index)
   })
 })
+
+function loadDetailStates() {
+  const states = JSON.parse(localStorage.getItem('details-states'))
+  detailsElements.forEach((detail, index) => {
+    detail.open = states[index]
+    console.log(detail.open)
+  })
+}
 
 summaryForms.forEach(form => {
   form.addEventListener('submit', (e) => {
@@ -56,7 +84,13 @@ function openDialog(index, route, msg) {
 }
 
 function closeDialog() {
-  dashDialogForms.forEach(form => { form.style.display = 'none' })
+  // dashDialogForm.style.display = 'none'
+  const inputs = dashDialogForm.querySelectorAll('input')
+  inputs.forEach(input => {
+    input.value = ''
+  })
+  const textarea = dashDialogForm.querySelector('textarea')
+  textarea.value = ''
   dashDialog.close()
 }
 
@@ -83,4 +117,7 @@ function clearInput(input, items) {
   })
 }
 
-
+updateImage.addEventListener('change', (e) => {
+  const image = document.querySelector('.dashboard-dialog-form .img-wrapper img')
+  image.src = updateImage.value
+})
