@@ -878,17 +878,13 @@ textarea{
 }
 
 main{
-  padding:4.5rem 0 4.5rem 0;
+  padding:4.5rem 0 0 0;
   overflow-x:hidden
 }
 
 section,footer{
   padding-top:2.5rem;
   padding-bottom:2.5rem
-}
-
-section:last-child{
-  padding-bottom:0
 }
 
 @media(min-width: 768px){
@@ -1385,6 +1381,14 @@ input::-ms-reveal{
   animation:ripple-animation 1s linear;
   background:red;
   z-index:99
+}
+
+.content{
+  background-image:url("/img/oep-stickman.svg");
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:cover;
+  background-attachment:fixed
 }
 
 .content .content-wrapper{
