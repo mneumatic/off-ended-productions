@@ -1086,7 +1086,7 @@ input::-ms-reveal{
 
 .oep-logo{
   display:none;
-  transform:translateX(60px) !important
+  transform:translateX(60px)
 }
 
 @media(min-width: 1200px){
@@ -1110,14 +1110,6 @@ a,#dashboard aside button{
 
 a:hover,#dashboard aside button:hover{
   background-color:#333
-}
-
-.oep-logo{
-  padding:0 !important
-}
-
-.oep-logo:hover{
-  background-color:rgba(0,0,0,0)
 }
 
 button{
@@ -1151,7 +1143,13 @@ form button:nth-child(2){
 }
 
 #sh .oep-logo{
-  transform:translateX(0) !important
+  display:block !important;
+  transform:translateX(0) !important;
+  padding:0 !important
+}
+
+#sh .oep-logo:hover{
+  background-color:rgba(0,0,0,0)
 }
 
 #sh .sh-controls{
@@ -1562,20 +1560,8 @@ form button:nth-child(2){
 }
 
 .content .content-more div a{
-  background-color:#000;
-  border:#333 1px solid;
   display:flex;
-  align-items:center;
-  color:#fff;
-  display:block;
-  padding:1rem;
-  border-radius:.25rem;
-  text-align:center;
-  transition:background-color .3s ease-in-out,color .3s ease-in-out
-}
-
-.content .content-more div a:hover{
-  background-color:#333
+  align-items:center
 }
 
 .content .content-more svg path,.content .content-more svg circle{
@@ -2662,7 +2648,7 @@ form .form-img-wrapper img{
   width:100%
 }
 
-#local-events .content-events{
+#local-events .events{
   position:relative;
   display:flex;
   flex-wrap:wrap;
@@ -2670,12 +2656,28 @@ form .form-img-wrapper img{
 }
 
 @media(min-width: 1024px){
-  #local-events .content-events{
+  #local-events .events{
     justify-content:space-evenly
   }
 }
 
-#local-businesses .content-businesses{
+#local-events .content-more a{
+  background-color:#000;
+  border:#333 1px solid;
+  width:200px;
+  color:#fff;
+  display:block;
+  padding:1rem;
+  border-radius:.25rem;
+  text-align:center;
+  transition:background-color .3s ease-in-out,color .3s ease-in-out
+}
+
+#local-events .content-more a:hover{
+  background-color:#333
+}
+
+#local-businesses .businesses{
   position:relative;
   justify-content:center;
   display:flex;
@@ -2683,7 +2685,7 @@ form .form-img-wrapper img{
 }
 
 @media(min-width: 1024px){
-  #local-businesses .content-businesses{
+  #local-businesses .businesses{
     justify-content:space-evenly
   }
 }

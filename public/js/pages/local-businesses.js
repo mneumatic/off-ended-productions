@@ -2,7 +2,7 @@ import * as Observer from '../utils/observers.js'
 import { loading } from "../utils/loading.js";
 
 const contentImages = document.querySelectorAll(".content-images")
-const eventCards = document.querySelectorAll('.content-businesses')
+const eventCards = document.querySelectorAll('.businesses')
 const captions = document.querySelectorAll(".content-header, .content-more")
 const images = document.querySelectorAll('.content-card img')
 
