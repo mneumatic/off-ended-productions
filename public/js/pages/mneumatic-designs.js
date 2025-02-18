@@ -3,7 +3,7 @@ import { loading } from "../utils/loading.js";
 import { rippleEffect } from "../partials/notification.js";
 
 const hero = document.querySelectorAll(".content-images")
-const content = document.querySelectorAll(".content-github, .content-repos")
+const content = document.querySelectorAll(".github, .repos, .gists")
 const captions = document.querySelectorAll(".content-header, .content-more")
 const images = document.querySelectorAll("img")
 

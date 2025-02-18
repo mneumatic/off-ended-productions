@@ -7,9 +7,10 @@
   @include mixins.oep-stickman
 
   .content-youtube
+    display: flex
+    flex-wrap: wrap
     flex-direction: column
     justify-content: center
-    @include mixins.animated-flex
 
     div
       background-color: variables.$primary-color
@@ -27,7 +28,8 @@
         width: 100%
 
   .content-spotify
-    @include mixins.animated-flex
+    display: flex
+    flex-wrap: wrap
 
     div
       background-color: variables.$primary-color

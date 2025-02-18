@@ -1,6 +1,6 @@
 const sh = document.getElementById('sh');
 const shMenu = document.querySelector('.sh-menu');
-const shDialog = document.querySelector('.sh-dialog');
+const shDialog = document.querySelector('#sh dialog');
 const shOpenMenuBtn = document.querySelector('.sh-controls button');
 const shCloseMenuBtn = document.querySelector('.sh-menu .sh-controls');
 

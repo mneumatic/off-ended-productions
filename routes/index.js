@@ -12,6 +12,7 @@ const Businesses = require('../models/businesses');
 const GitBadges = require('../models/gitbadges');
 const gitUser = require('../data/gituser.json');
 const gitRepos = require('../data/gitrepos.json');
+const gitGists = require('../data/gitgists');
 const rssFeed = require('../data/rss.json');
 const nodemailer = require("nodemailer");
 const xoauth2 = require('xoauth2')
@@ -63,11 +64,11 @@ router.get('/platinum-signatures', async (req, res) => {
 
 router.get('/mneumatic-designs', async (req, res) => {
   const gitBadges = await GitBadges.find({});
-  const recentItems = gitRepos.slice(0, 9);
   res.render('mneumatic-designs', {
     title: 'MNEUMATIC Designs | OEP',
     gitUser,
-    gitRepos: recentItems,
+    gitRepos,
+    gitGists,
     gitBadges,
     authenticated: res.locals.currentUser,
   });

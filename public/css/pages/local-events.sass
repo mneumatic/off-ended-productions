@@ -1,0 +1,13 @@
+@use '../utils/variables' as variables
+@use '../utils/mixins' as mixins
+
+#local-events
+
+  .content-events
+    position: relative
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+
+    @media (min-width: 1024px)
+      justify-content: space-evenly

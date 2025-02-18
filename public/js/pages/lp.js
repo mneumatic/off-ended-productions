@@ -10,7 +10,7 @@ const labelObserver = new IntersectionObserver(Observer.opacity, Observer.option
 
 rippleEffect()
 
-let multiplier = [1500, 1900, 2300]
+let multiplier = [500, 900, 1200]
 let currentIndex = 0
 
 function displayMotto() {

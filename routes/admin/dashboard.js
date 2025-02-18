@@ -101,6 +101,23 @@ router.get('/update-github', isLoggedIn, async (req, res) => {
         });
       })
       .catch(error => console.error('Error fetching JSON:', error));
+
+    fetch(`https://api.github.com/users/mneumatic/gists`)
+      .then(response => response.json())
+      .then(data => {
+        // Convert JSON object to string
+        const jsonString = JSON.stringify(data, null, 2);
+
+        // Write JSON string to a file
+        fs.writeFile('./data/gitgists.json', jsonString, (err) => {
+          if (err) {
+            console.error('Error writing file:', err);
+          } else {
+            console.log('File successfully written!');
+          }
+        });
+      })
+      .catch(error => console.error('Error fetching JSON:', error));
     req.flash('success', `Updated GitHub Information!`);
   } catch (err) {
     console.log(err);

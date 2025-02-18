@@ -3,8 +3,7 @@ import { loading } from "../utils/loading.js";
 import { rippleEffect } from "../partials/notification.js";
 
 const contentImages = document.querySelectorAll(".content-images")
-const contentCards = document.querySelectorAll(".content-events")
-const samples = document.querySelectorAll(".content-samples")
+const contentCards = document.querySelectorAll(".samples, .events")
 const captions = document.querySelectorAll(".content-header, .content-more")
 const images = document.querySelectorAll(".content-card img")
 
@@ -19,10 +18,6 @@ spinner.style.display = 'block';
 const promises = Array.from(images).map(img => loading(img))
 
 contentImages.forEach(element => {
-  observer.observe(element)
-})
-
-samples.forEach(element => {
   observer.observe(element)
 })
 

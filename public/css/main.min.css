@@ -596,10 +596,6 @@ video {
   visibility: visible;
 }
 
-.invisible {
-  visibility: hidden;
-}
-
 .collapse {
   visibility: collapse;
 }
@@ -617,11 +613,6 @@ video {
   margin-right: 0.25rem;
 }
 
-.mx-2 {
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
-}
-
 .my-12 {
   margin-top: 3rem;
   margin-bottom: 3rem;
@@ -637,10 +628,6 @@ video {
 
 .mt-0 {
   margin-top: 0px;
-}
-
-.mt-10 {
-  margin-top: 2.5rem;
 }
 
 .mt-5 {
@@ -707,10 +694,6 @@ video {
   flex-direction: column;
 }
 
-.flex-col-reverse {
-  flex-direction: column-reverse;
-}
-
 .items-start {
   align-items: flex-start;
 }
@@ -725,10 +708,6 @@ video {
 
 .justify-center {
   justify-content: center;
-}
-
-.justify-between {
-  justify-content: space-between;
 }
 
 .justify-around {
@@ -777,15 +756,6 @@ video {
   text-align: start;
 }
 
-.text-end {
-  text-align: end;
-}
-
-.text-4xl {
-  font-size: 2.25rem;
-  line-height: 2.5rem;
-}
-
 .font-bold {
   font-weight: 700;
 }
@@ -805,10 +775,6 @@ video {
 
 .outline {
   outline-style: solid;
-}
-
-.outline-1 {
-  outline-width: 1px;
 }
 
 .filter {
@@ -1018,7 +984,7 @@ h1,h2{
   font-size:.875rem;
   color:#fff;
   display:block;
-  padding:.5rem;
+  padding:1rem;
   border-radius:.25rem;
   text-align:center;
   transition:background-color .3s ease-in-out,color .3s ease-in-out
@@ -1118,6 +1084,49 @@ input::-ms-reveal{
   z-index:99
 }
 
+a,#dashboard aside button{
+  border-radius:.25rem;
+  padding:6px 8px;
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  transition:background-color .3s ease-in-out,color .3s ease-in-out
+}
+
+a:hover,#dashboard aside button:hover{
+  background-color:#333
+}
+
+.oep-logo{
+  padding:0 !important
+}
+
+.oep-logo:hover{
+  background-color:rgba(0,0,0,0)
+}
+
+button{
+  color:#fff;
+  display:block;
+  padding:1rem;
+  border-radius:.25rem;
+  text-align:center;
+  transition:background-color .3s ease-in-out,color .3s ease-in-out
+}
+
+button:hover{
+  background-color:#333
+}
+
+form button{
+  margin-right:6px
+}
+
+form button:nth-child(2){
+  margin-left:6px;
+  margin-right:0
+}
+
 #sh{
   position:fixed;
   background-color:#000;
@@ -1164,7 +1173,8 @@ input::-ms-reveal{
   padding:1rem;
   height:100%;
   width:320px;
-  z-index:99
+  z-index:99;
+  overflow:auto
 }
 
 #sh dialog .sh-menu .sh-controls{
@@ -1172,10 +1182,10 @@ input::-ms-reveal{
 }
 
 #sh dialog .sh-menu .sh-controls button{
-  border:none
+  margin:0
 }
 
-#sh dialog .sh-menu span{
+#sh dialog .sh-menu label{
   color:red;
   font-size:.75em;
   padding:6px 8px
@@ -1187,45 +1197,18 @@ input::-ms-reveal{
   margin-top:2rem
 }
 
-#sh dialog .sh-menu nav a{
-  border-radius:.25rem;
-  padding:6px 8px;
-  display:flex;
-  flex-direction:row;
-  align-items:center
-}
-
-#sh dialog .sh-menu nav a svg{
-  margin-right:.5rem
-}
-
-#sh dialog .sh-menu nav a:hover{
-  background-color:#333
-}
-
 #sh dialog .sh-menu .sh-admin{
-  margin-top:3rem
+  position:fixed;
+  bottom:1rem
 }
 
-#sh dialog .sh-menu .sh-admin span{
-  display:block
+#sh dialog .sh-menu .sh-admin .sh-login{
+  color:#333;
+  font-weight:lighter
 }
 
-#sh dialog .sh-menu .sh-admin div{
-  margin-top:1rem
-}
-
-#sh dialog .sh-menu .sh-admin div a{
-  display:flex;
-  flex-direction:row;
-  align-items:center;
-  color:#789;
-  font-weight:lighter;
-  padding:6px 8px
-}
-
-#sh dialog .sh-menu .sh-admin div a svg{
-  margin-right:.5rem
+#sh dialog .sh-menu .sh-admin .sh-login:hover{
+  color:#fff
 }
 
 #sh .sh-open-menu{
@@ -1242,10 +1225,6 @@ input::-ms-reveal{
 }
 
 @keyframes fade-in{
-  from{
-    opacity:0
-  }
-
   to{
     opacity:1
   }
@@ -1384,6 +1363,7 @@ input::-ms-reveal{
 }
 
 .content{
+  overflow:hidden;
   background-image:url("/img/oep-stickman.svg");
   background-repeat:no-repeat;
   background-position:center;
@@ -1482,12 +1462,9 @@ input::-ms-reveal{
   grid-column:1;
   grid-row:1;
   overflow-x:hidden;
-  width:100%
-}
-
-.content .content-wrapper .content-images img,.content .content-wrapper .content-images svg{
+  width:100%;
   border-radius:.25rem;
-  visibility:hidden;
+  opacity:0;
   height:auto !important;
   max-width:100% !important
 }
@@ -1565,32 +1542,62 @@ input::-ms-reveal{
 
 .content .content-more div a{
   display:flex;
-  align-items:center;
-  margin:0 .5rem 0 .5rem
+  align-items:center
+}
+
+.content .content-more svg path,.content .content-more svg circle{
+  fill:#fff
 }
 
 .content:nth-child(3){
   padding-top:0
 }
 
-footer nav a:hover{
-  text-decoration:underline !important;
-  text-underline-position:under !important
+footer nav{
+  display:flex;
+  flex-direction:column
 }
 
-#fm{
+@media(min-width: 768px){
+  footer nav{
+    align-items:end
+  }
+}
+
+footer nav a{
+  display:block;
+  width:-moz-fit-content;
+  width:fit-content;
+  text-align:end
+}
+
+footer nav svg path,footer nav svg circle{
+  fill:#fff
+}
+
+footer label{
+  color:red;
+  font-size:.75em
+}
+
+footer span{
+  color:red;
+  font-size:.75em
+}
+
+#flash-message{
   position:relative;
-  margin-right:auto;
-  margin-left:auto;
-  width:1509px !important
+  display:flex;
+  justify-content:center;
+  width:100%
 }
 
-#fm .fm-success,#fm .fm-error{
+#flash-message .fm-success,#flash-message .fm-error{
   animation:slide-in .5s ease forwards,slide-out--y .5s ease forwards;
   animation-delay:0s,10s;
   background-color:#16a34a;
-  border-bottom-right-radius:.5rem;
   border-bottom-left-radius:.5rem;
+  border-bottom-right-radius:.5rem;
   font-weight:bold;
   position:fixed;
   top:0;
@@ -1601,7 +1608,6 @@ footer nav a:hover{
   padding:1rem;
   transform:translateY(-100%);
   z-index:90;
-  width:1509px !important;
   margin-right:auto;
   margin-left:auto;
   padding-right:1rem;
@@ -1610,37 +1616,115 @@ footer nav a:hover{
 }
 
 @media(min-width: 640px){
-  #fm .fm-success,#fm .fm-error{
+  #flash-message .fm-success,#flash-message .fm-error{
     max-width:640px
   }
 }
 
 @media(min-width: 768px){
-  #fm .fm-success,#fm .fm-error{
+  #flash-message .fm-success,#flash-message .fm-error{
     max-width:768px
   }
 }
 
 @media(min-width: 1024px){
-  #fm .fm-success,#fm .fm-error{
+  #flash-message .fm-success,#flash-message .fm-error{
     max-width:1024px
   }
 }
 
 @media(min-width: 1280px){
-  #fm .fm-success,#fm .fm-error{
+  #flash-message .fm-success,#flash-message .fm-error{
     max-width:1280px
   }
 }
 
 @media(min-width: 1536px){
-  #fm .fm-success,#fm .fm-error{
+  #flash-message .fm-success,#flash-message .fm-error{
     max-width:1536px
   }
 }
 
-#fm .fm-error{
-  background-color:#dc2626
+#flash-message .fm-success button,#flash-message .fm-error button{
+  color:#fff;
+  display:block;
+  padding:1rem;
+  border-radius:.25rem;
+  text-align:center;
+  transition:background-color .3s ease-in-out,color .3s ease-in-out
+}
+
+#flash-message .fm-success button:hover,#flash-message .fm-error button:hover{
+  background-color:#333
+}
+
+#flash-message .fm-error{
+  background-color:red
+}
+
+form{
+  background-color:#000;
+  border:#333 1px solid;
+  display:flex;
+  flex-direction:column;
+  color:#fff;
+  padding:2.5rem;
+  border-radius:.5rem;
+  width:100%
+}
+
+form div{
+  margin-top:0;
+  margin-bottom:.75rem
+}
+
+form label{
+  display:block;
+  margin-bottom:.25rem
+}
+
+form input,form textarea{
+  background-color:rgba(0,0,0,0);
+  border-radius:.25rem;
+  border:#333 1px solid;
+  padding:1rem;
+  width:100%
+}
+
+form input:hover,form textarea:hover{
+  cursor:pointer
+}
+
+form button{
+  border:#333 1px solid;
+  display:flex;
+  justify-content:center;
+  margin-top:1.25rem;
+  width:100%;
+  color:#fff;
+  display:block;
+  padding:1rem;
+  border-radius:.25rem;
+  text-align:center;
+  transition:background-color .3s ease-in-out,color .3s ease-in-out
+}
+
+form button:hover{
+  background-color:#333
+}
+
+form .form-img-wrapper{
+  position:relative;
+  border-radius:.25rem;
+  border:#333 1px solid;
+  height:150px;
+  width:225px;
+  overflow:hidden
+}
+
+form .form-img-wrapper img{
+  height:150px;
+  width:225px
 }
 
 .show{
@@ -1649,10 +1733,6 @@ footer nav a:hover{
 }
 
 @keyframes fade-in{
-  from{
-    opacity:0
-  }
-
   to{
     opacity:1
   }
@@ -1734,7 +1814,11 @@ footer nav a:hover{
 }
 
 #lp{
-  padding-top:0
+  background-image:url("/img/oep-stickman.svg");
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:cover;
+  background-attachment:fixed
 }
 
 #lp section:last-child{
@@ -1805,12 +1889,12 @@ footer nav a:hover{
   display:flex;
   flex-direction:row;
   flex-wrap:wrap;
-  justify-content:space-between;
+  align-items:center;
+  justify-content:center;
   overflow:hidden
 }
 
 #lp .content-wrapper .content-categories .content-card{
-  background:#000;
   text-align:center;
   padding:1rem;
   margin:1rem;
@@ -1819,6 +1903,10 @@ footer nav a:hover{
 
 #lp .content-wrapper .content-categories .content-card:hover{
   transform:scale(1.1)
+}
+
+#lp .content-wrapper .content-categories .content-card a{
+  background-color:rgba(0,0,0,0) !important
 }
 
 #lp .content-wrapper .content-categories .content-card img{
@@ -1843,10 +1931,6 @@ footer nav a:hover{
 }
 
 @keyframes fade-in{
-  from{
-    opacity:0
-  }
-
   to{
     opacity:1
   }
@@ -1937,11 +2021,10 @@ footer nav a:hover{
 }
 
 #podcast .content-youtube{
+  display:flex;
+  flex-wrap:wrap;
   flex-direction:column;
-  justify-content:center;
-  display:flex !important;
-  flex-wrap:wrap !important;
-  overflow:hidden
+  justify-content:center
 }
 
 #podcast .content-youtube div{
@@ -1962,9 +2045,8 @@ footer nav a:hover{
 }
 
 #podcast .content-spotify{
-  display:flex !important;
-  flex-wrap:wrap !important;
-  overflow:hidden
+  display:flex;
+  flex-wrap:wrap
 }
 
 #podcast .content-spotify div{
@@ -1990,10 +2072,6 @@ footer nav a:hover{
 }
 
 @keyframes fade-in{
-  from{
-    opacity:0
-  }
-
   to{
     opacity:1
   }
@@ -2083,15 +2161,14 @@ footer nav a:hover{
   background-attachment:fixed
 }
 
-#music .content-samples{
+#music .samples{
+  display:flex;
+  flex-wrap:wrap;
   flex-direction:column;
-  justify-content:center;
-  display:flex !important;
-  flex-wrap:wrap !important;
-  overflow:hidden
+  justify-content:center
 }
 
-#music .content-samples>div{
+#music .samples>div{
   background-color:#000;
   border-radius:.25rem;
   border:#333 1px solid;
@@ -2101,23 +2178,22 @@ footer nav a:hover{
   transform:translateY(100vh) translateZ(0)
 }
 
-#music .content-samples>div p{
+#music .samples>div p{
   padding:.25rem 0 1.25rem 0
 }
 
-#music .content-samples>div audio{
+#music .samples>div audio{
   width:100%
 }
 
-#music .content-events{
-  justify-content:center;
-  display:flex !important;
-  flex-wrap:wrap !important;
-  overflow:hidden
+#music .events{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center
 }
 
 @media(min-width: 1024px){
-  #music .content-events{
+  #music .events{
     justify-content:space-evenly
   }
 }
@@ -2128,10 +2204,6 @@ footer nav a:hover{
 }
 
 @keyframes fade-in{
-  from{
-    opacity:0
-  }
-
   to{
     opacity:1
   }
@@ -2316,10 +2388,6 @@ footer nav a:hover{
 }
 
 @keyframes fade-in{
-  from{
-    opacity:0
-  }
-
   to{
     opacity:1
   }
@@ -2409,41 +2477,28 @@ footer nav a:hover{
   background-attachment:fixed
 }
 
-#mneumatic-designs .content-github{
-  align-items:center;
-  justify-content:center;
-  display:flex !important;
-  flex-wrap:wrap !important;
-  overflow:hidden
-}
-
-#mneumatic-designs .content-github .content-github-wrapper{
-  background-color:#000;
-  border-radius:.25rem;
-  border:#333 1px solid;
-  padding:2.5rem;
-  margin-bottom:1.25rem;
-  transform:translateY(100vh) translateZ(0)
-}
-
-#mneumatic-designs .content-github .content-github-wrapper .content-github-avatar{
+#mneumatic-designs .github{
   display:flex;
+  align-items:center;
   justify-content:center
 }
 
-#mneumatic-designs .content-github .content-github-wrapper .content-github-avatar img{
-  border-radius:.25rem;
-  outline:#333 solid 1px;
-  height:auto !important;
-  max-width:100% !important
+#mneumatic-designs .github .github-wrapper{
+  background-color:#000;
+  border-radius:.5rem;
+  border:#333 1px solid;
+  padding:2.5rem;
+  margin-bottom:1.25rem;
+  opacity:0;
+  transform:translateY(100vh) translateZ(0)
 }
 
-#mneumatic-designs .content-github .content-github-wrapper .content-github-info{
+#mneumatic-designs .github .github-wrapper .github-info{
   display:flex;
   flex-direction:column
 }
 
-#mneumatic-designs .content-github .content-github-wrapper .content-github-info>div{
+#mneumatic-designs .github .github-wrapper .github-info>div{
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -2451,12 +2506,12 @@ footer nav a:hover{
   padding:.75rem 0 .75rem 0
 }
 
-#mneumatic-designs .content-github .content-github-wrapper .content-github-info>div .content-github-info-name{
+#mneumatic-designs .github .github-wrapper .github-info>div .github-info-name{
   font-family:"Permanent Marker",sans-serif;
   text-transform:uppercase
 }
 
-#mneumatic-designs .content-github .content-github-wrapper .content-github-info>div .content-github-info-hireable{
+#mneumatic-designs .github .github-wrapper .github-info>div .github-info-hireable{
   background-color:#16a34a;
   font-size:.875rem;
   margin:.75rem 0 .75rem 0;
@@ -2464,24 +2519,24 @@ footer nav a:hover{
   width:fit-content;
   color:#fff;
   display:block;
-  padding:.5rem;
+  padding:1rem;
   border-radius:.25rem;
   text-align:center;
   transition:background-color .3s ease-in-out,color .3s ease-in-out
 }
 
-#mneumatic-designs .content-github .content-github-wrapper .content-github-info>div .content-github-info-hireable:hover{
+#mneumatic-designs .github .github-wrapper .github-info>div .github-info-hireable:hover{
   background-color:#333;
   background-color:#16a34a
 }
 
-#mneumatic-designs .content-github .content-github-wrapper .content-github-info>div .content-github-more{
+#mneumatic-designs .github .github-wrapper .github-info>div .github-more{
   display:flex;
   flex-direction:column;
   align-items:end
 }
 
-#mneumatic-designs .content-github .content-github-wrapper .content-github-info>div .content-github-more ul{
+#mneumatic-designs .github .github-wrapper .github-info>div .github-more ul{
   list-style-type:none;
   display:flex;
   flex-wrap:wrap;
@@ -2490,12 +2545,12 @@ footer nav a:hover{
 }
 
 @media(min-width: 1280px){
-  #mneumatic-designs .content-github .content-github-wrapper .content-github-info>div .content-github-more ul{
+  #mneumatic-designs .github .github-wrapper .github-info>div .github-more ul{
     justify-content:flex-start
   }
 }
 
-#mneumatic-designs .content-github .content-github-wrapper .content-github-info>div .content-github-more ul img{
+#mneumatic-designs .github .github-wrapper .github-info>div .github-more ul img{
   margin:.25rem;
   border-radius:.25rem;
   outline:#333 solid 1px;
@@ -2503,87 +2558,65 @@ footer nav a:hover{
   max-width:100% !important
 }
 
-#mneumatic-designs .content-github .content-github-wrapper .content-github-controls{
-  display:flex;
-  justify-content:space-between;
-  margin-top:1.25rem;
-  width:100%
-}
-
-#mneumatic-designs .content-github .content-github-wrapper .content-github-controls div,#mneumatic-designs .content-github .content-github-wrapper .content-github-controls>a{
-  display:flex;
+#mneumatic-designs .github .github-wrapper a{
+  display:flex !important;
   flex-direction:column;
+  align-items:center;
+  justify-content:center;
   border:#333 1px solid;
   width:100%;
   color:#fff;
   display:block;
-  padding:.5rem;
+  padding:1rem;
   border-radius:.25rem;
   text-align:center;
   transition:background-color .3s ease-in-out,color .3s ease-in-out
 }
 
-#mneumatic-designs .content-github .content-github-wrapper .content-github-controls div:hover,#mneumatic-designs .content-github .content-github-wrapper .content-github-controls>a:hover{
+#mneumatic-designs .github .github-wrapper a:hover{
   background-color:#333
 }
 
-#mneumatic-designs .content-github .content-github-wrapper .content-github-controls div span,#mneumatic-designs .content-github .content-github-wrapper .content-github-controls>a span{
-  font-weight:bold;
-  display:block
+#mneumatic-designs .gists>div{
+  background-color:#000;
+  border:#333 1px solid;
+  border-radius:.5rem;
+  padding:2.5rem;
+  opacity:0;
+  transform:translateY(100vh) translateZ(0)
 }
 
-#mneumatic-designs .content-github .content-github-wrapper .content-github-controls div span:nth-child(even),#mneumatic-designs .content-github .content-github-wrapper .content-github-controls>a span:nth-child(even){
-  font-weight:normal
-}
-
-#mneumatic-designs .content-github .content-github-wrapper .content-github-controls div:nth-child(1){
-  background-color:#333;
-  border:none
-}
-
-#mneumatic-designs .content-github .content-github-wrapper .content-github-controls a{
-  display:flex !important;
-  align-items:center;
+#mneumatic-designs .repos{
+  display:flex;
+  flex-wrap:wrap;
   justify-content:center
 }
 
-#mneumatic-designs .content-github .content-github-wrapper .content-github-controls a:nth-child(2){
-  margin:0 12px 0 12px
-}
-
-#mneumatic-designs .content-repos{
-  align-items:center;
-  justify-content:center;
-  display:flex !important;
-  flex-wrap:wrap !important;
-  overflow:hidden
-}
-
 @media(min-width: 1024px){
-  #mneumatic-designs .content-repos{
-    justify-content:space-between !important
+  #mneumatic-designs .repos{
+    justify-content:space-evenly
   }
 }
 
-#mneumatic-designs .content-repos .content-card-body>div{
+#mneumatic-designs .repos .content-card-body>div{
   flex-direction:row !important;
   padding-bottom:0
 }
 
-#mneumatic-designs .content-repos .content-card-body>div a{
+#mneumatic-designs .repos .content-card-body>div a{
   display:flex !important;
   align-items:center;
   justify-content:center;
   border:#333 1px solid;
   color:#fff;
   display:block;
-  padding:.5rem;
+  padding:1rem;
   border-radius:.25rem;
   text-align:center;
   transition:background-color .3s ease-in-out,color .3s ease-in-out
 }
 
-#mneumatic-designs .content-repos .content-card-body>div a:hover{
+#mneumatic-designs .repos .content-card-body>div a:hover{
   background-color:#333
 }
 
@@ -2610,35 +2643,11 @@ footer nav a:hover{
   width:100%
 }
 
-#community .rs .content-wrapper .content-info .content-images a{
-  background-color:#000;
-  border:#333 1px solid;
-  transform:translateY(100vh);
-  margin-right:.5rem;
-  width:100%;
-  color:#fff;
-  display:block;
-  padding:.5rem;
-  border-radius:.25rem;
-  text-align:center;
-  transition:background-color .3s ease-in-out,color .3s ease-in-out
-}
-
-#community .rs .content-wrapper .content-info .content-images a:nth-child(2){
-  margin-right:0;
-  margin-left:.5rem
-}
-
-#community .rs .content-wrapper .content-info .content-images a:hover{
-  background-color:#333
-}
-
 #local-events .content-events{
   position:relative;
-  justify-content:center;
-  display:flex !important;
-  flex-wrap:wrap !important;
-  overflow:hidden
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center
 }
 
 @media(min-width: 1024px){
@@ -2647,28 +2656,11 @@ footer nav a:hover{
   }
 }
 
-#local-events .content-more a{
-  background-color:#000;
-  border:#333 1px solid;
-  width:200px;
-  color:#fff;
-  display:block;
-  padding:.5rem;
-  border-radius:.25rem;
-  text-align:center;
-  transition:background-color .3s ease-in-out,color .3s ease-in-out
-}
-
-#local-events .content-more a:hover{
-  background-color:#333
-}
-
 #local-businesses .content-businesses{
   position:relative;
   justify-content:center;
-  display:flex !important;
-  flex-wrap:wrap !important;
-  overflow:hidden
+  display:flex;
+  flex-wrap:wrap
 }
 
 @media(min-width: 1024px){
@@ -2683,7 +2675,7 @@ footer nav a:hover{
   width:200px;
   color:#fff;
   display:block;
-  padding:.5rem;
+  padding:1rem;
   border-radius:.25rem;
   text-align:center;
   transition:background-color .3s ease-in-out,color .3s ease-in-out
@@ -2706,46 +2698,7 @@ footer nav a:hover{
 }
 
 #contact .contact .content-wrapper .content-info .content-form form{
-  background-color:#000;
-  border:#333 1px solid;
-  padding:2.5rem;
-  height:auto;
-  max-width:992px;
-  border-radius:.5rem;
   transform:translateY(100vh)
-}
-
-#contact .contact .content-wrapper .content-info .content-form form div{
-  margin:0 0 .75rem 0
-}
-
-#contact .contact .content-wrapper .content-info .content-form form div label{
-  display:block;
-  margin-bottom:.25rem
-}
-
-#contact .contact .content-wrapper .content-info .content-form form div input,#contact .contact .content-wrapper .content-info .content-form form div textarea{
-  background-color:#000;
-  border-radius:.25rem;
-  border:#333 1px solid;
-  padding:.5rem;
-  width:100%
-}
-
-#contact .contact .content-wrapper .content-info .content-form form button{
-  border:#333 1px solid;
-  width:200px;
-  margin-top:1.25rem;
-  color:#fff;
-  display:block;
-  padding:.5rem;
-  border-radius:.25rem;
-  text-align:center;
-  transition:background-color .3s ease-in-out,color .3s ease-in-out
-}
-
-#contact .contact .content-wrapper .content-info .content-form form button:hover{
-  background-color:#333
 }
 
 #login{
@@ -2763,13 +2716,12 @@ footer nav a:hover{
 }
 
 #login .content .content-wrapper{
+  display:flex;
+  flex-wrap:wrap;
   flex-direction:column;
   align-items:center;
   justify-content:center;
   height:100vh;
-  display:flex !important;
-  flex-wrap:wrap !important;
-  overflow:hidden;
   margin-right:auto;
   margin-left:auto;
   padding-right:1rem;
@@ -2808,145 +2760,125 @@ footer nav a:hover{
 }
 
 #login .content .content-wrapper form{
-  background-color:#000;
-  border:#333 1px solid;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  padding:2.5rem;
-  border-radius:.5rem;
+  width:auto;
   transform:translateY(100vh)
 }
 
-#login .content .content-wrapper form div{
-  margin-bottom:.75rem;
+#dashboard{
+  display:flex;
+  flex-direction:row;
+  justify-content:space-between;
+  padding:0
+}
+
+#dashboard aside{
+  position:relative !important;
+  flex-grow:1;
+  padding:2.5rem
+}
+
+#dashboard aside>div{
+  position:fixed;
+  width:100%;
+  max-width:410px
+}
+
+#dashboard aside>div .dashboard-logout{
+  display:flex;
+  flex-direction:row;
+  justify-content:space-between;
   width:100%
 }
 
-#login .content .content-wrapper form div label{
-  display:block;
-  margin-bottom:.25rem
-}
-
-#login .content .content-wrapper form div input{
-  background-color:#000;
-  border-radius:.25rem;
-  border:#333 1px solid;
-  padding:.5rem
-}
-
-#login .content .content-wrapper form button{
-  border:#333 1px solid;
-  display:flex;
-  justify-content:center;
-  margin-top:1.25rem;
-  width:100%;
-  color:#fff;
-  display:block;
-  padding:.5rem;
-  border-radius:.25rem;
-  text-align:center;
-  transition:background-color .3s ease-in-out,color .3s ease-in-out
-}
-
-#login .content .content-wrapper form button:hover{
-  background-color:#333
-}
-
-#dashboard .dashboard-sidebar-left,#dashboard .dashboard-sidebar-right{
-  border-right:#333 1px solid;
-  position:fixed;
-  padding:2.5rem;
-  top:0;
-  left:0;
-  height:100vh;
-  width:409px;
-  z-index:99
-}
-
-#dashboard .dashboard-sidebar-left h1,#dashboard .dashboard-sidebar-left h2,#dashboard .dashboard-sidebar-right h1,#dashboard .dashboard-sidebar-right h2{
+#dashboard aside>div h1,#dashboard aside>div h2{
   font-size:1.5rem;
   text-decoration:underline;
   text-underline-position:under;
   margin-bottom:1rem
 }
 
-#dashboard .dashboard-sidebar-left .dashboard-sidebar-search,#dashboard .dashboard-sidebar-right .dashboard-sidebar-search{
+#dashboard aside>div .dashboard-search{
   display:flex;
   flex-direction:column
 }
 
-#dashboard .dashboard-sidebar-left .dashboard-sidebar-search>div,#dashboard .dashboard-sidebar-right .dashboard-sidebar-search>div{
+#dashboard aside>div .dashboard-search>div{
   display:flex;
   flex-direction:row;
   justify-content:space-between
 }
 
-#dashboard .dashboard-sidebar-left .dashboard-sidebar-search>div input,#dashboard .dashboard-sidebar-right .dashboard-sidebar-search>div input{
+#dashboard aside>div .dashboard-search>div input{
   background-color:rgba(0,0,0,0);
   border:#333 1px solid;
   border-radius:.25rem;
   padding:.5rem;
+  margin-left:6px;
   width:100%
 }
 
-#dashboard .dashboard-sidebar-left .dashboard-sidebar-search>div button,#dashboard .dashboard-sidebar-right .dashboard-sidebar-search>div button{
-  border:#333 1px solid;
-  padding:0 1rem 0 1rem !important;
-  margin-left:.5rem;
-  color:#fff;
-  display:block;
-  padding:.5rem;
-  border-radius:.25rem;
-  text-align:center;
-  transition:background-color .3s ease-in-out,color .3s ease-in-out
-}
-
-#dashboard .dashboard-sidebar-left .dashboard-sidebar-search>div button:hover,#dashboard .dashboard-sidebar-right .dashboard-sidebar-search>div button:hover{
-  background-color:#333;
-  text-decoration:none
-}
-
-#dashboard .dashboard-sidebar-left label,#dashboard .dashboard-sidebar-right label{
+#dashboard aside>div label{
   color:red;
-  margin:1rem 0 1rem 0
+  font-size:.75em;
+  padding:6px 8px
 }
 
-#dashboard .dashboard-sidebar-left a,#dashboard .dashboard-sidebar-left button,#dashboard .dashboard-sidebar-right a,#dashboard .dashboard-sidebar-right button{
-  display:flex;
-  align-items:center;
-  width:-moz-fit-content;
-  width:fit-content
-}
-
-#dashboard .dashboard-sidebar-left a svg,#dashboard .dashboard-sidebar-left button svg,#dashboard .dashboard-sidebar-right a svg,#dashboard .dashboard-sidebar-right button svg{
-  margin-right:.5rem
-}
-
-#dashboard .dashboard-sidebar-left a:hover,#dashboard .dashboard-sidebar-left button:hover,#dashboard .dashboard-sidebar-right a:hover,#dashboard .dashboard-sidebar-right button:hover{
-  text-decoration:underline;
-  text-underline-position:under
-}
-
-#dashboard .dashboard-sidebar-right{
-  border-right:none;
-  border-left:#333 1px solid;
-  left:unset;
-  right:0
-}
-
-#dashboard .dashboard-sidebar-right ul{
+#dashboard aside>div ul{
   list-style:disc;
+  padding-left:2.5rem;
   margin-top:.5rem
 }
 
-#dashboard .dashboard-sidebar-right ul li{
+#dashboard aside>div ul li{
   margin-bottom:.5rem
 }
 
 #dashboard .dashboard-content{
-  position:relative
+  border-right:#333 1px solid;
+  border-left:#333 1px solid;
+  position:relative;
+  margin-right:auto;
+  margin-left:auto;
+  padding-right:1rem;
+  padding-left:1rem;
+  width:100%
+}
+
+@media(min-width: 640px){
+  #dashboard .dashboard-content{
+    max-width:640px
+  }
+}
+
+@media(min-width: 768px){
+  #dashboard .dashboard-content{
+    max-width:768px
+  }
+}
+
+@media(min-width: 1024px){
+  #dashboard .dashboard-content{
+    max-width:1024px
+  }
+}
+
+@media(min-width: 1280px){
+  #dashboard .dashboard-content{
+    max-width:1280px
+  }
+}
+
+@media(min-width: 1536px){
+  #dashboard .dashboard-content{
+    max-width:1536px
+  }
+}
+
+#dashboard .dashboard-content>div{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  padding:2.5rem
 }
 
 #dashboard .dashboard-content details summary{
@@ -2959,38 +2891,10 @@ footer nav a:hover{
   padding:1rem
 }
 
-#dashboard .dashboard-dialog{
-  background-color:rgba(0,0,0,0)
-}
-
-#dashboard .dashboard-dialog::backdrop{
-  background-color:rgba(0,0,0,.5);
-  position:fixed;
-  left:0;
-  margin:0;
-  height:100%;
-  width:100%
-}
-
 #dashboard form{
+  padding:0;
+  border:none;
   width:100%
-}
-
-#dashboard form .img-wrapper{
-  position:relative;
-  height:130px !important;
-  width:225px !important
-}
-
-#dashboard form .img-wrapper h3{
-  display:none
-}
-
-#dashboard form .img-wrapper img{
-  border-radius:.25rem;
-  outline:#333 1px solid;
-  height:100%;
-  width:225px
 }
 
 #dashboard form .card-info{
@@ -3007,100 +2911,63 @@ footer nav a:hover{
   margin-bottom:.25rem
 }
 
-#dashboard form input,#dashboard form textarea{
-  background-color:rgba(0,0,0,0);
-  width:100%
-}
-
-#dashboard form input:hover,#dashboard form textarea:hover{
-  cursor:pointer
-}
-
-#dashboard form a{
-  width:-moz-fit-content;
-  width:fit-content;
-  border:#333 1px solid;
-  color:#fff;
-  display:block;
-  padding:.5rem;
-  border-radius:.25rem;
-  text-align:center;
-  transition:background-color .3s ease-in-out,color .3s ease-in-out
-}
-
-#dashboard form a:hover{
-  background-color:#333
-}
-
-#dashboard form button{
-  border:#333 1px solid;
-  color:#fff;
-  display:block;
-  padding:.5rem;
-  border-radius:.25rem;
-  text-align:center;
-  transition:background-color .3s ease-in-out,color .3s ease-in-out
-}
-
-#dashboard form button:hover{
-  background-color:#333
-}
-
-#dashboard .dashboard-dialog-form{
+#dashboard .dashboard-dialog{
   background-color:#000;
-  border-radius:.25rem;
   border:#333 1px solid;
-  color:#fff;
-  display:none;
-  flex-direction:column;
-  justify-content:center;
-  padding:2.5rem;
+  border-radius:.5rem;
+  margin-right:auto;
+  margin-left:auto;
+  padding-right:1rem;
+  padding-left:1rem;
   width:100%
 }
 
-#dashboard .dashboard-dialog-form .img-wrapper{
-  display:flex;
-  flex-direction:row;
-  height:auto !important;
-  width:auto !important
+@media(min-width: 640px){
+  #dashboard .dashboard-dialog{
+    max-width:640px
+  }
 }
 
-#dashboard .dashboard-dialog-form .img-wrapper img{
-  border-radius:.25rem;
-  outline:#333 1px solid;
-  height:50px;
-  width:50px;
-  margin-right:1rem
+@media(min-width: 768px){
+  #dashboard .dashboard-dialog{
+    max-width:768px
+  }
 }
 
-#dashboard .dashboard-dialog-form button{
-  border:#333 1px solid;
-  width:100%;
-  margin-right:6px;
-  color:#fff;
-  display:block;
-  padding:.5rem;
-  border-radius:.25rem;
-  text-align:center;
-  transition:background-color .3s ease-in-out,color .3s ease-in-out
+@media(min-width: 1024px){
+  #dashboard .dashboard-dialog{
+    max-width:1024px
+  }
 }
 
-#dashboard .dashboard-dialog-form button:hover{
-  background-color:#333
+@media(min-width: 1280px){
+  #dashboard .dashboard-dialog{
+    max-width:1280px
+  }
 }
 
-#dashboard .dashboard-dialog-form button:nth-child(2){
-  margin-left:6px;
-  margin-right:0
+@media(min-width: 1536px){
+  #dashboard .dashboard-dialog{
+    max-width:1536px
+  }
+}
+
+#dashboard .dashboard-dialog::backdrop{
+  background-color:rgba(0,0,0,.5);
+  position:fixed;
+  left:0;
+  margin:0;
+  height:100%;
+  width:100%
+}
+
+#dashboard .dashboard-dialog form{
+  padding:2.5rem
 }
 
 @media (min-width: 768px) {
   .md\:grid {
     display: grid;
-  }
-
-  .md\:text-end {
-    text-align: end;
   }
 }
 

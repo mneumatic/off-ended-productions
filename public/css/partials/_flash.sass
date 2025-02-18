@@ -1,19 +1,19 @@
 @use '../utils/variables' as variables
 @use '../utils/mixins' as mixins
 
-#fm
+#flash-message
   position: relative
-  margin-right: auto
-  margin-left: auto
-  width: 1509px !important
+  display: flex
+  justify-content: center
+  width: 100%
 
   .fm-success,
   .fm-error
     animation: slide-in .5s ease forwards, slide-out--y .5s ease forwards
     animation-delay: 0s, 10s
     background-color: variables.$fm-success-color
-    border-bottom-right-radius: variables.$border-radius-md
     border-bottom-left-radius: variables.$border-radius-md
+    border-bottom-right-radius: variables.$border-radius-md
     font-weight: bold
     position: fixed
     top: 0
@@ -24,8 +24,10 @@
     padding: 1rem
     transform: translateY(-100%)
     z-index: 90
-    width: 1509px !important
     @include mixins.container
+
+    button
+      @include mixins.btn
 
   .fm-error
     background-color: variables.$fm-error-color

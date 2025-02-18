@@ -43,15 +43,15 @@
       height: 100%
       width: 320px
       z-index: 99
+      overflow: auto
 
       .sh-controls
         justify-content: space-between
 
         button
-          border: none
+          margin: 0
 
-      //    TODO: Change to label elements
-      span
+      label
         color: variables.$accent-color
         font-size: 0.75em
         padding: 6px 8px
@@ -61,38 +61,18 @@
         flex-direction: column
         margin-top: 2rem
 
-        a
-          border-radius: variables.$border-radius-sm
-          padding: 6px 8px
-          display: flex
-          flex-direction: row
-          align-items: center
+      .sh-admin
+        position: fixed
+        bottom: 1rem
 
-          svg
-            margin-right: 0.50rem
+        .sh-login
+          color: variables.$tertiary-color
+          font-weight: lighter
 
           &:hover
-            background-color: variables.$tertiary-color
+            color: variables.$secondary-color
 
-      .sh-admin
-        margin-top: 3rem
 
-        span
-          display: block
-
-        div
-          margin-top: 1rem
-
-          a
-            display: flex
-            flex-direction: row
-            align-items: center
-            color: lightslategray
-            font-weight: lighter
-            padding: 6px 8px
-
-            svg
-              margin-right: 0.50rem
 
   .sh-open-menu
     animation: slide-in 0.5s forwards

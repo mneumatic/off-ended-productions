@@ -1,10 +1,10 @@
 const dashDialog = document.querySelector('.dashboard-dialog')
-const dashDialogForm = document.querySelector('.dashboard-dialog-form')
-const dashDialogMsg = document.querySelector('.dialog-msg')
-const addForms = document.querySelectorAll('.dashboard-dialog-form');
+const dashDialogForm = document.querySelector('.dashboard-dialog form')
+const dashDialogMsg = document.querySelector('.dashboard-dialog form h3')
+const addForms = document.querySelectorAll('.dashboard-dialog form');
 const summaryForms = document.querySelectorAll('.summary-wrapper form')
 const deleteForms = document.querySelectorAll('.summary-wrapper .delete-form')
-const updateImage = document.querySelector('.dashboard-dialog-form .img-wrapper input')
+const updateImage = document.querySelector('.dashboard-dialog form .form-img-wrapper-src')
 const detailsElements = document.querySelectorAll('details')
 const summariesElements = document.querySelectorAll('details summary')
 
@@ -67,15 +67,15 @@ const businessValues = [
   'business[phone]'
 ]
 function openDialog(index, route, msg) {
-  if (route === 'business') {
-    const form = document.querySelector('.dashboard-dialog-form')
+  if (route === 'businesses') {
+    const form = document.querySelector('.dashboard-dialog form')
     const inputs = form.querySelectorAll('input')
 
     inputs.forEach((input, index) => {
       input.setAttribute('name', `${businessValues[index]}`)
     })
     form.querySelector('textarea').setAttribute('name', `business[description]`)
-    form.querySelector('strong').innerText = 'Phone:'
+    form.querySelector('.form-change').innerText = 'Phone:'
   }
   addForms[index].style.display = 'flex'
   addForms[index].action = `/admin/${ route }`
@@ -118,6 +118,11 @@ function clearInput(input, items) {
 }
 
 updateImage.addEventListener('change', (e) => {
-  const image = document.querySelector('.dashboard-dialog-form .img-wrapper img')
-  image.src = updateImage.value
+  const image = document.querySelector('.dashboard-dialog form .form-img-wrapper img')
+  if (image.src === "") {
+    image.classList.remove('show')
+  } else {
+    image.src = updateImage.value
+    image.classList.add('show')
+  }
 })

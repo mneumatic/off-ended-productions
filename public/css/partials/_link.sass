@@ -1,0 +1,20 @@
+@use '../utils/variables' as variables
+@use '../utils/mixins' as mixins
+
+a,
+#dashboard aside button
+  border-radius: variables.$border-radius-sm
+  padding: 6px 8px
+  display: flex
+  flex-direction: row
+  align-items: center
+  transition: background-color .3s ease-in-out, color .3s ease-in-out
+
+  &:hover
+    background-color: variables.$tertiary-color
+
+.oep-logo
+  padding: 0 !important
+
+  &:hover
+    background-color: transparent

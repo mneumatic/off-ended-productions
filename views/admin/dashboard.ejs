@@ -3,37 +3,38 @@
 <%- include('../partials/head.ejs') %>
 <body>
     <main id="dashboard">
-
         <dialog class="dashboard-dialog">
-            <form class="dashboard-dialog-form" method="POST">
-                <p class="dialog-msg"></p>
-                <div class="img-wrapper">
-                    <img class="outline outline-1" src="" alt="Image">
-                    <label><strong>Image:</strong>
-                        <input type="text" name="event[imagePath]">
-                    </label>
+            <form method="POST">
+                <h3></h3>
+                <div>
+                    <div class="form-img-wrapper">
+                        <img src="" alt="Image">
+                    </div>
+                    <div>
+                        <label>Image:</label>
+                        <input class="form-img-wrapper-src"  type="text" name="event[imagePath]">
+                    </div>
                 </div>
-                <hr>
-                <label><strong>Title:</strong>
+                <div>
+                    <label>Title:</label>
                     <input type="text" name="event[title]" required>
-                </label>
-                <hr>
-                <label><strong>Description:</strong>
+                </div>
+                <div>
+                    <label>Description:</label>
                     <textarea type="text" name="event[description]"></textarea>
-                </label>
-                <hr>
-                <label><strong>Operational Hours:</strong>
+                </div>
+                <div>
+                    <label>Operational Hours:</label>
                     <input type="text" name="event[hours]" required>
-                </label>
-                <hr>
-                <label><strong>Location:</strong>
+                </div>
+                <div>
+                    <label>Location:</label>
                     <input type="text" name="event[location]" required>
-                </label>
-                <hr>
-                <label><strong class="form-change">Date Of:</strong>
+                </div>
+                <div>
+                    <label class="form-change">Date Of:</label>
                     <input type="text" name="event[date]" required>
-                </label>
-                <hr>
+                </div>
                 <div class="flex flex-row justify-end w-full">
                     <button type="submit" title="Add" aria-label="Add">Add</button>
                     <button onclick="closeDialog()" type="button" title="Cancel" aria-label="Cancel">Cancel</button>
@@ -41,84 +42,64 @@
             </form>
         </dialog>
 
-        <aside class="dashboard-sidebar-left">
-            <div class="flex flex-row justify-between w-full">
-                <h1>OEP Dashboard</h1>
-                <a href="/admin/logout">Logout</a>
-            </div>
+        <aside>
+            <div>
+                <div class="dashboard-logout">
+                    <h1>OEP Dashboard</h1>
+                    <a href="/admin/logout">Logout</a>
+                </div>
 
-            <div>
-                <p>2Jz Music Events: <%- music.length %></p>
-            </div>
-            <div class="dash-panel-viewer">
-                <p>Local Events: <%- events.length %></p>
-            </div>
-            <div class="dash-panel-viewer">
-                <p>Local Businesses: <%- businesses.length %></p>
-            </div>
-            <div class="dashboard-sidebar-search">
-                <label for="search-all-input">Search</label>
                 <div>
-                    <input id="search-all-input" class="clear-input" type="text" oninput="search(this.value.toUpperCase(), document.querySelectorAll('.item-form'))" title="Search" aria-label="Search">
-                    <button class="clear-button" onclick="clearInput('search-all-input', document.querySelectorAll('.item-form'))" title="Delete Search" aria-label="Delete Search">x</button>
+                    <p>2Jz Music Events: <%- music.length %></p>
                 </div>
-            </div>
-            <hr>
-            <nav>
-                <div class="flex flex-col">
-                    <label style="margin-top: 0">Website</label>
-                    <a href="/">Home</a>
-                    <a href="/twojz-music">2Jz Music</a>
-                    <a href="/platinum-signatures">Platinum Signatures</a>
-                    <a href="/mneumatic-designs">MNEUMATIC Designs</a>
-                    <a href="/community">Community</a>
-                    <a href="/community/events">Local Events</a>
-                    <a href="/community/businesses">Local Businesses</a>
-                    <a href="/contact">Contact Us</a>
-                    <a href="https://www.facebook.com/profile.php?id=61567183989485" title="Follow Us on FaceBook" aria-label="Follow Us on FaceBook" target="_blank" rel="noreferrer noopener">Facebook</a>
-                    <a href="https://www.instagram.com/off_ended_productions" title="Follow Us on Instagram" aria-label="Follow Us on Instagram" target="_blank" rel="noreferrer noopener">Instagram</a>
+                <div>
+                    <p>Local Events: <%- events.length %></p>
+                </div>
+                <div>
+                    <p>Local Businesses: <%- businesses.length %></p>
+                </div>
+                <div class="dashboard-search">
+                    <label for="dashboard-search">Search</label>
+                    <div>
+                        <input id="dashboard-search" class="clear-input" type="text" oninput="search(this.value.toUpperCase(), document.querySelectorAll('.item-form'))" title="Search" aria-label="Search">
+                        <button class="clear-button" onclick="clearInput('dashboard-search', document.querySelectorAll('.item-form'))" title="Delete Search" aria-label="Delete Search">x</button>
+                    </div>
                 </div>
                 <hr>
-                <div class="flex flex-col">
-                    <label>+ Add</label>
-                    <button onclick="openDialog(0, 'music', 'Add New Event')">New Music Event</button>
-                    <button onclick="openDialog(0, 'events', 'Add New Event')">New Local Event</button>
-                    <button onclick="openDialog(0, 'businesses', 'Add New Business')">New Local Business</button>
-                </div>
-                <hr>
-                <div class="flex flex-col">
-                    <label>Commands</label>
-                    <a href="/admin/update-rss">Update Spotify RSS Feed</a>
-                    <a href="/admin/update-github">Update GitHub Information</a>
-                </div>
-            </nav>
-        </aside>
-        <aside class="dashboard-sidebar-right">
-            <div>
-                <h2>Information</h2>
-                <p style="color: red; font-weight: bold">IMPORTANT!</p>
-                <p>Please use the correct formats for fields. Not doing so will cause the information to appear to the end user correctly. In addition, certain functionally will not work correctly. Don't worry, the app will not stop working. Just check your input and you can always update the data if you make a mistake afterward.</p>
-                <ul>
-                    <li>Images must be a link/URL. If it is a and image filed Mountain Mike will need to upload that manually at this time.</li>
-                    <li>Operational Hours should be typed in as this format: (EXAMPLES) 8am - 12pm or 6:30pm - 7pm</li>
-                    <li>Dates should be entered in this follow format for proper functionality: xx/xx/xx</li>
-                    <li>Phone numbers should be entered with no dashes or parenthesis and start with +1 so that the end user can call right from the website if their device supports the feature.</li>
-                </ul>
-            </div>
-            <hr>
-            <div>
-                <h2>Commands</h2>
-                <p style="color: red; font-weight: bold">IMPORTANT!</p>
-                <p>Running commands should only be done with care.</p>
-                <ul>
-                    <li>Updating the RSS feed should be done after a new episode has been uploaded to Spotify.</li>
-                    <li>Updating the GitHub information should only be done by Mountain Mike.</li>
-                </ul>
+                <nav>
+                    <div class="flex flex-col">
+                        <label style="margin-top: 0">Website</label>
+                        <a href="/">Home</a>
+                        <a href="/twojz-music">2Jz Music</a>
+                        <a href="/platinum-signatures">Platinum Signatures</a>
+                        <a href="/mneumatic-designs">MNEUMATIC Designs</a>
+                        <a href="/community">Community</a>
+                        <a href="/community/events">Local Events</a>
+                        <a href="/community/businesses">Local Businesses</a>
+                        <a href="/contact">Contact Us</a>
+                        <a href="https://www.facebook.com/profile.php?id=61567183989485" title="Follow Us on FaceBook" aria-label="Follow Us on FaceBook" target="_blank" rel="noreferrer noopener">Facebook</a>
+                        <a href="https://www.instagram.com/off_ended_productions" title="Follow Us on Instagram" aria-label="Follow Us on Instagram" target="_blank" rel="noreferrer noopener">Instagram</a>
+                    </div>
+                    <hr>
+                    <div class="flex flex-col">
+                        <label>+ Add</label>
+                        <button onclick="openDialog(0, 'music', 'Add New Event')">New Music Event</button>
+                        <button onclick="openDialog(0, 'events', 'Add New Event')">New Local Event</button>
+                        <button onclick="openDialog(0, 'businesses', 'Add New Business')">New Local Business</button>
+                    </div>
+                    <hr>
+                    <div class="flex flex-col">
+                        <label>Commands</label>
+                        <a href="/admin/update-rss">Update Spotify RSS Feed</a>
+                        <a href="/admin/update-github">Update GitHub Information</a>
+                    </div>
+                </nav>
             </div>
         </aside>
+
         <section class="dashboard-content">
-            <%- include('../partials/flash.ejs') %>
-            <div class="container">
+            <div>
+                <%- include('../partials/flash.ejs') %>
                 <details>
                     <summary class="mb-4"><span>2Jz Music Events</span></summary>
                     <div class="summary-wrapper">
@@ -126,38 +107,38 @@
                         <form action="/admin/music/edit/<%= event._id %>?_method=PUT" data-title="<%- event.title %>"  method="POST" class=" item-form flex flex-row items-start mb-4 validated-form" novalidate>
                             <div class="flex flex-col">
                                 <h3><%- event.title %></h3>
-                                <div class="img-wrapper">
+                                <div class="form-img-wrapper">
                                     <div class="spinner"></div>
-                                    <img class="outline outline-1" src="<%- event.imagePath %>" alt="<%- event.title %>">
+                                    <img src="<%- event.imagePath %>" alt="<%- event.title %>">
                                 </div>
                             </div>
 
                             <div class="card-info flex flex-col px-8 w-full">
                                 <br>
-                                <label><strong>Image:</strong>
+                                <div>
+                                    <label>Image:</label>
                                     <input type="text" name="event[imagePath]" value="<%- event.imagePath %>" required>
-                                </label>
-                                <hr>
-                                <label><strong>Title:</strong>
+                                </div>
+                                <div>
+                                    <label>Title:</label>
                                     <input class="title" type="text" name="event[title]" value="<%= event.title %>" required>
-                                </label>
-                                <hr>
-                                <label><strong>Description:</strong>
+                                </div>
+                                <div>
+                                    <label>Description:</label>
                                     <textarea type="text" name="event[description]" required><%- event.description %></textarea>
-                                </label>
-                                <hr>
-                                <label><strong>Operational Hours:</strong>
+                                </div>
+                                <div>
+                                    <label>Operational Hours:</label>
                                     <input type="text" name="event[hours]" value="<%- event.hours %>" required>
-                                </label>
-                                <hr>
-                                <label><strong>Location:</strong>
+                                </div>
+                                <div>
+                                    <label>Location:</label>
                                     <input type="text" name="event[location]" value="<%- event.location %>" required>
-                                </label>
-                                <hr>
-                                <label><strong>Date Of:</strong>
-                                    <input type="text" name="event[date]" value="<%- event.date %>" required>
-                                </label>
-                                <hr>
+                                </div>
+                                <div>
+                                    <label>Date Of:</label>
+                                        <input type="text" name="event[date]" value="<%- event.date %>" required>
+                                </div>
                                 <div class="flex flex-row justify-end w-full">
                                     <button type="submit" title="Update Event" aria-label="Update Event">Update</button>
                                     <button onclick="deleteItem(0, 'music', '<%- event._id %>', '<%- event.title %>')" type="button">Delete</button>
@@ -176,37 +157,37 @@
                         <form action="/admin/events/edit/<%= event._id %>?_method=PUT" data-title="<%- event.title %>" method="POST" class="item-form flex flex-row items-start mb-4">
                             <div class="flex flex-col">
                                 <h3><%- event.title %></h3>
-                                <div class="img-wrapper">
+                                <div class="form-img-wrapper">
                                     <div class="spinner"></div>
-                                    <img class="outline outline-1" src="<%- event.imagePath %>" alt="<%- event.title %>">
+                                    <img src="<%- event.imagePath %>" alt="<%- event.title %>">
                                 </div>
                             </div>
                             <div class="card-info flex flex-col px-8 w-full">
                                 <br>
-                                <label><strong>Image:</strong>
+                                <div>
+                                    <label>Image:</label>
                                     <input type="text" name="event[imagePath]" value="<%- event.imagePath %>" required>
-                                </label>
-                                <hr>
-                                <label><strong>Title:</strong>
+                                </div>
+                                <div>
+                                    <label>Title:</label>
                                     <input class="title" type="text" name="event[title]" value="<%= event.title %>" required>
-                                </label>
-                                <hr>
-                                <label><strong>Description:</strong>
+                                </div>
+                                <div>
+                                    <label>Description:</label>
                                     <textarea type="text" name="event[description]" required><%- event.description %></textarea>
-                                </label>
-                                <hr>
-                                <label><strong>Operational Hours:</strong>
+                                </div>
+                                <div>
+                                    <label>Operational Hours:</label>
                                     <input type="text" name="event[hours]" value="<%- event.hours %>" required>
-                                </label>
-                                <hr>
-                                <label><strong>Location:</strong>
+                                </div>
+                                <div>
+                                    <label>Location:</label>
                                     <input type="text" name="event[location]" value="<%- event.location %>" required>
-                                </label>
-                                <hr>
-                                <label><strong>Date Of:</strong>
+                                </div>
+                                <div>
+                                    <label>Date Of:</label>
                                     <input type="text" name="event[date]" value="<%- event.date %>" required>
-                                </label>
-                                <hr>
+                                </div>
                                 <div class="flex flex-row justify-end w-full">
                                     <button type="submit" title="Update Event" aria-label="Update Event">Update</button>
                                     <button onclick="deleteItem(1, 'events', '<%- event._id %>', '<%- event.title %>')" type="button">Delete</button>
@@ -225,33 +206,33 @@
                         <form action="/admin/businesses/edit/<%= business._id %>?_method=PUT" data-title="<%- business.title %>" method="POST" class="item-form flex flex-row items-start mb-4">
                             <div class="flex flex-col">
                                 <h3><%- business.title %></h3>
-                                <div class="img-wrapper">
+                                <div class="form-img-wrapper">
                                     <div class="spinner"></div>
-                                    <img class="outline outline-1" src="<%- business.imagePath %>" alt="<%- business.title %>">
+                                    <img src="<%- business.imagePath %>" alt="<%- business.title %>">
                                 </div>
                             </div>
                             <div class="card-info flex flex-col px-8 w-full">
                                 <br>
-                                <label><strong>Title:</strong>
+                                <div>
+                                    <label>Title:</label>
                                     <input class="title" name="business[title]" type="text" value="<%= business.title %>">
-                                </label>
-                                <hr>
-                                <label><strong>Description:</strong>
+                                </div>
+                                <div>
+                                    <label>Description:</label>
                                     <textarea type="text" name="business[description]"><%- business.description %></textarea>
-                                </label>
-                                <hr>
-                                <label><strong>Operational Hours:</strong>
+                                </div>
+                                <div>
+                                    <label>Operational Hours:</label>
                                     <input type="text" name="business[hours]" value="<%- business.hours %>">
-                                </label>
-                                <hr>
-                                <label><strong>Location:</strong>
+                                </div>
+                                <div>
+                                    <label>Location:</label>
                                     <input type="text" name="business[location]" value="<%- business.location %>">
-                                </label>
-                                <hr>
-                                <label><strong>Phone:</strong>
+                                </div>
+                                <div>
+                                    <label>Phone:</label>
                                     <input type="text" name="business[phone]" value="<%- business.phone %>">
-                                </label>
-                                <hr>
+                                </div>
                                 <div class="flex flex-row justify-end w-full">
                                     <button type="submit" title="Update Business" aria-label="Update Business">Update</button>
                                     <button onclick="deleteItem(2, 'businesses', '<%- business._id %>', '<%- business.title %>')" type="button">Delete</button>
@@ -265,6 +246,32 @@
                 </details>
             </div>
         </section>
+
+        <aside>
+            <div>
+                <div>
+                    <h2>Information</h2>
+                    <p style="color: red; font-weight: bold">IMPORTANT!</p>
+                    <p>Please use the correct formats for fields. Not doing so will cause the information to appear to the end user correctly. In addition, certain functionally will not work correctly. Don't worry, the app will not stop working. Just check your input and you can always update the data if you make a mistake afterward.</p>
+                    <ul>
+                        <li>Images must be a link/URL. If it is a and image filed Mountain Mike will need to upload that manually at this time.</li>
+                        <li>Operational Hours should be typed in as this format: (EXAMPLES) 8am - 12pm or 6:30pm - 7pm</li>
+                        <li>Dates should be entered in this follow format for proper functionality: xx/xx/xx</li>
+                        <li>Phone numbers should be entered with no dashes or parenthesis and start with +1 so that the end user can call right from the website if their device supports the feature.</li>
+                    </ul>
+                </div>
+                <hr>
+                <div>
+                    <h2>Commands</h2>
+                    <p style="color: red; font-weight: bold">IMPORTANT!</p>
+                    <p>Running commands should only be done with care.</p>
+                    <ul>
+                        <li>Updating the RSS feed should be done after a new episode has been uploaded to Spotify.</li>
+                        <li>Updating the GitHub information should only be done by Mountain Mike.</li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
     </main>
     <script src="/js/pages/dashboard.js"></script>
     <script type="module">

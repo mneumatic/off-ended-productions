@@ -2,15 +2,15 @@
 @use '../utils/mixins' as mixins
 
 .content
+  overflow: hidden
   @include mixins.oep-stickman
 
   .content-wrapper
     position: relative
     display: flex
     flex-direction: column-reverse
-
-
     @include mixins.container
+
     @media (min-width: 1280px)
       display: grid
       grid-template-columns: repeat(2, minmax(0, 1fr))
@@ -43,10 +43,9 @@
       position: relative
       @include mixins.animated-grid
 
-      img,
-      svg
+      img
         border-radius: variables.$border-radius-sm
-        visibility: hidden
+        opacity: 0
         height: auto !important
         max-width: 100% !important
 
@@ -111,7 +110,10 @@
       a
         display: flex
         align-items: center
-        margin: 0 0.5rem 0 0.5rem
+
+    svg path,
+    svg circle
+      fill: variables.$secondary-color
 
   &:nth-child(3)
     padding-top: 0

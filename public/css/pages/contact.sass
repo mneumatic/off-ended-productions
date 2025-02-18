@@ -1,0 +1,17 @@
+@use '../utils/variables' as variables
+@use '../utils/mixins' as mixins
+
+#contact
+  .contact
+    .content-wrapper
+      @media (min-width: 1280px)
+        display: flex !important
+
+      .content-info
+        display: flex
+        flex-direction: column
+        align-items: center
+
+        .content-form
+          form
+            transform: translateY(100vh)

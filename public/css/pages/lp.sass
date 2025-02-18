@@ -3,7 +3,7 @@
 @use '../utils/animations' as animations
 
 #lp
-  padding-top: 0
+  @include mixins.oep-stickman
 
   section:last-child
     padding-top: 0
@@ -34,11 +34,11 @@
       display: flex
       flex-direction: row
       flex-wrap: wrap
-      justify-content: space-between
+      align-items: center
+      justify-content: center
       overflow: hidden
 
       .content-card
-        background: variables.$primary-color
         text-align: center
         padding: 1rem
         margin: 1rem
@@ -46,6 +46,9 @@
 
         &:hover
           transform: scale(1.1)
+
+        a
+          background-color: transparent !important
 
         img
           background-color: variables.$primary-color
