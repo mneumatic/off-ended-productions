@@ -74,12 +74,12 @@ router.get('/mneumatic-designs', async (req, res) => {
   });
 });
 
-router.get('/community', async (req, res) => {
-  res.render('community', {
-    title: 'Community | OEP',
-    authenticated: res.locals.currentUser,
-  });
-});
+// router.get('/community', async (req, res) => {
+//   res.render('community', {
+//     title: 'Community | OEP',
+//     authenticated: res.locals.currentUser,
+//   });
+// });
 
 router.get('/community/events', async (req, res) => {
   const events = await Events.find({})
