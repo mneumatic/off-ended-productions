@@ -1,0 +1,20 @@
+@use '../utils/variables' as variables
+@use '../utils/mixins' as mixins
+
+#local-businesses
+  .businesses
+    position: relative
+    justify-content: center
+    display: flex
+    flex-wrap: wrap
+
+    @media (min-width: 1024px)
+      justify-content: space-evenly
+
+  .content-more
+    a
+      background-color: variables.$primary-color
+      border-radius: variables.$border-radius-sm
+      border: variables.$tertiary-color 1px solid
+      width: 200px
+      @include mixins.btn

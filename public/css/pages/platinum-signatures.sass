@@ -1,0 +1,41 @@
+@use '../utils/variables' as variables
+@use '../utils/mixins' as mixins
+@use '../utils/animations' as animations
+
+#platinum-signatures
+  padding-top: 0
+  @include mixins.oep-stickman
+
+  .content
+    .content-wrapper
+      display: flex
+      justify-content: center
+      @include mixins.container
+      @media (min-width: 1280px)
+        display: grid
+        grid-template-columns: repeat(2, minmax(0, 1fr))
+        gap: 2.5rem
+
+      .content-info
+        div
+          text-align: center
+          margin-top: 2.5rem
+
+          @media (min-width: 1280px)
+            text-align: start
+
+          p
+            font-family: "Permanent Marker", sans-serif
+            font-size: 2.25rem
+
+      .content-images
+        @include mixins.animated-grid
+
+        img
+          border-radius: variables.$border-radius-sm
+          visibility: hidden
+          height: auto !important
+          max-width: 100% !important
+
+  .content
+    @include mixins.oep-stickman

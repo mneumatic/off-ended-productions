@@ -1,0 +1,64 @@
+@use 'variables' as variables
+
+@mixin container
+  margin-right: auto
+  margin-left: auto
+  padding-right: 1rem
+  padding-left: 1rem
+  width: 100%
+
+  @media (min-width: 640px)
+    max-width: 640px
+
+  @media (min-width: 768px)
+    max-width: 768px
+
+  @media (min-width: 1024px)
+    max-width: 1024px
+
+  @media (min-width: 1280px)
+    max-width: 1280px
+
+  @media (min-width: 1536px)
+    max-width: 1536px
+
+@mixin btn
+  color: variables.$secondary-color
+  display: block
+  padding: 1rem
+  border-radius: variables.$border-radius-sm
+  text-align: center
+  transition: background-color .3s ease-in-out, color .3s ease-in-out
+
+  &:hover
+    background-color: variables.$tertiary-color
+
+@mixin display
+  font-size: 3.25rem
+
+  @media (min-width: 420px)
+    font-size: 4.5rem
+
+@mixin animated-grid
+  display: grid
+  grid-template-columns: 1fr
+  grid-template-rows: 1fr
+
+  img
+    grid-column: 1
+    grid-row: 1
+    overflow-x: hidden
+    width: 100%
+
+@mixin oep-stickman
+  background-image: url("/img/oep-stickman.svg")
+  background-repeat: no-repeat
+  background-position: center
+  background-size: cover
+  background-attachment: fixed
+
+@mixin img-fluid
+  border-radius: variables.$border-radius-sm
+  outline: variables.$tertiary-color solid 1px
+  height: auto !important
+  max-width: 100% !important

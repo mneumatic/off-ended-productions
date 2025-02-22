@@ -1,36 +1,10 @@
-const navbar = document.getElementById('site-navigation-navbar')
-const toggle = document.getElementById('site-navigation-navbar-toggle')
-const links = document.querySelectorAll('#site-navigation-navbar-nav-links a')
-let last = 0
+const scrollNote = document.querySelector('.hero-notification');
 
-function onScroll() {
-  window.scrollY > 0
-    ? navbar.classList.add('navbar-shadow')
-    : navbar.classList.remove('navbar-shadow')
+// TODO: Make the project code more streamlined.
+if (scrollNote) {
+  function removeNote() {
+    window.scrollY > 0 ? scrollNote.style.display = 'none' : scrollNote.style.display = 'block'
+  }
+
+  window.addEventListener('scroll', removeNote);
 }
-
-function closeMenuOnScroll () {
-  const top = window.scrollY
-
-  toggle.checked === true && top < last
-    ? toggle.checked = true
-    : toggle.checked = false
-
-  last = top
-}
-
-function closeMenuOnResize () {
-  if (toggle.checked === true && window.innerWidth >= 768) toggle.checked = false
-}
-
-function markLinkActive () {
-  const mainElement = document.querySelector('main')
-  links.forEach((li) => {
-    if (li.classList.contains(mainElement.id)) li.classList.add('active')
-  })
-}
-markLinkActive()
-
-window.addEventListener('scroll', onScroll)
-window.addEventListener('scroll', closeMenuOnScroll)
-window.addEventListener('resize', closeMenuOnResize)

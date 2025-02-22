@@ -1,0 +1,52 @@
+@use '../utils/variables' as variables
+@use '../utils/mixins' as mixins
+
+form
+  background-color: variables.$primary-color
+  border: variables.$tertiary-color 1px solid
+  display: flex
+  flex-direction: column
+  color: variables.$secondary-color
+  padding: 2.5rem
+  border-radius: variables.$border-radius-md
+  width: 100%
+
+  div
+    margin-top: 0
+    margin-bottom: 0.75rem
+
+  label
+    display: block
+    margin-bottom: 0.25rem
+
+  input,
+  textarea
+    background-color: transparent
+    border-radius: variables.$border-radius-sm
+    border: variables.$tertiary-color 1px solid
+    padding: 1rem
+    width: 100%
+
+    &:hover
+      cursor: pointer
+
+  button
+    border-radius: variables.$border-radius-sm
+    border: variables.$tertiary-color 1px solid
+    display: flex
+    justify-content: center
+    margin-top: 1.25rem
+    width: 100%
+    @include mixins.btn
+
+  .form-img-wrapper
+    position: relative
+    border-radius: variables.$border-radius-sm
+    border: variables.$tertiary-color 1px solid
+    height: 150px
+    width: 225px
+    overflow: hidden
+
+    img
+      height: 150px
+      width: 225px

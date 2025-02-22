@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+    <%- include('partials/head.ejs') %>
+<body>
+    <%- include('partials/header.ejs') %>
+    <main id="local-events">
+        <section class="content">
+            <div class="content-wrapper">
+                <div class="content-info">
+                    <div>
+                        <h2>Local Events</h2>
+                        <p>Awesome local events!</p>
+                    </div>
+                    <br>
+                    <p>Off Ended Productions is all about amplifying the pulse of our local community by backing the events that bring us all together. From vibrant street festivals that showcase local talent to groundbreaking tech expos and inspiring arts showcases, we're right there in the mix, lending our support and expertise. We believe in the power of shared experiences to spark creativity, foster connections, and celebrate the spirit of our community. At Off Ended Productions, we're not just participants—we're passionate advocates for the events that make our local scene so dynamic and unforgettable.</p>
+                </div>
+                <div class="content-images">
+                    <img src="/img/running-springs-ca.webp" alt="Running Springs CA" />
+                </div>
+            </div>
+        </section>
+
+        <section class="content">
+            <div class="content-wrapper">
+                <div class="spinner"></div>
+                <div>
+                    <div class="content-header">
+                        <h2>Something</h2>
+                        <p>Something</p>
+                    </div>
+                    <br>
+                    <div>
+<!--                       TODO: Put something here-->
+                    </div>
+                </div>
+                <div>
+                    <div class="content-header">
+                        <h2>Upcoming Events</h2>
+                        <p>Stuff To Do!</p>
+                    </div>
+                    <br>
+                    <div class="events">
+                        <% for (let event of events ) { %>
+                        <div class="content-card">
+                            <% if (event.imagePath) { %>
+                            <img src="<%- event.imagePath %>" alt="<%- event.title %>">
+                            <% } %>
+                            <div class="content-card-body">
+                                <h3><%= event.title %></h3>
+                                <p><%- event.description %></p>
+                                <div>
+                                    <span><%- event.hours %></span>
+                                    <address><%- event.location %></address>
+                                    <p class="date">On: <%- event.date %></p>
+                                </div>
+                            </div>
+                        </div>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+            <div class="content-more">
+                <span>Check out our local businesses!</span>
+                <div>
+                    <a href="/community/businesses">Businesses</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <%- include('partials/footer.ejs') %>
+    <script src="/js/vendor/moment.js"></script>
+    <script src="/js/pages/local-events.js" type="module"></script>
+</body>
+</html>

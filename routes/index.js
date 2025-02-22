@@ -6,14 +6,17 @@ const csrfProtection = csrf({ cookie: true })
 const Categories = require('../models/categories');
 const Mottos = require('../models/mottos');
 const MusicEvents = require('../models/music');
+const Tracks = require('../models/tracks');
 const Events = require('../models/events');
 const Businesses = require('../models/businesses');
 const GitBadges = require('../models/gitbadges');
 const gitUser = require('../data/gituser.json');
 const gitRepos = require('../data/gitrepos.json');
+const gitGists = require('../data/gitgists');
 const rssFeed = require('../data/rss.json');
 const nodemailer = require("nodemailer");
 const xoauth2 = require('xoauth2')
+const cleanString = require('../utils/cleanString');
 
 /* GET home page. */
 router.get('/', async (req, res) => {
@@ -31,6 +34,9 @@ router.get('/', async (req, res) => {
 
 router.get('/podcast', async (req, res) => {
   const recentItems = rssFeed.items.slice(0, 3);
+  recentItems.forEach(item => {
+    item.description = cleanString(item.description);
+  })
   res.render('podcast', {
     title: 'Podcast | OEP',
     rssFeed: recentItems,
@@ -38,10 +44,12 @@ router.get('/podcast', async (req, res) => {
   });
 });
 
-router.get('/music', async (req, res) => {
+router.get('/twojz-music', async (req, res) => {
   const musicEvents = await MusicEvents.find({});
-  res.render('music', {
+  const tracks = await Tracks.find({})
+  res.render('twojz-music', {
     title: '2Jz Music | OEP',
+    tracks,
     musicEvents,
     authenticated: res.locals.currentUser,
   });
@@ -56,26 +64,26 @@ router.get('/platinum-signatures', async (req, res) => {
 
 router.get('/mneumatic-designs', async (req, res) => {
   const gitBadges = await GitBadges.find({});
-  const recentItems = gitRepos.slice(0, 9);
   res.render('mneumatic-designs', {
     title: 'MNEUMATIC Designs | OEP',
     gitUser,
-    gitRepos: recentItems,
+    gitRepos,
+    gitGists,
     gitBadges,
     authenticated: res.locals.currentUser,
   });
 });
 
-router.get('/community', async (req, res) => {
-  res.render('community', {
-    title: 'Community | OEP',
-    authenticated: res.locals.currentUser,
-  });
-});
+// router.get('/community', async (req, res) => {
+//   res.render('community', {
+//     title: 'Community | OEP',
+//     authenticated: res.locals.currentUser,
+//   });
+// });
 
 router.get('/community/events', async (req, res) => {
   const events = await Events.find({})
-  res.render('events', {
+  res.render('local-events', {
     title: 'Community Events | OEP',
     events,
     authenticated: res.locals.currentUser,
@@ -84,7 +92,7 @@ router.get('/community/events', async (req, res) => {
 
 router.get('/community/businesses', async (req, res) => {
   const businesses = await Businesses.find({});
-  res.render('businesses', {
+  res.render('local-businesses', {
     title: 'Community Businesses | OEP',
     businesses,
     authenticated: res.locals.currentUser,

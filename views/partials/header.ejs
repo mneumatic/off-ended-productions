@@ -1,0 +1,46 @@
+<header id="sh">
+    <div class="sh-controls">
+        <button><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#fff" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg></button>
+        <a class="oep-logo" href="/"><img src="/img/oep-logo.webp" alt="Off Ended Productions"/></a>
+    </div>
+    <dialog>
+        <div class="sh-menu">
+            <div class="sh-controls">
+                <a class="oep-logo" href="/"><img src="/img/oep-logo.webp" alt="Off Ended Productions"/></a>
+                <button><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"><path fill="#fff" d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"/></svg></button>
+            </div>
+            <nav>
+                <label>Off Ended Productions</label>
+                <a href="/">Home</a>
+                <a href="/podcast">Podcast</a>
+                <a href="/twojz-music">2Jz Music</a>
+                <a href="/platinum-signatures">Platinum Signatures</a>
+                <a href="/mneumatic-designs">MNEUMATIC Designs</a>
+                <hr>
+                <label>Running Springs CA</label>
+<!--                <a href="/community">Community</a>-->
+                <a href="/community/events">Local Events</a>
+                <a href="/community/businesses">Local Businesses</a>
+                <hr>
+                <label>Social Media</label>
+
+                <a href="https://www.facebook.com/people/Off-Ended-Productions/61567183989485/" title="Follow Us on FaceBook" aria-label="Follow Us on FaceBook" target="_blank" rel="noreferrer noopener">Facebook</a>
+                <a href="https://www.instagram.com/off_ended_productions" title="Follow Us on Instagram" aria-label="Follow Us on Instagram" target="_blank" rel="noreferrer noopener">Instagram</a>
+                <hr>
+                <label>About</label>
+                <a href="/about" class="about">The Crew</a>
+                <a href="/contact">Contact Us</a>
+            </nav>
+            <nav class="sh-admin">
+                <% if (authenticated) { %>
+                    <label>Admin</label>
+                    <a href="/admin/dashboard">Dashboard</a>
+                    <a href="/admin/logout">Logout</a>
+                <% } else { %>
+                    <a class="sh-login" href="/admin">Login</a>
+                <% } %>
+                <label>© 2025 Off Ended Productions</label>
+            </nav>
+        </div>
+    </dialog>
+</header>

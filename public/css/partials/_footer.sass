@@ -1,0 +1,27 @@
+@use '../utils/variables' as variables
+@use '../utils/mixins' as mixins
+
+footer
+  nav
+    display: flex
+    flex-direction: column
+
+    @media (min-width: 768px)
+      align-items: end
+
+    a
+      display: block
+      width: fit-content
+      text-align: end
+
+    svg path,
+    svg circle
+      fill: variables.$secondary-color
+
+  label
+    color: variables.$accent-color
+    font-size: 0.75em
+
+  span
+    color: variables.$accent-color
+    font-size: 0.75em

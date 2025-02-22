@@ -1,0 +1,46 @@
+@use'../utils/variables' as variables
+@use '../utils/mixins' as mixins
+@use '../utils/animations' as animations
+
+#podcast
+  padding-top: 0
+  @include mixins.oep-stickman
+
+  .content-youtube
+    display: flex
+    flex-wrap: wrap
+    flex-direction: column
+    justify-content: center
+
+    div
+      background-color: variables.$primary-color
+      border-radius: variables.$border-radius-sm
+      display: flex
+      justify-content: center
+      padding: 2.5rem
+      margin-bottom: 1.25rem
+      transform: translateY(100vh) translateZ(0)
+
+      iframe
+        border-radius: variables.$border-radius-sm
+        outline: variables.$tertiary-color 1px solid
+        height: 512px
+        width: 100%
+
+  .content-spotify
+    display: flex
+    flex-wrap: wrap
+
+    div
+      background-color: variables.$primary-color
+      border-radius: variables.$border-radius-sm
+      padding: 2.5rem
+      margin-bottom: 1.25rem
+      width: 100%
+      transform: translateY(100vh) translateZ(0)
+
+      p
+        padding: 0.25rem 0 1.25rem 0
+
+      audio
+        width: 100%

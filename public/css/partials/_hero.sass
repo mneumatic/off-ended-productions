@@ -1,0 +1,48 @@
+@use '../utils/variables' as variables
+@use '../utils/mixins' as mixins
+@use '../utils/animations' as animations
+
+.hero
+  background-color: variables.$primary-color
+  position: relative
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  height: 100vh
+  padding: 0 !important
+  overflow: hidden !important
+
+  h1
+    display: none
+
+  img
+    padding: 0 1rem 0 1rem
+    outline: none !important
+    @include mixins.img-fluid
+
+    @media (min-width: 1200px)
+      height: 768px !important
+      width: inherit
+
+  .hero-notification
+    display: flex
+    align-items: center
+    justify-content: center
+    position: absolute
+    bottom: 3rem
+
+    span
+      animation: blink 2s ease-in-out infinite
+      opacity: 0
+      color: variables.$accent-color
+      font-size: 0.875rem
+
+  .hero-ripple
+    position: absolute
+    border-radius: 50%
+    transform: scale(0)
+    opacity: .5
+    animation: ripple-animation 1s linear
+    background: variables.$accent-color
+    z-index: 99

@@ -2,26 +2,33 @@
 <html lang="en" class="no-js">
     <%- include('partials/head.ejs') %>
 <body>
-    <%- include('partials/navbar.ejs') %>
+    <%- include('partials/header.ejs') %>
     <main id="platinum-signatures">
-        <section class="bg-black">
-            <div class="container flex flex-col-reverse xl:grid grid-cols-2 gap-7 justify-center text-white">
-                <div>
-                    <div class="text-center xl:text-start mt-10">
-                        <h2 class="display-2">Platinum Signatures</h2>
-                        <p class="text-4xl permanent-marker-regular">Doing it right the first time!</p>
+        <section class="hero">
+            <img src="/img/platinum-signatures.webp" alt="Platinum Signatures">
+            <div class="hero-notification">
+                <span>Scroll Down ⤵</span>
+            </div>
+            <div class="hero-ripple"></div>
+        </section>
+        <section class="content">
+            <div class="content-wrapper">
+                <div class="content-info">
+                    <div>
+                        <h2>Platinum Signatures</h2>
+                        <p>Doing it right the first time!</p>
                     </div>
                     <br>
                     <p>We specialize in providing a variety of services including Income Tax preparation to individuals in addition to a wide range of notary and consultation services to fit your needs.</p>
                     <br>
                     <p>At Platinum Signatures, we take the hassle out of tax season by offering expert tax preparation services tailored to your unique financial situation. Our experienced professionals stay up-to-date with the latest tax laws and regulations to ensure your tax return is accurate, maximizes your deductions, and minimizes your liabilities. Whether you're an individual filer or own a small business, we provide personalized support and meticulous attention to detail that gives you peace of mind. From simple tax returns to complex filings, we’re dedicated to getting it right the first time, so you can confidently navigate the tax landscape with ease.</p>
                 </div>
-                <div class="container__animated">
-                    <img class="img-fluid rounded invisible" src="/img/platinum-signatures.webp" alt="platinum-signatures"/>
+                <div class="content-images">
+                    <img src="/img/platinum-signatures.webp" alt="platinum-signatures"/>
                 </div>
             </div>
         </section>
-        <section class="oep-stickman">
+        <section class="content">
             <div>
                 <div class="text-center xl:text-start">
 
@@ -29,13 +36,7 @@
             </div>
         </section>
     </main>
-    <%- include('partials/footbar.ejs') %>
-    <%- include('partials/scripts.ejs') %>
-    <script src="/js/images.js"></script>
-    <script>
-        const PSImages = document.querySelector(".container__animated")
-        const observer = new IntersectionObserver(handleIntersection, options)
-        observer.observe(PSImages)
-    </script>
+    <%- include('partials/footer.ejs') %>
+    <script src="/js/pages/platinum-signatures.js" type="module"></script>
 </body>
 </html>

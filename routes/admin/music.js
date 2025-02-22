@@ -20,7 +20,6 @@ router.post('/', isLoggedIn, catchAsync(async (req, res, next) => {
   res.redirect(`/admin/dashboard`)
 }))
 
-// GET:
 router.get('/edit/:id', isLoggedIn, catchAsync(async (req, res) => {
   const { id } = req.params;
   const item = await Music.findById(id)
@@ -37,10 +36,9 @@ router.get('/edit/:id', isLoggedIn, catchAsync(async (req, res) => {
   });
 }))
 
-// POST:
 router.put('/edit/:id', isLoggedIn, catchAsync(async (req, res) => {
   const { id } = req.params;
-  let item = await Music.findByIdAndUpdate(id, { ...req.body.item })
+  let item = await Music.findByIdAndUpdate(id, { ...req.body.event })
 
   if (!item) {
     req.flash('error', 'Update Failed!');
@@ -51,8 +49,6 @@ router.put('/edit/:id', isLoggedIn, catchAsync(async (req, res) => {
   res.redirect(`/admin/dashboard`);
 }));
 
-//
-// DELETE
 router.delete('/delete/:id', isLoggedIn, catchAsync(async (req, res) => {
   const { id } = req.params;
   await Music.findByIdAndDelete(id);

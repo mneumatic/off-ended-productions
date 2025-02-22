@@ -7,24 +7,24 @@ mongoose.connection.on("error", console.error.bind(console, "connection error:")
 
 const data = [
     {
-        imagePath:  "/img/oep-podcast-logo.webp",
+        image:  "oep-podcast-logo.webp",
         title:  "The Off Ended Podcast",
-        urlPath:    "/podcast"
+        url:    "/podcast"
     },
     {
-        imagePath:  "/img/twojz-music-logo.webp",
+        image:  "twojz-red-white-logo.webp",
         title:  "2Jz Music",
-        urlPath:    "/twojz-music"
+        url:    "/twojz-music"
     },
     {
-        imagePath:  "/img/platinum-signatures.webp",
+        image:  "platinum-signatures.webp",
         title:  "Platinum Signatures",
-        urlPath:    "/platinum-signatures"
+        url:    "/platinum-signatures"
     },
     {
-        imagePath:  "/img/mneumatic-designs.webp",
+        image:  "mneumatic-designs.webp",
         title:  "MNEUMATIC Designs",
-        urlPath:    "/mneumatic-designs"
+        url:    "/mneumatic-designs"
     }
 ]
 
@@ -32,9 +32,9 @@ const seedDB = async () => {
     await Categories.deleteMany({});
     for (const category of data) {
         const cat = new Categories({
-            imagePath: category.imagePath,
+            image: category.image,
             title: category.title,
-            urlPath: category.urlPath
+            url: category.url
         })
         await cat.save()
     }

@@ -1,0 +1,114 @@
+@use '../utils/variables' as variables
+@use '../utils/mixins' as mixins
+
+#dashboard
+  display: flex
+  flex-direction: row
+  justify-content: space-between
+  padding: 0
+
+  aside
+    position: relative !important
+    flex-grow: 1
+    padding: 2.5rem
+
+    > div
+      position: fixed
+      width: 100%
+      max-width: 410px
+
+      .dashboard-logout
+        display: flex
+        flex-direction: row
+        justify-content: space-between
+        width: 100%
+
+      h1,
+      h2
+        font-size: 1.5rem
+        text-decoration: underline
+        text-underline-position: under
+        margin-bottom: 1rem
+
+      .dashboard-search
+        display: flex
+        flex-direction: column
+
+        > div
+          display: flex
+          flex-direction: row
+          justify-content: space-between
+
+          input
+            background-color: transparent
+            border: variables.$tertiary-color 1px solid
+            border-radius: variables.$border-radius-sm
+            padding: 0.5rem
+            margin-left: 6px
+            width: 100%
+
+      label
+        color: variables.$accent-color
+        font-size: 0.75em
+        padding: 6px 8px
+
+      ul
+        list-style: disc
+        padding-left: 2.5rem
+        margin-top: 0.5rem
+
+        li
+          margin-bottom: 0.5rem
+
+  .dashboard-content
+    border-right: variables.$tertiary-color 1px solid
+    border-left: variables.$tertiary-color 1px solid
+    position: relative
+    @include mixins.container
+
+    > div
+      position: relative
+      display: flex
+      flex-direction: column
+      padding: 2.5rem
+
+    details
+      summary
+        background-color: variables.$tertiary-color
+        border-radius: variables.$border-radius-md
+        cursor: pointer
+        user-select: none
+        padding: 1rem
+
+  form
+    padding: 0
+    border: none
+    width: 100%
+
+    .card-info
+      border-radius: variables.$border-radius-sm
+      margin-left: 2rem
+
+      &:nth-child(even)
+        background-color: rgba(variables.$tertiary-color, 0.5)
+
+      span
+        margin-left: 1rem
+        margin-bottom: 0.25rem
+
+  .dashboard-dialog
+    background-color: variables.$primary-color
+    border: variables.$tertiary-color 1px solid
+    border-radius: variables.$border-radius-md
+    @include mixins.container
+
+    &::backdrop
+      background-color: rgba(0, 0, 0, 0.5)
+      position: fixed
+      left: 0
+      margin: 0
+      height: 100%
+      width: 100%
+
+    form
+      padding: 2.5rem

@@ -1,0 +1,57 @@
+@use '../utils/variables' as variables
+@use '../utils/mixins' as mixins
+@use '../utils/animations' as animations
+
+#lp
+  padding-top: 0
+  @include mixins.oep-stickman
+
+  .lp-mottos
+    font-family: "Permanent Marker", sans-serif
+    text-align: center
+    max-width: 992px
+    font-size: 1.5rem
+
+    span
+      opacity: 0
+
+  .content-wrapper
+    display: flex !important
+    flex-wrap: wrap
+    align-items: center
+    justify-content: center
+    @include mixins.container
+
+    .content-categories
+      display: flex
+      flex-direction: row
+      flex-wrap: wrap
+      align-items: center
+      justify-content: center
+      overflow: hidden
+
+      .content-card
+        text-align: center
+        padding: 1rem
+        margin: 1rem
+        transition: transform 0.3s ease-in-out
+
+        &:hover
+          transform: scale(1.1)
+
+        a
+          background-color: transparent !important
+
+        img
+          background-color: variables.$primary-color
+          border-radius: variables.$border-radius-md
+          outline: variables.$tertiary-color 1px solid !important
+          transform: translateY(100vh) translateZ(0)
+          padding: 2.5rem
+          height: 250px
+          width: auto
+          margin-bottom: 1rem
+
+        label
+          font-family: "Permanent Marker", sans-serif
+          opacity: 0

@@ -40,7 +40,7 @@ router.get('/edit/:id', isLoggedIn, catchAsync(async (req, res) => {
 // POST:
 router.put('/edit/:id', isLoggedIn, catchAsync(async (req, res) => {
   const { id } = req.params;
-  let item = await Businesses.findByIdAndUpdate(id, { ...req.body.item })
+  let item = await Businesses.findByIdAndUpdate(id, { ...req.body.business })
 
   if (!item) {
     req.flash('error', 'Update Failed!');

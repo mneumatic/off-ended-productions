@@ -1,16 +1,16 @@
-<% if(success && success.length) {%>
-    <div class="flash fixed top-[62px] bg-green-600 py-5 fade-out w-full z-10" role="alert">
-        <div class="container flex justify-center">
+<div id="flash-message">
+    <% if(success && success.length) {%>
+        <div class="fm-success" role="alert">
             <%= success %>
+            <button onclick="document.querySelector('.fm-success').remove()">x</button>
         </div>
+    <% } %>
 
-    </div>
-<% } %>
-
-<% if(error && error.length) {%>
-<div class="flash fixed top-[62px] bg-red-600 py-5 fade-out w-full z-10" role="alert">
-    <div class="container flex justify-center">
-        <%= error %>
-    </div>
+    <% if(error && error.length) {%>
+        <div class="fm-error" role="alert">
+            <%= error %>
+            <button onclick="document.querySelector('.fm-error').remove()">x</button>
+        </div>
+    <% } %>
 </div>
-<% } %>
+

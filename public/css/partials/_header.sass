@@ -1,0 +1,87 @@
+@use '../utils/variables' as variables
+
+// Site Header
+#sh
+  position: fixed
+  background-color: variables.$primary-color
+  padding: 1rem
+  width: 100%
+  z-index: 80
+
+  .oep-logo
+    display: block !important
+    transform: translateX(0) !important
+    padding: 0 !important
+
+    &:hover
+      background-color: transparent
+
+  .sh-controls
+    display: flex
+    flex-direction: row
+    align-items: center
+    z-index: 80
+
+    button
+      border: variables.$tertiary-color 1px solid
+      margin-right: 1rem
+
+  dialog
+    position: relative
+
+    &::backdrop
+      background-color: rgba(0, 0, 0, 0.5)
+      position: fixed
+      left: 0
+      margin: 0
+      height: 100%
+      width: 100%
+
+    .sh-menu
+      background-color: variables.$primary-color
+      border-radius: 0 variables.$border-radius-lg variables.$border-radius-lg 0
+      border: variables.$tertiary-color 1px solid
+      color: variables.$secondary-color
+      position: fixed
+      top: 0
+      left: 0
+      transition: transform 0.5s ease-in-out
+      transform: translateX(-320px)
+      padding: 1rem
+      height: 100%
+      width: 320px
+      z-index: 99
+      overflow: auto
+
+      .sh-controls
+        justify-content: space-between
+
+        button
+          margin: 0
+
+      label
+        color: variables.$accent-color
+        font-size: 0.75em
+        padding: 6px 8px
+
+      nav
+        display: flex
+        flex-direction: column
+        margin-top: 2rem
+
+      .sh-admin
+        position: fixed
+        bottom: 1rem
+
+        .sh-login
+          color: variables.$tertiary-color
+          font-weight: lighter
+
+          &:hover
+            color: variables.$secondary-color
+
+  .sh-open-menu
+    animation: slide-in 0.5s forwards
+
+.sh-shadow
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.5)

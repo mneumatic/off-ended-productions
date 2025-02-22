@@ -6,8 +6,9 @@ const AdminSchema = new Schema({
   username: {
     type: String,
     required: true,
-    unique: true
-  }
+    unique: true,
+  },
+  name: String
 });
 
 AdminSchema.plugin(passportLocalMongoose);
